@@ -1,0 +1,2 @@
+- [Documentation Freeze rule](feedback_documentation_freeze.md) — no new /docs files without strong justification; edit existing docs only on real need
+- [Portal Parroquia project overview](project_portal_parroquia_overview.md) — TCU project phase history, governance via CLAUDE.md, docs frozen 2026-08-05
