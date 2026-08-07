@@ -1,0 +1,93 @@
+/* variables.css — Design tokens
+   Fuente única: archivo Figma "Diseño Portal Web Parroquia San Rafael Arcángel"
+   (página 01 - Design System, sección "Responsive Rules"). No inventar valores aquí:
+   toda adición debe originarse en Figma primero. */
+
+:root {
+  /* Color — paleta "Luz Compartida" */
+  --color-primary: #1f3a5f;
+  --color-primary-dark: #16293f; /* hover/active de elementos primarios */
+  --color-secondary: #b96a3e;
+  --color-accent-gold: #b08d57;
+  --color-bg: #f7f5f1;
+  --color-bg-alt: #ffffff;
+  --color-text-primary: #2b2b2b;
+  --color-text-secondary: #5c5750;
+  --color-border-light: #eae6de;
+  --color-state-success: #4b7a51;
+  --color-state-warning: #c98a2c;
+  --color-state-error: #b3413b;
+
+  /* Espaciado — escala base 8px */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 6px rgba(31, 41, 56, 0.08);
+  --shadow-hover: 0 6px 16px rgba(31, 41, 56, 0.14);
+
+  /* Familias tipográficas */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-accent: "Poppins", sans-serif;
+  --font-body: "Nunito Sans", sans-serif;
+
+  /* Escala tipográfica responsive — valores base = Mobile (≤767px) */
+  --fs-h1: 28px;
+  --fs-body: 16px;
+  --fs-logo: 14px;
+
+  /* Layout responsive — valores base = Mobile (≤767px) */
+  --content-max-width: 327px;
+  --content-side-padding: 24px;
+  --hero-text-max-width: 100%;
+  --rosette-size: 170px;
+  --rosette-offset-top: -50px;
+  --rosette-offset-right: -55px;
+  --logo-mark-size: 36px;
+  --logo-icon-size: 13px;
+  --button-row-direction: column;
+  --button-row-gap: 12px;
+  --button-width: 100%;
+}
+
+/* Tablet — 768px a 1199px */
+@media (min-width: 768px) {
+  :root {
+    --fs-h1: 36px;
+    --fs-logo: 15px;
+    --content-max-width: 600px;
+    --content-side-padding: 0px;
+    --hero-text-max-width: 520px;
+    --rosette-size: 320px;
+    --rosette-offset-top: -90px;
+    --rosette-offset-right: -72px;
+    --logo-mark-size: 44px;
+    --logo-icon-size: 16px;
+    --button-row-direction: row;
+    --button-row-gap: 16px;
+    --button-width: auto;
+  }
+}
+
+/* Desktop — 1200px en adelante */
+@media (min-width: 1200px) {
+  :root {
+    --fs-h1: 44px;
+    --fs-body: 18px;
+    --content-max-width: 680px;
+    --hero-text-max-width: 560px;
+    --rosette-size: 520px;
+    --rosette-offset-top: -160px;
+    --rosette-offset-right: -220px;
+  }
+}

@@ -760,3 +760,34 @@ Cuando detecte que una funcionalidad requiere documentación adicional, deberá:
 5. Referenciar otros documentos cuando sea necesario.
 
 La documentación deberá mantenerse con estándares similares a proyectos profesionales de ingeniería de software.
+
+---
+
+# 29. Comandos de desarrollo y estado técnico actual
+
+Esta sección resume información operativa que un agente necesita antes de tocar código. El detalle completo vive en [docs/08_Manuales/Manual_Tecnico.md](docs/08_Manuales/Manual_Tecnico.md) y en [docs/03_Arquitectura/Estructura_Proyecto.md](docs/03_Arquitectura/Estructura_Proyecto.md); esta sección no debe divergir de esos documentos.
+
+## 29.1 Comandos
+
+No existe `package.json` ni proceso de build, lint o test: el sitio es HTML/CSS/JS estático (ver sección 6). No inventar ni agregar tooling de Node sin autorización expresa (sección 6 lo prohíbe salvo excepción).
+
+- **Previsualizar el sitio:** abrir `index.html` directamente en el navegador, o servirlo con cualquier servidor estático simple (por ejemplo `python -m http.server` desde la raíz del repositorio). No hay paso de compilación.
+- **Lint / tests:** no configurados todavía. Si se agregan en el futuro, documentar el comando aquí y en Manual_Tecnico.md.
+
+## 29.2 Estado real del código (no confundir con la arquitectura objetivo)
+
+A la fecha de esta sección, el repositorio es mayormente un esqueleto:
+
+- `index.html` — boilerplate HTML5 vacío (sin contenido en `<body>`).
+- `assets/css/`, `assets/js/`, `assets/fonts/`, `assets/icons/`, `assets/downloads/`, `assets/videos/`, todas las subcarpetas de `assets/img/`, `components/`, `pages/`, `config/`, `data/`, `scripts/` — existen pero están vacías.
+- No hay funcionalidad implementada todavía.
+
+La arquitectura de carpetas (sección 11) es la estructura **objetivo/autorizada**, ya creada de antemano; no asumir que una carpeta tiene contenido solo porque existe. Antes de crear una página o componente nuevo, releer [Convenciones.md](docs/05_Desarrollo/Convenciones.md) para nomenclatura y [Alcance.md](docs/01_Gestion_Proyecto/Alcance.md) para confirmar que esa página está dentro del alcance aprobado — no inventar páginas nuevas sin verificarlo primero (sección 24).
+
+## 29.3 Punto de partida para orientarse
+
+`docs/README.md` es el índice de toda la documentación, con el orden de lectura recomendado y el estado (vigente / parcial / pendiente) de cada documento. Consultarlo antes de asumir que un documento no existe o está desactualizado.
+
+## 29.4 Congelamiento de documentación
+
+No crear archivos nuevos dentro de `docs/` salvo necesidad real y justificada; preferir ampliar un documento existente antes que crear uno nuevo (ver nota de revisión crítica en `docs/README.md` y la Bitácora). Esto no exime de mantener la documentación sincronizada con el código (sección 13): significa evitar duplicación, no evitar actualizar.
