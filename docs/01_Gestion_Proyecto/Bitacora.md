@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora.md |
-| Versión | 1.1 |
+| Versión | 1.4 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-08-05 |
+| Última actualización | 2026-08-07 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -25,6 +25,8 @@ Este documento cumple simultáneamente los dos roles exigidos por CLAUDE.md secc
 | 2026-08-05 | Evento | Creación de la estructura oficial de documentación (`/docs`) definida en CLAUDE.md sección 14, y de los documentos iniciales del proyecto, documentando únicamente el estado actual | Claude (asistente técnico) |
 | 2026-08-05 | Evento | Auditoría documental inicial: verificación de enlaces, identificación de duplicados y propuesta de documentos faltantes (Control de cambios, integraciones, mantenimiento, glosario) | Claude (asistente técnico) |
 | 2026-08-05 | Decisión técnica | Revisión crítica de la auditoría anterior: se descarta crear `Control_de_Cambios.md`, `Manual_Mantenimiento.md` y `Glosario.md` como archivos nuevos por bajo valor/riesgo de duplicación; se consolida "Control de cambios" en este documento; se define convención (no contenido) para integraciones futuras en `Integraciones.md`; se elimina duplicación real del inventario de componentes Bootstrap entre `Bootstrap.md` y `Componentes_UI.md` | Claude (asistente técnico) |
+| 2026-08-06 | Evento | Implementación de la primera versión funcional de la página de inicio ("Sitio en construcción"), con diseño responsive validado en varios dispositivos (commit `feat: implement responsive under construction landing page`, registrado en Git el 2026-08-07 00:30 por cruzar la sesión la medianoche); conexión del repositorio a Netlify para despliegue automático. Detalle técnico del despliegue (URL, rama, directorio de publicación) pendiente de completar en [Netlify.md](../07_Despliegue/Netlify.md) | Soporte Tecnológico Parroquia San Rafael Arcángel |
+| 2026-08-07 | Cambio de documento | Creación de [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md): registro ejecutivo de horas dedicadas por sesión de trabajo, requerido para efectos del TCU ante Universidad Cenfotec. Documento separado de este por tener un formato y propósito distinto (horas por sesión vs. eventos/decisiones técnicas) | Claude (asistente técnico) |
 
 ## 3. Convención de registro
 
@@ -34,5 +36,6 @@ Cada nueva entrada debe incluir: fecha (formato `AAAA-MM-DD`), tipo (`Evento`, `
 
 ## Documentos relacionados
 
+- [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md)
 - [Cronograma.md](Cronograma.md)
 - [Entrega_01.md](../09_Entregables/Entrega_01.md)
