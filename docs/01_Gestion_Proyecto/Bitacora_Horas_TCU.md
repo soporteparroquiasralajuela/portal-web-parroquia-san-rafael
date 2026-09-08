@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.1 |
+| Versión | 1.4 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-08-07 |
+| Última actualización | 2026-09-07 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -18,7 +18,11 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 
 ## 2. Registro de sesiones
 
+> **Nota sobre el orden cronológico y las fases:** a partir de la versión 1.4 de este documento se incorpora el campo **Fase**, que clasifica cada sesión según la distribución oficial de horas por fase del anteproyecto del TCU (ver sección 4). Las Sesiones 1 a 3 (agosto de 2026) corresponden a trabajo técnico preliminar — definición de arquitectura, entorno de desarrollo, integración de plataformas y primera implementación del sitio — realizado *antes* de la primera reunión formal de levantamiento de necesidades (Sesión 4, septiembre de 2026, Fase 1). Esto invierte el orden esperado entre las Fases 1 y 2 del anteproyecto; se documenta tal como ocurrió, sin reordenar ni reinterpretar retroactivamente las actividades ya registradas.
+
 ## 03/08/2026
+
+**Fase:** Fase 2 — Análisis y definición de la solución tecnológica
 
 **Horas dedicadas:** 3 horas
 
@@ -36,6 +40,8 @@ Se estableció la base estructural del proyecto, dejando preparado el entorno de
 
 ## 05/08/2026
 
+**Fase:** Fase 2 — Análisis y definición de la solución tecnológica
+
 **Horas dedicadas:** 3 horas
 
 **Labores realizadas:**
@@ -52,6 +58,8 @@ Se dejó configurado el ecosistema de trabajo, con las plataformas integradas y 
 
 ## 06/08/2026
 
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
 **Horas dedicadas:** 4 horas
 
 **Labores realizadas:**
@@ -66,15 +74,75 @@ Se obtuvo la primera versión funcional del portal web, publicada y accesible me
 
 ---
 
+## Sesión 4 — 05/09/2026 (Mañana)
+
+**Fase:** Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial
+
+**Jornada:** Mañana
+
+**Horas dedicadas:** 2 horas
+
+**Labores realizadas:**
+- Primera reunión presencial con la encargada de redes sociales de la Parroquia San Rafael Arcángel.
+- Presentación y contextualización del proyecto del portal web.
+- Conversación sobre la forma en que actualmente se comunica información a la comunidad parroquial.
+- Levantamiento inicial de necesidades de comunicación de la parroquia.
+- Identificación de necesidades y oportunidades relacionadas con la atención y las labores cotidianas de la oficina parroquial.
+- Recopilación de información que servirá como base para la posterior definición de requerimientos y estructura del portal.
+
+**Resultado obtenido:**
+Se realizó la primera reunión presencial de levantamiento de necesidades con la parroquia, obteniendo información inicial sobre comunicación institucional y funcionamiento de la oficina parroquial, la cual servirá como insumo para la posterior definición de requerimientos y arquitectura de información del portal.
+
+---
+
+## Sesión 5 — 06/09/2026
+
+**Fase:** Fase 2 — Análisis y definición de la solución tecnológica
+
+**Jornada:** Análisis y planificación posterior a la reunión de levantamiento
+
+**Horas dedicadas:** 3 horas
+
+**Labores realizadas:**
+- Análisis de la información recopilada durante la primera reunión de levantamiento de necesidades con la representante de comunicación de la parroquia.
+- Evaluación y priorización inicial de los requerimientos del portal web, considerando las necesidades de comunicación de la comunidad y la facilidad de administración por parte del personal voluntario.
+- Definición y refinamiento preliminar de la arquitectura de información y estructura general propuesta para el portal.
+- Análisis específico de la página de Inicio, incluyendo accesos rápidos, horarios de misas para los diferentes templos, próximos eventos, información destacada, grupos pastorales, contenido fotográfico y transmisiones.
+- Evaluación de alternativas de navegación y presentación para los grupos pastorales, incluyendo páginas individuales y mecanismos sencillos para manifestar interés en participar.
+- Evaluación conceptual de alternativas para la portada (Hero) del sitio y selección preliminar de una estructura dividida entre contenido institucional y fotografía como base para posterior diseño en Figma.
+
+**Resultado obtenido:**
+Se avanzó en la transformación de las necesidades recopiladas en una propuesta funcional inicial. Se estableció que Facebook continuará siendo el medio principal para comunicaciones inmediatas, mientras que el portal se orientará a información organizada, actividades planificadas y contenido institucional. Se definió preliminarmente la forma de presentar los horarios de la Parroquia San Rafael Arcángel y de la Iglesia de El Perpetuo Socorro, así como una propuesta inicial para la presentación y navegación de los grupos pastorales, y se seleccionó preliminarmente el concepto de Hero dividido como base visual para la página de Inicio. La estructura continúa en etapa de análisis y refinamiento; no se considera diseño ni requerimientos definitivamente aprobados por la parroquia.
+
+---
+
 ## 3. Resumen de horas
 
-| Sesión | Actividad principal | Horas |
-|--------|----------------------|------:|
-| Noche 1 (03/08/2026) | Estructuración inicial del proyecto | 3 |
-| Noche 2 (05/08/2026) | Configuración e integración de plataformas | 3 |
-| Noche 3 (06/08/2026) | Diseño, desarrollo y despliegue de la primera versión | 4 |
+| Sesión | Fase | Actividad principal | Horas |
+|--------|------|----------------------|------:|
+| Noche 1 (03/08/2026) | Fase 2 | Estructuración inicial del proyecto | 3 |
+| Noche 2 (05/08/2026) | Fase 2 | Configuración e integración de plataformas | 3 |
+| Noche 3 (06/08/2026) | Fase 4 | Diseño, desarrollo y despliegue de la primera versión | 4 |
+| Sesión 4 (05/09/2026) - Mañana | Fase 1 | Primera reunión presencial de levantamiento de necesidades con la parroquia | 2 |
+| Sesión 5 (06/09/2026) | Fase 2 | Análisis y planificación posterior a la reunión de levantamiento | 3 |
 
-**Total acumulado:** 10 horas
+**Total acumulado:** 15 horas
+
+---
+
+## 4. Seguimiento por fase (anteproyecto TCU)
+
+Las fases y horas estimadas corresponden a la distribución oficial de horas por fase establecida en el anteproyecto del TCU. Las horas estimadas son de planificación y no constituyen límites rígidos; las horas registradas reflejan únicamente el trabajo real ya documentado en la sección 2.
+
+| Fase | Periodo estimado | Horas estimadas | Horas registradas | Horas pendientes estimadas |
+|---|---|---:|---:|---:|
+| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 15 | 2 | 13 |
+| Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
+| Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 0 | 40 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 55 | 4 | 51 |
+| Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 0 | 15 |
+| Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
+| **Total** | — | **160** | **15** | **145** |
 
 ---
 
