@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.4 |
+| Versión | 1.5 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-09-07 |
+| Última actualización | 2026-09-13 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -23,6 +23,8 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 ## 03/08/2026
 
 **Fase:** Fase 2 — Análisis y definición de la solución tecnológica
+
+**Horario:** 6:00 p. m. – 9:00 p. m.
 
 **Horas dedicadas:** 3 horas
 
@@ -42,6 +44,8 @@ Se estableció la base estructural del proyecto, dejando preparado el entorno de
 
 **Fase:** Fase 2 — Análisis y definición de la solución tecnológica
 
+**Horario:** 6:00 p. m. – 9:00 p. m.
+
 **Horas dedicadas:** 3 horas
 
 **Labores realizadas:**
@@ -59,6 +63,8 @@ Se dejó configurado el ecosistema de trabajo, con las plataformas integradas y 
 ## 06/08/2026
 
 **Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 6:00 p. m. – 10:00 p. m.
 
 **Horas dedicadas:** 4 horas
 
@@ -79,6 +85,8 @@ Se obtuvo la primera versión funcional del portal web, publicada y accesible me
 **Fase:** Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial
 
 **Jornada:** Mañana
+
+**Horario:** 9:00 a. m. – 11:00 a. m.
 
 **Horas dedicadas:** 2 horas
 
@@ -101,6 +109,8 @@ Se realizó la primera reunión presencial de levantamiento de necesidades con l
 
 **Jornada:** Análisis y planificación posterior a la reunión de levantamiento
 
+**Horario:** 7:00 a. m. – 10:00 a. m.
+
 **Horas dedicadas:** 3 horas
 
 **Labores realizadas:**
@@ -116,6 +126,28 @@ Se avanzó en la transformación de las necesidades recopiladas en una propuesta
 
 ---
 
+## Sesión 6 — 13/09/2026
+
+**Fase:** Fase 3 — Diseño funcional y estructuración de la solución digital
+
+**Horario:** 7:00 a. m. – 9:00 a. m.
+
+**Horas dedicadas:** 2 horas
+
+**Labores realizadas:**
+- Revisión y consolidación del diseño conceptual completo de la página de Inicio del portal, dejando definida y aprobada su versión conceptual.
+- Análisis de la estructura de Servicios parroquiales y de la separación entre Sacramentos, Gestiones y Documentos e información.
+- Análisis de la relación y navegación entre estas áreas según las diferentes necesidades de las personas usuarias.
+- Evaluación de propuestas para la organización visual de la página Servicios parroquiales.
+- Definición y aprobación del diseño conceptual de la página principal de Servicios parroquiales.
+- Definición de su estructura general: Hero, sección "¿Cómo podemos ayudarte?", accesos rápidos mediante iconos, tarjetas principales de Sacramentos, Gestiones y Documentos e información, sección visual inspiracional, orientación/contacto y Footer.
+- Identificación de información y servicios que deberán validarse posteriormente con la oficina parroquial.
+
+**Resultado obtenido:**
+Se confirmó el diseño conceptual de la página de Inicio. Se definió la arquitectura conceptual de la sección Servicios parroquiales y se aprobó el diseño conceptual de su página principal. Quedaron identificados los elementos pendientes de validación con la oficina parroquial.
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -125,8 +157,9 @@ Se avanzó en la transformación de las necesidades recopiladas en una propuesta
 | Noche 3 (06/08/2026) | Fase 4 | Diseño, desarrollo y despliegue de la primera versión | 4 |
 | Sesión 4 (05/09/2026) - Mañana | Fase 1 | Primera reunión presencial de levantamiento de necesidades con la parroquia | 2 |
 | Sesión 5 (06/09/2026) | Fase 2 | Análisis y planificación posterior a la reunión de levantamiento | 3 |
+| Sesión 6 (13/09/2026) | Fase 3 | Diseño conceptual de Inicio y Servicios parroquiales | 2 |
 
-**Total acumulado:** 15 horas
+**Total acumulado:** 17 horas
 
 ---
 
@@ -136,13 +169,13 @@ Las fases y horas estimadas corresponden a la distribución oficial de horas por
 
 | Fase | Periodo estimado | Horas estimadas | Horas registradas | Horas pendientes estimadas |
 |---|---|---:|---:|---:|
-| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 15 | 2 | 13 |
+| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 2 | 8 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
-| Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 0 | 40 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 55 | 4 | 51 |
+| Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 4 | 56 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 0 | 15 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **15** | **145** |
+| **Total** | — | **160** | **17** | **143** |
 
 ---
 
