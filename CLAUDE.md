@@ -791,3 +791,7 @@ La arquitectura de carpetas (sección 11) es la estructura **objetivo/autorizada
 ## 29.4 Congelamiento de documentación
 
 No crear archivos nuevos dentro de `docs/` salvo necesidad real y justificada; preferir ampliar un documento existente antes que crear uno nuevo (ver nota de revisión crítica en `docs/README.md` y la Bitácora). Esto no exime de mantener la documentación sincronizada con el código (sección 13): significa evitar duplicación, no evitar actualizar.
+
+## 29.5 Diseño conceptual aprobado y recursos gráficos
+
+Los artes conceptuales aprobados del portal (referencia visual, no fuente de datos) viven en `docs/04_Diseno/Referencias_Conceptuales/`; su alcance, estado y las decisiones funcionales conceptuales asociadas están consolidados en [docs/04_Diseno/Diseno_Conceptual_Aprobado.md](docs/04_Diseno/Diseno_Conceptual_Aprobado.md). Los recursos gráficos reales del portal (fotografías, logos) van en `assets/img/`, nunca extraídos de esos artes conceptuales. No repetir aquí ese detalle: esta sección solo apunta a dónde vive.

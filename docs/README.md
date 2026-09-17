@@ -54,16 +54,17 @@ flowchart TD
 | Documento | Estado |
 |---|---|
 | [Arquitectura_General.md](03_Arquitectura/Arquitectura_General.md) | ✅ Vigente |
-| [Estructura_Proyecto.md](03_Arquitectura/Estructura_Proyecto.md) | ✅ Vigente |
+| [Estructura_Proyecto.md](03_Arquitectura/Estructura_Proyecto.md) | ✅ Vigente (actualizada 2026-09-16 con recursos gráficos reales) |
 | [Integraciones.md](03_Arquitectura/Integraciones.md) | 🟡 Previstas, no implementadas (incluye convención para documentación futura) |
 
 ## 04. Diseño
 
 | Documento | Estado |
 |---|---|
-| [Guia_Estilos.md](04_Diseno/Guia_Estilos.md) | 🟡 Parcial |
+| [Diseno_Conceptual_Aprobado.md](04_Diseno/Diseno_Conceptual_Aprobado.md) | ✅ Vigente — arquitectura de navegación, decisiones funcionales conceptuales y estado de las referencias visuales aprobadas |
+| [Guia_Estilos.md](04_Diseno/Guia_Estilos.md) | 🟡 Parcial (paleta/tipografía pendientes de extracción formal) |
 | [Componentes_UI.md](04_Diseno/Componentes_UI.md) | 🟡 Registro de uso real, sin implementar (inventario canónico vive en Bootstrap.md) |
-| [Wireframes.md](04_Diseno/Wireframes.md) | ⏳ Pendiente |
+| [Wireframes.md](04_Diseno/Wireframes.md) | 🟡 Parcial (7 páginas con diseño conceptual de alta fidelidad; Sacramentos/Gestiones/Documentos e información pendientes) |
 
 ## 05. Desarrollo
 

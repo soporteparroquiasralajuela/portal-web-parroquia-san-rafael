@@ -3,10 +3,11 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Guia_Estilos.md |
-| Versión | 1.0 |
+| Versión | 1.1 |
 | Fecha de creación | 2026-08-05 |
-| Estado | Parcial — principios definidos, paleta y tipografía **pendientes** |
-| Fuente | [CLAUDE.md](../../CLAUDE.md), secciones 6, 9, 16 |
+| Última actualización | 2026-09-16 |
+| Estado | Parcial — principios definidos, paleta y tipografía **pendientes de extracción formal** |
+| Fuente | [CLAUDE.md](../../CLAUDE.md), secciones 6, 9, 16; [Diseno_Conceptual_Aprobado.md](Diseno_Conceptual_Aprobado.md) |
 
 ---
 
@@ -41,7 +42,7 @@ Restricciones explícitas:
 
 ## 4. Paleta de colores
 
-**Pendiente de definición.** No se ha establecido aún una paleta institucional. Se documentará aquí (colores primarios, secundarios, de acento, y de estado) una vez definida, respetando el principio de contraste suficiente (WCAG, ver [Requerimientos_No_Funcionales.md](../02_Analisis/Requerimientos_No_Funcionales.md)).
+Existe ya una referencia visual aprobada: los siete diseños conceptuales en [Referencias_Conceptuales/](Referencias_Conceptuales/) (ver [Diseno_Conceptual_Aprobado.md](Diseno_Conceptual_Aprobado.md)) definen la dirección visual del portal. Sin embargo, **no se han transcrito aquí valores HEX exactos** para evitar registrar una paleta formal sin verificarla directamente contra el archivo de diseño durante la implementación. Se completará esta tabla al implementar, extrayendo los colores reales de esas referencias y respetando el principio de contraste suficiente (WCAG, ver [Requerimientos_No_Funcionales.md](../02_Analisis/Requerimientos_No_Funcionales.md)).
 
 | Uso | Color (HEX) | Estado |
 |---|---|---|
@@ -53,7 +54,7 @@ Restricciones explícitas:
 
 ## 5. Tipografía
 
-**Pendiente de definición.** Se seleccionará de Google Fonts, respetando legibilidad y jerarquía tipográfica.
+**Pendiente de definición formal.** Se seleccionará de Google Fonts, respetando legibilidad y jerarquía tipográfica, y tomando como referencia visual las fuentes utilizadas en los diseños conceptuales aprobados ([Diseno_Conceptual_Aprobado.md](Diseno_Conceptual_Aprobado.md)).
 
 | Uso | Familia tipográfica | Estado |
 |---|---|---|
@@ -66,12 +67,13 @@ Se usará **Bootstrap Icons** como librería base (CLAUDE.md sección 6). No se 
 
 ## 7. Estado
 
-**Parcial.** Los principios y restricciones ya son vigentes; la paleta, tipografía e iconografía específicas están pendientes hasta la fase de Diseño UI/UX.
+**Parcial.** Los principios y restricciones ya son vigentes. Existe ya una referencia visual aprobada (sección 4), pero la extracción formal de paleta, tipografía e iconografía específicas sigue pendiente hasta la implementación.
 
 ---
 
 ## Documentos relacionados
 
+- [Diseno_Conceptual_Aprobado.md](Diseno_Conceptual_Aprobado.md)
 - [Componentes_UI.md](Componentes_UI.md)
 - [CSS.md](../05_Desarrollo/CSS.md)
 - [Requerimientos_No_Funcionales.md](../02_Analisis/Requerimientos_No_Funcionales.md)

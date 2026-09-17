@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Integraciones.md |
-| Versión | 1.1 |
+| Versión | 1.3 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-08-05 |
+| Última actualización | 2026-09-16 |
 | Estado | Previstas — ninguna implementada |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), sección 20 |
 
@@ -20,13 +20,13 @@ Registrar las integraciones externas previstas y autorizadas para el proyecto, y
 | Integración | Propósito típico | Estado |
 |---|---|---|
 | Google Maps | Ubicación de la parroquia | No implementada |
-| Google Calendar | Calendario de actividades | No implementada |
-| Google Forms | Formularios (inscripciones, contacto, etc.) | No implementada |
+| Google Calendar | Calendario de actividades | No implementada — dirección conceptual definida (embebido) en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 6 |
+| Google Forms | Formularios (inscripciones, contacto, etc.) | No implementada — dirección conceptual definida (formulario embebido en Contacto) en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 6 |
 | Google Drive | Almacenamiento/compartición de documentos | No implementada |
 | YouTube | Contenido audiovisual embebido | No implementada |
 | Facebook | Redes sociales | No implementada |
 | Instagram | Redes sociales | No implementada |
-| WhatsApp | Contacto directo | No implementada |
+| WhatsApp | Contacto directo | No implementada — aprobado como botón flotante global (componente en todas las páginas); pendiente el número oficial. Ver [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 7 |
 | Correo institucional | Contacto / notificaciones | No implementada |
 | Dominio personalizado | Identidad del sitio | No implementada (ver [Dominio.md](../07_Despliegue/Dominio.md)) |
 | Netlify | Hosting / despliegue | No implementada (ver [Netlify.md](../07_Despliegue/Netlify.md)) |
