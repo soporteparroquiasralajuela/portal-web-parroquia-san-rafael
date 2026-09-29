@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.5 |
+| Versión | 1.6 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-09-13 |
+| Última actualización | 2026-09-28 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -148,6 +148,25 @@ Se confirmó el diseño conceptual de la página de Inicio. Se definió la arqui
 
 ---
 
+## Sesión 7 — 26/09/2026
+
+**Fase:** Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial
+
+**Horario:** 8:30 a. m. – 9:30 a. m.
+
+**Horas dedicadas:** 1 hora
+
+**Labores realizadas:**
+- Reunión con la encargada de la oficina parroquial para revisar el alcance de las necesidades relacionadas con la atención y los servicios parroquiales.
+- Identificación de oportunidades para facilitar, mediante el sitio web, el acceso de la comunidad a información, requisitos, documentos y solicitudes frecuentes.
+- Explicación del enfoque del proyecto a la encargada de la oficina parroquial.
+- Coordinación para la recopilación de información necesaria para la posterior definición y validación de estos contenidos.
+
+**Resultado obtenido:**
+Se amplió el levantamiento de necesidades hacia el ámbito de la atención y los servicios de la oficina parroquial, identificando oportunidades de digitalización de información y trámites frecuentes, y se coordinó con la encargada la recopilación de la información necesaria para su posterior definición y validación.
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -158,8 +177,9 @@ Se confirmó el diseño conceptual de la página de Inicio. Se definió la arqui
 | Sesión 4 (05/09/2026) - Mañana | Fase 1 | Primera reunión presencial de levantamiento de necesidades con la parroquia | 2 |
 | Sesión 5 (06/09/2026) | Fase 2 | Análisis y planificación posterior a la reunión de levantamiento | 3 |
 | Sesión 6 (13/09/2026) | Fase 3 | Diseño conceptual de Inicio y Servicios parroquiales | 2 |
+| Sesión 7 (26/09/2026) | Fase 1 | Reunión con la oficina parroquial sobre atención y servicios | 1 |
 
-**Total acumulado:** 17 horas
+**Total acumulado:** 18 horas
 
 ---
 
@@ -169,13 +189,13 @@ Las fases y horas estimadas corresponden a la distribución oficial de horas por
 
 | Fase | Periodo estimado | Horas estimadas | Horas registradas | Horas pendientes estimadas |
 |---|---|---:|---:|---:|
-| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 2 | 8 |
+| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 3 | 7 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
 | Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 4 | 56 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 0 | 15 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **17** | **143** |
+| **Total** | — | **160** | **18** | **142** |
 
 ---
 
