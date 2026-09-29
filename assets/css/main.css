@@ -1,10 +1,13 @@
-/* main.css — Página "Sitio en construcción"
-   Traducción fiel del archivo Figma (Design Freeze v1.0). Mobile First:
-   los estilos base corresponden a Mobile: se amplían en variables.css
-   mediante custom properties redefinidas por breakpoint. */
+/* main.css — Base global del sitio
+   Reset ligero, mapeo de tipografía por defecto y theming de los botones de
+   Bootstrap con el Design System (ver docs/04_Diseno/Guia_Estilos.md).
+   No contiene estilos específicos de una página ni de un componente global
+   (navbar/footer/WhatsApp) — eso vive en components.css. No contiene
+   estilos de Inicio — eso vive en home.css. */
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
 }
 
 body {
@@ -15,136 +18,77 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  position: relative;
-}
-
-/* Elemento decorativo — rosetón/vitral, siempre detrás del contenido */
-.decorative-rosette {
-  display: block;
-  position: fixed;
-  top: var(--rosette-offset-top);
-  right: var(--rosette-offset-right);
-  width: var(--rosette-size);
-  height: var(--rosette-size);
-  color: var(--color-primary);
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Columna central — agrupa header + main, centrados como una sola unidad */
-.site-content {
-  flex: 1 0 auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-block: var(--space-4);
-}
-
-.site-header,
-.hero {
-  width: 100%;
-  max-width: var(--content-max-width);
-  padding-inline: var(--content-side-padding);
-  box-sizing: border-box;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: var(--space-6);
-}
-
-.logo__mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: var(--logo-mark-size);
-  height: var(--logo-mark-size);
-  border-radius: var(--radius-pill);
-  background-color: var(--color-primary);
-}
-
-.logo__mark svg {
-  width: var(--logo-icon-size);
-  height: var(--logo-icon-size);
-}
-
-.logo__wordmark {
-  font-family: var(--font-accent);
-  font-weight: 600;
-  font-size: var(--fs-logo);
-  color: var(--color-text-primary);
-}
-
-/* Badge de estado */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 10px;
-  margin-bottom: var(--space-4);
-  border: 0.6px solid var(--color-secondary);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-accent);
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 1.4;
-  letter-spacing: 0.35px;
-  text-transform: uppercase;
-  color: var(--color-secondary);
-}
-
-/* Hero */
-.hero__title {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: var(--fs-h1);
-  line-height: 1.2;
-  color: var(--color-text-primary);
-  margin: 0 0 var(--space-2) 0;
-  max-width: 100%;
-}
-
-.hero__text {
-  font-family: var(--font-body);
-  font-weight: 400;
   font-size: var(--fs-body);
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  max-width: var(--hero-text-max-width);
-  margin: 0 0 var(--space-4) 0;
+  line-height: var(--lh-body);
 }
 
-.hero__actions {
-  display: flex;
-  flex-direction: var(--button-row-direction);
-  gap: var(--button-row-gap);
-  justify-content: center;
-  width: 100%;
-  margin: 0 0 var(--space-5) 0;
+main {
+  flex: 1 0 auto;
 }
 
-.hero__actions .btn {
-  width: var(--button-width);
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  line-height: var(--lh-heading);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--weight-bold);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--weight-semibold);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--weight-semibold);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--weight-medium);
+}
+
+p {
+  margin: 0 0 var(--space-2) 0;
+}
+
+/* ===== Estado de foco visible — global =====
+   Contraste suficiente tanto sobre fondos claros como sobre fondos oscuros
+   (navbar/footer). El selector con mayor especificidad (.on-dark) se usa en
+   components.css sobre elementos con fondo --color-primary. */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-highlight);
+}
+
+/* ===== Botones — theming de Bootstrap con el Design System ===== */
+.btn {
   font-family: var(--font-accent);
+  font-weight: var(--weight-semibold);
+  font-size: var(--fs-button);
+  border-radius: var(--radius-sm);
+  padding-inline: var(--space-3);
+  padding-block: 12px;
 }
 
 .btn-primary {
-  --bs-btn-font-weight: 600;
-  --bs-btn-font-size: 16px;
-  --bs-btn-padding-x: 32px;
-  --bs-btn-padding-y: 12px;
-  --bs-btn-border-radius: var(--radius-sm);
   --bs-btn-color: #ffffff;
   --bs-btn-bg: var(--color-primary);
   --bs-btn-border-color: var(--color-primary);
@@ -154,17 +98,27 @@ body {
   --bs-btn-active-color: #ffffff;
   --bs-btn-active-bg: var(--color-primary-dark);
   --bs-btn-active-border-color: var(--color-primary-dark);
-  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(31, 58, 95, 0.35);
+  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(29, 42, 84, 0.35);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Botón secundario/cálido: fondo dorado con texto oscuro (nunca blanco —
+   ver Guia_Estilos.md sección 16, contraste blanco/dorado insuficiente). */
+.btn-secondary {
+  --bs-btn-color: var(--color-text-primary);
+  --bs-btn-bg: var(--color-secondary);
+  --bs-btn-border-color: var(--color-secondary);
+  --bs-btn-hover-color: var(--color-text-primary);
+  --bs-btn-hover-bg: var(--color-secondary-dark);
+  --bs-btn-hover-border-color: var(--color-secondary-dark);
+  --bs-btn-active-color: var(--color-text-primary);
+  --bs-btn-active-bg: var(--color-secondary-dark);
+  --bs-btn-active-border-color: var(--color-secondary-dark);
+  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(218, 152, 27, 0.35);
   box-shadow: var(--shadow-sm);
 }
 
 .btn-outline-primary {
-  --bs-btn-font-weight: 600;
-  --bs-btn-font-size: 16px;
-  --bs-btn-padding-x: 32px;
-  --bs-btn-padding-y: 12px;
-  --bs-btn-border-radius: var(--radius-sm);
-  --bs-btn-border-width: 1px;
   --bs-btn-color: var(--color-text-secondary);
   --bs-btn-border-color: var(--color-text-secondary);
   --bs-btn-hover-color: #ffffff;
@@ -176,85 +130,15 @@ body {
   --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(92, 87, 80, 0.3);
 }
 
-/* Redes sociales */
-.social-nav__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-3);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+/* ===== Accesibilidad de movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-.social-nav__link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-pill);
-  background-color: var(--color-bg-alt);
-  border: 1px solid var(--color-border-light);
-  color: var(--color-primary);
-  font-size: 18px;
-  text-decoration: none;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.social-nav__link:hover,
-.social-nav__link:focus-visible {
-  background-color: var(--color-primary);
-  color: #ffffff;
-}
-
-.social-nav__link:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Footer */
-.site-footer {
-  flex-shrink: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding-block: 18px;
-  background-color: var(--color-bg-alt);
-  border-top: 1px solid var(--color-border-light);
-  text-align: center;
-}
-
-.site-footer__brand {
-  margin: 0;
-  font-family: var(--font-accent);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
-
-.site-footer__contact {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 13px;
-  color: var(--color-text-secondary);
-}
-
-.site-footer__contact a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.site-footer__contact a:hover,
-.site-footer__contact a:focus-visible {
-  text-decoration: underline;
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

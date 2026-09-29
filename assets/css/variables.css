@@ -86,6 +86,12 @@
   --button-row-direction: column;
   --button-row-gap: 12px;
   --button-width: 100%;
+
+  /* ===== Navbar y componentes globales (nuevo — Inicio) ===== */
+  --navbar-height: 76px;
+  --z-navbar: 1020; /* igual al z-index de .sticky-top de Bootstrap */
+  --z-whatsapp: 1040; /* por encima del navbar, por debajo de modales */
+  --whatsapp-size: 56px;
 }
 
 /* Tablet — 768px a 1199px */
