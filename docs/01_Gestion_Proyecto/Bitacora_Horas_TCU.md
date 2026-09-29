@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.6 |
+| Versión | 1.7 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-09-28 |
+| Última actualización | 2026-09-29 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -167,6 +167,28 @@ Se amplió el levantamiento de necesidades hacia el ámbito de la atención y lo
 
 ---
 
+## Sesión 8 — 29/09/2026
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 8:00 p. m. – 11:00 p. m.
+
+**Horas dedicadas:** 3 horas
+
+**Labores realizadas:**
+- Desarrollo y ajuste de la página principal del portal web de la parroquia con base en el diseño conceptual aprobado.
+- Implementación y refinamiento de las secciones principales del sitio.
+- Pruebas de visualización en distintos tamaños de pantalla.
+- Revisión de la navegación y de los componentes interactivos del sitio.
+- Corrección de detalles de presentación identificados durante la revisión.
+- Validación de la versión publicada del portal.
+- Control de versiones y despliegue de la implementación para su revisión en el entorno web.
+
+**Resultado obtenido:**
+Se avanzó en el desarrollo e implementación de la página principal del portal a partir del diseño conceptual aprobado, quedando sus secciones principales ajustadas, revisadas en distintos tamaños de pantalla y publicadas en el entorno web para su revisión.
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -178,8 +200,9 @@ Se amplió el levantamiento de necesidades hacia el ámbito de la atención y lo
 | Sesión 5 (06/09/2026) | Fase 2 | Análisis y planificación posterior a la reunión de levantamiento | 3 |
 | Sesión 6 (13/09/2026) | Fase 3 | Diseño conceptual de Inicio y Servicios parroquiales | 2 |
 | Sesión 7 (26/09/2026) | Fase 1 | Reunión con la oficina parroquial sobre atención y servicios | 1 |
+| Sesión 8 (29/09/2026) | Fase 4 | Desarrollo y ajuste de la página principal del portal | 3 |
 
-**Total acumulado:** 18 horas
+**Total acumulado:** 21 horas
 
 ---
 
@@ -192,10 +215,10 @@ Las fases y horas estimadas corresponden a la distribución oficial de horas por
 | Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 3 | 7 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 4 | 56 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 7 | 53 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 0 | 15 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **18** | **142** |
+| **Total** | — | **160** | **21** | **139** |
 
 ---
 
