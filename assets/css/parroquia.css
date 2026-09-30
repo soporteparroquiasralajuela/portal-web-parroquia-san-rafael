@@ -1,0 +1,269 @@
+/* parroquia.css — Estilos específicos de la página Parroquia
+   Hero propio, Misión/Visión/Valores/Comunidad, Historia, Nuestro patrono,
+   Galería (carrusel) y Nuestro párroco. No se reutiliza en otras páginas y
+   no depende de home.css (Inicio) — ver docs/04_Diseno/Diseno_Conceptual_Aprobado.md,
+   sección 8. El Hero de Parroquia usa una composición propia (fotografía de
+   ancho completo con texto superpuesto), distinta a la de Inicio: no se
+   reutiliza la transición navy/dorada de Inicio (esa transición nunca fue
+   declarada componente global, ver Diseno_Conceptual_Aprobado.md §7). */
+
+/* ===== Hero de Parroquia ===== */
+.parroquia-hero {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-block: var(--space-4);
+}
+
+.parroquia-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.parroquia-hero__media .img-placeholder {
+  height: 100%;
+  min-height: 360px;
+  border-radius: 0;
+}
+
+/* Placeholder limpio: mientras no exista la fotografía real, el ícono y el
+   texto genéricos de .img-placeholder no deben competir visualmente con el
+   título, subtítulo y cita del Hero (quedan superpuestos en la misma área). */
+.parroquia-hero__media .img-placeholder i,
+.parroquia-hero__media .img-placeholder span {
+  display: none;
+}
+
+.parroquia-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(29, 42, 84, 0.6) 0%, rgba(29, 42, 84, 0.05) 60%);
+  pointer-events: none;
+}
+
+.parroquia-hero > .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.parroquia-hero__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.parroquia-hero__content {
+  color: #ffffff;
+  max-width: 520px;
+}
+
+.parroquia-hero__title {
+  font-size: var(--fs-display);
+  font-weight: var(--weight-bold);
+  font-style: italic;
+  line-height: var(--lh-heading);
+  color: #ffffff;
+  margin-bottom: var(--space-1);
+}
+
+.parroquia-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 0;
+}
+
+.parroquia-hero__quote {
+  flex: 0 1 320px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: right;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Misión / Visión / Valores / Nuestra comunidad ===== */
+.valores-parroquia {
+  padding-block: var(--space-5);
+  text-align: center;
+}
+
+.valores-parroquia__icon {
+  font-size: 1.75rem;
+  color: var(--color-secondary-dark);
+  margin-bottom: var(--space-1);
+}
+
+.valores-parroquia__title {
+  margin-bottom: 6px;
+}
+
+.valores-parroquia__text {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body-sm);
+  margin: 0;
+}
+
+/* ===== Historia ===== */
+.historia {
+  padding-block: var(--space-5);
+  background-color: var(--color-bg);
+}
+
+.historia__text p {
+  color: var(--color-text-secondary);
+}
+
+.historia__media {
+  position: relative;
+  min-height: 260px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.historia__media .img-placeholder {
+  min-height: 260px;
+  height: 100%;
+  border-radius: var(--radius-md);
+}
+
+.historia__quote-box {
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: var(--space-3);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  background-color: rgba(29, 42, 84, 0.85);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--fs-body);
+}
+
+/* ===== Nuestro patrono ===== */
+.patrono {
+  padding-block: var(--space-5);
+}
+
+.patrono__media {
+  min-height: 280px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.patrono__media .img-placeholder {
+  min-height: 280px;
+  height: 100%;
+  border-radius: var(--radius-md);
+}
+
+.patrono__text {
+  color: var(--color-text-secondary);
+}
+
+/* ===== Galería de nuestra parroquia (carrusel) =====
+   Bootstrap Carousel propio de esta página (id/clases distintas al de
+   Inicio). Indicadores en punto: se reproduce aquí la misma regla visual
+   que en Inicio (Guia_Estilos.md), sin importar código desde home.css. */
+.parroquia-galeria {
+  padding-block: var(--space-5);
+  text-align: center;
+}
+
+.parroquia-galeria__intro {
+  margin-bottom: var(--space-3);
+}
+
+.parroquia-carousel {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.parroquia-carousel .img-placeholder {
+  aspect-ratio: 4 / 3;
+  min-height: 240px;
+}
+
+.parroquia-carousel .carousel-indicators [data-bs-target] {
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-pill);
+  opacity: 0.6;
+  background-color: var(--color-primary);
+}
+
+.parroquia-carousel .carousel-indicators .active {
+  opacity: 1;
+  background-color: var(--color-secondary);
+}
+
+.parroquia-carousel .carousel-control-prev-icon,
+.parroquia-carousel .carousel-control-next-icon {
+  filter: invert(0.4);
+}
+
+/* ===== Nuestro párroco ===== */
+.parroco {
+  padding-block: var(--space-5);
+  background-color: var(--color-bg);
+}
+
+.parroco__media {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.parroco__media .img-placeholder {
+  height: 100%;
+  min-height: 0;
+  border-radius: var(--radius-md);
+}
+
+.parroco__bio p {
+  color: var(--color-text-secondary);
+}
+
+.parroco__quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  border-left: 2px solid var(--color-border-light);
+  padding-left: var(--space-2);
+}
+
+/* ===== Transición hacia el footer (patrón visual global, tomado de Inicio) =====
+   Reproduce las mismas capas SVG navy/dorado que home.css usa en su
+   transición CTA→footer (mismo viewBox, paths y tokens de color), sin
+   importar home.css. Se omite deliberadamente la insignia circular de
+   Inicio: en Parroquia el cierre hacia el footer usa únicamente las dos
+   capas de onda, ver Diseño Pagina Parroquia.png. */
+.wave-transition {
+  position: relative;
+  height: 56px;
+}
+
+.wave-transition svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wave-transition-gold {
+  transform: translateY(6px);
+}
