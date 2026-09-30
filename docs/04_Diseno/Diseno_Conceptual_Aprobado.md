@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.1 |
+| Versión | 1.2 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-09-16 |
+| Última actualización | 2026-09-29 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -110,7 +110,7 @@ Esta arquitectura es la referencia para un futuro mapa del sitio formal; ver la 
 - Evitar funcionalidades que requieran mantenimiento constante si no existe una persona responsable en la parroquia.
 - Diseño responsive para escritorio, tablet y móvil.
 - Mantener coherencia visual entre todas las páginas.
-- Reutilizar header, navegación y footer como componentes visuales comunes.
+- Reutilizar header, navegación, footer y el botón flotante de WhatsApp como componentes visuales comunes, y aplicar el Design System aprobado (tipografía, colores, botones, espaciados) de forma consistente en todas las páginas.
 - Mantener la identidad visual definida en las referencias conceptuales (sección 2).
 - Priorizar soluciones simples y sostenibles.
 - Evitar backend o complejidad innecesaria mientras no exista un requisito validado que lo justifique.
@@ -169,7 +169,67 @@ Estructura conceptual: Sacramentos, Gestiones, Documentos e información.
 - **Pendiente de configurar:** el número oficial de WhatsApp de la parroquia todavía no ha sido validado. No se define aquí número, enlace `wa.me` ni mensaje predeterminado — se completarán únicamente cuando la parroquia confirme esta información.
 - Nota: este botón no aparece en los PNG de [Referencias_Conceptuales/](Referencias_Conceptuales/) (artes anteriores a esta decisión). Por la jerarquía de fuentes de verdad (sección 2.3), esta decisión documental prevalece y debe incorporarse en la implementación aunque no esté dibujada en las referencias visuales.
 
-## 8. Estado del diseño
+## 8. Estrategia de implementación de páginas del portal
+
+Esta sección documenta cómo se abordará la construcción de las páginas del portal a partir de Inicio. **Documentar esta estrategia no constituye autorización para comenzar a desarrollar ninguna página** — cada página requiere autorización explícita e individual para iniciar su implementación.
+
+### 8.1 Elementos globales compartidos
+
+Todas las páginas del portal deben reutilizar, cuando corresponda: el header institucional y la navegación global (sección 4), el footer institucional, el botón flotante de WhatsApp (sección 7) y el Design System aprobado (tipografía, colores, botones, espaciados — ver [Guia_Estilos.md](Guia_Estilos.md)), manteniendo un comportamiento responsive coherente en todo el portal. La página Inicio, ya implementada y aprobada, funciona como referencia visual y técnica de estos elementos globales.
+
+**Esto no autoriza modificar Inicio.** Inicio permanece congelada (ver [CLAUDE.md](../../CLAUDE.md) sección 29.6 y [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md) sección 9): al reutilizar componentes, estilos o variables compartidas para otra página, debe preservarse completamente la apariencia y el funcionamiento actuales de Inicio. Si un cambio necesario para otra página pudiera afectarla directa o indirectamente, debe advertirse antes de implementarlo, nunca después.
+
+### 8.2 Contenido específico de cada página y disciplina de placeholders
+
+El área entre los componentes globales es específica de cada página y se desarrolla según su propio diseño conceptual aprobado (sección 6, para las páginas que ya cuentan con decisiones documentadas). En esta etapa se construye únicamente el esqueleto visual y funcional de cada página, sin inventar información institucional todavía no confirmada por la parroquia (CLAUDE.md sección 24):
+
+- usar placeholders claramente identificados para texto y contenido no confirmado;
+- usar imágenes placeholder cuando no existan fotografías oficiales;
+- mostrar "Pendiente de confirmar" para datos institucionales concretos (teléfonos, correos, direcciones, horarios, requisitos, nombres, biografías, documentos, enlaces, eventos);
+- no crear URLs, números de WhatsApp, coordenadas u otros datos institucionales ficticios;
+
+dejando preparada la sustitución posterior por información oficial validada.
+
+### 8.3 Esqueleto de página vs. alcance funcional definitivo
+
+Esta estrategia autoriza construir y validar la **estructura, composición visual, navegación, responsive y experiencia de usuario** de las páginas principales (sección 8.4). Esto es distinto de cerrar el **alcance funcional definitivo** del proyecto, que continúa sujeto al levantamiento y validación de necesidades con la parroquia (ver [Alcance.md](../01_Gestion_Proyecto/Alcance.md)).
+
+Construir el esqueleto de una página **no compromete automáticamente** como alcance definitivo del TCU sus contenidos, formularios, integraciones, funcionalidades administrativas, ni las páginas de segundo nivel. Quedan explícitamente sujetos a información y validación posterior:
+
+- Sacramentos, Gestiones y Documentos e información (páginas de segundo nivel de Servicios parroquiales);
+- páginas individuales de cada grupo;
+- formularios (más allá de lo ya previsto genéricamente en la sección 6);
+- integraciones (ver [Integraciones.md](../03_Arquitectura/Integraciones.md));
+- funcionalidades administrativas.
+
+### 8.4 Orden de implementación
+
+Páginas principales (primero, en este orden de trabajo — ya cuentan con diseño conceptual y decisiones documentadas en la sección 6):
+
+1. Parroquia
+2. Grupos
+3. Calendario
+4. Transmisiones
+5. Servicios parroquiales
+6. Contacto
+
+Páginas de segundo nivel (posteriormente, según alcance e información validada): Sacramentos, Gestiones, Documentos e información, páginas individuales de grupos, y otras páginas internas futuras.
+
+### 8.5 Ciclo de trabajo por página
+
+Cada página se desarrolla individualmente siguiendo este ciclo (instancia, para páginas, de la metodología general de [CLAUDE.md](../../CLAUDE.md) sección 25):
+
+```
+diseño conceptual aprobado
+→ implementación del esqueleto
+→ comparación visual
+→ validación responsive y funcional
+→ QA
+→ versionado
+→ aprobación/congelamiento de la página
+```
+
+## 9. Estado del diseño
 
 Los siete diseños conceptuales listados en la sección 2.2 se consideran **APROBADOS/CONGELADOS** como referencia visual en esta etapa (ver [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md), entrada 2026-09-13). Esto significa que **no deben rediseñarse arbitrariamente** durante la implementación.
 
@@ -181,9 +241,9 @@ Podrán existir ajustes posteriores únicamente por:
 - limitaciones técnicas justificadas;
 - cambios explícitamente aprobados.
 
-## 9. Estado
+## 10. Estado
 
-**Vigente.** Este documento refleja decisiones ya aprobadas, incluyendo la actualización del 2026-09-16 (navegación oficial definitiva, exclusión de "Buscar", botón flotante global de WhatsApp pendiente de número oficial, y precisión del alcance de la página Contacto). Se actualizará si estas decisiones cambian, y se referenciará desde los documentos formales de requerimientos, casos de uso y arquitectura una vez que ese trabajo se realice (ver nota de trazabilidad pendiente en [Alcance.md](../01_Gestion_Proyecto/Alcance.md) y [Requerimientos_Funcionales.md](../02_Analisis/Requerimientos_Funcionales.md)).
+**Vigente.** Este documento refleja decisiones ya aprobadas, incluyendo la actualización del 2026-09-16 (navegación oficial definitiva, exclusión de "Buscar", botón flotante global de WhatsApp pendiente de número oficial, y precisión del alcance de la página Contacto) y la actualización del 2026-09-29 (estrategia de implementación de páginas del portal, sección 8: elementos globales compartidos, protección de Inicio congelada, disciplina de placeholders, orden de implementación y ciclo de trabajo por página; se deja explícito que esto no cierra el alcance funcional definitivo del proyecto). Se actualizará si estas decisiones cambian, y se referenciará desde los documentos formales de requerimientos, casos de uso y arquitectura una vez que ese trabajo se realice (ver nota de trazabilidad pendiente en [Alcance.md](../01_Gestion_Proyecto/Alcance.md) y [Requerimientos_Funcionales.md](../02_Analisis/Requerimientos_Funcionales.md)).
 
 ---
 
@@ -194,4 +254,5 @@ Podrán existir ajustes posteriores únicamente por:
 - [Wireframes.md](Wireframes.md)
 - [Estructura_Proyecto.md](../03_Arquitectura/Estructura_Proyecto.md)
 - [Integraciones.md](../03_Arquitectura/Integraciones.md)
+- [Alcance.md](../01_Gestion_Proyecto/Alcance.md)
 - [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md)
