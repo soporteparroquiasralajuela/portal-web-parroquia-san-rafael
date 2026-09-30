@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.7 |
+| Versión | 1.8 |
 | Fecha de creación | 2026-08-07 |
 | Última actualización | 2026-09-29 |
 | Estado | Vigente (registro vivo) |
@@ -167,7 +167,7 @@ Se amplió el levantamiento de necesidades hacia el ámbito de la atención y lo
 
 ---
 
-## Sesión 8 — 29/09/2026
+## Sesión 8 — 28/09/2026
 
 **Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
 
@@ -189,6 +189,30 @@ Se avanzó en el desarrollo e implementación de la página principal del portal
 
 ---
 
+## Sesión 9 — 29/09/2026 (Noche)
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 9:00 p. m. – 11:00 p. m.
+
+**Horas dedicadas:** 2 horas
+
+**Labores realizadas:**
+- Desarrollo e implementación de la página "Parroquia" del sitio web.
+- Construcción y ajuste de sus secciones de contenido conforme al diseño conceptual previamente aprobado.
+- Implementación de la galería fotográfica de la parroquia y ampliación de su estructura a 12 espacios para fotografías.
+- Ajustes visuales y de distribución para mantener coherencia con el diseño general del portal.
+- Adaptación de la página para su correcta visualización en diferentes tamaños de pantalla.
+- Revisión funcional y visual de la página implementada.
+- Verificación de la navegación, la galería, los elementos globales del sitio y el comportamiento general de la página.
+- Ajustes finales de presentación y de la transición visual hacia el pie de página.
+- Versionamiento de la página aprobada en el repositorio del proyecto.
+
+**Resultado obtenido:**
+Se completó el desarrollo e implementación de la página Parroquia del portal a partir del diseño conceptual aprobado, incluyendo su galería fotográfica ampliada, con sus secciones revisadas visual y funcionalmente, adaptadas a distintos tamaños de pantalla y versionadas en el repositorio del proyecto.
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -200,9 +224,10 @@ Se avanzó en el desarrollo e implementación de la página principal del portal
 | Sesión 5 (06/09/2026) | Fase 2 | Análisis y planificación posterior a la reunión de levantamiento | 3 |
 | Sesión 6 (13/09/2026) | Fase 3 | Diseño conceptual de Inicio y Servicios parroquiales | 2 |
 | Sesión 7 (26/09/2026) | Fase 1 | Reunión con la oficina parroquial sobre atención y servicios | 1 |
-| Sesión 8 (29/09/2026) | Fase 4 | Desarrollo y ajuste de la página principal del portal | 3 |
+| Sesión 8 (28/09/2026) | Fase 4 | Desarrollo y ajuste de la página principal del portal | 3 |
+| Sesión 9 (29/09/2026) - Noche | Fase 4 | Desarrollo, implementación y versionamiento de la página Parroquia | 2 |
 
-**Total acumulado:** 21 horas
+**Total acumulado:** 23 horas
 
 ---
 
@@ -215,10 +240,10 @@ Las fases y horas estimadas corresponden a la distribución oficial de horas por
 | Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 3 | 7 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 7 | 53 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 9 | 51 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 0 | 15 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **21** | **139** |
+| **Total** | — | **160** | **23** | **137** |
 
 ---
 
