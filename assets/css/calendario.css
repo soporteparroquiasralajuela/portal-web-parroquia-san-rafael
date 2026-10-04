@@ -1,0 +1,204 @@
+/* calendario.css — Estilos específicos de la página Calendario
+   Hero propio y tarjeta que enmarca el Google Calendar embebido. No se
+   reutiliza en otras páginas y no depende de home.css, parroquia.css ni
+   grupos.css. Sigue el patrón de Parroquia y Grupos: Hero de ancho completo
+   con placeholder limpio, y transición navy/dorada hacia el footer
+   reproducida localmente (sin insignia circular). */
+
+/* ===== Hero de Calendario ===== */
+.calendario-hero {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-block: var(--space-4);
+}
+
+.calendario-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.calendario-hero__media .img-placeholder {
+  height: 100%;
+  min-height: 360px;
+  border-radius: 0;
+}
+
+/* Placeholder limpio: sin ícono ni texto genérico bajo el título y la cita. */
+.calendario-hero__media .img-placeholder i,
+.calendario-hero__media .img-placeholder span {
+  display: none;
+}
+
+.calendario-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(29, 42, 84, 0.6) 0%, rgba(29, 42, 84, 0.05) 60%);
+  pointer-events: none;
+}
+
+.calendario-hero > .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.calendario-hero__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.calendario-hero__content {
+  color: #ffffff;
+  max-width: 520px;
+}
+
+.calendario-hero__title {
+  font-size: var(--fs-display);
+  font-weight: var(--weight-bold);
+  font-style: italic;
+  line-height: var(--lh-heading);
+  color: #ffffff;
+  margin-bottom: var(--space-1);
+}
+
+.calendario-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 0;
+}
+
+.calendario-hero__quote {
+  flex: 0 1 320px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: right;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Calendario parroquial ===== */
+.calendario-parroquial {
+  padding-block: var(--space-5);
+}
+
+.calendario-card {
+  padding: var(--space-3);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.calendario-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.calendario-card__icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 1.75rem;
+  color: var(--color-secondary-dark);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+}
+
+.calendario-card__titles {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.calendario-card__title {
+  margin-bottom: 4px;
+}
+
+.calendario-card__intro {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.calendario-card__action {
+  flex: 0 0 auto;
+}
+
+/* Contenedor del iframe: el interior pertenece a Google y no se estiliza. */
+.calendario-embed {
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+}
+
+.calendario-embed iframe {
+  display: block;
+  width: 100%;
+  height: 520px;
+  border: 0;
+}
+
+@media (max-width: 575.98px) {
+  .calendario-card {
+    padding: var(--space-2);
+  }
+
+  .calendario-card__action,
+  .calendario-card__action .btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .calendario-card {
+    padding: var(--space-4);
+  }
+
+  .calendario-embed iframe {
+    height: 640px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .calendario-embed iframe {
+    height: 700px;
+  }
+}
+
+/* ===== Transición hacia el footer (patrón navy/dorado, sin insignia) =====
+   Mismo patrón de capas SVG que Inicio, Parroquia y Grupos, reproducido
+   localmente sin importar sus hojas de estilo. */
+.wave-transition {
+  position: relative;
+  height: 56px;
+}
+
+.wave-transition svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wave-transition-gold {
+  transform: translateY(6px);
+}
