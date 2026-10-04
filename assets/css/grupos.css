@@ -1,0 +1,497 @@
+/* grupos.css — Estilos específicos de la página Grupos
+   Hero propio, introducción, directorio de grupos (lista + ficha con Tabs de
+   Bootstrap) y bloque de interés. No se reutiliza en otras páginas y no
+   depende de home.css ni de parroquia.css. Sigue el patrón de Parroquia: Hero
+   de ancho completo con placeholder limpio, y transición navy/dorada hacia el
+   footer reproducida localmente (sin insignia circular). */
+
+/* ===== Hero de Grupos ===== */
+.grupos-hero {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-block: var(--space-4);
+}
+
+.grupos-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.grupos-hero__media .img-placeholder {
+  height: 100%;
+  min-height: 360px;
+  border-radius: 0;
+}
+
+/* Placeholder limpio: sin ícono ni texto genérico bajo el título y la cita. */
+.grupos-hero__media .img-placeholder i,
+.grupos-hero__media .img-placeholder span {
+  display: none;
+}
+
+.grupos-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(29, 42, 84, 0.6) 0%, rgba(29, 42, 84, 0.05) 60%);
+  pointer-events: none;
+}
+
+.grupos-hero > .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.grupos-hero__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.grupos-hero__content {
+  color: #ffffff;
+  max-width: 520px;
+}
+
+.grupos-hero__title {
+  font-size: var(--fs-display);
+  font-weight: var(--weight-bold);
+  font-style: italic;
+  line-height: var(--lh-heading);
+  color: #ffffff;
+  margin-bottom: var(--space-1);
+}
+
+.grupos-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 0;
+}
+
+.grupos-hero__quote {
+  flex: 0 1 320px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: right;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Introducción ===== */
+.grupos-intro {
+  padding-block: var(--space-5);
+  background-color: var(--color-bg-alt);
+  text-align: center;
+}
+
+.grupos-intro__text {
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: var(--space-1);
+  font-size: var(--fs-h4);
+  color: var(--color-primary);
+}
+
+.grupos-intro__text--soft {
+  color: var(--color-text-secondary);
+}
+
+.grupos-intro .container::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: var(--space-3) auto 0;
+  background-color: var(--color-secondary);
+}
+
+/* ===== Directorio de grupos ===== */
+.grupos-directorio {
+  padding-block: var(--space-5);
+}
+
+.grupos-directorio__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.grupos-directorio__hint {
+  margin: 0;
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Lista de grupos (pestañas verticales de Bootstrap) */
+.grupos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.grupos-lista__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 48px;
+  padding: 8px var(--space-2) 8px 8px;
+  text-align: left;
+  font: inherit;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.grupos-lista__item:hover {
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.grupos-lista__item.active {
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.grupos-lista__thumb {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 48px;
+  min-height: 0;
+  border-radius: var(--radius-sm);
+}
+
+.grupos-lista__thumb i {
+  font-size: 1.1rem;
+}
+
+.grupos-lista__icon {
+  display: none;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  color: var(--color-secondary-dark);
+}
+
+.grupos-lista__item.active .grupos-lista__icon,
+.grupos-lista__item.active .grupos-lista__chevron {
+  color: var(--color-highlight);
+}
+
+.grupos-lista__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.grupos-lista__name {
+  font-family: var(--font-accent);
+  font-weight: var(--weight-medium);
+  font-size: var(--fs-body-sm);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.grupos-lista__summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--fs-body-sm);
+  line-height: 1.35;
+  color: var(--color-text-secondary);
+}
+
+.grupos-lista__item.active .grupos-lista__summary {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.grupos-lista__chevron {
+  flex: 0 0 auto;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 576px) {
+  .grupos-lista__thumb {
+    width: 88px;
+    height: 60px;
+  }
+
+  .grupos-lista__icon {
+    display: inline-block;
+  }
+
+  .grupos-lista__summary {
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* Ficha del grupo seleccionado */
+.grupos-ficha {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding-bottom: var(--space-3);
+}
+
+.grupos-ficha__media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.grupos-ficha__media .img-placeholder {
+  height: 100%;
+  min-height: 0;
+  border-radius: 0;
+}
+
+@media (min-width: 576px) {
+  .grupos-ficha__media {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .grupos-ficha__media {
+    aspect-ratio: 5 / 2;
+  }
+}
+
+.grupos-ficha__head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding-inline: var(--space-3);
+}
+
+.grupos-ficha__badge {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+
+.grupos-ficha__titles {
+  min-width: 0;
+  padding-top: var(--space-2);
+}
+
+.grupos-ficha__name {
+  font-size: var(--fs-h3);
+  color: var(--color-primary);
+  margin-bottom: 4px;
+  font-variant-numeric: lining-nums;
+  overflow-wrap: anywhere;
+}
+
+.grupos-ficha__subtitle {
+  margin-bottom: 0;
+}
+
+.grupos-ficha__description {
+  margin: var(--space-2) var(--space-3);
+  color: var(--color-text-secondary);
+}
+
+.grupos-ficha__datos {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 var(--space-3);
+  border-block: 1px solid var(--color-border-light);
+}
+
+.grupos-ficha__datos > div {
+  padding: var(--space-2) 0;
+  min-width: 0;
+}
+
+.grupos-ficha__datos > div + div {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.grupos-ficha__datos dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-accent);
+  font-weight: var(--weight-semibold);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-primary);
+}
+
+.grupos-ficha__datos dt i {
+  color: var(--color-secondary-dark);
+}
+
+.grupos-ficha__datos dd {
+  margin: 4px 0 0;
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-secondary);
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 576px) {
+  .grupos-ficha__datos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grupos-ficha__datos > div {
+    padding-inline: var(--space-2);
+  }
+
+  .grupos-ficha__datos > div:first-child {
+    padding-left: 0;
+  }
+
+  .grupos-ficha__datos > div + div {
+    border-top: none;
+    border-left: 1px solid var(--color-border-light);
+  }
+}
+
+.grupos-ficha__quote {
+  margin: var(--space-3) var(--space-3) 0;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+/* ===== Bloque de interés (esqueleto visual del formulario) ===== */
+.grupos-interes {
+  margin-top: var(--space-4);
+  padding: var(--space-3);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.grupos-interes__title {
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-2);
+  font-size: var(--fs-h3);
+  border-left: 3px solid var(--color-secondary);
+}
+
+.grupos-interes__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: var(--space-3);
+  padding: 12px var(--space-2);
+  font-size: var(--fs-body-sm);
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  background-color: rgba(218, 152, 27, 0.12);
+  border: 1px solid rgba(218, 152, 27, 0.45);
+  border-radius: var(--radius-sm);
+}
+
+.grupos-interes__note i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--color-secondary-dark);
+}
+
+.grupos-form .form-label {
+  margin-bottom: 4px;
+  font-family: var(--font-accent);
+  font-weight: var(--weight-medium);
+  font-size: var(--fs-body-sm);
+}
+
+.grupos-form__req {
+  color: var(--color-state-error);
+}
+
+.grupos-form .form-control,
+.grupos-form .form-select {
+  min-height: 44px;
+  font-size: 1rem;
+  border-color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.grupos-form .form-control:focus,
+.grupos-form .form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
+.grupos-form :is(.form-control, .form-select):user-invalid {
+  border-color: var(--color-state-error);
+}
+
+.grupos-form textarea.form-control {
+  resize: vertical;
+}
+
+.grupos-form__legend {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.grupos-form .btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+/* ===== Transición hacia el footer (patrón navy/dorado, sin insignia) =====
+   Mismo patrón de capas SVG que Inicio y Parroquia, reproducido localmente
+   sin importar home.css ni parroquia.css. */
+.wave-transition {
+  position: relative;
+  height: 56px;
+}
+
+.wave-transition svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wave-transition-gold {
+  transform: translateY(6px);
+}
