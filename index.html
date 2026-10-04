@@ -183,8 +183,11 @@
           </div>
 
           <div class="row g-4">
-            <!-- Tarjeta de evento 1 de 3 — contenido de ejemplo, se alimentará desde el calendario en una futura integración -->
-            <div class="col-12">
+            <!-- Las 3 tarjetas permanecen ocultas (hidden) hasta que assets/js/proximos-eventos.js
+                 las rellena con los próximos eventos de Google Calendar; su texto actual es solo
+                 contenido de ejemplo y nunca se muestra al público. -->
+            <!-- Tarjeta de evento 1 de 3 -->
+            <div class="col-12" hidden>
               <article class="event-card">
                 <div class="event-card__date" aria-hidden="true">
                   <strong>DD</strong>
@@ -211,7 +214,7 @@
             </div>
 
             <!-- Tarjeta de evento 2 de 3 -->
-            <div class="col-12">
+            <div class="col-12" hidden>
               <article class="event-card">
                 <div class="event-card__date" aria-hidden="true">
                   <strong>DD</strong>
@@ -238,7 +241,7 @@
             </div>
 
             <!-- Tarjeta de evento 3 de 3 -->
-            <div class="col-12">
+            <div class="col-12" hidden>
               <article class="event-card">
                 <div class="event-card__date" aria-hidden="true">
                   <strong>DD</strong>
@@ -262,6 +265,14 @@
                   </p>
                 </div>
               </article>
+            </div>
+
+            <!-- Estado de la carga de eventos (lo gestiona assets/js/proximos-eventos.js).
+                 Sin JavaScript se conserva este texto neutro. -->
+            <div class="col-12" id="eventos-estado-contenedor">
+              <p class="eventos__subtitle mb-0" id="eventos-estado" role="status">
+                Consulta los próximos eventos en el calendario completo.
+              </p>
             </div>
           </div>
 
@@ -529,5 +540,7 @@
 
     <!-- Bootstrap Bundle (incluye Popper) — necesario para navbar, dropdown y carrusel -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Próximos eventos: rellena las tarjetas desde Google Calendar (vía Netlify Function) -->
+    <script src="assets/js/proximos-eventos.js" defer></script>
   </body>
 </html>
