@@ -63,7 +63,7 @@ flowchart TD
 
 | Documento | Estado |
 |---|---|
-| [Diseno_Conceptual_Aprobado.md](04_Diseno/Diseno_Conceptual_Aprobado.md) | ✅ Vigente — arquitectura de navegación, decisiones funcionales conceptuales y estado de las referencias visuales aprobadas |
+| [Diseno_Conceptual_Aprobado.md](04_Diseno/Diseno_Conceptual_Aprobado.md) | ✅ Vigente — arquitectura de navegación, decisiones funcionales conceptuales y estado de las referencias visuales aprobadas; sección 8.6: congelamiento temporal y cadena metodológica del TCU |
 | [Guia_Estilos.md](04_Diseno/Guia_Estilos.md) | 🟡 Parcial (paleta/tipografía pendientes de extracción formal) |
 | [Componentes_UI.md](04_Diseno/Componentes_UI.md) | 🟡 Registro de uso real, sin implementar (inventario canónico vive en Bootstrap.md) |
 | [Wireframes.md](04_Diseno/Wireframes.md) | 🟡 Parcial (7 páginas con diseño conceptual de alta fidelidad; Sacramentos/Gestiones/Documentos e información pendientes) |
@@ -99,7 +99,7 @@ flowchart TD
 
 | Documento | Estado |
 |---|---|
-| [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) | 🟡 Vigente (sección de Mantenimiento pendiente) |
+| [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) | 🟡 Vigente (sección de Mantenimiento pendiente). Incluye la línea base temporal de las páginas implementadas (sección 9, actualizada 2026-10-10): estructura congelada temporalmente, contenido real pendiente de validación |
 | [Manual_Usuario.md](08_Manuales/Manual_Usuario.md) | ⏳ Pendiente |
 
 ## 09. Entregables

@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.3 |
+| Versión | 1.4 |
 | Fecha de creación | 2026-09-16 |
 | Última actualización | 2026-10-10 |
 | Estado | Vigente |
@@ -205,16 +205,21 @@ Construir el esqueleto de una página **no compromete automáticamente** como al
 
 ### 8.4 Orden de implementación
 
-Páginas principales (primero, en este orden de trabajo — ya cuentan con diseño conceptual y decisiones documentadas en la sección 6):
+Páginas principales (en este orden de trabajo — ya cuentan con diseño conceptual y decisiones documentadas en la sección 6). Estado al 2026-10-10:
 
-1. Parroquia
-2. Grupos
-3. Calendario
-4. Transmisiones
-5. Servicios parroquiales
-6. Contacto
+| Orden | Página | Estado |
+|---|---|---|
+| — | Inicio (referencia de los elementos globales) | Implementada y dentro de la línea base temporal (sección 8.6) |
+| 1 | Parroquia | Implementada y dentro de la línea base temporal |
+| 2 | Grupos | Implementada y dentro de la línea base temporal |
+| 3 | Calendario | Implementada y dentro de la línea base temporal; la migración al calendario definitivo, los eventos reales y la limitación del embed a ≈ 375 px siguen pendientes |
+| 4 | Transmisiones | Pendiente de implementación |
+| 5 | Servicios parroquiales | Pendiente de implementación |
+| 6 | Contacto | Pendiente de implementación |
 
-Páginas de segundo nivel (posteriormente, según alcance e información validada): Sacramentos, Gestiones, Documentos e información, páginas individuales de grupos, y otras páginas internas futuras.
+«Implementada» se refiere a la estructura: el contenido real, su validación con la parroquia y la aceptación final siguen pendientes en las cuatro páginas existentes (sección 8.6).
+
+Páginas de segundo nivel (posteriormente, según alcance e información validada; pendientes de implementación): Sacramentos, Gestiones, Documentos e información, páginas individuales de grupos, y otras páginas internas futuras.
 
 ### 8.5 Ciclo de trabajo por página
 
@@ -230,6 +235,26 @@ diseño conceptual aprobado
 → aprobación/congelamiento de la página
 ```
 
+En este ciclo, «congelamiento» significa **congelamiento temporal de desarrollo** (sección 8.6): no equivale a aceptación final del contenido.
+
+### 8.6 Congelamiento temporal y cadena metodológica del TCU
+
+Al 2026-10-10 las páginas implementadas (Inicio, Parroquia, Grupos y Calendario) y la navegación común quedaron en **línea base temporal**, en el marco de esta cadena metodológica:
+
+```
+levantamiento → diseño → implementación estructural → congelamiento temporal
+→ incorporación y validación de contenido real → validación con la parroquia
+→ ajustes → documentación y transferencia → cierre
+```
+
+Se distinguen tres estados que no deben confundirse:
+
+1. **Congelamiento temporal de desarrollo:** la estructura, composición visual, navegación y comportamiento aprobados se usan como línea base.
+2. **Incorporación y validación de contenido real:** sustitución de placeholders y contenido provisional por información suministrada o validada por la parroquia.
+3. **Aceptación final:** etapa posterior, tras incorporar el contenido real, validar y atender los ajustes.
+
+Este congelamiento aplica solo a lo implementado. Transmisiones, Servicios parroquiales, Sacramentos, Gestiones, Documentos e información y Contacto cuentan con diseño conceptual (sección 6), pero **no están implementados ni congelados**: seguirán el ciclo de la sección 8.5 cuando se autorice su desarrollo. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
+
 ## 9. Estado del diseño
 
 Los siete diseños conceptuales listados en la sección 2.2 se consideran **APROBADOS/CONGELADOS** como referencia visual en esta etapa (ver [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md), entrada 2026-09-13). Esto significa que **no deben rediseñarse arbitrariamente** durante la implementación.
@@ -244,7 +269,7 @@ Podrán existir ajustes posteriores únicamente por:
 
 ## 10. Estado
 
-**Vigente.** Este documento refleja decisiones ya aprobadas, incluyendo la actualización del 2026-09-16 (navegación oficial definitiva, exclusión de "Buscar", botón flotante global de WhatsApp pendiente de número oficial, y precisión del alcance de la página Contacto) y la actualización del 2026-09-29 (estrategia de implementación de páginas del portal, sección 8: elementos globales compartidos, protección de Inicio congelada, disciplina de placeholders, orden de implementación y ciclo de trabajo por página; se deja explícito que esto no cierra el alcance funcional definitivo del proyecto) y la actualización del 2026-10-10 (estado implementado de la integración con Google Calendar y su excepción serverless, secciones 5 y 6). Se actualizará si estas decisiones cambian, y se referenciará desde los documentos formales de requerimientos, casos de uso y arquitectura una vez que ese trabajo se realice (ver nota de trazabilidad pendiente en [Alcance.md](../01_Gestion_Proyecto/Alcance.md) y [Requerimientos_Funcionales.md](../02_Analisis/Requerimientos_Funcionales.md)).
+**Vigente.** Este documento refleja decisiones ya aprobadas, incluyendo la actualización del 2026-09-16 (navegación oficial definitiva, exclusión de "Buscar", botón flotante global de WhatsApp pendiente de número oficial, y precisión del alcance de la página Contacto) y la actualización del 2026-09-29 (estrategia de implementación de páginas del portal, sección 8: elementos globales compartidos, protección de Inicio congelada, disciplina de placeholders, orden de implementación y ciclo de trabajo por página; se deja explícito que esto no cierra el alcance funcional definitivo del proyecto) y la actualización del 2026-10-10 (estado implementado de la integración con Google Calendar y su excepción serverless, secciones 5 y 6) y la actualización de la misma fecha que documenta el congelamiento temporal de la línea base de las páginas implementadas (sección 8.6). Se actualizará si estas decisiones cambian, y se referenciará desde los documentos formales de requerimientos, casos de uso y arquitectura una vez que ese trabajo se realice (ver nota de trazabilidad pendiente en [Alcance.md](../01_Gestion_Proyecto/Alcance.md) y [Requerimientos_Funcionales.md](../02_Analisis/Requerimientos_Funcionales.md)).
 
 ---
 

@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Integracion_Google_Calendar.md |
-| Versión | 1.0 |
+| Versión | 1.1 |
 | Fecha de creación | 2026-10-10 |
 | Última actualización | 2026-10-10 |
 | Estado | **Vigente** — integración implementada y en producción; migración al calendario definitivo **pendiente** |
@@ -377,6 +377,8 @@ Este registro **nunca** debe contener API keys, contraseñas, tokens, direccione
 ## 13. Migración pendiente al calendario definitivo de la oficina parroquial
 
 > **Pendiente formal antes de la entrega final del TCU.** La solución usa hoy un calendario **temporal** asociado a la cuenta institucional de soporte. El objetivo es que la oficina parroquial administre el calendario definitivo y que la solución no dependa de la cuenta de soporte del proyecto.
+
+> **Relación con el congelamiento temporal (2026-10-10):** el congelamiento de la estructura de Calendario e Inicio ([Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9) **no cierra ni modifica** esta migración, ni la incorporación de eventos reales, ni la limitación del embed a ≈ 375 px: siguen pendientes.
 
 Hay **dos componentes independientes** que deben actualizarse.
 
