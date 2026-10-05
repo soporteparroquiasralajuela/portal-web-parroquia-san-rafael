@@ -83,12 +83,8 @@
       .slice(0, MAX_TARJETAS);
   }
 
-  function obtenerFechaYHora(evento, zonaHoraria) {
-    if (evento.todoElDia) {
-      const [anio, mes, dia] = evento.inicio.slice(0, 10).split("-").map(Number);
-      return { anio, mes, dia, hora: null, minuto: null };
-    }
-
+  // Año, mes, día, hora y minuto de un instante en la zona horaria del calendario.
+  function obtenerPartesEnInstante(instante, zonaHoraria) {
     const partes = new Intl.DateTimeFormat("es-CR", {
       timeZone: zonaHoraria,
       hourCycle: "h23",
@@ -97,29 +93,93 @@
       day: "numeric",
       hour: "numeric",
       minute: "numeric",
-    }).formatToParts(new Date(evento.inicio));
+    }).formatToParts(instante);
     const valor = (tipo) => Number(partes.find((parte) => parte.type === tipo).value);
 
     return { anio: valor("year"), mes: valor("month"), dia: valor("day"), hora: valor("hour"), minuto: valor("minute") };
   }
 
+  function obtenerFechaYHora(evento, zonaHoraria) {
+    if (evento.todoElDia) {
+      const [anio, mes, dia] = evento.inicio.slice(0, 10).split("-").map(Number);
+      return { anio, mes, dia, hora: null, minuto: null };
+    }
+
+    return obtenerPartesEnInstante(new Date(evento.inicio), zonaHoraria);
+  }
+
+  // Espacio que no permite salto de línea: evita que "a. m." o "oct" queden solos en
+  // una segunda línea cuando el horario se ajusta en pantallas pequeñas.
+  const ESPACIO_FIJO = "\u00A0";
+
   function formatearHora(hora, minuto) {
     const hora12 = hora % 12 || 12;
-    const sufijo = hora < 12 ? "a. m." : "p. m.";
-    return `${hora12}:${String(minuto).padStart(2, "0")} ${sufijo}`;
+    const sufijo = hora < 12 ? `a.${ESPACIO_FIJO}m.` : `p.${ESPACIO_FIJO}m.`;
+    return `${hora12}:${String(minuto).padStart(2, "0")}${ESPACIO_FIJO}${sufijo}`;
+  }
+
+  function claveDeFecha({ anio, mes, dia }) {
+    return anio * 10000 + mes * 100 + dia;
+  }
+
+  function desplazarDias({ anio, mes, dia }, cantidad) {
+    const fecha = new Date(Date.UTC(anio, mes - 1, dia + cantidad));
+    return { anio: fecha.getUTCFullYear(), mes: fecha.getUTCMonth() + 1, dia: fecha.getUTCDate() };
+  }
+
+  function formatearDiaYMes({ dia, mes }) {
+    return `${dia}${ESPACIO_FIJO}${MESES_CORTOS[mes - 1]}`;
+  }
+
+  function formatearFechaLarga({ anio, mes, dia }) {
+    return `${dia} de ${MESES[mes - 1]} de ${anio}`;
+  }
+
+  // Texto de la línea del reloj y, solo si el evento abarca varios días, su fecha final.
+  function describirHorario(evento, inicio, zonaHoraria) {
+    const instanteFin = new Date(evento.terminaEn);
+
+    if (evento.todoElDia) {
+      // Google entrega como fin la medianoche del día siguiente al último día del evento.
+      const ultimoDia = desplazarDias(obtenerPartesEnInstante(instanteFin, zonaHoraria), -1);
+
+      if (claveDeFecha(ultimoDia) <= claveDeFecha(inicio)) {
+        return { hora: "Todo el día", fechaFinal: null };
+      }
+      return { hora: `Todo el día, hasta el ${formatearDiaYMes(ultimoDia)}`, fechaFinal: ultimoDia };
+    }
+
+    const horaInicio = formatearHora(inicio.hora, inicio.minuto);
+
+    if (instanteFin <= new Date(evento.inicio)) {
+      return { hora: horaInicio, fechaFinal: null };
+    }
+
+    const fin = obtenerPartesEnInstante(instanteFin, zonaHoraria);
+    const horaFin = formatearHora(fin.hora, fin.minuto);
+    const terminaALaMedianoche = fin.hora === 0 && fin.minuto === 0;
+    const terminaElMismoDia =
+      claveDeFecha(fin) === claveDeFecha(inicio) ||
+      (terminaALaMedianoche && claveDeFecha(fin) === claveDeFecha(desplazarDias(inicio, 1)));
+
+    if (terminaElMismoDia) {
+      return { hora: `${horaInicio}${ESPACIO_FIJO}– ${horaFin}`, fechaFinal: null };
+    }
+    return { hora: `${horaInicio}${ESPACIO_FIJO}– ${formatearDiaYMes(fin)}, ${horaFin}`, fechaFinal: fin };
   }
 
   // Calcula todo el texto de una tarjeta antes de tocar el DOM.
   function prepararVista(evento, zonaHoraria) {
-    const { anio, mes, dia, hora, minuto } = obtenerFechaYHora(evento, zonaHoraria);
-    const fechaCompleta = `${dia} de ${MESES[mes - 1]} de ${anio}`;
+    const inicio = obtenerFechaYHora(evento, zonaHoraria);
+    const { hora, fechaFinal } = describirHorario(evento, inicio, zonaHoraria);
+    const hastaFechaFinal = fechaFinal ? ` Hasta el ${formatearFechaLarga(fechaFinal)}.` : "";
 
     return {
-      dia: String(dia).padStart(2, "0"),
-      mes: MESES_CORTOS[mes - 1],
-      fechaCompleta,
+      dia: String(inicio.dia).padStart(2, "0"),
+      mes: MESES_CORTOS[inicio.mes - 1],
+      fechaAccesible: `Fecha: ${formatearFechaLarga(inicio)}.${hastaFechaFinal}`,
       titulo: evento.titulo,
-      hora: evento.todoElDia ? "Todo el día" : formatearHora(hora, minuto),
+      hora,
       lugar: evento.lugar || null,
       descripcion: evento.descripcion || null,
     };
@@ -162,7 +222,7 @@
     // se añade la fecha como texto accesible, sin cambiar lo que se ve.
     const fechaAccesible = document.createElement("span");
     fechaAccesible.className = "visually-hidden";
-    fechaAccesible.textContent = `Fecha: ${vista.fechaCompleta}.`;
+    fechaAccesible.textContent = vista.fechaAccesible;
     meta.prepend(fechaAccesible);
   }
 
