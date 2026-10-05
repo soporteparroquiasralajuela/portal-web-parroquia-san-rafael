@@ -769,20 +769,22 @@ Esta sección resume información operativa que un agente necesita antes de toca
 
 ## 29.1 Comandos
 
-No existe `package.json` ni proceso de build, lint o test: el sitio es HTML/CSS/JS estático (ver sección 6). No inventar ni agregar tooling de Node sin autorización expresa (sección 6 lo prohíbe salvo excepción).
+No existe `package.json` ni proceso de build, lint o test: el sitio es HTML/CSS/JS estático (ver sección 6). No inventar ni agregar tooling de Node sin autorización expresa (sección 6 lo prohíbe salvo excepción). La única pieza de servidor es una Netlify Function autorizada (sección 29.8), que no implica tooling de Node en el repositorio.
 
-- **Previsualizar el sitio:** abrir `index.html` directamente en el navegador, o servirlo con cualquier servidor estático simple (por ejemplo `python -m http.server` desde la raíz del repositorio). No hay paso de compilación.
+- **Previsualizar el sitio:** abrir `index.html` directamente en el navegador, o servirlo con cualquier servidor estático simple (por ejemplo `python -m http.server` desde la raíz del repositorio). No hay paso de compilación. Con un servidor estático local el endpoint `/api/proximos-eventos` no existe (la Netlify Function solo corre en Netlify): «Próximos eventos» mostrará su mensaje de error controlado.
 - **Lint / tests:** no configurados todavía. Si se agregan en el futuro, documentar el comando aquí y en Manual_Tecnico.md.
 
 ## 29.2 Estado real del código (no confundir con la arquitectura objetivo)
 
-A la fecha de esta sección, el repositorio es mayormente un esqueleto:
+A la fecha de esta sección, el repositorio tiene cuatro páginas implementadas y una integración activa; el detalle vive en [Estructura_Proyecto.md](docs/03_Arquitectura/Estructura_Proyecto.md):
 
-- `index.html` — boilerplate HTML5 vacío (sin contenido en `<body>`).
-- `assets/css/`, `assets/js/`, `assets/fonts/`, `assets/icons/`, `assets/downloads/`, `assets/videos/`, todas las subcarpetas de `assets/img/`, `components/`, `pages/`, `config/`, `data/`, `scripts/` — existen pero están vacías.
-- No hay funcionalidad implementada todavía.
+- `index.html` (Inicio, congelada) y, en `pages/`, `parroquia.html`, `grupos.html` y `calendario.html`.
+- `assets/css/` (estilos globales y por página) y `assets/js/` (`grupos.js`, `proximos-eventos.js`).
+- `netlify/functions/proximos-eventos.mjs` — Netlify Function de Google Calendar (sección 29.8).
+- Siguen vacías: `assets/fonts/`, `assets/icons/`, `assets/downloads/`, `assets/videos/`, las subcarpetas de `assets/img/` (salvo `logo/`), `components/`, `config/`, `data/` y `scripts/`.
+- Aún sin desarrollar: Transmisiones, Servicios parroquiales (y sus páginas de segundo nivel) y Contacto.
 
-La arquitectura de carpetas (sección 11) es la estructura **objetivo/autorizada**, ya creada de antemano; no asumir que una carpeta tiene contenido solo porque existe. Antes de crear una página o componente nuevo, releer [Convenciones.md](docs/05_Desarrollo/Convenciones.md) para nomenclatura y [Alcance.md](docs/01_Gestion_Proyecto/Alcance.md) para confirmar que esa página está dentro del alcance aprobado — no inventar páginas nuevas sin verificarlo primero (sección 24).
+La arquitectura de carpetas (sección 11) es la estructura **objetivo/autorizada**, ya creada de antemano (más `netlify/`, añadida con autorización para la Netlify Function); no asumir que una carpeta tiene contenido solo porque existe. Antes de crear una página o componente nuevo, releer [Convenciones.md](docs/05_Desarrollo/Convenciones.md) para nomenclatura y [Alcance.md](docs/01_Gestion_Proyecto/Alcance.md) para confirmar que esa página está dentro del alcance aprobado — no inventar páginas nuevas sin verificarlo primero (sección 24).
 
 ## 29.3 Punto de partida para orientarse
 
@@ -803,3 +805,9 @@ Página Inicio: implementación aprobada y congelada en su estado visual, estruc
 ## 29.7 Base visual y estructural común para las páginas del portal
 
 Todas las páginas del portal deben reutilizar, cuando corresponda, el header/navegación global, el footer, el botón flotante de WhatsApp y el Design System aprobado — Inicio (congelada, sección 29.6) es la referencia de estos elementos globales. Esto no autoriza modificar Inicio: si reutilizar o ajustar algo compartido pudiera afectarla, advertirlo antes de implementarlo. El contenido propio de cada página sigue su diseño conceptual aprobado, sin inventar información institucional no confirmada (sección 24): usar placeholders y "Pendiente de confirmar" según corresponda. Construir el esqueleto de una página tampoco cierra su alcance funcional definitivo, que sigue sujeto a validación con la parroquia. Orden de implementación, ciclo de trabajo por página y detalle completo: [docs/04_Diseno/Diseno_Conceptual_Aprobado.md](docs/04_Diseno/Diseno_Conceptual_Aprobado.md), sección 8.
+
+## 29.8 Integración con Google Calendar y excepción serverless
+
+Google Calendar es la fuente de los eventos públicos de la parroquia (Google Calendar API v3). La página Calendario los muestra con el iframe oficial de Google; «Próximos eventos» de Inicio los obtiene mediante una **Netlify Function** (`netlify/functions/proximos-eventos.mjs`, endpoint `/api/proximos-eventos`). Esa Function es una **excepción serverless autorizada** a la arquitectura estática: no autoriza otros backends ni tooling de Node (sección 6). La API key y el ID del calendario viven solo en variables de entorno de Netlify (`GOOGLE_CALENDAR_API_KEY`, secreta, y `GOOGLE_CALENDAR_ID`): **nunca** escribir sus valores en código, documentación, logs ni repositorio (que es público). El navegador solo recibe los campos necesarios y los inserta con `textContent`. La respuesta se guarda en caché hasta 6 horas, por lo que un cambio en el calendario puede tardar en verse en Inicio. Las misas ordinarias recurrentes no se administran como eventos del calendario (tienen su sección «Horarios de misa»).
+
+**Pendiente formal antes de la entrega final del TCU:** el calendario actual es **temporal** (cuenta institucional de soporte) y debe migrarse al calendario de la oficina parroquial: actualizar `GOOGLE_CALENDAR_ID` en Netlify, redesplegar y, por separado, el iframe y el enlace de `pages/calendario.html`. Detalle completo: [docs/03_Arquitectura/Integracion_Google_Calendar.md](docs/03_Arquitectura/Integracion_Google_Calendar.md).

@@ -15,6 +15,7 @@ Si te incorporas al proyecto por primera vez, léelos en este orden antes de toc
 5. [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) — estado técnico actual y cómo previsualizar el sitio.
 6. [Convenciones.md](05_Desarrollo/Convenciones.md), [Bootstrap.md](05_Desarrollo/Bootstrap.md), [HTML.md](05_Desarrollo/HTML.md), [CSS.md](05_Desarrollo/CSS.md), [JavaScript.md](05_Desarrollo/JavaScript.md) — estándares obligatorios antes de escribir código.
 7. [Bitacora.md](01_Gestion_Proyecto/Bitacora.md) — historial de eventos y decisiones (incluye control de cambios).
+8. [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md) — cómo funcionan, se configuran y se mantienen las integraciones con Google Calendar (incluye la migración pendiente al calendario definitivo).
 
 ```mermaid
 flowchart TD
@@ -54,8 +55,9 @@ flowchart TD
 | Documento | Estado |
 |---|---|
 | [Arquitectura_General.md](03_Arquitectura/Arquitectura_General.md) | ✅ Vigente |
-| [Estructura_Proyecto.md](03_Arquitectura/Estructura_Proyecto.md) | ✅ Vigente (actualizada 2026-09-16 con recursos gráficos reales) |
-| [Integraciones.md](03_Arquitectura/Integraciones.md) | 🟡 Previstas, no implementadas (incluye convención para documentación futura) |
+| [Estructura_Proyecto.md](03_Arquitectura/Estructura_Proyecto.md) | ✅ Vigente (actualizada 2026-10-10 con el estado real del repositorio; actualización previa del 2026-09-16 con recursos gráficos reales) |
+| [Integraciones.md](03_Arquitectura/Integraciones.md) | 🟡 Google Calendar y Netlify implementadas; las demás previstas (incluye convención para documentación de integraciones) |
+| [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md) | ✅ Vigente (migración al calendario definitivo pendiente) |
 
 ## 04. Diseño
 
@@ -88,7 +90,7 @@ flowchart TD
 
 | Documento | Estado |
 |---|---|
-| [Netlify.md](07_Despliegue/Netlify.md) | ⏳ Pendiente |
+| [Netlify.md](07_Despliegue/Netlify.md) | 🟡 Parcial (rama `main` y variables de entorno confirmadas; directorio de publicación por confirmar) |
 | [Dominio.md](07_Despliegue/Dominio.md) | ⏳ Pendiente |
 | [Cloudflare.md](07_Despliegue/Cloudflare.md) | ⏳ Pendiente |
 | [Checklist_Despliegue.md](07_Despliegue/Checklist_Despliegue.md) | 🟡 Plantilla vigente |
@@ -114,6 +116,8 @@ flowchart TD
 ## Nota sobre revisión crítica (2026-08-05)
 
 Tras una auditoría documental inicial se evaluó crear cuatro documentos nuevos (Control de Cambios, detalle de integraciones, manual de mantenimiento, glosario). Tras una segunda revisión crítica se decidió **no crear ninguno** de ellos como archivo nuevo, para no introducir duplicación ni contenido especulativo, y en su lugar ampliar documentos ya existentes ([Bitacora.md](01_Gestion_Proyecto/Bitacora.md), [Integraciones.md](03_Arquitectura/Integraciones.md), [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md)). El detalle de esta decisión está registrado en [Bitacora.md](01_Gestion_Proyecto/Bitacora.md).
+
+**Actualización (2026-10-10):** al implementarse la primera integración real (Google Calendar), se creó su documento dedicado [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md), conforme a la convención de [Integraciones.md](03_Arquitectura/Integraciones.md), sección 4: la configuración y el mantenimiento de una integración activa no caben en los documentos existentes sin duplicación. Sigue vigente el criterio de no crear documentos por integraciones que aún no existen.
 
 ## Gobierno documental
 

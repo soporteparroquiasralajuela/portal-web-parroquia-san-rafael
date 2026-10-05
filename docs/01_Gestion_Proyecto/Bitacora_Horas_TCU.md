@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.8 |
+| Versión | 1.9 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-09-29 |
+| Última actualización | 2026-10-10 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -213,6 +213,52 @@ Se completó el desarrollo e implementación de la página Parroquia del portal 
 
 ---
 
+## Sesión 10 — 09/10/2026 (Noche)
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 6:00 p. m. – 10:00 p. m.
+
+**Horas dedicadas:** 4 horas
+
+**Labores realizadas:**
+- Análisis del diseño conceptual aprobado de la sección "Grupos" y definición de su estructura: introducción, módulo de grupos en dos columnas (listado y ficha del grupo seleccionado), bloque para solicitar información y transición hacia el pie de página.
+- Desarrollo de la página Grupos reutilizando los componentes globales del portal (navegación con "Grupos" como página activa, pie de página y botón flotante de WhatsApp), con estilos propios que no afectan a las demás páginas.
+- Implementación del módulo interactivo de grupos: al seleccionar un grupo del listado, su ficha (imagen, descripción, reuniones, lugar y público al que se dirige) se actualiza sin recargar la página, con navegación por teclado y estados de foco visibles.
+- Organización de diez grupos de referencia con datos pendientes de confirmar, dejando la estructura preparada para sustituirlos por la información real de la parroquia sin rediseñar la página.
+- Construcción de la estructura visual del bloque "¿Te gustaría más información sobre algún grupo?", con un aviso visible de que el envío de solicitudes aún no está configurado.
+- Adaptación de la página a escritorio, tableta y móvil: el módulo se reorganiza en una sola columna en pantallas pequeñas, con áreas táctiles adecuadas y desplazamiento automático hacia la ficha seleccionada.
+- Ajustes de presentación y revisión visual y funcional en distintos tamaños de pantalla, verificando la consistencia con el diseño general del portal.
+- Versionamiento y publicación de la sección en el repositorio del proyecto.
+
+**Resultado obtenido:**
+Se completó el desarrollo e implementación de la sección Grupos conforme al diseño conceptual aprobado, con su módulo interactivo de grupos y su bloque de solicitud de información preparados para recibir los datos reales de la parroquia, revisada en distintos tamaños de pantalla y publicada en el repositorio del proyecto.
+
+---
+
+## Sesión 11 — 10/10/2026 (Mañana)
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 7:00 a. m. – 11:00 a. m.
+
+**Horas dedicadas:** 4 horas
+
+**Labores realizadas:**
+- Desarrollo e implementación de la página Calendario con el calendario público de Google Calendar embebido, con una presentación coherente con el diseño del portal y revisión de su comportamiento en distintos tamaños de pantalla, identificando una limitación de la vista mensual en pantallas muy pequeñas.
+- Análisis de alternativas técnicas para conectar el calendario parroquial con la sección "Próximos eventos" de Inicio y definición de la arquitectura: Google Calendar, Google Calendar API, función serverless en Netlify y sitio web, priorizando la seguridad de las credenciales y el bajo mantenimiento para la parroquia.
+- Preparación y configuración de las plataformas externas: calendario público dedicado a los eventos de la parroquia en Google Calendar, habilitación de Google Calendar API y creación de la API key en Google Cloud con la cuenta institucional de soporte, y configuración en Netlify de las variables de entorno (la clave como valor secreto y el identificador del calendario).
+- Implementación de la integración del lado del servidor: consulta a Google Calendar API, filtrado y normalización de los eventos, limitación de los datos enviados al navegador, manejo de errores y caché de 6 horas.
+- Conexión de la sección "Próximos eventos" de Inicio con la integración: carga dinámica de los próximos tres eventos en las tarjetas existentes sin modificar su diseño, con tratamiento de 0, 1, 2 y 3 eventos, eventos en curso, de todo el día y de varios días, presentación de fechas y rangos horarios en la zona horaria de Costa Rica, accesibilidad e inserción segura del contenido.
+- Definición de las reglas de administración del calendario y del procedimiento de migración al calendario definitivo de la oficina parroquial.
+- Revisión de seguridad y validación funcional supervisadas: verificación de que la clave no se expone, comprobación del endpoint y de la visualización en escritorio y móvil, y ajustes de presentación.
+- Versionamiento y despliegue a producción de la integración, con comprobación de su funcionamiento en el entorno publicado.
+
+**Resultado obtenido:**
+Se implementó la página Calendario y la integración técnica del calendario parroquial con Inicio: la sección "Próximos eventos" se actualiza automáticamente desde Google Calendar mediante una conexión segura, desplegada en producción. Queda pendiente, antes de la entrega final, la migración del calendario temporal de la cuenta de soporte al calendario de la oficina parroquial.
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -226,8 +272,10 @@ Se completó el desarrollo e implementación de la página Parroquia del portal 
 | Sesión 7 (26/09/2026) | Fase 1 | Reunión con la oficina parroquial sobre atención y servicios | 1 |
 | Sesión 8 (28/09/2026) | Fase 4 | Desarrollo y ajuste de la página principal del portal | 3 |
 | Sesión 9 (29/09/2026) - Noche | Fase 4 | Desarrollo, implementación y versionamiento de la página Parroquia | 2 |
+| Sesión 10 (09/10/2026) - Noche | Fase 4 | Desarrollo e implementación de la sección Grupos | 4 |
+| Sesión 11 (10/10/2026) - Mañana | Fase 4 | Desarrollo de Calendario e integración técnica del calendario parroquial con Inicio | 4 |
 
-**Total acumulado:** 23 horas
+**Total acumulado:** 31 horas
 
 ---
 
@@ -240,14 +288,15 @@ Las fases y horas estimadas corresponden a la distribución oficial de horas por
 | Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 3 | 7 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 9 | 51 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 17 | 43 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 0 | 15 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **23** | **137** |
+| **Total** | — | **160** | **31** | **129** |
 
 ---
 
 ## Documentos relacionados
 
 - [Bitacora.md](Bitacora.md)
+- [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md)
 - [Cronograma.md](Cronograma.md)

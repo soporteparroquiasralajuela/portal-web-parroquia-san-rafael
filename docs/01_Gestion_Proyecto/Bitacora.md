@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora.md |
-| Versión | 1.8 |
+| Versión | 1.9 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-09-13 |
+| Última actualización | 2026-10-10 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -30,6 +30,7 @@ Este documento cumple simultáneamente los dos roles exigidos por CLAUDE.md secc
 | 2026-09-05 | Evento | Realización de la primera reunión presencial de levantamiento de necesidades con la encargada de redes sociales de la Parroquia San Rafael Arcángel (jornada de la mañana). La reunión permitió presentar y contextualizar el proyecto del portal web, e iniciar formalmente el levantamiento de necesidades relacionadas con la comunicación institucional, la comunidad parroquial y el funcionamiento de la oficina parroquial, información que servirá como base para la posterior definición de requerimientos y arquitectura de información del portal. Detalle de horas registrado en [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md) *(Fase 1 del anteproyecto — Diagnóstico y levantamiento de necesidades de comunicación parroquial)* | Soporte Tecnológico Parroquia San Rafael Arcángel |
 | 2026-09-06 | Evento | Análisis y planificación posterior a la reunión de levantamiento del 2026-09-05: revisión de la información recopilada, priorización inicial de requerimientos del portal y refinamiento preliminar de la arquitectura de información, con foco particular en la página de Inicio (accesos rápidos, horarios de misas, eventos, contenido destacado, grupos pastorales, fotografías y transmisiones), en la presentación y navegación de los grupos pastorales, y en el concepto visual del Hero de portada. Los resultados constituyen una propuesta funcional preliminar en etapa de análisis, pendiente de validación con la parroquia y de diseño formal en Figma. Detalle de horas registrado en [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md) *(Fase 2 del anteproyecto — Análisis y definición de la solución tecnológica)* | Soporte Tecnológico Parroquia San Rafael Arcángel |
 | 2026-09-13 | Decisión técnica | Aprobación del diseño conceptual de la página de Inicio del portal y definición de la arquitectura conceptual de la sección Servicios parroquiales (separación entre Sacramentos, Gestiones, y Documentos e información), incluyendo la aprobación del diseño conceptual de su página principal (Hero, sección "¿Cómo podemos ayudarte?", accesos rápidos, tarjetas principales, sección visual inspiracional, orientación/contacto y Footer). Quedan pendientes de validación con la oficina parroquial ciertos elementos de información y servicios identificados durante el análisis. Detalle de horas registrado en [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md) *(Fase 3 del anteproyecto — Diseño funcional y estructuración de la solución digital)* | Soporte Tecnológico Parroquia San Rafael Arcángel |
+| 2026-10-10 | Decisión técnica | Adopción de Google Calendar como fuente centralizada de los eventos públicos de la parroquia y definición de la arquitectura de integración: Google Calendar → Google Calendar API v3 (habilitada en Google Cloud con la cuenta institucional de soporte, mediante una API key) → Netlify Function server-side (`proximos-eventos`, endpoint `/api/proximos-eventos`) → JavaScript de Inicio → tarjetas de «Próximos eventos». Se autoriza la Function como excepción serverless a la arquitectura estática para no exponer la API key en el navegador ni en el repositorio público. La API key y el ID del calendario se gestionan como variables de entorno de Netlify (`GOOGLE_CALENDAR_API_KEY`, secreta, y `GOOGLE_CALENDAR_ID`). Se establecen la mínima exposición de datos (solo título, fecha y hora, ubicación y descripción), la inserción segura del contenido con `textContent`, la caché de hasta 6 horas bajo demanda y la regla de administración de que las misas ordinarias recurrentes no se registran como eventos del calendario. La integración fue validada y desplegada en producción. Queda **pendiente**, antes de la entrega final, migrar del calendario temporal de la cuenta de soporte al calendario de la oficina parroquial (variable `GOOGLE_CALENDAR_ID`, nuevo despliegue y, por separado, el iframe de `pages/calendario.html`). Detalle técnico en [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md); detalle de horas registrado en [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md) *(Fase 4 del anteproyecto — Desarrollo e implementación de la solución tecnológica)* | Soporte Tecnológico Parroquia San Rafael Arcángel |
 
 ## 3. Convención de registro
 
@@ -40,5 +41,6 @@ Cada nueva entrada debe incluir: fecha (formato `AAAA-MM-DD`), tipo (`Evento`, `
 ## Documentos relacionados
 
 - [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md)
+- [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md)
 - [Cronograma.md](Cronograma.md)
 - [Entrega_01.md](../09_Entregables/Entrega_01.md)

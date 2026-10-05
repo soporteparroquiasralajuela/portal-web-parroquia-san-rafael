@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.2 |
+| Versión | 1.3 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-09-29 |
+| Última actualización | 2026-10-10 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -113,7 +113,7 @@ Esta arquitectura es la referencia para un futuro mapa del sitio formal; ver la 
 - Reutilizar header, navegación, footer y el botón flotante de WhatsApp como componentes visuales comunes, y aplicar el Design System aprobado (tipografía, colores, botones, espaciados) de forma consistente en todas las páginas.
 - Mantener la identidad visual definida en las referencias conceptuales (sección 2).
 - Priorizar soluciones simples y sostenibles.
-- Evitar backend o complejidad innecesaria mientras no exista un requisito validado que lo justifique.
+- Evitar backend o complejidad innecesaria mientras no exista un requisito validado que lo justifique. La única excepción autorizada es la Netlify Function que alimenta «Próximos eventos» desde Google Calendar, justificada por no exponer credenciales en el navegador ni en el repositorio público (ver [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md)).
 
 ## 6. Decisiones funcionales ya definidas
 
@@ -123,6 +123,7 @@ Estas decisiones son de **dirección conceptual**, no requerimientos funcionales
 - Se plantea utilizar **Google Calendar embebido**.
 - Google Calendar funcionará como fuente de actualización del calendario parroquial.
 - Objetivo: evitar mantener manualmente los eventos directamente en el código.
+- Estado: **implementado**. La página Calendario muestra el calendario embebido de Google, y la sección «Próximos eventos» de Inicio consume el mismo calendario mediante Google Calendar API y una Netlify Function. El calendario actual es **temporal**; su migración al calendario de la oficina parroquial está pendiente. Detalle en [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md).
 
 ### Contacto
 - Se plantea utilizar un **formulario embebido de Google Forms** para consultas generales.
@@ -243,7 +244,7 @@ Podrán existir ajustes posteriores únicamente por:
 
 ## 10. Estado
 
-**Vigente.** Este documento refleja decisiones ya aprobadas, incluyendo la actualización del 2026-09-16 (navegación oficial definitiva, exclusión de "Buscar", botón flotante global de WhatsApp pendiente de número oficial, y precisión del alcance de la página Contacto) y la actualización del 2026-09-29 (estrategia de implementación de páginas del portal, sección 8: elementos globales compartidos, protección de Inicio congelada, disciplina de placeholders, orden de implementación y ciclo de trabajo por página; se deja explícito que esto no cierra el alcance funcional definitivo del proyecto). Se actualizará si estas decisiones cambian, y se referenciará desde los documentos formales de requerimientos, casos de uso y arquitectura una vez que ese trabajo se realice (ver nota de trazabilidad pendiente en [Alcance.md](../01_Gestion_Proyecto/Alcance.md) y [Requerimientos_Funcionales.md](../02_Analisis/Requerimientos_Funcionales.md)).
+**Vigente.** Este documento refleja decisiones ya aprobadas, incluyendo la actualización del 2026-09-16 (navegación oficial definitiva, exclusión de "Buscar", botón flotante global de WhatsApp pendiente de número oficial, y precisión del alcance de la página Contacto) y la actualización del 2026-09-29 (estrategia de implementación de páginas del portal, sección 8: elementos globales compartidos, protección de Inicio congelada, disciplina de placeholders, orden de implementación y ciclo de trabajo por página; se deja explícito que esto no cierra el alcance funcional definitivo del proyecto) y la actualización del 2026-10-10 (estado implementado de la integración con Google Calendar y su excepción serverless, secciones 5 y 6). Se actualizará si estas decisiones cambian, y se referenciará desde los documentos formales de requerimientos, casos de uso y arquitectura una vez que ese trabajo se realice (ver nota de trazabilidad pendiente en [Alcance.md](../01_Gestion_Proyecto/Alcance.md) y [Requerimientos_Funcionales.md](../02_Analisis/Requerimientos_Funcionales.md)).
 
 ---
 
@@ -254,5 +255,6 @@ Podrán existir ajustes posteriores únicamente por:
 - [Wireframes.md](Wireframes.md)
 - [Estructura_Proyecto.md](../03_Arquitectura/Estructura_Proyecto.md)
 - [Integraciones.md](../03_Arquitectura/Integraciones.md)
+- [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md)
 - [Alcance.md](../01_Gestion_Proyecto/Alcance.md)
 - [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md)
