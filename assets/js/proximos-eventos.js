@@ -2,11 +2,13 @@
 // de /api/proximos-eventos (Netlify Function que consulta Google Calendar). No
 // crea tarjetas ni cambia el diseño: solo actualiza el texto de las existentes y
 // usa textContent, nunca innerHTML. Las tarjetas permanecen ocultas hasta tener
-// datos reales, para no mostrar contenido de ejemplo.
+// datos reales, para no mostrar contenido de ejemplo. La ubicación de cada evento
+// se enlaza a una búsqueda de Google Maps.
 (() => {
   const ENDPOINT = "/api/proximos-eventos";
   const MAX_TARJETAS = 3;
   const TIEMPO_MAXIMO_MS = 8000;
+  const URL_BUSQUEDA_MAPAS = "https://www.google.com/maps/search/?api=1&query=";
 
   const MESES_CORTOS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
   const MESES = [
@@ -196,6 +198,40 @@
     }
   }
 
+  // Una ubicación que ya es una dirección web se muestra como texto, sin enlazarla.
+  function esDireccionWeb(texto) {
+    return /^(https?:\/\/|www\.)/i.test(texto) || /^\S+\.[a-z]{2,}\/\S*$/i.test(texto);
+  }
+
+  // Convierte la ubicación en un enlace de búsqueda de Google Maps. El texto visible
+  // no cambia; la consulta se codifica y nunca se interpreta como HTML.
+  function establecerLugar(contenedor, lugar) {
+    const consulta = lugar.replace(/…$/, "").trimEnd();
+    const icono = contenedor.querySelector("i");
+
+    // Evita que un texto largo sin espacios (por ejemplo, una dirección web) desborde la tarjeta.
+    contenedor.classList.add("text-break");
+
+    if (!consulta || !icono || esDireccionWeb(lugar)) {
+      establecerTextoTrasIcono(contenedor, lugar);
+      return;
+    }
+
+    const enlace = document.createElement("a");
+    enlace.className = "text-reset";
+    enlace.href = `${URL_BUSQUEDA_MAPAS}${encodeURIComponent(consulta)}`;
+    enlace.target = "_blank";
+    enlace.rel = "noopener noreferrer";
+    enlace.textContent = lugar;
+
+    const aviso = document.createElement("span");
+    aviso.className = "visually-hidden";
+    aviso.textContent = " (se abre en una pestaña nueva)";
+    enlace.append(aviso);
+
+    contenedor.replaceChildren(icono, document.createTextNode(" "), enlace);
+  }
+
   function rellenarTarjeta(columna, vista) {
     const tarjeta = columna.querySelector(".event-card");
     const meta = tarjeta.querySelector(".event-card__meta");
@@ -209,7 +245,7 @@
     establecerTextoTrasIcono(spanHora, vista.hora);
 
     if (vista.lugar) {
-      establecerTextoTrasIcono(spanLugar, vista.lugar);
+      establecerLugar(spanLugar, vista.lugar);
     }
     spanLugar.hidden = !vista.lugar;
 
