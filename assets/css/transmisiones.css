@@ -1,0 +1,549 @@
+/* transmisiones.css — Estilos específicos de la página Transmisiones
+   Hero claro con fotografía (tratamiento del diseño conceptual aprobado), franja
+   informativa de categorías, reproductor 16:9 con sus estados y estructura de
+   "Últimas transmisiones". No se reutiliza en otras páginas y no depende de
+   home.css, parroquia.css, grupos.css ni calendario.css. La transición
+   navy/dorada hacia el footer se reproduce localmente (sin insignia circular),
+   igual que en las demás páginas. */
+
+/* Rojo de YouTube para el botón "Ver en YouTube" (aparece en el diseño aprobado).
+   Es un color de marca de terceros, por eso vive aquí y no en variables.css. */
+:root {
+  --transmisiones-youtube: #c4161c;
+  --transmisiones-youtube-dark: #9f1116;
+}
+
+/* ===== Hero de Transmisiones ===== */
+.transmisiones-hero {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-block: var(--space-5) calc(var(--space-5) + 24px);
+}
+
+.transmisiones-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.transmisiones-hero__media .img-placeholder {
+  height: 100%;
+  min-height: 320px;
+  border-radius: 0;
+}
+
+/* Placeholder limpio: sin ícono ni texto genérico bajo el título. */
+.transmisiones-hero__media .img-placeholder i,
+.transmisiones-hero__media .img-placeholder span {
+  display: none;
+}
+
+/* Velo claro a la izquierda: asegura la lectura del texto azul sobre cualquier fotografía. */
+.transmisiones-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.55) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.transmisiones-hero > .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.transmisiones-hero__content {
+  max-width: 560px;
+}
+
+.transmisiones-hero__title {
+  font-size: var(--fs-display);
+  font-weight: var(--weight-bold);
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.transmisiones-hero__title span {
+  display: block;
+}
+
+.transmisiones-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-body);
+  color: var(--color-primary);
+  max-width: 460px;
+  margin-bottom: var(--space-2);
+}
+
+.transmisiones-hero__bars {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.transmisiones-hero__bars span {
+  display: block;
+  width: 40px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-secondary);
+}
+
+.transmisiones-hero__bars span:nth-child(2) {
+  width: 28px;
+  opacity: 0.8;
+}
+
+.transmisiones-hero__bars span:nth-child(3) {
+  width: 40px;
+  opacity: 0.5;
+}
+
+.transmisiones-hero__wave {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 40px;
+  display: block;
+  z-index: 2;
+}
+
+/* ===== Franja informativa de categorías ===== */
+.transmisiones-categorias {
+  padding-block: var(--space-2) var(--space-4);
+}
+
+.transmisiones-categorias__lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4) var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transmisiones-categoria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-inline: var(--space-1);
+}
+
+.transmisiones-categoria__icono {
+  width: 48px;
+  height: 48px;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.transmisiones-categoria__titulo {
+  font-family: var(--font-accent);
+  font-weight: var(--weight-semibold);
+  font-size: var(--fs-body);
+  line-height: var(--lh-heading);
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.transmisiones-categoria__eslogan {
+  font-size: var(--fs-body-sm);
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+  max-width: 24ch;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .transmisiones-categorias__lista {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .transmisiones-categoria {
+    padding-inline: var(--space-2);
+  }
+
+  .transmisiones-categoria + .transmisiones-categoria {
+    border-left: 1px solid var(--color-border-light);
+  }
+}
+
+/* ===== Reproductor principal ===== */
+.transmisiones-reproductor {
+  padding-block: var(--space-2) var(--space-5);
+}
+
+/* Reproductor y grabaciones comparten una columna central de 960 px de contenido
+   en pantallas grandes, para que el 16:9 no ocupe todo el alto de la ventana. */
+.transmisiones-reproductor > .container,
+.transmisiones-ultimas > .container {
+  max-width: calc(960px + var(--bs-gutter-x, 1.5rem));
+}
+
+.reproductor {
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.reproductor__pantalla {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-primary-dark);
+  overflow: hidden;
+}
+
+/* Fotografía institucional (estados sin transmisión, comprobando y error). */
+.reproductor__fondo {
+  position: absolute;
+  inset: 0;
+}
+
+.reproductor__fondo .img-placeholder {
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 0;
+  border-radius: 0;
+}
+
+.reproductor__fondo .img-placeholder i {
+  display: none;
+}
+
+/* Marca discreta que identifica el marcador de la fotografía pendiente. */
+.reproductor__fondo .img-placeholder span {
+  position: relative;
+  z-index: 1;
+  max-width: calc(100% - var(--space-2));
+  margin: var(--space-1);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.88);
+  font-size: 12px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.reproductor__video {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.reproductor__video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Mensaje sobre la fotografía: texto HTML con velo para asegurar el contraste. */
+.reproductor__mensaje {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  background: linear-gradient(0deg, rgba(20, 29, 57, 0.78) 0%, rgba(20, 29, 57, 0.6) 100%);
+  text-align: center;
+}
+
+.reproductor__texto {
+  display: none;
+  max-width: 34ch;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: var(--weight-semibold);
+  font-style: italic;
+  line-height: 1.25;
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.reproductor__texto--comprobando,
+.reproductor__texto[data-para="error"] {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: var(--weight-regular);
+  font-size: var(--fs-body);
+}
+
+.reproductor__texto i {
+  display: block;
+  font-size: 1.75rem;
+  margin-bottom: var(--space-1);
+}
+
+.reproductor__texto-apoyo {
+  display: block;
+  margin-top: 4px;
+  font-size: var(--fs-body-sm);
+  color: #ffffff;
+}
+
+.reproductor__texto .spinner-border {
+  margin-right: var(--space-1);
+  vertical-align: -2px;
+}
+
+.reproductor[data-estado="comprobando"] [data-para="comprobando"],
+.reproductor[data-estado="sin-transmision"] [data-para="sin-transmision"],
+.reproductor[data-estado="error"] [data-para="error"] {
+  display: block;
+}
+
+/* Estado en vivo: se muestra únicamente el reproductor. */
+.reproductor[data-estado="en-vivo"] .reproductor__video {
+  display: block;
+}
+
+.reproductor[data-estado="en-vivo"] .reproductor__fondo,
+.reproductor[data-estado="en-vivo"] .reproductor__mensaje {
+  display: none;
+}
+
+/* Insignia y título: bajo el reproductor para no tapar los controles de YouTube. */
+.reproductor__info {
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.reproductor[data-estado="en-vivo"] .reproductor__info {
+  display: flex;
+}
+
+.reproductor__insignia {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--transmisiones-youtube);
+  color: #ffffff;
+  font-family: var(--font-accent);
+  font-weight: var(--weight-semibold);
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.reproductor__insignia-punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.reproductor__titulo {
+  flex: 1 1 220px;
+  min-width: 0;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-heading);
+  color: var(--color-text-primary);
+  overflow-wrap: anywhere;
+}
+
+/* ===== Botones de acción ===== */
+.transmisiones-acciones {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  margin-block: var(--space-2) 0;
+}
+
+.transmisiones-acciones .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+}
+
+.btn-youtube {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: var(--transmisiones-youtube);
+  --bs-btn-border-color: var(--transmisiones-youtube);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: var(--transmisiones-youtube-dark);
+  --bs-btn-hover-border-color: var(--transmisiones-youtube-dark);
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: var(--transmisiones-youtube-dark);
+  --bs-btn-active-border-color: var(--transmisiones-youtube-dark);
+  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(196, 22, 28, 0.35);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-copiar {
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-bg: var(--color-bg-alt);
+  --bs-btn-border-color: var(--color-secondary);
+  --bs-btn-border-width: 2px;
+  --bs-btn-hover-color: var(--color-primary);
+  --bs-btn-hover-bg: #fbf3e0;
+  --bs-btn-hover-border-color: var(--color-secondary-dark);
+  --bs-btn-active-color: var(--color-primary);
+  --bs-btn-active-bg: #f6e6bd;
+  --bs-btn-active-border-color: var(--color-secondary-dark);
+  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(218, 152, 27, 0.35);
+}
+
+.btn-copiar i {
+  color: var(--color-secondary-dark);
+}
+
+/* Botones sin destino: siguen siendo enfocables por teclado, pero no actúan. */
+.transmisiones-acciones .btn[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.transmisiones-noscript {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 576px) {
+  .transmisiones-acciones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ===== Últimas transmisiones ===== */
+.transmisiones-ultimas {
+  padding-block: 0 var(--space-6);
+}
+
+.transmisiones-ultimas__title {
+  margin-bottom: var(--space-3);
+}
+
+.transmisiones-ultimas__vacio {
+  margin: 0;
+  padding: var(--space-3);
+  text-align: center;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-alt);
+  border: 1px dashed var(--color-border-light);
+  border-radius: var(--radius-md);
+}
+
+.grabacion {
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.grabacion__miniatura {
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-border-light);
+  overflow: hidden;
+}
+
+.grabacion__imagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grabacion__cuerpo {
+  padding: var(--space-2);
+}
+
+.grabacion__titulo {
+  font-size: var(--fs-h4);
+  margin-bottom: 4px;
+  overflow-wrap: anywhere;
+}
+
+.grabacion__fecha {
+  margin-bottom: var(--space-1);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-secondary);
+}
+
+.grabacion__enlace {
+  font-family: var(--font-accent);
+  font-weight: var(--weight-semibold);
+  font-size: var(--fs-body-sm);
+  color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .transmisiones-hero {
+    min-height: 360px;
+  }
+
+  .transmisiones-hero__media .img-placeholder {
+    min-height: 360px;
+  }
+
+  .transmisiones-hero__wave {
+    height: 56px;
+  }
+
+  .transmisiones-categorias {
+    padding-block: var(--space-3) var(--space-5);
+  }
+
+  .reproductor__texto {
+    font-size: var(--fs-h1);
+  }
+
+  .reproductor__texto--comprobando,
+  .reproductor__texto[data-para="error"] {
+    font-size: var(--fs-h4);
+  }
+}
+
+/* ===== Transición hacia el footer (patrón navy/dorado, sin insignia) =====
+   Mismo patrón de capas SVG que Inicio, Parroquia, Grupos y Calendario,
+   reproducido localmente sin importar sus hojas de estilo. */
+.wave-transition {
+  position: relative;
+  height: 56px;
+}
+
+.wave-transition svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wave-transition-gold {
+  transform: translateY(6px);
+}
