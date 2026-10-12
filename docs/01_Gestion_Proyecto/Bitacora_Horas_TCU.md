@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.9 |
+| Versión | 1.10 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-10-10 |
+| Última actualización | 2026-10-11 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -19,6 +19,8 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 ## 2. Registro de sesiones
 
 > **Nota sobre el orden cronológico y las fases:** a partir de la versión 1.4 de este documento se incorpora el campo **Fase**, que clasifica cada sesión según la distribución oficial de horas por fase del anteproyecto del TCU (ver sección 4). Las Sesiones 1 a 3 (agosto de 2026) corresponden a trabajo técnico preliminar — definición de arquitectura, entorno de desarrollo, integración de plataformas y primera implementación del sitio — realizado *antes* de la primera reunión formal de levantamiento de necesidades (Sesión 4, septiembre de 2026, Fase 1). Esto invierte el orden esperado entre las Fases 1 y 2 del anteproyecto; se documenta tal como ocurrió, sin reordenar ni reinterpretar retroactivamente las actividades ya registradas.
+
+> **Corrección de fechas de las Sesiones 10 y 11 (2026-10-11):** el responsable del proyecto confirmó que la Sesión 10 corresponde al **03/10/2026** (antes registrada como 09/10/2026) y la Sesión 11 al **04/10/2026** (antes registrada como 10/10/2026). Se conservaron sus horarios, duraciones, fases y actividades; la corrección no modifica los totales de horas.
 
 ## 03/08/2026
 
@@ -213,7 +215,7 @@ Se completó el desarrollo e implementación de la página Parroquia del portal 
 
 ---
 
-## Sesión 10 — 09/10/2026 (Noche)
+## Sesión 10 — 03/10/2026 (Noche)
 
 **Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
 
@@ -236,7 +238,7 @@ Se completó el desarrollo e implementación de la sección Grupos conforme al d
 
 ---
 
-## Sesión 11 — 10/10/2026 (Mañana)
+## Sesión 11 — 04/10/2026 (Mañana)
 
 **Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
 
@@ -259,6 +261,49 @@ Se implementó la página Calendario y la integración técnica del calendario p
 
 ---
 
+## Sesión 12 — 10/10/2026 (Mañana)
+
+**Fase:** Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial
+
+**Jornada:** Reunión de seguimiento con la oficina parroquial
+
+**Horario:** 8:00 a. m. – 10:00 a. m.
+
+**Horas dedicadas:** 2 horas
+
+**Labores realizadas:**
+- Reunión de seguimiento con la encargada de la oficina parroquial para revisar los avances del proyecto y del portal web parroquial.
+- Obtención de acceso al correo institucional de la parroquia para la administración de los servicios digitales del proyecto.
+- Revisión del progreso de la recopilación de la información y de los contenidos institucionales necesarios para completar el portal.
+- Identificación de los pendientes y coordinación de los próximos pasos.
+
+**Resultado obtenido:**
+Se dio seguimiento al proyecto con la oficina parroquial, se obtuvo acceso al correo institucional para administrar los servicios digitales del proyecto y se identificaron los pendientes de información y contenidos, cuya recopilación continúa en proceso.
+
+---
+
+## Sesión 13 — 11/10/2026 (Noche)
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 8:00 p. m. – 11:00 p. m.
+
+**Horas dedicadas:** 3 horas
+
+**Labores realizadas (dentro del horario):**
+- Desarrollo y validación de la Fase 1 visual de la página Transmisiones a partir del diseño conceptual aprobado: encabezado, franja informativa de cuatro categorías, reproductor con sus estados (comprobando, en vivo, sin transmisión y error), botones de acción y estructura de «Últimas transmisiones», con revisión en escritorio, tableta y móvil y comprobación de que la página no consulta servicios externos.
+- Preparación del canal institucional de YouTube de la parroquia.
+- Revisión de la integración automática con YouTube, que continúa pendiente: análisis técnico de la detección de transmisiones y de la recuperación de grabaciones recientes, sin implementarla.
+- Desarrollo y pruebas de la mejora que permite abrir la ubicación de cada evento de «Próximos eventos» en Google Maps, con verificaciones de seguridad, accesibilidad y diseño responsive.
+- Control de versiones: versionamiento local de la Fase 1 de Transmisiones.
+
+**Operaciones de Git posteriores al horario registrado** (no se cuentan dentro de las 3 horas): la confirmación (commit) de la mejora de ubicaciones, registrada en Git a las 11:13 p. m., y su publicación posterior, y el rebase controlado de la rama principal, registrado a las 11:21 p. m.
+
+**Resultado obtenido:**
+Quedó completada y validada la Fase 1 visual de Transmisiones, versionada localmente y **todavía sin publicar**, y se desarrolló la mejora del enlace de ubicación de los eventos. **La integración automática con YouTube continúa pendiente.**
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -272,10 +317,12 @@ Se implementó la página Calendario y la integración técnica del calendario p
 | Sesión 7 (26/09/2026) | Fase 1 | Reunión con la oficina parroquial sobre atención y servicios | 1 |
 | Sesión 8 (28/09/2026) | Fase 4 | Desarrollo y ajuste de la página principal del portal | 3 |
 | Sesión 9 (29/09/2026) - Noche | Fase 4 | Desarrollo, implementación y versionamiento de la página Parroquia | 2 |
-| Sesión 10 (09/10/2026) - Noche | Fase 4 | Desarrollo e implementación de la sección Grupos | 4 |
-| Sesión 11 (10/10/2026) - Mañana | Fase 4 | Desarrollo de Calendario e integración técnica del calendario parroquial con Inicio | 4 |
+| Sesión 10 (03/10/2026) - Noche | Fase 4 | Desarrollo e implementación de la sección Grupos | 4 |
+| Sesión 11 (04/10/2026) - Mañana | Fase 4 | Desarrollo de Calendario e integración técnica del calendario parroquial con Inicio | 4 |
+| Sesión 12 (10/10/2026) - Mañana | Fase 1 | Reunión de seguimiento con la oficina parroquial y coordinación de contenidos | 2 |
+| Sesión 13 (11/10/2026) - Noche | Fase 4 | Fase 1 visual de Transmisiones, revisión de la integración con YouTube y enlace de ubicación de eventos | 3 |
 
-**Total acumulado:** 31 horas
+**Total acumulado:** 36 horas
 
 ---
 
@@ -285,13 +332,15 @@ Las fases y horas estimadas corresponden a la distribución oficial de horas por
 
 | Fase | Periodo estimado | Horas estimadas | Horas registradas | Horas pendientes estimadas |
 |---|---|---:|---:|---:|
-| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 3 | 7 |
+| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 5 | 5 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 17 | 43 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 20 | 40 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 0 | 15 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **31** | **129** |
+| **Total** | — | **160** | **36** | **124** |
+
+> **Nota sobre la meta de horas:** la distribución de **160 horas** de esta tabla es la planificación documental tomada del anteproyecto y se mantiene temporalmente. La meta oficial de **150 horas** del TCU requiere una conciliación posterior; esta tabla no se modificó automáticamente y la distribución por fase no se ha alterado.
 
 ---
 

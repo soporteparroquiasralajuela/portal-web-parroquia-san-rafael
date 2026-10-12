@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 08_Manuales/Manual_Tecnico.md |
-| Versión | 1.4 |
+| Versión | 1.5 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-10 |
+| Última actualización | 2026-10-11 |
 | Estado | Vigente (estado actual del proyecto) |
 
 ---
@@ -53,12 +53,12 @@ Ver el detalle completo en [Estructura_Proyecto.md](../03_Arquitectura/Estructur
 | Elemento | Estado |
 |---|---|
 | `index.html` | Implementado — página de Inicio (ver sección 9) |
-| `pages/` | Contiene `parroquia.html`, `grupos.html` y `calendario.html` (implementadas) |
+| `pages/` | Contiene `parroquia.html`, `grupos.html` y `calendario.html` (implementadas). `transmisiones.html` existe únicamente en el repositorio local (Fase 1, sin publicar) |
 | `assets/css` | Estilos globales (`variables.css`, `main.css`, `components.css`) y específicos de página (`home.css`, `parroquia.css`, `grupos.css`, `calendario.css`) |
 | `assets/js` | `grupos.js` (comportamiento móvil de Grupos) y `proximos-eventos.js` (tarjetas de Próximos eventos de Inicio). El resto de la interactividad (navbar, dropdown, carrusel, pestañas) usa el bundle de Bootstrap |
 | `netlify/functions/` | `proximos-eventos.mjs` — Netlify Function de Google Calendar (sección 10) |
 | `components/`, `config/`, `data/`, `scripts/` | Vacíos |
-| Funcionalidad | Inicio, Parroquia, Grupos y Calendario implementadas y desplegadas; integración con Google Calendar activa. Aún sin desarrollar: Transmisiones, Servicios parroquiales (y sus páginas de segundo nivel) y Contacto. Estructura de las cuatro páginas implementadas en línea base temporal; contenido real pendiente de incorporación y validación (sección 9) |
+| Funcionalidad | Inicio, Parroquia, Grupos y Calendario implementadas y desplegadas; integración con Google Calendar activa. Transmisiones: Fase 1 visual implementada solo en el repositorio local, sin publicar y sin integración con YouTube. Aún sin desarrollar: Servicios parroquiales (y sus páginas de segundo nivel) y Contacto. Estructura de las cuatro páginas implementadas en línea base temporal; contenido real pendiente de incorporación y validación (sección 9) |
 
 ## 7. Gobierno técnico
 
@@ -104,9 +104,11 @@ Estar en el primer estado no implica haber cumplido el segundo ni el tercero.
 
 - Páginas implementadas: Inicio (`index.html`), Parroquia (`pages/parroquia.html`), Grupos (`pages/grupos.html`) y Calendario (`pages/calendario.html`), con sus hojas de estilo y scripts.
 - Navegación común (sección 9.8), footer y botón flotante de WhatsApp, en su estructura y comportamiento actuales.
-- Referencia de código: el último cambio funcional versionado es el commit `2853c32`. No se creó ninguna etiqueta (tag) de Git para esta línea base.
+- Referencia de código: la línea base se estableció sobre el commit `2853c32`. El único cambio funcional posterior publicado es el enlace de ubicación de «Próximos eventos» (commit `7b0b821acfefbc5822b2faf7b9b90a943d895352`, sección 9.12). No se creó ninguna etiqueta (tag) de Git para esta línea base.
 
 **No incluido** (todavía no existen como páginas implementadas): Transmisiones, Servicios parroquiales, Sacramentos, Gestiones, Documentos e información y Contacto. Estas secciones cuentan con diseño conceptual y decisiones previas ([Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 6) y con enlaces ya presentes en la navegación, pero eso es distinto de una implementación existente y no está congelado.
+
+**Estado de Transmisiones (2026-10-11):** cuenta con una Fase 1 visual (`pages/transmisiones.html`, `assets/css/transmisiones.css` y `assets/js/transmisiones.js`) versionada **solo en el repositorio local** (commit `c3d7ad9077c632b29a403a3270c1779df006b8c0`; el commit original `d7d0934d35f0b283005b81eaaadc8baf67f0e283` se conserva en la rama local `respaldo/transmisiones-d7d0934`). No está publicada, no está congelada y **su integración automática con YouTube está pendiente**: no consulta ningún servicio externo y, sin una fuente de datos, informa que no fue posible comprobar la transmisión.
 
 ### 9.4 Qué está congelado y qué no
 
@@ -176,10 +178,10 @@ Precisiones que deben mantenerse:
 
 | Clasificación | Integración |
 |---|---|
-| Operativas | Google Calendar embebido (página Calendario); Google Calendar API v3 mediante Netlify Function (Próximos eventos); Netlify como hosting |
+| Operativas | Google Calendar embebido (página Calendario); Google Calendar API v3 mediante Netlify Function (Próximos eventos); enlace simple de búsqueda de Google Maps desde la ubicación de cada evento (sin API ni clave); Netlify como hosting |
 | Configuradas según información del equipo, no verificables por completo desde el repositorio | Google Cloud y API key; variables de entorno de Netlify (`GOOGLE_CALENDAR_API_KEY`, `GOOGLE_CALENDAR_ID`) |
 | Visuales o parciales | WhatsApp sin número ni destino; formulario de Grupos sin envío; redes sociales sin URL |
-| Planificadas, no implementadas | Google Maps; Google Forms; YouTube |
+| Planificadas, no implementadas | Google Maps embebido o mediante API (por ejemplo, el mapa de Contacto); Google Forms; YouTube (detección automática de transmisiones y grabaciones; la Fase 1 de Transmisiones es solo visual) |
 | Pendientes | Dominio propio; Cloudflare; analítica |
 
 Ninguna integración planificada o visual debe considerarse implementada por el solo hecho de este congelamiento. Detalle técnico: [Integraciones.md](../03_Arquitectura/Integraciones.md) e [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md).
@@ -239,6 +241,8 @@ Esto incluye: `index.html` y su composición aprobada — header/navegación, He
 
 **Autorizaciones puntuales registradas:** la integración de «Próximos eventos» con Google Calendar (sección 10) se realizó con autorización expresa e incluyó únicamente: cambios mínimos en `index.html` (tarjetas ocultas hasta recibir datos, contenedor de estado y carga del script), una propiedad CSS en `home.css` (cifras alineadas en la fecha de las tarjetas) y el script `assets/js/proximos-eventos.js`. No levantó el congelamiento del resto de la página.
 
+**Segunda autorización puntual (2026-10-11):** el texto de ubicación de las tarjetas de «Próximos eventos» pasó a ser un enlace a una búsqueda de Google Maps (commit `7b0b821acfefbc5822b2faf7b9b90a943d895352`). Modificó únicamente `assets/js/proximos-eventos.js`: no se tocó `index.html`, ningún CSS, la Netlify Function ni las variables de entorno. Conserva el texto visible, no genera enlace para eventos sin ubicación y mantiene como texto plano las ubicaciones que ya son una dirección web. Detalle en [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md), sección 10.6. No levantó el congelamiento del resto de la página.
+
 ## 10. Integración con Google Calendar (resumen)
 
 Google Calendar es la fuente única de los eventos públicos de la parroquia. La página Calendario los muestra con el iframe oficial de Google; la sección «Próximos eventos» de Inicio los obtiene así:
@@ -250,6 +254,7 @@ Google Calendar → Google Calendar API v3 → Netlify Function (netlify/functio
 
 - La API key de Google **no está en el repositorio ni llega al navegador**: vive en la variable de entorno secreta `GOOGLE_CALENDAR_API_KEY` de Netlify; el calendario se indica con `GOOGLE_CALENDAR_ID`. Nunca se documentan sus valores.
 - La Function devuelve solo los campos necesarios y guarda la respuesta en caché hasta **6 horas**: un cambio en Google Calendar puede tardar ese tiempo en verse en Inicio.
+- La ubicación de cada evento es un enlace a una búsqueda de Google Maps (sección 10.6 del documento de integración); no usa API ni clave.
 - El calendario actual es **temporal** (cuenta institucional de soporte). Su migración al calendario definitivo de la oficina parroquial es un **pendiente formal antes de la entrega final**.
 
 Detalle completo, diagnóstico y procedimiento de migración: [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md).

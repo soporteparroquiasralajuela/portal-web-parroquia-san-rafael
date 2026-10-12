@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Integracion_Google_Calendar.md |
-| Versión | 1.1 |
+| Versión | 1.2 |
 | Fecha de creación | 2026-10-10 |
-| Última actualización | 2026-10-10 |
+| Última actualización | 2026-10-11 |
 | Estado | **Vigente** — integración implementada y en producción; migración al calendario definitivo **pendiente** |
 | Fuente | Código del repositorio (`netlify/functions/`, `assets/js/`, `index.html`, `pages/calendario.html`) y configuración confirmada por el equipo del proyecto |
 
@@ -313,7 +313,7 @@ El botón **«Ver calendario completo»** (enlace a `pages/calendario.html`) est
 | Fecha grande | Día (2 dígitos) y mes abreviado de la fecha de **inicio**. |
 | Título | `titulo`. |
 | Reloj | Horario de inicio y finalización (ver 10.4) o «Todo el día». |
-| Ubicación | `lugar`; la línea se **oculta** si el evento no tiene ubicación. |
+| Ubicación | `lugar`, como enlace a una búsqueda de Google Maps (sección 10.6); la línea se **oculta** si el evento no tiene ubicación. |
 | Descripción | `descripcion`; el párrafo se **oculta** si el evento no tiene descripción. |
 
 ### 10.4 Formato horario (zona `America/Costa_Rica`)
@@ -337,6 +337,24 @@ La fecha grande de la tarjeta es siempre la de **inicio**. Las horas y los días
 - En eventos que realmente abarcan varios días, ese texto añade «Hasta el 18 de octubre de 2026.»
 - El párrafo de estado usa `role="status"`.
 - Las cifras de la fecha usan cifras alineadas (`font-variant-numeric: lining-nums` en `home.css`) para que, por ejemplo, «04» no se lea como «o4».
+
+### 10.6 Enlace de ubicación (Google Maps)
+
+Desde la mejora publicada en el commit `7b0b821acfefbc5822b2faf7b9b90a943d895352`, el texto de ubicación de cada tarjeta es un enlace que abre una **búsqueda de Google Maps**. Es un enlace simple: **no usa la API de Google Maps ni ninguna clave**, y el navegador solo contacta a Google Maps cuando la persona hace clic. Todo lo siguiente está **[Código]** (`assets/js/proximos-eventos.js`).
+
+| Situación | Comportamiento |
+|---|---|
+| El evento tiene ubicación | El texto visible no cambia; se convierte en un enlace a `https://www.google.com/maps/search/?api=1&query=` seguido de la ubicación del propio evento, codificada con `encodeURIComponent`. |
+| El evento no tiene ubicación | La línea de ubicación permanece oculta y no se genera ningún enlace. |
+| La ubicación ya es una dirección web (`http://`, `https://`, `www.` o `dominio.tld/ruta`) | Se muestra como **texto plano**, sin enlace y sin redirigirla a Google Maps. |
+| La ubicación llegó recortada (más de 100 caracteres) | El texto visible conserva el «…»; la búsqueda se hace sin ese «…» final. |
+
+- **Apertura:** `target="_blank"` con `rel="noopener noreferrer"`; la página del portal no se abandona. Para lectores de pantalla se añade el aviso visualmente oculto «(se abre en una pestaña nueva)».
+- **Diseño:** se conserva el ícono y la presentación; el enlace usa la utilidad `text-reset` de Bootstrap (color heredado y subrayado nativo). No se modificó ningún CSS.
+- **Texto largo:** el contenedor usa la utilidad `text-break` de Bootstrap para que una ubicación larga sin espacios, por ejemplo una dirección web, no desborde la tarjeta en pantallas pequeñas.
+- **Seguridad:** el texto de Google Calendar se inserta con `textContent`, nunca como HTML; la dirección de destino se construye con un origen fijo más la ubicación codificada. No se usa una dirección fija de la parroquia: cada evento usa la suya.
+- **Accesibilidad:** el enlace es alcanzable con teclado y muestra el indicador de foco global.
+- **No cambia** la Netlify Function ni los datos que recibe el navegador (sección 8).
 
 ## 11. Página Calendario (visualización embebida)
 
@@ -459,6 +477,7 @@ Actualizar **por separado** [pages/calendario.html](../../pages/calendario.html)
 
 - **Netlify Function** con respuestas de Google simuladas y credenciales ficticias: lista blanca de campos, normalización a texto plano y recorte, cálculo del instante de finalización de eventos de todo el día, respuestas `405`, `500` y `502`, cabeceras de caché, uso de la clave en cabecera, y ausencia de la clave, del ID y de correos en la respuesta y en los logs.
 - **Navegador** con datos simulados: 0, 1, 2 y 3 eventos, eventos finalizados y en curso, eventos de todo el día y de varios días, formatos horarios de la sección 10.4, errores, respuesta lenta, texto con HTML mostrado como texto, y ausencia de desbordamiento horizontal a 375, 768 y 1280 px.
+- **Enlace de ubicación (2026-10-11), navegador con datos simulados:** ubicaciones con comas, tildes y los caracteres `& # ? " ñ á % + ⛪`; ubicación larga recortada; ubicación que es una dirección web (texto plano); texto con HTML (mostrado como texto, sin inyectar elementos); evento sin ubicación; tres eventos con lugares distintos; foco con teclado (Tab); ausencia de errores en la consola y de desbordamiento horizontal a 375 px y en escritorio. No se hizo clic real sobre los enlaces para no abrir sitios externos desde el entorno de pruebas.
 - **Producción:** `/api/proximos-eventos` responde JSON con solo `generadoEn`, `zonaHoraria` y `eventos`, y la cabecera `Cache-Status` indicó que la respuesta fue almacenada en el CDN.
 
 Estas pruebas se ejecutaron con scripts temporales que **no forman parte del repositorio**, por lo que no constituyen evidencias formales del [Plan_Pruebas.md](../06_Pruebas/Plan_Pruebas.md).
@@ -469,6 +488,9 @@ Estas pruebas se ejecutaron con scripts temporales que **no forman parte del rep
 - La descripción se recorta a 140 caracteres y los enlaces dentro de las descripciones solo se muestran como texto (la dirección se descarta al limpiar el HTML).
 - Las imágenes de las tarjetas son marcadores de posición: Google Calendar no administra imágenes de eventos.
 - No hay categorías, colores ni filtros por palabras; es un solo calendario.
+- El enlace de ubicación busca el texto tal como lo escribe quien administra el calendario: un nombre ambiguo (por ejemplo «Salón parroquial») puede resolverse en un lugar distinto; una dirección completa da mejor resultado.
+- El texto de la ubicación que entrega la Function está limitado a 100 caracteres; una ubicación más larga se busca recortada.
+- El enlace de ubicación hereda el tamaño de la línea de datos de la tarjeta (12 px), por lo que su área táctil es pequeña.
 - El endpoint solo existe en el entorno de Netlify (no en un servidor estático local) y la API key solo existe en Production.
 - La vista mensual del embed de la página Calendario no se ve completa a ≈375 px (sección 11).
 
