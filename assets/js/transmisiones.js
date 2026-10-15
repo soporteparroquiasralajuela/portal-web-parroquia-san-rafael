@@ -1,16 +1,33 @@
 // Transmisiones — estados del reproductor y sección «Más de nuestra comunidad».
 //
-// Fase 1: solo la parte visual. Este archivo NO realiza ninguna solicitud de red
-// (no consulta YouTube ni ninguna otra API) y no simula transmisiones. La futura
-// integración deberá obtener los datos y entregarlos a la página con estos
-// eventos del documento (o llamando a las mismas funciones internas):
+// Consulta la Netlify Function /api/transmision-actual (que a su vez consulta YouTube Data
+// API v3 desde el servidor: el navegador nunca llama a YouTube ni maneja credenciales) y
+// refleja el resultado en los estados del reproductor y en «Más de nuestra comunidad».
+//
+// Respuesta de la Function:
+//   200 { estado: "en_vivo", directo: { videoId, titulo, incrustable, ... }, grabaciones: [...] }
+//   200 { estado: "sin_transmision", grabaciones: [...] }
+//   cualquier otra cosa (HTTP de error, tiempo agotado, JSON inválido) = no se pudo comprobar
+//
+// Una consulta fallida NUNCA se muestra como «sin transmisión». Además, que la lista de
+// subidas de YouTube no incluya un directo no garantiza que no exista: el enlace al canal
+// oficial permanece siempre disponible.
+//
+// Las mismas funciones pueden alimentarse con estos eventos del documento:
 //
 //   "transmisiones:estado"      detail: { estado: "comprobando" | "sin-transmision" | "error" }
-//                               detail: { estado: "en-vivo", videoId, titulo }
+//                               detail: { estado: "en-vivo", videoId, titulo, incrustable }
+//       Solo con incrustable === true se inserta el iframe; con false, ausente o inválido el
+//       estado sigue siendo «en vivo» pero sin reproductor: «Ver en YouTube» abre el directo.
 //   "transmisiones:grabaciones" detail: { grabaciones: [{ videoId, titulo, publicadoEn }] }
 //       Videos públicos recientes del canal: convencionales o grabaciones de transmisiones
 //       finalizadas. Se ordenan por publicadoEn (el más reciente primero) y se muestran
 //       máximo 3. El nombre del evento se conserva por compatibilidad.
+//
+// «Más de nuestra comunidad»: el mensaje «Todavía no hay videos públicos para mostrar» solo
+// aparece cuando la Function respondió correctamente con una lista vacía. Mientras se consulta
+// la primera vez no se muestra ningún mensaje, y si la consulta falla sin videos cargados se
+// muestra un aviso de error. Los videos ya cargados se conservan ante errores posteriores.
 //
 // Seguridad: los textos se insertan siempre con textContent y los videoId se
 // validan antes de construir cualquier URL.
@@ -24,12 +41,19 @@
   const MAX_GRABACIONES = 3;
   const DURACION_AVISO_COPIADO_MS = 2500;
 
-  // Se completará en la fase de integración con la ruta de la Netlify Function.
-  const RUTA_CONSULTA = null;
+  const RUTA_CONSULTA = "/api/transmision-actual";
+  const INTERVALO_MS = 60 * 1000;
+  const ESPERA_MAXIMA_MS = 5 * 60 * 1000;
+  const TIEMPO_MAXIMO_MS = 8000;
+  // Un directo mostrado no se retira por una falla aislada ni por una sola respuesta sin directo.
+  const FALLAS_PARA_RETIRAR_DIRECTO = 3;
+  const CONFIRMACIONES_PARA_RETIRAR_DIRECTO = 2;
+
+  const MENSAJE_NO_INCRUSTABLE = "Esta transmisión está disponible en YouTube";
 
   const MENSAJES_ANUNCIO = {
     comprobando: "Comprobando si hay una transmisión en este momento.",
-    "sin-transmision": "En este momento no estamos transmitiendo.",
+    "sin-transmision": "No encontramos una transmisión activa en este momento.",
     error: "No fue posible comprobar si hay una transmisión en este momento.",
   };
 
@@ -49,12 +73,18 @@
   const urlCanal = botonYoutube?.getAttribute("href") ?? null;
   const textoCopiarInicial = textoCopiar?.textContent ?? "Copiar enlace";
 
+  // Mensajes de la sección de videos: el texto de lista vacía es el del HTML.
+  const TEXTO_SIN_VIDEOS = mensajeVacio?.textContent ?? "";
+  const TEXTO_ERROR_VIDEOS = "No fue posible cargar los videos en este momento";
+
   let videoIdActual = null;
+  let claveDirectoMostrado = null; // «videoId:incrustable» del directo en pantalla
   let urlCopiable = null;
   let temporizadorCopiado = null;
 
   const esVideoIdValido = (valor) => typeof valor === "string" && FORMATO_ID_VIDEO.test(valor);
   const urlDeVideo = (videoId) => `https://www.youtube.com/watch?v=${videoId}`;
+  const claveDeDirecto = (videoId, incrustable) => `${videoId}:${incrustable}`;
 
   function recortarTexto(valor, maximo) {
     if (typeof valor !== "string") return "";
@@ -101,9 +131,14 @@
     }
   }
 
-  function retirarReproductor() {
+  function quitarMarcoVideo() {
     contenedorVideo?.replaceChildren();
     videoIdActual = null;
+  }
+
+  function retirarReproductor() {
+    quitarMarcoVideo();
+    claveDirectoMostrado = null;
     if (tituloTransmision) tituloTransmision.textContent = "";
   }
 
@@ -133,13 +168,21 @@
     }
 
     if (estadoFinal === "en-vivo") {
-      insertarReproductor(datos.videoId, titulo);
+      // Solo se incrusta con incrustable === true; en cualquier otro caso no se carga un iframe
+      // que YouTube podría no reproducir, y el directo se abre con «Ver en YouTube».
+      const incrustable = datos.incrustable === true;
+      if (incrustable) insertarReproductor(datos.videoId, titulo);
+      else quitarMarcoVideo();
+      claveDirectoMostrado = claveDeDirecto(datos.videoId, incrustable);
+      reproductor.dataset.incrustable = String(incrustable);
       if (tituloTransmision) tituloTransmision.textContent = titulo;
       const urlDirecto = urlDeVideo(datos.videoId);
       configurarEnlaceYoutube(urlDirecto);
       configurarCopiar(urlDirecto);
-      anunciar(titulo ? `Transmisión en vivo: ${titulo}.` : "Transmisión en vivo.");
+      const anuncioDirecto = titulo ? `Transmisión en vivo: ${titulo}.` : "Transmisión en vivo.";
+      anunciar(incrustable ? anuncioDirecto : `${anuncioDirecto} ${MENSAJE_NO_INCRUSTABLE}.`);
     } else {
+      delete reproductor.dataset.incrustable;
       retirarReproductor();
       configurarEnlaceYoutube(urlCanal);
       configurarCopiar(null);
@@ -237,7 +280,19 @@
 
     listaGrabaciones.replaceChildren(...tarjetas);
     listaGrabaciones.hidden = tarjetas.length === 0;
-    if (mensajeVacio) mensajeVacio.hidden = tarjetas.length > 0;
+    if (mensajeVacio) {
+      mensajeVacio.textContent = TEXTO_SIN_VIDEOS;
+      mensajeVacio.hidden = tarjetas.length > 0;
+    }
+  }
+
+  // No se pudo obtener la lista: sin videos cargados se avisa del error (nunca como «lista
+  // vacía»); con videos ya cargados se conservan.
+  function mostrarErrorVideos() {
+    if (!mensajeVacio || !listaGrabaciones || !listaGrabaciones.hidden) return;
+    mensajeVacio.textContent = TEXTO_ERROR_VIDEOS;
+    mensajeVacio.hidden = false;
+    huellaGrabaciones = null; // la próxima respuesta correcta debe volver a dibujarse
   }
 
   botonCopiar?.addEventListener("click", copiarEnlace);
@@ -250,11 +305,159 @@
     mostrarGrabaciones(evento.detail?.grabaciones);
   });
 
-  // PROVISIONAL (aún no hay integración con YouTube): mientras RUTA_CONSULTA sea null la
-  // página muestra «sin transmisión» por defecto. Esto NO es una detección real de ausencia
-  // de transmisión: no se comprobó nada. Al implementar la integración, partir de
-  // "comprobando" y emitir "error" cuando la consulta falle, nunca "sin transmisión".
-  if (RUTA_CONSULTA === null) {
-    mostrarEstado("sin-transmision");
+  // ---- Consulta periódica a la Netlify Function ----
+
+  let consultaEnCurso = false;
+  let controlador = null;
+  let temporizador = null;
+  let generacion = 0; // cambia cuando la pestaña se oculta: descarta las respuestas atrasadas
+  let ultimaConsultaFin = 0;
+  let fallasSeguidas = 0;
+  let sinDirectoSeguidas = 0;
+  let huellaGrabaciones = null;
+
+  const estaVisible = () => document.visibilityState === "visible";
+
+  // Devuelve null si la respuesta no tiene el formato esperado (se trata como falla).
+  function interpretarRespuesta(datos) {
+    if (!datos || typeof datos !== "object") return null;
+    // null = la lista no vino en la respuesta: no se interpreta como «sin videos».
+    const grabaciones = Array.isArray(datos.grabaciones) ? datos.grabaciones : null;
+
+    if (datos.estado === "en_vivo") {
+      const directo = datos.directo;
+      if (!directo || !esVideoIdValido(directo.videoId)) return null;
+      return {
+        estado: "en-vivo",
+        videoId: directo.videoId,
+        titulo: directo.titulo,
+        incrustable: directo.incrustable === true,
+        grabaciones,
+      };
+    }
+    if (datos.estado === "sin_transmision") return { estado: "sin-transmision", grabaciones };
+    return null;
   }
+
+  async function solicitarEstado() {
+    controlador = new AbortController();
+    const limite = setTimeout(() => controlador.abort(), TIEMPO_MAXIMO_MS);
+    try {
+      const respuesta = await fetch(RUTA_CONSULTA, {
+        headers: { Accept: "application/json" },
+        signal: controlador.signal,
+      });
+      if (!respuesta.ok) throw new Error("Respuesta no válida");
+      return await respuesta.json();
+    } finally {
+      clearTimeout(limite);
+    }
+  }
+
+  function mostrarGrabacionesSiCambian(grabaciones) {
+    const huella = JSON.stringify(
+      grabaciones.map((item) => [item?.videoId, item?.titulo, item?.publicadoEn]),
+    );
+    if (huella === huellaGrabaciones) return;
+    huellaGrabaciones = huella;
+    mostrarGrabaciones(grabaciones);
+  }
+
+  function aplicarResultado(resultado) {
+    fallasSeguidas = 0;
+    if (resultado.grabaciones) mostrarGrabacionesSiCambian(resultado.grabaciones);
+    else mostrarErrorVideos();
+
+    if (resultado.estado === "en-vivo") {
+      sinDirectoSeguidas = 0;
+      const titulo = recortarTexto(resultado.titulo, MAX_TITULO);
+      const cambio =
+        reproductor.dataset.estado !== "en-vivo" ||
+        claveDirectoMostrado !== claveDeDirecto(resultado.videoId, resultado.incrustable) ||
+        tituloTransmision?.textContent !== titulo;
+      if (cambio) {
+        mostrarEstado("en-vivo", {
+          videoId: resultado.videoId,
+          titulo,
+          incrustable: resultado.incrustable,
+        });
+      }
+      return;
+    }
+
+    // Sin directo: un directo en pantalla solo se retira tras varias respuestas seguidas.
+    if (reproductor.dataset.estado === "en-vivo") {
+      sinDirectoSeguidas += 1;
+      if (sinDirectoSeguidas < CONFIRMACIONES_PARA_RETIRAR_DIRECTO) return;
+    }
+    sinDirectoSeguidas = 0;
+    if (reproductor.dataset.estado !== "sin-transmision") mostrarEstado("sin-transmision");
+  }
+
+  // No se pudo comprobar: nunca se muestra como «sin transmisión». Un directo ya mostrado se
+  // conserva durante las primeras fallas; los videos recientes también se conservan.
+  function registrarFalla() {
+    fallasSeguidas += 1;
+    mostrarErrorVideos();
+    if (reproductor.dataset.estado === "en-vivo" && fallasSeguidas < FALLAS_PARA_RETIRAR_DIRECTO) {
+      return;
+    }
+    if (reproductor.dataset.estado !== "error") mostrarEstado("error");
+  }
+
+  function esperaHastaSiguiente() {
+    if (fallasSeguidas === 0) return INTERVALO_MS;
+    return Math.min(INTERVALO_MS * 2 ** Math.min(fallasSeguidas, 3), ESPERA_MAXIMA_MS);
+  }
+
+  function programarConsulta(retardoMs) {
+    clearTimeout(temporizador);
+    temporizador = null;
+    if (!estaVisible()) return;
+    temporizador = setTimeout(consultar, retardoMs);
+  }
+
+  async function consultar() {
+    temporizador = null;
+    // Si ya hay una consulta en curso, esa misma programará la siguiente al terminar.
+    if (consultaEnCurso || !estaVisible()) return;
+
+    consultaEnCurso = true;
+    const generacionInicial = generacion;
+    let resultado = null;
+    try {
+      resultado = interpretarRespuesta(await solicitarEstado());
+    } catch {
+      resultado = null;
+    }
+    consultaEnCurso = false;
+
+    // La pestaña se ocultó durante la consulta: se descarta y se reanuda al volver a ser visible.
+    if (generacionInicial !== generacion) {
+      if (estaVisible()) programarConsulta(0);
+      return;
+    }
+
+    ultimaConsultaFin = Date.now();
+    if (resultado) aplicarResultado(resultado);
+    else registrarFalla();
+    programarConsulta(esperaHastaSiguiente());
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (!estaVisible()) {
+      generacion += 1;
+      clearTimeout(temporizador);
+      temporizador = null;
+      controlador?.abort();
+      return;
+    }
+    const transcurrido = Date.now() - ultimaConsultaFin;
+    programarConsulta(transcurrido >= INTERVALO_MS ? 0 : INTERVALO_MS - transcurrido);
+  });
+
+  // Hasta la primera respuesta no se afirma nada sobre los videos.
+  if (mensajeVacio) mensajeVacio.hidden = true;
+  mostrarEstado("comprobando");
+  programarConsulta(0);
 })();

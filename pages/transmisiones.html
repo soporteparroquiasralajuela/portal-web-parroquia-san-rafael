@@ -255,10 +255,14 @@
 
       <!-- ===================== REPRODUCTOR PRINCIPAL ===================== -->
       <!-- Estados (atributo data-estado, gestionado por assets/js/transmisiones.js):
-           comprobando | en-vivo | sin-transmision | error.
-           PROVISIONAL: todavía no existe la integración con YouTube, por lo que la página no verifica
-           transmisiones reales y muestra «sin transmisión» por defecto. Eso NO es una detección real
-           de ausencia de transmisión. -->
+           comprobando | en-vivo | sin-transmision | error. Con en-vivo, data-incrustable="false" indica un
+           directo que YouTube no permite incrustar: no se carga el iframe y se muestra el mensaje
+           data-para="no-incrustable" (el botón «Ver en YouTube» abre el directo).
+           transmisiones.js consulta /api/transmision-actual (Netlify Function que usa YouTube Data API v3).
+           El estado «sin-transmision» declarado aquí es solo el valor inicial sin JavaScript.
+           PENDIENTE: la detección aún no se ha validado con un directo público real. Que no se encuentre
+           una transmisión activa NO garantiza que no exista; por eso el mensaje es «No encontramos una
+           transmisión activa» y el enlace al canal oficial permanece siempre disponible. -->
       <section class="transmisiones-reproductor" aria-labelledby="reproductor-heading">
         <div class="container">
           <h2 id="reproductor-heading" class="visually-hidden">Transmisión en vivo</h2>
@@ -282,9 +286,13 @@
                   <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
                   Comprobando si hay una transmisión en este momento…
                 </p>
-                <p class="reproductor__texto" data-para="sin-transmision">En este momento no estamos transmitiendo</p>
+                <p class="reproductor__texto" data-para="sin-transmision">No encontramos una transmisión activa en este momento</p>
                 <p class="reproductor__apoyo" data-para="sin-transmision">
                   Para consultar nuestras transmisiones y otros contenidos, visitá nuestro canal oficial de YouTube
+                </p>
+                <p class="reproductor__texto" data-para="no-incrustable">Esta transmisión está disponible en YouTube</p>
+                <p class="reproductor__apoyo" data-para="no-incrustable">
+                  Para verla en directo, utilizá el botón “Ver en YouTube”
                 </p>
                 <p class="reproductor__texto" data-para="error">
                   <i class="bi bi-exclamation-circle" aria-hidden="true"></i>
@@ -302,7 +310,7 @@
 
           <!-- Anuncio accesible de los cambios de estado -->
           <p class="visually-hidden" id="transmision-anuncio" role="status">
-            En este momento no estamos transmitiendo.
+            No encontramos una transmisión activa en este momento.
           </p>
 
           <!-- Botones: «Ver en YouTube» abre el canal oficial cuando no hay un directo activo (con directo,
@@ -339,7 +347,8 @@
       <!-- ===================== MÁS DE NUESTRA COMUNIDAD (videos públicos recientes del canal) =====================
            Los identificadores internos (ultimas-*, grabacion__*) se conservan: la sección recibe hasta tres videos
            públicos recientes (convencionales o grabaciones de transmisiones finalizadas) mediante el evento
-           transmisiones:grabaciones. Sin integración todavía no recibe datos y muestra el estado vacío. -->
+           transmisiones:grabaciones, alimentado por /api/transmision-actual. Sin datos recibidos muestra el
+           estado vacío. -->
       <section class="transmisiones-ultimas" aria-labelledby="ultimas-heading">
         <div class="container">
           <h2 id="ultimas-heading" class="transmisiones-ultimas__title">Más de nuestra comunidad</h2>

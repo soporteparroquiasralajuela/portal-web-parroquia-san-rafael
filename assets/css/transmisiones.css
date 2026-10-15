@@ -320,6 +320,23 @@
   display: none;
 }
 
+/* En vivo pero sin permiso de incrustación: no hay iframe; se muestra el mensaje sobre el fondo. */
+.reproductor[data-estado="en-vivo"][data-incrustable="false"] .reproductor__video {
+  display: none;
+}
+
+.reproductor[data-estado="en-vivo"][data-incrustable="false"] .reproductor__fondo {
+  display: block;
+}
+
+.reproductor[data-estado="en-vivo"][data-incrustable="false"] .reproductor__mensaje {
+  display: flex;
+}
+
+.reproductor[data-estado="en-vivo"][data-incrustable="false"] [data-para="no-incrustable"] {
+  display: block;
+}
+
 /* Insignia y título: bajo el reproductor para no tapar los controles de YouTube. */
 .reproductor__info {
   display: none;
