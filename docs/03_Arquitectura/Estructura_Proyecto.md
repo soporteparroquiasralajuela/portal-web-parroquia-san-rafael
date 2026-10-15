@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Estructura_Proyecto.md |
-| Versión | 1.2 |
+| Versión | 1.3 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-10 |
+| Última actualización | 2026-10-14 |
 | Estado | Vigente |
 | Fuente | Estado real del repositorio + [CLAUDE.md](../../CLAUDE.md) sección 11 |
 
@@ -27,8 +27,8 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 │
 ├── assets/                     # Recursos estáticos
 │   ├── css/                    # variables.css, main.css, components.css (globales);
-│   │                           # home.css, parroquia.css, grupos.css, calendario.css (por página)
-│   ├── js/                     # grupos.js, proximos-eventos.js
+│   │                           # home.css, parroquia.css, grupos.css, calendario.css, transmisiones.css (por página)
+│   ├── js/                     # grupos.js, proximos-eventos.js, transmisiones.js
 │   ├── fonts/                  # (vacía)
 │   ├── icons/                  # (vacía)
 │   ├── downloads/              # (vacía)
@@ -42,9 +42,9 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 │       ├── sacerdotes/         # (vacía)
 │       └── transmisiones/      # (vacía)
 │
-├── pages/                      # parroquia.html, grupos.html, calendario.html
+├── pages/                      # parroquia.html, grupos.html, calendario.html, transmisiones.html
 ├── netlify/
-│   └── functions/              # proximos-eventos.mjs (Netlify Function de Google Calendar)
+│   └── functions/              # proximos-eventos.mjs (Google Calendar), transmision-actual.mjs (YouTube)
 ├── components/                 # Componentes de interfaz reutilizables (vacía)
 ├── config/                     # Configuración del proyecto (vacía)
 ├── data/                       # Datos del sitio (vacía)
@@ -59,22 +59,22 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 
 > Nota: Git no versiona carpetas vacías. Las carpetas marcadas como "(vacía)" existen en el entorno de trabajo del proyecto, pero no aparecen en una copia nueva del repositorio hasta que contengan archivos.
 
-> Nota: `netlify/` es la única carpeta del árbol que no figura en la lista original de CLAUDE.md sección 11. Es la ubicación estándar de las Netlify Functions y se añadió, con autorización expresa, para la integración con Google Calendar (ver [Integracion_Google_Calendar.md](Integracion_Google_Calendar.md)). No hay `netlify.toml`: Netlify detecta esta carpeta por defecto.
+> Nota: `netlify/` es la única carpeta del árbol que no figura en la lista original de CLAUDE.md sección 11. Es la ubicación estándar de las Netlify Functions y se añadió, con autorización expresa, para la integración con Google Calendar (ver [Integracion_Google_Calendar.md](Integracion_Google_Calendar.md)) y se amplió, también con autorización expresa, para la integración con YouTube (ver [Integracion_YouTube.md](Integracion_YouTube.md)). No hay `netlify.toml`: Netlify detecta esta carpeta por defecto.
 
 ## 3. Propósito de cada carpeta (según CLAUDE.md sección 11)
 
 | Carpeta | Propósito | Estado actual |
 |---|---|---|
-| `assets/css/` | Hojas de estilo del proyecto | Con contenido: 3 globales y 4 específicas de página |
-| `assets/js/` | Scripts JavaScript del sitio | Con contenido: `grupos.js` y `proximos-eventos.js` |
+| `assets/css/` | Hojas de estilo del proyecto | Con contenido: 3 globales y 5 específicas de página |
+| `assets/js/` | Scripts JavaScript del sitio | Con contenido: `grupos.js`, `proximos-eventos.js` y `transmisiones.js` |
 | `assets/img/` | Imágenes, organizadas por categoría (eventos, galería, grupos, logo, parroquia, sacerdotes, transmisiones — detalle en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md)) | Todas vacías salvo `logo/` (`Logo.jpeg`) |
 | `assets/fonts/` | Tipografías locales, si aplica | Vacía |
 | `assets/icons/` | Iconografía propia (más allá de Bootstrap Icons) | Vacía |
 | `assets/downloads/` | Archivos descargables (documentos, boletines, etc.) | Vacía |
 | `assets/videos/` | Contenido de video | Vacía |
 | `components/` | Fragmentos de interfaz reutilizables | Vacía |
-| `pages/` | Páginas del sitio distintas de `index.html` | Con contenido: Parroquia, Grupos y Calendario |
-| `netlify/functions/` | Netlify Functions (código serverless alojado en Netlify) | Con contenido: `proximos-eventos.mjs` |
+| `pages/` | Páginas del sitio distintas de `index.html` | Con contenido: Parroquia, Grupos, Calendario y Transmisiones |
+| `netlify/functions/` | Netlify Functions (código serverless alojado en Netlify) | Con contenido: `proximos-eventos.mjs` y `transmision-actual.mjs` |
 | `config/` | Archivos de configuración del proyecto | Vacía |
 | `data/` | Datos utilizados por el sitio | Vacía |
 | `scripts/` | Scripts de utilidad / automatización | Vacía |
@@ -87,7 +87,7 @@ El repositorio contenía adicionalmente un conjunto de carpetas vacías bajo `do
 
 ## 5. Mapa del sitio
 
-**Parcial.** Páginas implementadas: Inicio (`index.html`) y, en `pages/`, Parroquia, Grupos y Calendario. Aún no existen las páginas de Transmisiones, Servicios parroquiales (y sus páginas de segundo nivel) ni Contacto, aunque la navegación global ya enlaza a ellas. La arquitectura de navegación conceptual aprobada está en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 4. Un mapa del sitio formal, ligado a requerimientos funcionales confirmados, sigue pendiente (ver nota de contradicción en [Alcance.md](../01_Gestion_Proyecto/Alcance.md), sección 5, todavía no actualizada respecto a esta arquitectura conceptual).
+**Parcial.** Páginas implementadas: Inicio (`index.html`) y, en `pages/`, Parroquia, Grupos, Calendario y Transmisiones. Aún no existen las páginas de Servicios parroquiales (y sus páginas de segundo nivel) ni Contacto, aunque la navegación global ya enlaza a ellas. La arquitectura de navegación conceptual aprobada está en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 4. Un mapa del sitio formal, ligado a requerimientos funcionales confirmados, sigue pendiente (ver nota de contradicción en [Alcance.md](../01_Gestion_Proyecto/Alcance.md), sección 5, todavía no actualizada respecto a esta arquitectura conceptual).
 
 ---
 
@@ -95,6 +95,7 @@ El repositorio contenía adicionalmente un conjunto de carpetas vacías bajo `do
 
 - [Arquitectura_General.md](Arquitectura_General.md)
 - [Integracion_Google_Calendar.md](Integracion_Google_Calendar.md)
+- [Integracion_YouTube.md](Integracion_YouTube.md)
 - [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md)
 - [Alcance.md](../01_Gestion_Proyecto/Alcance.md)
 - [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md)

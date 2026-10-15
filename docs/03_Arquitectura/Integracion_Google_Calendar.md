@@ -3,10 +3,10 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Integracion_Google_Calendar.md |
-| Versión | 1.2 |
+| Versión | 1.3 |
 | Fecha de creación | 2026-10-10 |
-| Última actualización | 2026-10-11 |
-| Estado | **Vigente** — integración implementada y en producción; migración al calendario definitivo **pendiente** |
+| Última actualización | 2026-10-14 |
+| Estado | **Vigente — integración completada y operativa** con el calendario secundario institucional de la parroquia; validada y cerrada por el responsable del proyecto el 2026-10-14 |
 | Fuente | Código del repositorio (`netlify/functions/`, `assets/js/`, `index.html`, `pages/calendario.html`) y configuración confirmada por el equipo del proyecto |
 
 ---
@@ -109,15 +109,15 @@ Esta integración se configuró con la **cuenta institucional de soporte de la p
 
 No se registran aquí el nombre del proyecto de Google Cloud, su identificador ni el valor de la clave (ver sección 12).
 
-**Punto de verificación de seguridad (pendiente).** Verificar en Google Cloud que la API key esté restringida a **Google Calendar API** y únicamente a los servicios requeridos por la solución. Esta restricción técnica **no ha podido comprobarse** desde el repositorio y **no debe darse por confirmada** hasta que se verifique en la consola. Se distingue entre:
+**Punto de verificación de seguridad (dato de administración, no condiciona el estado funcional de la integración).** Verificar en Google Cloud que la API key esté restringida a **Google Calendar API** y únicamente a los servicios requeridos por la solución. Esta restricción técnica **no ha podido comprobarse** desde el repositorio y **no debe darse por confirmada** hasta que se verifique en la consola. Se distingue entre:
 
 - *"la API key fue creada y configurada para esta integración"* — **[Equipo]**, confirmado;
 - *"la API key tiene una restricción técnica exclusiva a Google Calendar API"* — **[Por verificar]**.
 
 ## 5. Configuración en Google Calendar
 
-- Se utiliza un **calendario secundario dedicado** (llamado «Calendario Parroquial» **[Equipo]**), con zona horaria `America/Costa_Rica` **[Equipo]**, creado y administrado desde la cuenta institucional de soporte de la parroquia.
-- El calendario es **TEMPORAL**: sirve para el desarrollo y la configuración. **Antes de la entrega definitiva del TCU debe migrarse** al calendario administrado por la oficina parroquial (ver sección 13).
+- Se utiliza un **calendario secundario institucional** de la parroquia, dedicado a los eventos y actividades del portal web, con zona horaria `America/Costa_Rica` **[Equipo]**, creado y administrado desde la cuenta institucional de la parroquia.
+- La integración con este calendario quedó **actualizada, funcional y finalizada**, y fue confirmada por el responsable del proyecto el 2026-10-14 **[Equipo]**. El procedimiento que se siguió, y que sirve de referencia ante un cambio futuro de calendario, está en la sección 13.
 - Contiene únicamente actividades de carácter **público**, y está disponible para consulta pública mostrando los detalles de los eventos **[Equipo]**. Esto es necesario porque tanto el embed de la página Calendario como la consulta con API key solo pueden leer calendarios públicos.
 - Su identificador se entrega a la Function mediante la variable `GOOGLE_CALENDAR_ID`. El ID **no es una credencial secreta** (cualquiera puede verlo en el iframe público de [pages/calendario.html](../../pages/calendario.html)), pero **no se reproduce** en esta documentación.
 - **Nunca** debe documentarse ni usarse la dirección iCal **privada/secreta** del calendario.
@@ -150,7 +150,7 @@ Las variables se administran en el panel de Netlify (proyecto → variables de e
 
 | Variable | Finalidad | Configuración conocida [Equipo] |
 |---|---|---|
-| `GOOGLE_CALENDAR_ID` | Identifica el calendario que consulta la Function. **No es secreta.** | Configurada en Netlify y disponible para todos los contextos de despliegue. Actualmente apunta al calendario **temporal** de desarrollo; su valor deberá sustituirse al migrar. |
+| `GOOGLE_CALENDAR_ID` | Identifica el calendario que consulta la Function. **No es secreta.** | Configurada en Netlify y disponible para todos los contextos de despliegue. Apunta al calendario secundario institucional de la parroquia (integración cerrada el 2026-10-14). Su valor se sustituye solo si se cambia de calendario (sección 13). |
 | `GOOGLE_CALENDAR_API_KEY` | API key creada en Google Cloud para consultar Google Calendar API. **Es secreta.** | Marcada en Netlify como variable con **valor secreto**. Tiene valor **únicamente en Production**; los demás contextos están sin valor. Scopes habilitados: **Builds, Functions y Runtime** (Post processing no está incluido). |
 
 ### 6.2 Consecuencia de que la API key exista solo en Production
@@ -372,6 +372,8 @@ Desde la mejora publicada en el commit `7b0b821acfefbc5822b2faf7b9b90a943d895352
 
 El iframe lleva `loading="lazy"` y un `title` descriptivo. El botón «Abrir en Google Calendar» abre la vista pública del mismo calendario en una pestaña nueva (`target="_blank"`, `rel="noopener noreferrer"`).
 
+**Calendario referenciado (actualización 2026-10-13).** Desde el commit `4bfa4e2276cc5018cfab86985cb591e2a067a2f5` el iframe y el enlace «Abrir en Google Calendar» apuntan al **calendario secundario del sitio web** de la cuenta institucional (cambio de 2 líneas en `pages/calendario.html`). **[Código]** El identificador no se reproduce en este documento. La integración completa (página Calendario y «Próximos eventos») con ese calendario fue **confirmada como actualizada, funcional y finalizada** por el responsable del proyecto el 2026-10-14; no se repitieron pruebas técnicas para ese cierre. **[Equipo]**
+
 **Limitación conocida (verificada durante la validación).** En pantallas muy pequeñas (≈375 px de ancho) la vista **mensual** del embed de Google no cabe en el iframe: se corta la última columna de la semana y los controles «Hoy» y de cambio de vista quedan fuera de vista, sin desplazamiento horizontal para alcanzarlos. La vista **Agenda** sí se lee correctamente en ese ancho. No se ha resuelto; queda pendiente de decisión.
 
 ## 12. Registro de administración
@@ -384,21 +386,21 @@ El iframe lleva `loading="lazy"` y un `title` descriptivo. El botón «Abrir en 
 | Tipo de credencial | API key (sin OAuth) | [Equipo] |
 | Restricción técnica de la API key | **Punto de verificación de seguridad**: comprobar que esté restringida a Google Calendar API | [Por verificar] |
 | Responsable administrativo de la integración | Por confirmar | [Por verificar] |
-| Cuenta propietaria del calendario actual | Cuenta institucional de soporte de la parroquia (calendario **temporal**) | [Equipo] |
-| Nombre del calendario actual | «Calendario Parroquial» (calendario secundario dedicado) | [Equipo] |
-| Cuenta propietaria del sitio en Netlify | Por confirmar | [Por verificar] |
-| Fecha de configuración | Por completar (el trabajo asociado se registra en la Sesión 11 de [Bitacora_Horas_TCU.md](../01_Gestion_Proyecto/Bitacora_Horas_TCU.md)) | [Por verificar] |
-| Estado de migración al calendario definitivo | **Pendiente** | — |
+| Calendario actual | Calendario secundario institucional de la parroquia, dedicado a los eventos del portal web, en la cuenta institucional | [Equipo] |
+| Calendario referenciado por la página Calendario desde 2026-10-13 | Calendario secundario del sitio web (commit `4bfa4e2`) | [Código] |
+| Estado de la integración con el calendario | **Completada, funcional y finalizada**; cerrada por el responsable del proyecto el 2026-10-14 | [Equipo] |
+| Cuenta propietaria del sitio en Netlify | No registrada en el repositorio | — |
+| Fecha de configuración | Sesiones 11 y 14 de [Bitacora_Horas_TCU.md](../01_Gestion_Proyecto/Bitacora_Horas_TCU.md) | [Equipo] |
 
 Este registro **nunca** debe contener API keys, contraseñas, tokens, direcciones iCal privadas ni datos de recuperación de cuentas.
 
-## 13. Migración pendiente al calendario definitivo de la oficina parroquial
+## 13. Cambio de calendario: migración al calendario institucional (completada)
 
-> **Pendiente formal antes de la entrega final del TCU.** La solución usa hoy un calendario **temporal** asociado a la cuenta institucional de soporte. El objetivo es que la oficina parroquial administre el calendario definitivo y que la solución no dependa de la cuenta de soporte del proyecto.
+> **Estado: completada.** El calendario inicial, asociado a la cuenta institucional de soporte, se sustituyó por el calendario secundario institucional de la parroquia (Sesión 14, 2026-10-13). El responsable del proyecto confirmó el 2026-10-14 que la integración está actualizada, funcional y finalizada. Esta sección se conserva como **procedimiento de referencia** ante un eventual cambio futuro de calendario y como registro histórico de lo que se estableció durante la implementación.
 
-> **Relación con el congelamiento temporal (2026-10-10):** el congelamiento de la estructura de Calendario e Inicio ([Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9) **no cierra ni modifica** esta migración, ni la incorporación de eventos reales, ni la limitación del embed a ≈ 375 px: siguen pendientes.
+> **Relación con el congelamiento temporal (2026-10-10):** el congelamiento de la estructura de Calendario e Inicio ([Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9) no modifica esta integración. La incorporación de eventos reales y la limitación del embed a ≈ 375 px (sección 11) **no forman parte de esta integración** y siguen abiertas.
 
-Hay **dos componentes independientes** que deben actualizarse.
+Un cambio de calendario involucra **dos componentes independientes** que deben actualizarse.
 
 ### 13.1 A. Próximos eventos (Inicio)
 
@@ -418,12 +420,16 @@ Actualizar **por separado** [pages/calendario.html](../../pages/calendario.html)
 
 > **Cambiar `GOOGLE_CALENDAR_ID` en Netlify NO modifica automáticamente el iframe ni el enlace de `pages/calendario.html`.** El identificador del iframe está escrito en ese archivo HTML y debe cambiarse manualmente.
 
-### 13.3 Validación final de la migración
+### 13.3 Validación de un cambio de calendario
 
-- [ ] Calendario y Próximos eventos muestran el **mismo calendario definitivo**.
-- [ ] No quedan referencias funcionales al calendario temporal.
-- [ ] No se expusieron secretos durante la migración (nada de claves ni direcciones iCal privadas en Git, capturas o documentos).
-- [ ] Se actualizó el registro de administración (sección 12) y la [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md).
+Lista de verificación para cualquier cambio futuro:
+
+- Calendario y Próximos eventos muestran el **mismo calendario**.
+- No quedan referencias funcionales al calendario anterior.
+- No se expusieron secretos (nada de claves ni direcciones iCal privadas en Git, capturas o documentos).
+- Se actualizó el registro de administración (sección 12) y la [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md).
+
+Para el cambio realizado en la Sesión 14, esta validación fue confirmada por el responsable del proyecto el 2026-10-14. **[Equipo]**
 
 ## 14. Mantenimiento y diagnóstico
 
@@ -503,11 +509,14 @@ Estas pruebas se ejecutaron con scripts temporales que **no forman parte del rep
 - Directorio de publicación en Netlify.
 - Fecha de configuración de Google Cloud y Netlify.
 
+Estos puntos son datos de administración que no se registran en el repositorio; **no afectan** el estado de la integración, que está completada y operativa.
+
 ---
 
 ## Documentos relacionados
 
 - [Integraciones.md](Integraciones.md)
+- [Integracion_YouTube.md](Integracion_YouTube.md)
 - [Arquitectura_General.md](Arquitectura_General.md)
 - [Estructura_Proyecto.md](Estructura_Proyecto.md)
 - [Netlify.md](../07_Despliegue/Netlify.md)

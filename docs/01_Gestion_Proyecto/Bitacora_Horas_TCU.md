@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.10 |
+| Versión | 1.11 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-10-11 |
+| Última actualización | 2026-10-14 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -21,6 +21,8 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 > **Nota sobre el orden cronológico y las fases:** a partir de la versión 1.4 de este documento se incorpora el campo **Fase**, que clasifica cada sesión según la distribución oficial de horas por fase del anteproyecto del TCU (ver sección 4). Las Sesiones 1 a 3 (agosto de 2026) corresponden a trabajo técnico preliminar — definición de arquitectura, entorno de desarrollo, integración de plataformas y primera implementación del sitio — realizado *antes* de la primera reunión formal de levantamiento de necesidades (Sesión 4, septiembre de 2026, Fase 1). Esto invierte el orden esperado entre las Fases 1 y 2 del anteproyecto; se documenta tal como ocurrió, sin reordenar ni reinterpretar retroactivamente las actividades ya registradas.
 
 > **Corrección de fechas de las Sesiones 10 y 11 (2026-10-11):** el responsable del proyecto confirmó que la Sesión 10 corresponde al **03/10/2026** (antes registrada como 09/10/2026) y la Sesión 11 al **04/10/2026** (antes registrada como 10/10/2026). Se conservaron sus horarios, duraciones, fases y actividades; la corrección no modifica los totales de horas.
+
+> **Incorporación de las Sesiones 14 y 15 (2026-10-14):** el responsable del proyecto confirmó las fechas, los horarios y las duraciones de las jornadas del 13/10/2026 (Sesión 14, 2 horas) y del 14/10/2026 (Sesión 15, 4 horas). Las Sesiones 1 a 13 y sus 36 horas no se modificaron; el acumulado pasa a 42 horas. La Sesión 15 abarca dos fases (4 y 5) y sus 4 horas se distribuyen entre ellas sin contarse dos veces. El diseño y desarrollo inicial de la página Transmisiones (Fase 1 visual) ya fue contabilizado en la Sesión 13 y no se vuelve a registrar.
 
 ## 03/08/2026
 
@@ -304,6 +306,51 @@ Quedó completada y validada la Fase 1 visual de Transmisiones, versionada local
 
 ---
 
+## Sesión 14 — 13/10/2026 (Noche)
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 6:00 p. m. – 8:00 p. m.
+
+**Horas dedicadas:** 2 horas
+
+**Labores realizadas:**
+- Revisión de la integración del calendario parroquial con Google Calendar, tanto en la página Calendario (calendario embebido) como en la sección «Próximos eventos» de Inicio.
+- Ajuste de la página Calendario para utilizar el calendario secundario institucional destinado a los eventos y actividades del portal web.
+- Actualización de la referencia al calendario en el calendario embebido y en el enlace «Abrir en Google Calendar» de `pages/calendario.html` (commit `4bfa4e2`, 13/10/2026 7:05 p. m.).
+- Verificación de la integración y de la visualización de la información parroquial.
+- Revisión de la continuidad administrativa de la solución mediante la cuenta institucional de la parroquia, utilizando un calendario secundario en lugar del calendario principal de la cuenta.
+
+**Resultado obtenido:**
+La página Calendario quedó referenciando el calendario secundario del sitio web, administrado desde la cuenta institucional, y fue publicada. El cambio en el repositorio se limita a esa referencia. La integración con el calendario secundario institucional quedó **actualizada, funcional y finalizada**, y así fue confirmada por el responsable del proyecto el 2026-10-14 (ver [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md), sección 13).
+
+---
+
+## Sesión 15 — 14/10/2026 (Noche)
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica (2 horas) y Fase 5 — Validación, ajustes y revisión de la solución implementada (2 horas)
+
+**Horario:** 7:00 p. m. – 11:00 p. m.
+
+**Horas dedicadas:** 4 horas (2 en la Fase 4 y 2 en la Fase 5)
+
+**Labores realizadas — Fase 4 (integración, ajustes y publicación):**
+- **Integración técnica:** implementación y configuración de la integración con YouTube Data API v3 mediante una Netlify Function (`transmision-actual`); conexión de `transmisiones.js` con `/api/transmision-actual`; manejo de transmisión activa, ausencia de transmisión y errores de consulta; verificación de que las credenciales no se expongan en el navegador.
+- **Ajustes visuales y funcionales:** mejoras en la sección «Más de nuestra comunidad» (presentación de los videos recientes y diferenciación entre carga en curso, error y ausencia de videos); ajustes del reproductor para transmisiones incrustables y no incrustables; revisión del comportamiento de los botones «Ver en YouTube» y «Copiar enlace»; mejoras en los mensajes de estado y en la accesibilidad para lectores de pantalla; conservación del diseño institucional aprobado.
+- **Control de versiones y publicación:** revisión de cambios y pruebas antes de publicar; publicación inicial de la página y de la integración del lado del servidor (commits `45416f2`, `26f5dad` y `cf3b751`); publicación de la conexión del frontend con YouTube (commit `27560ca`); verificación del sitio desplegado en Netlify.
+
+**Labores realizadas — Fase 5 (pruebas y validación):**
+- Pruebas funcionales locales con respuestas simuladas de la API (transmisión activa, no incrustable, ausencia de transmisión, canal sin videos, errores, tiempo de espera, recuperación y pestaña visible u oculta).
+- Validaciones responsive en 375, 768 y 1280 píxeles.
+- Prueba de detección y reproducción de una transmisión pública real, con identificación y corrección de la configuración «Permitir inserción» en YouTube Studio, y comprobación del retiro automático del estado «EN VIVO» al finalizar.
+- Publicación de un video público normal («Banner Parroquia») y comprobación de su aparición automática en «Más de nuestra comunidad».
+- Investigación técnica del comportamiento de las grabaciones de transmisiones finalizadas, tras la cual el responsable del proyecto decidió no continuar con esa funcionalidad (ver el resultado obtenido).
+
+**Resultado obtenido:**
+La página Transmisiones quedó publicada y conectada con YouTube, y **funcional dentro del alcance aprobado**: detecta la transmisión activa, la reproduce de forma integrada cuando YouTube lo permite (o ofrece el acceso alternativo a YouTube cuando no es incrustable), retira el estado «EN VIVO» al finalizar y muestra automáticamente los videos públicos normales recientes en «Más de nuestra comunidad». **Decisión de alcance:** la visualización automática de las grabaciones de transmisiones finalizadas queda excluida del TCU por decisión definitiva del responsable del proyecto; no se trata como error pendiente (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md), sección 10).
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -321,26 +368,30 @@ Quedó completada y validada la Fase 1 visual de Transmisiones, versionada local
 | Sesión 11 (04/10/2026) - Mañana | Fase 4 | Desarrollo de Calendario e integración técnica del calendario parroquial con Inicio | 4 |
 | Sesión 12 (10/10/2026) - Mañana | Fase 1 | Reunión de seguimiento con la oficina parroquial y coordinación de contenidos | 2 |
 | Sesión 13 (11/10/2026) - Noche | Fase 4 | Fase 1 visual de Transmisiones, revisión de la integración con YouTube y enlace de ubicación de eventos | 3 |
+| Sesión 14 (13/10/2026) - Noche | Fase 4 | Ajuste de la integración de Google Calendar al calendario secundario institucional | 2 |
+| Sesión 15 (14/10/2026) - Noche | Fase 4 y Fase 5 | Integración, publicación y pruebas de YouTube en Transmisiones (2 h en Fase 4 y 2 h en Fase 5) | 4 |
 
-**Total acumulado:** 36 horas
+**Total acumulado:** 42 horas en 15 sesiones, de las **150 horas oficiales** del TCU (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15)
 
 ---
 
 ## 4. Seguimiento por fase (anteproyecto TCU)
 
-Las fases y horas estimadas corresponden a la distribución oficial de horas por fase establecida en el anteproyecto del TCU. Las horas estimadas son de planificación y no constituyen límites rígidos; las horas registradas reflejan únicamente el trabajo real ya documentado en la sección 2.
+Las fases y horas estimadas corresponden a la **planificación provisional** de horas por fase tomada del anteproyecto del TCU (160 horas en total; el requisito oficial del TCU es de 150 horas). Las horas estimadas son de planificación y no constituyen límites rígidos; las horas registradas reflejan únicamente el trabajo real ya documentado en la sección 2.
 
 | Fase | Periodo estimado | Horas estimadas | Horas registradas | Horas pendientes estimadas |
 |---|---|---:|---:|---:|
 | Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 5 | 5 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 20 | 40 |
-| Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 0 | 15 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 24 | 36 |
+| Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 2 | 13 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **36** | **124** |
+| **Total** | — | **160** | **42** | **118** |
 
-> **Nota sobre la meta de horas:** la distribución de **160 horas** de esta tabla es la planificación documental tomada del anteproyecto y se mantiene temporalmente. La meta oficial de **150 horas** del TCU requiere una conciliación posterior; esta tabla no se modificó automáticamente y la distribución por fase no se ha alterado.
+> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. La Sesión 14 (2 horas) se registra completa en la Fase 4.
+
+> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (42)** son las efectivamente trabajadas y no dependen de esa conciliación: 42 de 150 horas oficiales.
 
 ---
 
@@ -348,4 +399,5 @@ Las fases y horas estimadas corresponden a la distribución oficial de horas por
 
 - [Bitacora.md](Bitacora.md)
 - [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md)
+- [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md)
 - [Cronograma.md](Cronograma.md)

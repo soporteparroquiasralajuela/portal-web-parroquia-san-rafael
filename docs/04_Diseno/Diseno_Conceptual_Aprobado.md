@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.4 |
+| Versión | 1.5 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-10-10 |
+| Última actualización | 2026-10-14 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -123,7 +123,7 @@ Estas decisiones son de **dirección conceptual**, no requerimientos funcionales
 - Se plantea utilizar **Google Calendar embebido**.
 - Google Calendar funcionará como fuente de actualización del calendario parroquial.
 - Objetivo: evitar mantener manualmente los eventos directamente en el código.
-- Estado: **implementado**. La página Calendario muestra el calendario embebido de Google, y la sección «Próximos eventos» de Inicio consume el mismo calendario mediante Google Calendar API y una Netlify Function. El calendario actual es **temporal**; su migración al calendario de la oficina parroquial está pendiente. Detalle en [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md).
+- Estado: **implementado**. La página Calendario muestra el calendario embebido de Google, y la sección «Próximos eventos» de Inicio consume el mismo calendario mediante Google Calendar API y una Netlify Function. La integración con el calendario secundario institucional de la parroquia está **completada y operativa** (cerrada el 2026-10-14). Detalle en [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md).
 
 ### Contacto
 - Se plantea utilizar un **formulario embebido de Google Forms** para consultas generales.
@@ -212,12 +212,12 @@ Páginas principales (en este orden de trabajo — ya cuentan con diseño concep
 | — | Inicio (referencia de los elementos globales) | Implementada y dentro de la línea base temporal (sección 8.6) |
 | 1 | Parroquia | Implementada y dentro de la línea base temporal |
 | 2 | Grupos | Implementada y dentro de la línea base temporal |
-| 3 | Calendario | Implementada y dentro de la línea base temporal; la migración al calendario definitivo, los eventos reales y la limitación del embed a ≈ 375 px siguen pendientes |
-| 4 | Transmisiones | Pendiente de implementación |
+| 3 | Calendario | Implementada y dentro de la línea base temporal; integración con el calendario secundario institucional completada (2026-10-14). Siguen pendientes los eventos reales y la limitación del embed a ≈ 375 px |
+| 4 | Transmisiones | Implementada, publicada y funcional dentro del alcance aprobado (2026-10-14), con integración con YouTube validada con una transmisión pública real; **no congelada**. Pendientes de contenido: la fotografía institucional y la validación con la parroquia. Excluida del alcance, por decisión del proyecto, la visualización automática de grabaciones de transmisiones finalizadas (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md)) |
 | 5 | Servicios parroquiales | Pendiente de implementación |
 | 6 | Contacto | Pendiente de implementación |
 
-«Implementada» se refiere a la estructura: el contenido real, su validación con la parroquia y la aceptación final siguen pendientes en las cuatro páginas existentes (sección 8.6).
+«Implementada» se refiere a la estructura: el contenido real, su validación con la parroquia y la aceptación final siguen pendientes en las cinco páginas existentes (sección 8.6).
 
 Páginas de segundo nivel (posteriormente, según alcance e información validada; pendientes de implementación): Sacramentos, Gestiones, Documentos e información, páginas individuales de grupos, y otras páginas internas futuras.
 
@@ -253,7 +253,7 @@ Se distinguen tres estados que no deben confundirse:
 2. **Incorporación y validación de contenido real:** sustitución de placeholders y contenido provisional por información suministrada o validada por la parroquia.
 3. **Aceptación final:** etapa posterior, tras incorporar el contenido real, validar y atender los ajustes.
 
-Este congelamiento aplica solo a lo implementado. Transmisiones, Servicios parroquiales, Sacramentos, Gestiones, Documentos e información y Contacto cuentan con diseño conceptual (sección 6), pero **no están implementados ni congelados**: seguirán el ciclo de la sección 8.5 cuando se autorice su desarrollo. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
+Este congelamiento aplica solo a las cuatro páginas indicadas. Transmisiones está **implementada y publicada, pero no congelada**. Servicios parroquiales, Sacramentos, Gestiones, Documentos e información y Contacto cuentan con diseño conceptual (sección 6), pero **no están implementados ni congelados**: seguirán el ciclo de la sección 8.5 cuando se autorice su desarrollo. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
 
 ## 9. Estado del diseño
 

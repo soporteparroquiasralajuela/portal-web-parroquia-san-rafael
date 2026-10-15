@@ -15,7 +15,8 @@ Si te incorporas al proyecto por primera vez, léelos en este orden antes de toc
 5. [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) — estado técnico actual y cómo previsualizar el sitio.
 6. [Convenciones.md](05_Desarrollo/Convenciones.md), [Bootstrap.md](05_Desarrollo/Bootstrap.md), [HTML.md](05_Desarrollo/HTML.md), [CSS.md](05_Desarrollo/CSS.md), [JavaScript.md](05_Desarrollo/JavaScript.md) — estándares obligatorios antes de escribir código.
 7. [Bitacora.md](01_Gestion_Proyecto/Bitacora.md) — historial de eventos y decisiones (incluye control de cambios).
-8. [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md) — cómo funcionan, se configuran y se mantienen las integraciones con Google Calendar (incluye la migración pendiente al calendario definitivo).
+8. [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md) — cómo funcionan, se configuran y se mantienen las integraciones con Google Calendar (integración completada; incluye el procedimiento de cambio de calendario).
+9. [Integracion_YouTube.md](03_Arquitectura/Integracion_YouTube.md) — cómo funcionan, se configuran y se mantienen la integración con YouTube y la Netlify Function `transmision-actual` (incluye el alcance aprobado y la exclusión de las grabaciones de transmisiones finalizadas).
 
 ```mermaid
 flowchart TD
@@ -55,9 +56,10 @@ flowchart TD
 | Documento | Estado |
 |---|---|
 | [Arquitectura_General.md](03_Arquitectura/Arquitectura_General.md) | ✅ Vigente |
-| [Estructura_Proyecto.md](03_Arquitectura/Estructura_Proyecto.md) | ✅ Vigente (actualizada 2026-10-10 con el estado real del repositorio; actualización previa del 2026-09-16 con recursos gráficos reales) |
-| [Integraciones.md](03_Arquitectura/Integraciones.md) | 🟡 Google Calendar y Netlify implementadas; las demás previstas (incluye convención para documentación de integraciones) |
-| [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md) | ✅ Vigente (migración al calendario definitivo pendiente) |
+| [Estructura_Proyecto.md](03_Arquitectura/Estructura_Proyecto.md) | ✅ Vigente (actualizada 2026-10-14 con el estado real del repositorio, incluida la página Transmisiones y la segunda Netlify Function) |
+| [Integraciones.md](03_Arquitectura/Integraciones.md) | 🟡 Google Calendar, YouTube y Netlify implementadas; las demás previstas (incluye convención para documentación de integraciones) |
+| [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md) | ✅ Vigente — integración completada y operativa con el calendario secundario institucional (cerrada el 2026-10-14) |
+| [Integracion_YouTube.md](03_Arquitectura/Integracion_YouTube.md) | ✅ Vigente — funcional dentro del alcance aprobado y validada con una transmisión pública real; grabaciones de transmisiones finalizadas excluidas del alcance |
 
 ## 04. Diseño
 
@@ -83,14 +85,14 @@ flowchart TD
 | Documento | Estado |
 |---|---|
 | [Plan_Pruebas.md](06_Pruebas/Plan_Pruebas.md) | ⏳ Pendiente |
-| [Evidencias.md](06_Pruebas/Evidencias.md) | ⏳ Pendiente |
+| [Evidencias.md](06_Pruebas/Evidencias.md) | 🟡 Parcial (pruebas simuladas y reales de la integración con YouTube, 2026-10-14) |
 | [Checklist_Calidad.md](06_Pruebas/Checklist_Calidad.md) | 🟡 Plantilla vigente |
 
 ## 07. Despliegue
 
 | Documento | Estado |
 |---|---|
-| [Netlify.md](07_Despliegue/Netlify.md) | 🟡 Parcial (rama `main` y variables de entorno confirmadas; directorio de publicación por confirmar) |
+| [Netlify.md](07_Despliegue/Netlify.md) | 🟡 Parcial (rama `main`, dos Netlify Functions y variables de entorno confirmadas; directorio de publicación por confirmar) |
 | [Dominio.md](07_Despliegue/Dominio.md) | ⏳ Pendiente |
 | [Cloudflare.md](07_Despliegue/Cloudflare.md) | ⏳ Pendiente |
 | [Checklist_Despliegue.md](07_Despliegue/Checklist_Despliegue.md) | 🟡 Plantilla vigente |
@@ -99,7 +101,7 @@ flowchart TD
 
 | Documento | Estado |
 |---|---|
-| [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) | 🟡 Vigente (sección de Mantenimiento pendiente). Incluye la línea base temporal de las páginas implementadas (sección 9, actualizada 2026-10-10): estructura congelada temporalmente, contenido real pendiente de validación |
+| [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) | 🟡 Vigente (sección de Mantenimiento pendiente). Incluye la línea base temporal de las páginas implementadas (sección 9; estado de Transmisiones y de las integraciones actualizado 2026-10-14): estructura congelada temporalmente, contenido real pendiente de validación; resumen de la integración con YouTube en la sección 11 |
 | [Manual_Usuario.md](08_Manuales/Manual_Usuario.md) | ⏳ Pendiente |
 
 ## 09. Entregables
@@ -118,6 +120,8 @@ flowchart TD
 Tras una auditoría documental inicial se evaluó crear cuatro documentos nuevos (Control de Cambios, detalle de integraciones, manual de mantenimiento, glosario). Tras una segunda revisión crítica se decidió **no crear ninguno** de ellos como archivo nuevo, para no introducir duplicación ni contenido especulativo, y en su lugar ampliar documentos ya existentes ([Bitacora.md](01_Gestion_Proyecto/Bitacora.md), [Integraciones.md](03_Arquitectura/Integraciones.md), [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md)). El detalle de esta decisión está registrado en [Bitacora.md](01_Gestion_Proyecto/Bitacora.md).
 
 **Actualización (2026-10-10):** al implementarse la primera integración real (Google Calendar), se creó su documento dedicado [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md), conforme a la convención de [Integraciones.md](03_Arquitectura/Integraciones.md), sección 4: la configuración y el mantenimiento de una integración activa no caben en los documentos existentes sin duplicación. Sigue vigente el criterio de no crear documentos por integraciones que aún no existen.
+
+**Actualización (2026-10-14):** al implementarse la segunda integración real (YouTube), se creó su documento dedicado [Integracion_YouTube.md](03_Arquitectura/Integracion_YouTube.md), aplicando la misma convención de [Integraciones.md](03_Arquitectura/Integraciones.md), sección 4. No se crearon otros documentos.
 
 ## Gobierno documental
 
