@@ -215,29 +215,17 @@
 }
 
 .reproductor__fondo .img-placeholder {
-  align-items: flex-start;
-  justify-content: flex-start;
   height: 100%;
   min-height: 0;
   border-radius: 0;
 }
 
-.reproductor__fondo .img-placeholder i {
-  display: none;
-}
-
-/* Marca discreta que identifica el marcador de la fotografía pendiente. */
+/* Marcador provisional: se oculta el ícono y el texto «Fotografía institucional pendiente…»
+   (display: none también los retira de la lectura de los lectores de pantalla). El contenedor
+   se conserva para incorporar la fotografía oficial cuando la entregue la parroquia. */
+.reproductor__fondo .img-placeholder i,
 .reproductor__fondo .img-placeholder span {
-  position: relative;
-  z-index: 1;
-  max-width: calc(100% - var(--space-2));
-  margin: var(--space-1);
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  background-color: rgba(255, 255, 255, 0.88);
-  font-size: 12px;
-  line-height: 1.3;
-  text-align: left;
+  display: none;
 }
 
 .reproductor__video {
@@ -258,11 +246,23 @@
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--space-2);
   background: linear-gradient(0deg, rgba(20, 29, 57, 0.78) 0%, rgba(20, 29, 57, 0.6) 100%);
   text-align: center;
+}
+
+/* Texto de apoyo bajo el mensaje principal del estado «sin transmisión». */
+.reproductor__apoyo {
+  display: none;
+  max-width: 42ch;
+  margin: var(--space-1) 0 0;
+  font-size: var(--fs-body-sm);
+  line-height: 1.45;
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
 }
 
 .reproductor__texto {
@@ -425,24 +425,38 @@
   pointer-events: none;
 }
 
-.transmisiones-noscript {
-  margin: var(--space-2) 0 0;
-  color: var(--color-text-secondary);
-}
-
 @media (min-width: 576px) {
   .transmisiones-acciones {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* ===== Últimas transmisiones ===== */
+/* ===== Más de nuestra comunidad (identificadores internos: ultimas / grabacion) ===== */
 .transmisiones-ultimas {
   padding-block: 0 var(--space-6);
 }
 
 .transmisiones-ultimas__title {
+  margin-bottom: var(--space-1);
+}
+
+.transmisiones-ultimas__descripcion {
   margin-bottom: var(--space-3);
+  color: var(--color-text-secondary);
+}
+
+.transmisiones-ultimas__accion {
+  margin-top: var(--space-3);
+}
+
+.transmisiones-ultimas__accion .btn i {
+  margin-right: 8px;
+}
+
+@media (max-width: 575.98px) {
+  .transmisiones-ultimas__accion .btn {
+    width: 100%;
+  }
 }
 
 .transmisiones-ultimas__vacio {

@@ -256,17 +256,19 @@
       <!-- ===================== REPRODUCTOR PRINCIPAL ===================== -->
       <!-- Estados (atributo data-estado, gestionado por assets/js/transmisiones.js):
            comprobando | en-vivo | sin-transmision | error.
-           En esta fase no se consulta ninguna API: la página no verifica transmisiones reales. -->
+           PROVISIONAL: todavía no existe la integración con YouTube, por lo que la página no verifica
+           transmisiones reales y muestra «sin transmisión» por defecto. Eso NO es una detección real
+           de ausencia de transmisión. -->
       <section class="transmisiones-reproductor" aria-labelledby="reproductor-heading">
         <div class="container">
           <h2 id="reproductor-heading" class="visually-hidden">Transmisión en vivo</h2>
 
-          <div class="reproductor" id="reproductor" data-estado="comprobando" aria-busy="true">
+          <div class="reproductor" id="reproductor" data-estado="sin-transmision" aria-busy="false">
             <div class="reproductor__pantalla">
               <!-- Marcador de la fotografía institucional del estado sin transmisión.
                    Fotografía oficial pendiente de recibir de la parroquia (assets/img/transmisiones/). -->
               <div class="reproductor__fondo">
-                <div class="img-placeholder">
+                <div class="img-placeholder" aria-hidden="true">
                   <i class="bi bi-image" aria-hidden="true"></i>
                   <span>Fotografía institucional pendiente de sustituir por una imagen real de la parroquia</span>
                 </div>
@@ -281,6 +283,9 @@
                   Comprobando si hay una transmisión en este momento…
                 </p>
                 <p class="reproductor__texto" data-para="sin-transmision">En este momento no estamos transmitiendo</p>
+                <p class="reproductor__apoyo" data-para="sin-transmision">
+                  Para consultar nuestras transmisiones y otros contenidos, visitá nuestro canal oficial de YouTube
+                </p>
                 <p class="reproductor__texto" data-para="error">
                   <i class="bi bi-exclamation-circle" aria-hidden="true"></i>
                   No fue posible comprobar si hay una transmisión en este momento.
@@ -297,22 +302,22 @@
 
           <!-- Anuncio accesible de los cambios de estado -->
           <p class="visually-hidden" id="transmision-anuncio" role="status">
-            Comprobando si hay una transmisión en este momento.
+            En este momento no estamos transmitiendo.
           </p>
 
-          <!-- Botones: sin dirección configurada permanecen sin enlace y marcados como no disponibles. -->
+          <!-- Botones: «Ver en YouTube» abre el canal oficial cuando no hay un directo activo (con directo,
+               transmisiones.js lo dirige al video); «Copiar enlace» permanece deshabilitado sin directo. -->
           <div class="transmisiones-acciones">
             <a
               class="btn btn-youtube"
               id="btn-youtube"
-              role="link"
-              tabindex="0"
-              aria-disabled="true"
-              aria-describedby="acciones-ayuda"
+              href="https://www.youtube.com/@ParroquiaSanRafaeldeAlajuela"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <i class="bi bi-youtube" aria-hidden="true"></i>
               Ver en YouTube
-              <span class="visually-hidden" data-nueva-pestana hidden>(se abre en una pestaña nueva)</span>
+              <span class="visually-hidden" data-nueva-pestana>(se abre en una pestaña nueva)</span>
             </a>
             <button
               type="button"
@@ -326,26 +331,39 @@
             </button>
           </div>
           <p class="visually-hidden" id="acciones-ayuda">
-            Estos botones se habilitan cuando hay una transmisión en curso o cuando el canal oficial esté configurado.
+            El botón «Copiar enlace» se habilita cuando hay una transmisión en curso.
           </p>
-
-          <noscript>
-            <p class="transmisiones-noscript">
-              Para comprobar si hay una transmisión en este momento es necesario activar JavaScript en el navegador.
-            </p>
-          </noscript>
         </div>
       </section>
 
-      <!-- ===================== ÚLTIMAS TRANSMISIONES (estructura lista; sin datos reales todavía) ===================== -->
+      <!-- ===================== MÁS DE NUESTRA COMUNIDAD (videos públicos recientes del canal) =====================
+           Los identificadores internos (ultimas-*, grabacion__*) se conservan: la sección recibe hasta tres videos
+           públicos recientes (convencionales o grabaciones de transmisiones finalizadas) mediante el evento
+           transmisiones:grabaciones. Sin integración todavía no recibe datos y muestra el estado vacío. -->
       <section class="transmisiones-ultimas" aria-labelledby="ultimas-heading">
         <div class="container">
-          <h2 id="ultimas-heading" class="transmisiones-ultimas__title">Últimas transmisiones</h2>
+          <h2 id="ultimas-heading" class="transmisiones-ultimas__title">Más de nuestra comunidad</h2>
+          <p class="transmisiones-ultimas__descripcion">
+            Celebraciones, actividades, reflexiones y otros contenidos de nuestro canal de YouTube
+          </p>
 
-          <p class="transmisiones-ultimas__vacio" id="ultimas-vacio">Aún no hay grabaciones para mostrar.</p>
+          <p class="transmisiones-ultimas__vacio" id="ultimas-vacio">Todavía no hay videos públicos para mostrar</p>
 
-          <!-- Hasta tres tarjetas; permanece oculta mientras no existan grabaciones reales. -->
+          <!-- Hasta tres tarjetas; permanece oculta mientras no existan videos reales. -->
           <ul class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 list-unstyled mb-0" id="ultimas-lista" hidden></ul>
+
+          <div class="transmisiones-ultimas__accion">
+            <a
+              class="btn btn-outline-primary"
+              href="https://www.youtube.com/@ParroquiaSanRafaeldeAlajuela"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="bi bi-youtube" aria-hidden="true"></i>
+              Explorar nuestro canal de YouTube
+              <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+            </a>
+          </div>
 
           <template id="plantilla-grabacion">
             <li class="col">
@@ -436,7 +454,12 @@
                 </a>
               </li>
               <li>
-                <a href="#" aria-label="YouTube de la parroquia (enlace pendiente de confirmar)">
+                <a
+                  href="https://www.youtube.com/@ParroquiaSanRafaeldeAlajuela"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube de la parroquia (se abre en una pestaña nueva)"
+                >
                   <i class="bi bi-youtube" aria-hidden="true"></i>
                 </a>
               </li>

@@ -1,4 +1,4 @@
-// Transmisiones — estados del reproductor y estructura de "Últimas transmisiones".
+// Transmisiones — estados del reproductor y sección «Más de nuestra comunidad».
 //
 // Fase 1: solo la parte visual. Este archivo NO realiza ninguna solicitud de red
 // (no consulta YouTube ni ninguna otra API) y no simula transmisiones. La futura
@@ -7,7 +7,10 @@
 //
 //   "transmisiones:estado"      detail: { estado: "comprobando" | "sin-transmision" | "error" }
 //                               detail: { estado: "en-vivo", videoId, titulo }
-//   "transmisiones:grabaciones" detail: { grabaciones: [{ videoId, titulo, publicadoEn }] }  (máx. 3)
+//   "transmisiones:grabaciones" detail: { grabaciones: [{ videoId, titulo, publicadoEn }] }
+//       Videos públicos recientes del canal: convencionales o grabaciones de transmisiones
+//       finalizadas. Se ordenan por publicadoEn (el más reciente primero) y se muestran
+//       máximo 3. El nombre del evento se conserva por compatibilidad.
 //
 // Seguridad: los textos se insertan siempre con textContent y los videoId se
 // validan antes de construir cualquier URL.
@@ -41,8 +44,8 @@
   const mensajeVacio = document.getElementById("ultimas-vacio");
   const plantillaGrabacion = document.getElementById("plantilla-grabacion");
 
-  // Destino del botón "Ver en YouTube" cuando no hay directo: el canal oficial, solo
-  // si se configura un href en el HTML. Nunca se inventa una dirección.
+  // Destino del botón "Ver en YouTube" cuando no hay directo: el canal oficial, tomado del
+  // href del HTML. Nunca se inventa una dirección.
   const urlCanal = botonYoutube?.getAttribute("href") ?? null;
   const textoCopiarInicial = textoCopiar?.textContent ?? "Copiar enlace";
 
@@ -190,8 +193,19 @@
   function mostrarGrabaciones(grabaciones) {
     if (!listaGrabaciones || !plantillaGrabacion) return;
 
+    // Los elementos sin fecha válida quedan al final; con fechas iguales se conserva el orden recibido.
+    const marcaDeTiempo = (item) => {
+      const tiempo = Date.parse(item.publicadoEn);
+      return Number.isNaN(tiempo) ? Number.NEGATIVE_INFINITY : tiempo;
+    };
+
     const validas = (Array.isArray(grabaciones) ? grabaciones : [])
       .filter((item) => item && esVideoIdValido(item.videoId) && recortarTexto(item.titulo, 1))
+      .sort((a, b) => {
+        const ta = marcaDeTiempo(a);
+        const tb = marcaDeTiempo(b);
+        return ta === tb ? 0 : tb > ta ? 1 : -1;
+      })
       .slice(0, MAX_GRABACIONES);
 
     const tarjetas = validas.map((item) => {
@@ -236,9 +250,11 @@
     mostrarGrabaciones(evento.detail?.grabaciones);
   });
 
-  // Fase 1: sin origen de datos configurado no es posible comprobar la disponibilidad,
-  // por lo que se informa como "error" y nunca como "sin transmisión".
+  // PROVISIONAL (aún no hay integración con YouTube): mientras RUTA_CONSULTA sea null la
+  // página muestra «sin transmisión» por defecto. Esto NO es una detección real de ausencia
+  // de transmisión: no se comprobó nada. Al implementar la integración, partir de
+  // "comprobando" y emitir "error" cuando la consulta falle, nunca "sin transmisión".
   if (RUTA_CONSULTA === null) {
-    mostrarEstado("error");
+    mostrarEstado("sin-transmision");
   }
 })();
