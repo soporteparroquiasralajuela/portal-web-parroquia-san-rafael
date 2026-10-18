@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.11 |
+| Versión | 1.12 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-10-14 |
+| Última actualización | 2026-10-18 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -23,6 +23,8 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 > **Corrección de fechas de las Sesiones 10 y 11 (2026-10-11):** el responsable del proyecto confirmó que la Sesión 10 corresponde al **03/10/2026** (antes registrada como 09/10/2026) y la Sesión 11 al **04/10/2026** (antes registrada como 10/10/2026). Se conservaron sus horarios, duraciones, fases y actividades; la corrección no modifica los totales de horas.
 
 > **Incorporación de las Sesiones 14 y 15 (2026-10-14):** el responsable del proyecto confirmó las fechas, los horarios y las duraciones de las jornadas del 13/10/2026 (Sesión 14, 2 horas) y del 14/10/2026 (Sesión 15, 4 horas). Las Sesiones 1 a 13 y sus 36 horas no se modificaron; el acumulado pasa a 42 horas. La Sesión 15 abarca dos fases (4 y 5) y sus 4 horas se distribuyen entre ellas sin contarse dos veces. El diseño y desarrollo inicial de la página Transmisiones (Fase 1 visual) ya fue contabilizado en la Sesión 13 y no se vuelve a registrar.
+
+> **Incorporación de la Sesión 16 (2026-10-18):** se registra la jornada del 15/10/2026 (Sesión 16, 3 horas, Fase 4), clasificada completa en la Fase 4 por indicación del responsable del proyecto. Las Sesiones 1 a 15 y sus 42 horas no se modificaron; el acumulado pasa a 45 horas.
 
 ## 03/08/2026
 
@@ -351,6 +353,28 @@ La página Transmisiones quedó publicada y conectada con YouTube, y **funcional
 
 ---
 
+## Sesión 16 — 15/10/2026 (Noche)
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 8:00 p. m. – 11:00 p. m.
+
+**Horas dedicadas:** 3 horas
+
+**Labores realizadas:**
+- Revisión y análisis de la documentación institucional suministrada por la Parroquia San Rafael Arcángel.
+- Recopilación y organización de la información general de la parroquia, la oficina parroquial, los horarios, las actividades y los servicios.
+- Análisis y consolidación de la información sobre grupos, pastorales y ministerios, contrastando distintas fuentes e identificando los datos pendientes de validación.
+- Preparación y estructuración de los contenidos para las secciones Grupos, Servicios parroquiales y Contacto del portal web.
+- Creación, configuración y personalización del formulario institucional de consultas generales mediante Google Forms.
+- Integración del formulario con Google Sheets para centralizar las respuestas, y configuración de las notificaciones.
+- Publicación del formulario y preparación del código de inserción para su posterior integración al sitio web.
+
+**Resultado obtenido:**
+Quedó organizada la información parroquial necesaria para continuar la implementación del portal, y el formulario de consultas generales quedó publicado y preparado para su integración. Quedan pendientes la validación de la información institucional, las pruebas funcionales del formulario y su integración en la página Contacto.
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -370,8 +394,9 @@ La página Transmisiones quedó publicada y conectada con YouTube, y **funcional
 | Sesión 13 (11/10/2026) - Noche | Fase 4 | Fase 1 visual de Transmisiones, revisión de la integración con YouTube y enlace de ubicación de eventos | 3 |
 | Sesión 14 (13/10/2026) - Noche | Fase 4 | Ajuste de la integración de Google Calendar al calendario secundario institucional | 2 |
 | Sesión 15 (14/10/2026) - Noche | Fase 4 y Fase 5 | Integración, publicación y pruebas de YouTube en Transmisiones (2 h en Fase 4 y 2 h en Fase 5) | 4 |
+| Sesión 16 (15/10/2026) - Noche | Fase 4 | Organización de la información parroquial, preparación de contenidos y formulario de consultas generales | 3 |
 
-**Total acumulado:** 42 horas en 15 sesiones, de las **150 horas oficiales** del TCU (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15)
+**Total acumulado:** 45 horas en 16 sesiones, de las **150 horas oficiales** del TCU, es decir, el **30 %** (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16)
 
 ---
 
@@ -384,14 +409,14 @@ Las fases y horas estimadas corresponden a la **planificación provisional** de 
 | Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 5 | 5 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 24 | 36 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 27 | 33 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 2 | 13 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **42** | **118** |
+| **Total** | — | **160** | **45** | **115** |
 
-> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. La Sesión 14 (2 horas) se registra completa en la Fase 4.
+> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas) y 16 (3 horas) se registran completas en la Fase 4.
 
-> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (42)** son las efectivamente trabajadas y no dependen de esa conciliación: 42 de 150 horas oficiales.
+> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (45)** son las efectivamente trabajadas y no dependen de esa conciliación: 45 de 150 horas oficiales (30 %).
 
 ---
 
