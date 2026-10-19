@@ -467,10 +467,58 @@
   text-align: right;
 }
 
-.mass-card__confesiones {
+/* Información complementaria de Horarios de misa (confesiones, Hora Santa y ermita).
+   Discreta a propósito: sin tarjeta, sombra ni imagen, para no competir con los dos templos. */
+.horarios__extra {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0;
+  padding: var(--space-3) 0 0;
+  border-top: 1px dashed var(--color-border-light);
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .horarios__extra {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+.horarios__extra-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.horarios__extra-item > i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  font-size: 1.25rem;
+  color: var(--color-secondary-dark);
+}
+
+.horarios__extra-title {
+  margin: 0 0 2px;
+  font-family: var(--font-accent);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+}
+
+.horarios__extra-text {
+  margin: 0;
   font-size: var(--fs-body-sm);
   color: var(--color-text-secondary);
-  font-style: italic;
+}
+
+.horarios__extra-link {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--color-primary);
+  font-weight: var(--weight-medium);
 }
 
 /* Cita decorativa entre Horarios de misa y el CTA de contacto */

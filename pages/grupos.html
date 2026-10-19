@@ -814,11 +814,12 @@
       </svg>
     </div>
 
-    <!-- ===================== FOOTER (global, igual que Inicio) ===================== -->
+    <!-- ===================== FOOTER (global, estandarizado) =====================
+         Datos de la oficina parroquial en «Contáctanos». Estilos del bloque en components.css. -->
     <footer class="site-footer on-dark">
       <div class="container">
         <div class="row g-4">
-          <div class="col-12 col-lg-4">
+          <div class="col-12 col-lg-3">
             <div class="site-footer__brand">
               <img src="../assets/img/logo/Logo.jpeg" alt="Escudo de la Parroquia San Rafael Arcángel" />
               <span class="site-footer__brand-name">Parroquia San Rafael Arcángel</span>
@@ -826,7 +827,7 @@
             <p class="site-footer__tagline">"Una comunidad que camina junto en la fe."</p>
           </div>
 
-          <div class="col-6 col-lg-2">
+          <div class="col-12 col-sm-6 col-lg-2">
             <h2 class="footer__heading">Enlaces rápidos</h2>
             <ul class="site-footer__list">
               <li><a href="../index.html">Inicio</a></li>
@@ -834,25 +835,53 @@
               <li><a href="grupos.html">Grupos</a></li>
               <li><a href="calendario.html">Calendario</a></li>
               <li><a href="transmisiones.html">Transmisiones</a></li>
-              <li><a href="servicios-parroquiales.html">Servicios parroquiales</a></li>
+              <li>Servicios parroquiales</li>
               <li><a href="contacto.html">Contacto</a></li>
             </ul>
           </div>
 
-          <div class="col-6 col-lg-3">
+          <div class="col-12 col-sm-6 col-lg-4">
             <h2 class="footer__heading">Contáctanos</h2>
-            <ul class="site-footer__list">
+            <ul class="site-footer__list site-footer__list--contact">
               <li class="site-footer__contact-item">
-                <i class="bi bi-telephone" aria-hidden="true"></i> Pendiente de confirmar
+                <i class="bi bi-telephone" aria-hidden="true"></i>
+                <a href="tel:+50624380379">Teléfono: 2438-0379</a>
               </li>
               <li class="site-footer__contact-item">
-                <i class="bi bi-envelope" aria-hidden="true"></i> Pendiente de confirmar
+                <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                <a href="https://wa.me/50661705997" target="_blank" rel="noopener noreferrer">
+                  WhatsApp: 6170-5997
+                  <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+                </a>
               </li>
               <li class="site-footer__contact-item">
-                <i class="bi bi-geo-alt" aria-hidden="true"></i> Pendiente de confirmar
+                <i class="bi bi-envelope" aria-hidden="true"></i>
+                <a class="site-footer__email" href="mailto:parroquiasanrafael.alajuela@gmail.com">
+                  parroquiasanrafael.alajuela<wbr />@gmail.com
+                </a>
               </li>
               <li class="site-footer__contact-item">
-                <i class="bi bi-clock" aria-hidden="true"></i> Pendiente de confirmar
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                <span>San Rafael de Alajuela, Costa Rica</span>
+              </li>
+              <li class="site-footer__contact-item">
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                <div class="site-footer__hours">
+                  <span class="site-footer__hours-title">Horario de atención administrativa</span>
+                  <dl class="site-footer__hours-list">
+                    <div>
+                      <dt>Lunes a viernes</dt>
+                      <dd>
+                        <span class="d-block">8:00&nbsp;a.&nbsp;m. a 12:00&nbsp;m.<span class="visually-hidden"> y</span></span>
+                        <span class="d-block">1:00&nbsp;p.&nbsp;m. a 5:00&nbsp;p.&nbsp;m.</span>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>Sábados</dt>
+                      <dd>7:00&nbsp;a.&nbsp;m. a 11:00&nbsp;a.&nbsp;m.</dd>
+                    </div>
+                  </dl>
+                </div>
               </li>
             </ul>
           </div>
@@ -861,13 +890,13 @@
             <h2 class="footer__heading">Síguenos</h2>
             <ul class="site-footer__social">
               <li>
-                <a href="#" aria-label="Facebook de la parroquia (enlace pendiente de confirmar)">
+                <a
+                  href="https://www.facebook.com/p/Parroquia-San-Rafael-Arc%C3%A1ngel-Alajuela-61587443041769/?locale=es_LA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook de la parroquia (se abre en una pestaña nueva)"
+                >
                   <i class="bi bi-facebook" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" aria-label="Instagram de la parroquia (enlace pendiente de confirmar)">
-                  <i class="bi bi-instagram" aria-hidden="true"></i>
                 </a>
               </li>
               <li>
@@ -891,16 +920,18 @@
       </div>
     </footer>
 
-    <!-- ===================== BOTÓN FLOTANTE DE WHATSAPP (global) ===================== -->
-    <button
-      type="button"
+    <!-- ===================== BOTÓN FLOTANTE DE WHATSAPP (global) =====================
+         Enlace a la conversación de WhatsApp de la oficina parroquial; mismo marcado y estilos
+         (components.css) en todas las páginas. -->
+    <a
       class="whatsapp-float"
-      aria-disabled="true"
-      aria-label="Contactar por WhatsApp — número pendiente de confirmar"
-      title="Número de WhatsApp pendiente de confirmar"
+      href="https://wa.me/50661705997"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Escribir por WhatsApp a la oficina parroquial (se abre en una pestaña nueva)"
     >
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
-    </button>
+    </a>
 
     <!-- Bootstrap Bundle (incluye Popper) — necesario para navbar, dropdown y Tabs -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

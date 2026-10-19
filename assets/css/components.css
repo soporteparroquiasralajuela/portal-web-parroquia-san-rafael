@@ -231,6 +231,8 @@
 .site-footer__bottom {
   margin-top: var(--space-5);
   padding-top: var(--space-3);
+  /* Espacio inferior: el botón flotante de WhatsApp no tapa la última línea del footer. */
+  padding-bottom: calc(var(--whatsapp-size) + var(--space-2));
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   flex-wrap: wrap;
@@ -240,14 +242,94 @@
   color: rgba(255, 255, 255, 0.65);
 }
 
+/* ===== Footer estandarizado: bloque «Contáctanos» =====
+   Datos de la oficina parroquial (teléfono, WhatsApp, correo, ubicación y horarios). Estilos
+   aprobados en Contacto y usados en el footer de todas las páginas. */
+.site-footer__list--contact {
+  gap: 14px;
+}
+
+.site-footer__list--contact .site-footer__contact-item {
+  line-height: 1.45;
+}
+
+/* Íconos con ancho fijo: el texto de todas las filas arranca en la misma vertical. */
+.site-footer__list--contact .site-footer__contact-item i {
+  flex: 0 0 1.25rem;
+  margin-top: 3px;
+  text-align: center;
+}
+
+.site-footer__contact-item a {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.site-footer__email {
+  overflow-wrap: break-word;
+}
+
+.site-footer__hours {
+  flex: 1 1 0;
+  min-width: 0;
+  container: horario / inline-size;
+}
+
+.site-footer__hours-title {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Horarios como una pequeña tabla: día a la izquierda, tramos a la derecha, filas separadas
+   por una línea tenue. En columnas muy estrechas el día pasa encima de los tramos. */
+.site-footer__hours-list {
+  margin: 0;
+  padding-left: var(--space-2);
+  border-left: 2px solid var(--color-secondary);
+}
+
+.site-footer__hours-list > div {
+  display: grid;
+  grid-template-columns: 7.25rem 1fr;
+  column-gap: var(--space-1);
+  padding-block: 8px;
+}
+
+.site-footer__hours-list > div + div {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.site-footer__hours-list > div:first-child {
+  padding-top: 0;
+}
+
+.site-footer__hours-list > div:last-child {
+  padding-bottom: 0;
+}
+
+.site-footer__hours-list dt {
+  font-weight: var(--weight-semibold);
+  color: var(--color-highlight);
+  white-space: nowrap;
+}
+
+.site-footer__hours-list dd {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Si el bloque es demasiado estrecho para dos columnas (≈ 300 px: columna de footer en
+   pantallas pequeñas o de 992–1199 px), el día pasa encima de los tramos. */
+@container horario (max-width: 300px) {
+  .site-footer__hours-list > div {
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+  }
+}
+
 /* ===== Botón flotante global de WhatsApp =====
-   Aprobado en Diseno_Conceptual_Aprobado.md sección 7. Número oficial
-   todavía pendiente de confirmar: el botón es un <button> real (nunca un
-   <a href="#">) para permanecer enfocable por teclado sin navegar a ningún
-   lado mientras no exista el dato oficial. Sin JavaScript: al no tener
-   manejador de clic ni atributo href, no realiza ninguna acción por sí
-   mismo — no hace falta deshabilitarlo (y "disabled" lo sacaría del orden
-   de tabulación, rompiendo el requisito de accesibilidad por teclado). */
+   Aprobado en Diseno_Conceptual_Aprobado.md sección 7. Es un enlace real (<a>) a la conversación
+   de WhatsApp de la oficina parroquial (wa.me), con el mismo marcado en todas las páginas. */
 .whatsapp-float {
   position: fixed;
   right: var(--space-3);
@@ -264,13 +346,15 @@
   font-size: 28px;
   box-shadow: var(--shadow-hover);
   z-index: var(--z-whatsapp);
-  cursor: not-allowed;
-  opacity: 0.85;
+  cursor: pointer;
+  text-decoration: none;
 }
 
+/* El color se repite en hover/foco: sin esto, el enlace tomaría el color de enlace de Bootstrap. */
 .whatsapp-float:hover,
 .whatsapp-float:focus-visible {
-  opacity: 1;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .whatsapp-float:focus-visible {

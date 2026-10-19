@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="../assets/css/contacto.css" />
   </head>
 
-  <body class="contacto-page">
+  <body>
     <a class="visually-hidden-focusable" href="#main-content">Saltar al contenido principal</a>
 
     <!-- ===================== NAVBAR (global, igual que las demás páginas) ===================== -->
@@ -301,10 +301,8 @@
       </svg>
     </div>
 
-    <!-- ===================== FOOTER (versión de referencia de Contacto) =====================
-         Mismo footer global, con los datos reales de la oficina parroquial en «Contáctanos».
-         Los estilos nuevos (site-footer__hours*) viven en contacto.css; las demás páginas
-         conservan su footer actual hasta que se decida replicar este. -->
+    <!-- ===================== FOOTER (global, estandarizado) =====================
+         Datos de la oficina parroquial en «Contáctanos». Estilos del bloque en components.css. -->
     <footer class="site-footer on-dark">
       <div class="container">
         <div class="row g-4">
@@ -324,7 +322,7 @@
               <li><a href="grupos.html">Grupos</a></li>
               <li><a href="calendario.html">Calendario</a></li>
               <li><a href="transmisiones.html">Transmisiones</a></li>
-              <li><a href="servicios-parroquiales.html">Servicios parroquiales</a></li>
+              <li>Servicios parroquiales</li>
               <li><a href="contacto.html">Contacto</a></li>
             </ul>
           </div>
@@ -361,13 +359,13 @@
                     <div>
                       <dt>Lunes a viernes</dt>
                       <dd>
-                        <span class="d-block">8:00 a. m. a 12:00 m.<span class="visually-hidden"> y</span></span>
-                        <span class="d-block">1:00 p. m. a 5:00 p. m.</span>
+                        <span class="d-block">8:00&nbsp;a.&nbsp;m. a 12:00&nbsp;m.<span class="visually-hidden"> y</span></span>
+                        <span class="d-block">1:00&nbsp;p.&nbsp;m. a 5:00&nbsp;p.&nbsp;m.</span>
                       </dd>
                     </div>
                     <div>
                       <dt>Sábados</dt>
-                      <dd>7:00 a. m. a 11:00 a. m.</dd>
+                      <dd>7:00&nbsp;a.&nbsp;m. a 11:00&nbsp;a.&nbsp;m.</dd>
                     </div>
                   </dl>
                 </div>
@@ -379,13 +377,13 @@
             <h2 class="footer__heading">Síguenos</h2>
             <ul class="site-footer__social">
               <li>
-                <a href="#" aria-label="Facebook de la parroquia (enlace pendiente de confirmar)">
+                <a
+                  href="https://www.facebook.com/p/Parroquia-San-Rafael-Arc%C3%A1ngel-Alajuela-61587443041769/?locale=es_LA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook de la parroquia (se abre en una pestaña nueva)"
+                >
                   <i class="bi bi-facebook" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" aria-label="Instagram de la parroquia (enlace pendiente de confirmar)">
-                  <i class="bi bi-instagram" aria-hidden="true"></i>
                 </a>
               </li>
               <li>
@@ -409,9 +407,9 @@
       </div>
     </footer>
 
-    <!-- ===================== BOTÓN FLOTANTE DE WHATSAPP (activo solo en Contacto) =====================
-         Aprobado para esta página con el número institucional de la oficina parroquial. En las demás
-         páginas sigue deshabilitado hasta que se decida replicarlo. -->
+    <!-- ===================== BOTÓN FLOTANTE DE WHATSAPP (global) =====================
+         Enlace a la conversación de WhatsApp de la oficina parroquial; mismo marcado y estilos
+         (components.css) en todas las páginas. -->
     <a
       class="whatsapp-float"
       href="https://wa.me/50661705997"
