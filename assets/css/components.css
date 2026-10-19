@@ -231,8 +231,9 @@
 .site-footer__bottom {
   margin-top: var(--space-5);
   padding-top: var(--space-3);
-  /* Espacio inferior: el botón flotante de WhatsApp no tapa la última línea del footer. */
-  padding-bottom: calc(var(--whatsapp-size) + var(--space-2));
+  /* El botón flotante de WhatsApp no tapa el texto: se reserva espacio a la derecha
+     (no abajo), así el footer termina sin vacío excesivo. */
+  padding-right: calc(var(--whatsapp-size) + var(--space-3));
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   flex-wrap: wrap;

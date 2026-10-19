@@ -122,9 +122,10 @@
 
 /* ===== Transición decorativa en capas (navy/dorado) =====
    Cinta en capas (dorado asomando detrás del navy) con una insignia
-   circular centrada, según el PNG aprobado. Puramente decorativa
-   (aria-hidden en el HTML). Se reutiliza en dos puntos de Inicio:
-   Hero → contenido, y CTA de contacto → footer. */
+   circular centrada (solo en Hero → contenido), según el PNG aprobado.
+   Puramente decorativa (aria-hidden en el HTML). Se reutiliza en dos puntos
+   de Inicio: Hero → contenido (con insignia) y CTA de contacto → footer
+   (sin insignia). */
 .wave-transition {
   position: relative;
   height: 56px;
@@ -327,7 +328,8 @@
    Tarjeta horizontal en escritorio/tablet (foto a un lado, contenido al
    otro); se apila en móvil para mantener la legibilidad de los horarios. */
 .horarios {
-  padding-block: var(--space-6);
+  /* Espacio inferior reducido: el aire hacia el CTA lo aporta .quote-divider. */
+  padding-block: var(--space-6) var(--space-2);
   text-align: center;
 }
 
@@ -524,7 +526,7 @@
 /* Cita decorativa entre Horarios de misa y el CTA de contacto */
 .quote-divider {
   text-align: center;
-  padding-block: var(--space-4);
+  padding-block: var(--space-3);
   font-family: var(--font-heading);
   font-style: italic;
   font-size: var(--fs-h4);
@@ -534,7 +536,7 @@
 /* ===== CTA "¿Necesitas comunicarte con nosotros?" =====
    Contenedor enmarcado con motivo decorativo, según el PNG aprobado. */
 .cta-contacto {
-  padding-block: var(--space-6);
+  padding-block: var(--space-4) var(--space-5);
   background-color: var(--color-bg);
 }
 
