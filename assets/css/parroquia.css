@@ -89,6 +89,7 @@
   color: #ffffff;
   text-align: right;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  text-wrap: balance; /* evita una palabra aislada en la última línea */
 }
 
 /* ===== Misión / Visión / Valores / Nuestra comunidad ===== */
@@ -123,11 +124,29 @@
   color: var(--color-text-secondary);
 }
 
+/* Subtítulo de la reseña: mantiene la jerarquía título > subtítulo > párrafos. */
+.historia__text .historia__subtitle {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--fs-h4);
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
 .historia__media {
   position: relative;
   min-height: 260px;
   border-radius: var(--radius-md);
   overflow: hidden;
+}
+
+/* La reseña es larga: en escritorio la imagen queda arriba y acompaña la lectura
+   (debajo de la barra de navegación fija) en lugar de flotar en el centro. */
+@media (min-width: 992px) {
+  .historia__media {
+    position: sticky;
+    top: calc(var(--space-7) + var(--space-1));
+  }
 }
 
 .historia__media .img-placeholder {
