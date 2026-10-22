@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 07_Despliegue/Netlify.md |
-| Versión | 1.5 |
+| Versión | 1.7 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-14 |
+| Última actualización | 2026-10-21 |
 | Estado | **Parcial** |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), sección 20 |
 
@@ -33,10 +33,62 @@ Netlify está **autorizado** como plataforma de hosting (CLAUDE.md sección 20).
 | Variables de entorno | `GOOGLE_CALENDAR_ID` (no secreta; disponible para todos los contextos de despliegue) y `GOOGLE_CALENDAR_API_KEY` (secreta; con valor solo en Production; scopes: Builds, Functions y Runtime). Solo nombres: **nunca** se documentan valores. Detalle en [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md), sección 6. Para YouTube: `YOUTUBE_API_KEY` (secreta) y `YOUTUBE_CHANNEL_ID`, y de forma opcional `YOUTUBE_DETECCION_DIRECTO`; solo nombres, **nunca** valores; detalle en [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md), sección 4 |
 | URL de producción (temporal) | https://parroquiasanrafaelalajuela.netlify.app/ |
 | Dominio personalizado | No tiene aún — ver [Dominio.md](Dominio.md) |
+| Plan de Netlify | **Personal** (US$ 9 mensuales, 1 000 créditos mensuales) desde 2026-10-21; antes plan Free (300 créditos). Un production deploy consume 15 créditos; Deploy Previews y branch deploys, 0; el rollback a un deploy anterior no consume |
+| Estado de los builds | **Detenidos («Stopped builds»)** durante el desarrollo habitual, según lo configurado y verificado por el responsable del proyecto. Las publicaciones se hacen solo mediante liberaciones autorizadas (sección 5.3) |
 
 ## 4. Estado
 
-**Parcial.** El sitio está conectado a Netlify, se despliega desde `main` y está publicado en la URL temporal indicada arriba; las dos Netlify Functions y sus variables de entorno están configuradas y en uso. Queda por confirmar el directorio de publicación, además del dominio personalizado y Cloudflare (ver [Dominio.md](Dominio.md) y [Cloudflare.md](Cloudflare.md)).
+**Parcial.** El sitio está conectado a Netlify (rama `main`), con los builds detenidos entre liberaciones (ver sección 5.3), y está publicado en la URL temporal indicada arriba; las dos Netlify Functions y sus variables de entorno están configuradas y en uso. Queda por confirmar el directorio de publicación, además del dominio personalizado y Cloudflare (ver [Dominio.md](Dominio.md) y [Cloudflare.md](Cloudflare.md)).
+
+---
+
+## 5. Incidente: suspensión de los despliegues de producción por agotamiento de créditos (2026-10-21)
+
+**Estado: resuelto el 2026-10-21** (ver 5.2).
+
+### 5.1 Descripción
+
+**Tipo:** limitación de la plataforma de alojamiento (plan y créditos). **No es un error de código ni de Git.**
+
+**Datos confirmados por el responsable del proyecto** en el panel *Usage & Billing* de Netlify (el 2026-10-21):
+
+| Elemento | Valor |
+|---|---|
+| Plan | Free, con 300 créditos mensuales |
+| Período de facturación | 6 de octubre al 5 de noviembre de 2026 |
+| Despliegues de producción en el período | 20, con un consumo de 300 créditos |
+| Créditos disponibles para nuevos despliegues | Agotados |
+| Créditos operativos restantes | ≈ 29,4 de 30, reservados para mantener el sitio publicado |
+| Mensaje de Netlify | Los despliegues de producción quedan suspendidos hasta el próximo ciclo o hasta ampliar el plan |
+
+**Cómo se manifestó:** el commit `3828006` (imágenes del Hero y de «Nuestra historia» de la página Parroquia) se envió correctamente a `origin/main`, pero Netlify no lo publicó: en producción, la página Parroquia respondía 200 con la versión anterior, sin la hoja de estilos nueva, y los archivos `assets/img/parroquia/*` respondían 404. La última versión del sitio verificada en producción corresponde al commit `4d17922` (corrección de Contacto); el commit `d9c364a` solo modifica la bitácora y no tiene efecto visible en el sitio.
+
+**Qué se descartó:** el repositorio está en orden. `HEAD` y `origin/main` coinciden en `3828006`, los archivos HTML, CSS y las imágenes (WebP y PNG originales) están versionados y las capturas temporales de revisión (`_capturas_revision/`) no forman parte del commit. El sitio publicado sigue disponible con la última versión desplegada.
+
+**Decisiones:** no se repiten commits ni pushes para forzar la publicación, no se modifica la configuración de Netlify ni se contratan servicios de pago, y el trabajo continúa y se prueba localmente. Los cambios acumulados se publicarán cuando se reanude el despliegue (nuevo ciclo, ampliación del plan o alternativa de alojamiento).
+
+### 5.2 Resolución (2026-10-21)
+
+- **Decisión:** se mantiene Netlify como alojamiento oficial, la rama `main` y la estructura del repositorio; no se migra a otra plataforma (GitHub Pages y Cloudflare Pages se evaluaron y se descartaron por ahora).
+- **Ampliación del plan:** el responsable del proyecto pasó el sitio al plan **Personal** (US$ 9 mensuales, 1 000 créditos mensuales), lo que levantó la suspensión de los despliegues de producción.
+- **Publicación del commit `3828006`:** realizada como liberación controlada. En producción se comprobó, por su contenido, que corresponde a ese commit: la hoja de estilos de Parroquia incluye las reglas nuevas, los cuatro WebP de `assets/img/parroquia/` responden 200 con tipo `image/webp`, la página incluye los textos alternativos nuevos, las seis páginas responden 200 y `/api/proximos-eventos` y `/api/transmision-actual` responden 200. El identificador del deploy en el panel de Netlify no fue consultado por el asistente (sin acceso al panel).
+- **Control de builds:** el responsable del proyecto informó que dejó configurado «Stopped builds». El asistente no tiene acceso al panel y no verificó ese estado de forma independiente; conviene confirmarlo en el panel después de cada liberación.
+
+### 5.3 Procedimiento de liberaciones controladas
+
+1. **Desarrollo habitual:** trabajo y pruebas en local; los commits locales son libres, pero cada `git push` requiere autorización expresa. Con «Stopped builds», un push a `main` no genera ningún despliegue ni consume créditos.
+2. **Liberación (solo con autorización):**
+   1. `git push origin main` (si hay commits sin enviar).
+   2. En Netlify, reactivar los builds: *Project configuration > Developer settings > Continuous deployment > Build settings > Configure > Build status > Active builds*, o el botón *Activate builds* en *Site overview* o *Deploys*.
+   3. En *Deploys*, **Trigger deploy**.
+   4. Comprobar en el detalle del deploy que el commit coincide con `git rev-parse origin/main`.
+   5. Validar producción (páginas, recursos modificados y los dos endpoints `/api`).
+   6. Volver a detener los builds (*Build status > Stopped builds*) y verificar el estado.
+3. **Costo:** cada production deploy consume 15 créditos; las liberaciones deben agruparse. El rollback a un deploy anterior no consume créditos.
+4. **Riesgos y límites:** (a) olvidar volver a detener los builds, tras lo cual el siguiente push publica; (b) con los builds detenidos, los pushes no se acumulan ni se construyen solos al reactivarlos: hace falta *Trigger deploy* o un push nuevo; (c) *Trigger deploy* y *Retry with latest branch commit* no están disponibles mientras los builds estén detenidos; (d) la documentación consultada no aclara qué commit toma *Trigger deploy*, por eso se verifica siempre el commit del deploy.
+5. **Reactivar el flujo automático permanente:** dejar los builds activos (*Active builds*); cada push a `main` volverá a publicar y a consumir créditos.
+
+No se modificó ninguna otra configuración de Netlify, ni se desconectó GitHub ni se cambió la rama de producción.
 
 ---
 

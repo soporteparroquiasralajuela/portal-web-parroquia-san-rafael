@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.13 |
+| Versión | 1.14 |
 | Fecha de creación | 2026-08-07 |
 | Última actualización | 2026-10-18 |
 | Estado | Vigente (registro vivo) |
@@ -27,6 +27,8 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 > **Incorporación de la Sesión 16 (2026-10-18):** se registra la jornada del 15/10/2026 (Sesión 16, 3 horas, Fase 4), clasificada completa en la Fase 4 por indicación del responsable del proyecto. Las Sesiones 1 a 15 y sus 42 horas no se modificaron; el acumulado pasa a 45 horas.
 
 > **Incorporación de la Sesión 17 (2026-10-18):** el responsable del proyecto indicó la fecha (18/10/2026), el horario (4:00 p. m. – 8:00 p. m.) y la duración (4 horas) de la jornada y aportó el texto de la sesión; se registra completa en la Fase 4. Las Sesiones 1 a 16 y sus 45 horas no se modificaron; el acumulado pasa a 49 horas.
+
+> **Incorporación de la Sesión 18 (2026-10-21):** el responsable del proyecto indicó la fecha (21/10/2026), el horario (6:30 p. m. – 9:30 p. m.), el tiempo efectivo reconocido (3 horas), la modalidad (trabajo remoto) y las actividades de la jornada; se registra completa en la Fase 4, con el mismo criterio de la Sesión 17. Se verificó el acumulado previo (49 horas en 17 sesiones, coincidente con la suma de las Sesiones 1 a 17 y con la tabla por fase) y no se encontraron discrepancias. Las Sesiones 1 a 17 y sus 49 horas no se modificaron; el acumulado pasa a 52 horas.
 
 ## 03/08/2026
 
@@ -399,6 +401,30 @@ Mejoras implementadas y publicadas satisfactoriamente, manteniendo la consistenc
 
 ---
 
+## Sesión 18 — 21/10/2026
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica
+
+**Horario:** 6:30 p. m. – 9:30 p. m.
+
+**Horas dedicadas:** 3 horas (tiempo efectivo reconocido)
+
+**Modalidad:** Trabajo remoto
+
+**Labores realizadas:**
+- Integración de los recursos gráficos de la página Parroquia: imágenes del Hero y de la sección «Nuestra historia».
+- Optimización de las imágenes en formato WebP, adaptación responsive y verificación de su visualización.
+- Diagnóstico del agotamiento de créditos de Netlify y análisis de alternativas de alojamiento.
+- Evaluación de mecanismos para controlar los despliegues automáticos y optimizar el consumo de créditos.
+- Ampliación del alojamiento al plan Personal de Netlify.
+- Publicación controlada del commit `3828006` y comprobación visual de los nuevos recursos en producción.
+- Configuración y verificación del estado «Stopped builds» para evitar despliegues automáticos no autorizados.
+
+**Resultado obtenido:**
+Las nuevas imágenes de la página Parroquia quedaron publicadas en producción y se definió un procedimiento de liberaciones controladas que evita despliegues automáticos innecesarios. El detalle técnico del incidente de créditos y del procedimiento vive en [Netlify.md](../07_Despliegue/Netlify.md), sección 5.
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -420,8 +446,9 @@ Mejoras implementadas y publicadas satisfactoriamente, manteniendo la consistenc
 | Sesión 15 (14/10/2026) - Noche | Fase 4 y Fase 5 | Integración, publicación y pruebas de YouTube en Transmisiones (2 h en Fase 4 y 2 h en Fase 5) | 4 |
 | Sesión 16 (15/10/2026) - Noche | Fase 4 | Organización de la información parroquial, preparación de contenidos y formulario de consultas generales | 3 |
 | Sesión 17 (18/10/2026) | Fase 4 | Ajustes de Inicio, footers y enlaces institucionales, pruebas y publicación | 4 |
+| Sesión 18 (21/10/2026) | Fase 4 | Integración de imágenes de Parroquia, optimización WebP, gestión del incidente de créditos de Netlify y publicación controlada | 3 |
 
-**Total acumulado:** 49 horas en 17 sesiones, de las **150 horas oficiales** del TCU, es decir, el **32,7 %** (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17)
+**Total acumulado:** 52 horas en 18 sesiones, de las **150 horas oficiales** del TCU, es decir, el **34,7 %**; quedan **98 horas** para completar el requisito oficial (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17 + 3 de la Sesión 18)
 
 ---
 
@@ -434,14 +461,14 @@ Las fases y horas estimadas corresponden a la **planificación provisional** de 
 | Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 5 | 5 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 31 | 29 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 34 | 26 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 2 | 13 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **49** | **111** |
+| **Total** | — | **160** | **52** | **108** |
 
-> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas), 16 (3 horas) y 17 (4 horas) se registran completas en la Fase 4.
+> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas), 16 (3 horas), 17 (4 horas) y 18 (3 horas) se registran completas en la Fase 4.
 
-> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (49)** son las efectivamente trabajadas y no dependen de esa conciliación: 49 de 150 horas oficiales (32,7 %).
+> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (52)** son las efectivamente trabajadas y no dependen de esa conciliación: 52 de 150 horas oficiales (34,7 %), con 98 horas pendientes respecto del requisito oficial.
 
 ---
 
