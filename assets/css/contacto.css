@@ -101,6 +101,17 @@
   padding-block: var(--space-5) var(--space-2);
 }
 
+/* El `row g-lg-5` usa un gutter de 3 rem: sus márgenes negativos (-24 px) exceden en 12 px el
+   relleno del contenedor (12 px) y la fila sobresale 12 px de cada lado. Entre 992 y 1199 px el
+   contenedor mide 960 px; si la barra de desplazamiento clásica deja menos de 984 px útiles,
+   el margen lateral es menor que esos 12 px y aparece un desplazamiento horizontal de ~4 px.
+   Se reserva ese margen mínimo sin cambiar el diseño en el resto de anchos. */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .contacto-principal > .container {
+    max-width: min(960px, calc(100% - 1.5rem));
+  }
+}
+
 .contacto-card {
   padding: var(--space-3);
   background-color: var(--color-bg-alt);
