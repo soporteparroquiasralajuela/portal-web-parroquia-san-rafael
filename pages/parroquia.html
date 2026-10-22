@@ -128,10 +128,25 @@
       <!-- ===================== HERO (propio de Parroquia) ===================== -->
       <section class="parroquia-hero" aria-labelledby="parroquia-hero-heading">
         <div class="parroquia-hero__media">
-          <div class="img-placeholder">
-            <i class="bi bi-image" aria-hidden="true"></i>
-            <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-          </div>
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                ../assets/img/parroquia/parroquiahero-1280.webp 1280w,
+                ../assets/img/parroquia/parroquiahero-1983.webp 1983w
+              "
+              sizes="(max-width: 767px) 1000px, 100vw"
+            />
+            <img
+              class="parroquia-hero__img"
+              src="../assets/img/parroquia/parroquiahero.png"
+              alt="Recreación digital del templo de la Parroquia San Rafael Arcángel al atardecer, con sus dos torres de techos azules y palmeras junto al edificio"
+              width="1983"
+              height="793"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
         <div class="container">
           <div class="parroquia-hero__row">
@@ -194,10 +209,25 @@
             </div>
             <div class="col-12 col-lg-6">
               <div class="historia__media">
-                <div class="img-placeholder">
-                  <i class="bi bi-image" aria-hidden="true"></i>
-                  <span>Imagen pendiente</span>
-                </div>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ../assets/img/parroquia/parroquiahistoria-640.webp 640w,
+                      ../assets/img/parroquia/parroquiahistoria-1024.webp 1024w
+                    "
+                    sizes="(min-width: 992px) 540px, calc(100vw - 24px)"
+                  />
+                  <img
+                    class="historia__img"
+                    src="../assets/img/parroquia/parroquiahistoria.png"
+                    alt="Recreación digital de la fachada del templo de la Parroquia San Rafael Arcángel: frente blanco y azul con dos torres, balcón sobre la entrada y estatuas de santos, al atardecer"
+                    width="1024"
+                    height="1536"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <blockquote class="historia__quote-box">
                   Una historia construida con fe, esfuerzo y el compromiso de generaciones de sanrafaeleños.
                 </blockquote>
