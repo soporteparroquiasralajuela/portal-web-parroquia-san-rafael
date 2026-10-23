@@ -28,6 +28,7 @@ Proveer el checklist a verificar antes de cada despliegue a producción.
 | 7 | Variables de entorno de Netlify configuradas para el contexto de despliegue (`GOOGLE_CALENDAR_API_KEY`, `GOOGLE_CALENDAR_ID`), sin valores en el repositorio ([Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md), sección 6) | ☐ |
 | 8 | Integración con Google Calendar apuntando al **calendario secundario institucional** de la parroquia: `GOOGLE_CALENDAR_ID` en Netlify y, por separado, el iframe y el enlace de `pages/calendario.html` (completada; confirmada por el responsable del proyecto el 2026-10-14; procedimiento en la sección 13 del mismo documento) | ☑ |
 | 9 | Integración con YouTube: variables de entorno de Netlify (`YOUTUBE_API_KEY`, `YOUTUBE_CHANNEL_ID`) configuradas, sin valores en el repositorio ([Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md), sección 4); validada con una transmisión pública real (2026-10-14) | ☑ |
+| 10 | Liberación controlada en Netlify: `git push` autorizado, builds activados solo para la liberación, commit del deploy verificado contra `origin/main`, producción validada y builds detenidos de nuevo ([Netlify.md](Netlify.md), sección 5.3) | ☐ |
 
 ## 3. Estado
 

@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.5 |
+| Versión | 1.6 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-10-14 |
+| Última actualización | 2026-10-22 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -72,7 +72,7 @@ Los recursos reales del portal deberán obtenerse desde `assets/img/` y **no** d
 | `sacerdotes/` | Fotografías del párroco y otros sacerdotes cuando corresponda |
 | `transmisiones/` | Portadas, miniaturas u otros recursos gráficos relacionados con transmisiones |
 
-Estado real de estas carpetas al momento de este documento: todas vacías salvo `logo/`, que contiene `Logo.jpeg`. Ver [Estructura_Proyecto.md](../03_Arquitectura/Estructura_Proyecto.md) para el detalle completo y actualizado de la estructura del repositorio.
+Estado real de estas carpetas al momento de este documento: `logo/` contiene `Logo.jpeg` y `parroquia/` las recreaciones digitales del templo y de San Rafael Arcángel (PNG y WebP; ver [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 12); las demás carpetas siguen vacías. Ver [Estructura_Proyecto.md](../03_Arquitectura/Estructura_Proyecto.md) para el detalle completo y actualizado de la estructura del repositorio.
 
 ## 4. Arquitectura de navegación conceptual aprobada
 
@@ -129,6 +129,7 @@ Estas decisiones son de **dirección conceptual**, no requerimientos funcionales
 - Se plantea utilizar un **formulario embebido de Google Forms** para consultas generales.
 - La página contempla además: información de contacto de la parroquia, un bloque "¿Cómo llegar?" con **mapa de ubicación embebido**, dirección, y acceso para obtener indicaciones.
 - Los datos oficiales (teléfono, correo, dirección) y la configuración técnica definitiva de ambos embebidos (IDs, API keys, coordenadas, URLs) se validarán y configurarán posteriormente con la parroquia — no se definen en este documento.
+- Estado: **implementado y publicado** (`pages/contacto.html`): información y datos de la oficina parroquial, formulario de consultas generales de Google Forms embebido y bloque «¿Cómo llegar?» con mapa de Google Maps embebido. Los datos de contacto siguen sujetos a la validación final de la parroquia.
 
 ### Transmisiones
 - Las transmisiones serán ocasionales; actualmente no existe un equipo dedicado exclusivamente a realizarlas.
@@ -169,6 +170,8 @@ Estructura conceptual: Sacramentos, Gestiones, Documentos e información.
 - Implementación prevista como **componente global reutilizable** (ver [Componentes_UI.md](Componentes_UI.md)), sin duplicarse manualmente página por página.
 - **Pendiente de configurar:** el número oficial de WhatsApp de la parroquia todavía no ha sido validado. No se define aquí número, enlace `wa.me` ni mensaje predeterminado — se completarán únicamente cuando la parroquia confirme esta información.
 - Nota: este botón no aparece en los PNG de [Referencias_Conceptuales/](Referencias_Conceptuales/) (artes anteriores a esta decisión). Por la jerarquía de fuentes de verdad (sección 2.3), esta decisión documental prevalece y debe incorporarse en la implementación aunque no esté dibujada en las referencias visuales.
+
+**Actualización (2026-10-18):** el botón se implementó como enlace real a `https://wa.me/50661705997` (número de la oficina parroquial), idéntico en las seis páginas implementadas, con nombre accesible y apertura en pestaña nueva. El número sigue sujeto a la validación final de la parroquia.
 
 ## 8. Estrategia de implementación de páginas del portal
 
@@ -253,7 +256,7 @@ Se distinguen tres estados que no deben confundirse:
 2. **Incorporación y validación de contenido real:** sustitución de placeholders y contenido provisional por información suministrada o validada por la parroquia.
 3. **Aceptación final:** etapa posterior, tras incorporar el contenido real, validar y atender los ajustes.
 
-Este congelamiento aplica solo a las cuatro páginas indicadas. Transmisiones está **implementada y publicada, pero no congelada**. Servicios parroquiales, Sacramentos, Gestiones, Documentos e información y Contacto cuentan con diseño conceptual (sección 6), pero **no están implementados ni congelados**: seguirán el ciclo de la sección 8.5 cuando se autorice su desarrollo. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
+Este congelamiento aplica solo a las cuatro páginas indicadas. Transmisiones está **implementada y publicada, pero no congelada**. Contacto está implementado y publicado (sin congelar); Servicios parroquiales, Sacramentos, Gestiones y Documentos e información cuentan con diseño conceptual (sección 6), pero **no están implementados ni congelados**: seguirán el ciclo de la sección 8.5 cuando se autorice su desarrollo. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
 
 ## 9. Estado del diseño
 
@@ -266,6 +269,17 @@ Podrán existir ajustes posteriores únicamente por:
 - accesibilidad;
 - limitaciones técnicas justificadas;
 - cambios explícitamente aprobados.
+
+### 9.1 Ajustes aprobados posteriores que difieren de los artes conceptuales
+
+Por la jerarquía de fuentes de verdad (sección 2.3), prevalecen sobre los PNG:
+
+- **Hero de Inicio (2026-10-22, local):** hero panorámico de ancho completo con una recreación digital del templo como fondo y degradado azul institucional, en lugar de dos columnas con recuadro de fotografía y cita decorativa. Se conservan los textos, los botones y sus enlaces.
+- **Curva Hero → contenido (2026-10-22, local):** una curva suave con relleno del color de la sección siguiente y un trazo dorado fino, igual en las seis páginas; sustituye la cinta navy/dorada con insignia circular y cruz.
+- **Transición hacia el footer:** la cinta navy/dorada se mantiene, sin insignia circular.
+- **Footer estandarizado (2026-10-18):** datos de la oficina parroquial, horario administrativo y redes Facebook y YouTube (Instagram no se usa); «Servicios parroquiales» sin enlace hasta que exista la página.
+- **Navegación adaptable (2026-10-21):** el menú se expande desde 1200 px.
+- **Hero y textos de Parroquia (2026-10-21/22):** textos editoriales propuestos (pendientes de validación) y recreaciones digitales en el Hero, la historia y el patrono.
 
 ## 10. Estado
 

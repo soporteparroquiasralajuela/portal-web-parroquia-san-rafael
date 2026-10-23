@@ -347,6 +347,52 @@
   }
 }
 
+/* ===== Curva de separación entre el Hero y la sección siguiente (.hero-wave) =====
+   Componente compartido por los Heroes de todas las páginas (referencia: Hero de Inicio).
+   Un SVG que se estira a todo el ancho, con relleno del color de la sección siguiente
+   (por defecto crema; --hero-wave-fill lo cambia si esa sección tiene otro fondo) y un trazo
+   dorado fino (#DA981B) sobre su borde. Requisitos del Hero: position: relative, sin
+   overflow: hidden y un relleno inferior de al menos var(--hero-wave-height) para que la
+   curva no tape el contenido. La curva sobresale 2 px por debajo del Hero: así el color de
+   relleno cubre la unión con la sección siguiente y no queda una línea fina por el redondeo
+   de píxeles en el borde. */
+:root {
+  --hero-wave-height: 44px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --hero-wave-height: 64px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --hero-wave-height: 80px;
+  }
+}
+
+.hero-wave {
+  position: absolute;
+  inset: auto 0 -2px 0;
+  z-index: 3;
+  display: block;
+  width: 100%;
+  height: calc(var(--hero-wave-height) + 2px);
+  pointer-events: none;
+}
+
+.hero-wave__fill {
+  fill: var(--hero-wave-fill, var(--color-bg));
+}
+
+.hero-wave__line {
+  fill: none;
+  stroke: var(--color-secondary);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
 /* ===== Botón flotante global de WhatsApp =====
    Aprobado en Diseno_Conceptual_Aprobado.md sección 7. Es un enlace real (<a>) a la conversación
    de WhatsApp de la oficina parroquial (wa.me), con el mismo marcado en todas las páginas. */

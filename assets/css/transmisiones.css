@@ -19,8 +19,7 @@
   min-height: 320px;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  padding-block: var(--space-5) calc(var(--space-5) + 24px);
+  padding-block: var(--space-5) calc(var(--hero-wave-height) + var(--space-3));
 }
 
 .transmisiones-hero__media {
@@ -108,16 +107,6 @@
 .transmisiones-hero__bars span:nth-child(3) {
   width: 40px;
   opacity: 0.5;
-}
-
-.transmisiones-hero__wave {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 40px;
-  display: block;
-  z-index: 2;
 }
 
 /* ===== Franja informativa de categorías ===== */
@@ -538,10 +527,6 @@
 
   .transmisiones-hero__media .img-placeholder {
     min-height: 360px;
-  }
-
-  .transmisiones-hero__wave {
-    height: 56px;
   }
 
   .transmisiones-categorias {

@@ -776,14 +776,15 @@ No existe `package.json` ni proceso de build, lint o test: el sitio es HTML/CSS/
 
 ## 29.2 Estado real del código (no confundir con la arquitectura objetivo)
 
-A la fecha de esta sección, el repositorio tiene cinco páginas implementadas y dos integraciones activas (Google Calendar y YouTube); el detalle vive en [Estructura_Proyecto.md](docs/03_Arquitectura/Estructura_Proyecto.md):
+A la fecha de esta sección, el repositorio tiene seis páginas implementadas y cuatro integraciones principales activas (Google Calendar, YouTube y Google Forms y Google Maps embebidos en Contacto); el detalle vive en [Estructura_Proyecto.md](docs/03_Arquitectura/Estructura_Proyecto.md):
 
-- `index.html` (Inicio, congelada) y, en `pages/`, `parroquia.html`, `grupos.html` y `calendario.html` (congeladas temporalmente) y `transmisiones.html` (publicada, no congelada).
-- `assets/css/` (estilos globales y por página) y `assets/js/` (`grupos.js`, `proximos-eventos.js`, `transmisiones.js`).
+- `index.html` (Inicio, congelada) y, en `pages/`, `parroquia.html`, `grupos.html` y `calendario.html` (congeladas temporalmente) y `transmisiones.html` y `contacto.html` (publicadas, no congeladas).
+- `assets/css/` (estilos globales y por página) y `assets/js/` (`grupos.js`, `proximos-eventos.js`, `transmisiones.js`, `galeria-parroquia.js`).
 - `netlify/functions/proximos-eventos.mjs` — Netlify Function de Google Calendar (sección 29.8).
 - `netlify/functions/transmision-actual.mjs` — Netlify Function de YouTube Data API (sección 29.8).
-- Siguen vacías: `assets/fonts/`, `assets/icons/`, `assets/downloads/`, `assets/videos/`, las subcarpetas de `assets/img/` (salvo `logo/`), `components/`, `config/`, `data/` y `scripts/`.
-- Aún sin desarrollar: Servicios parroquiales (y sus páginas de segundo nivel) y Contacto.
+- También con contenido: `favicon.ico` (raíz), `assets/icons/` (favicon y apple-touch-icon) y `assets/img/` (`logo/` y `parroquia/`, con PNG originales y versiones WebP). Siguen vacías: `assets/fonts/`, `assets/downloads/`, `assets/videos/`, las demás subcarpetas de `assets/img/`, `components/`, `config/`, `data/` y `scripts/`.
+- Aún sin desarrollar: Servicios parroquiales (y sus páginas de segundo nivel).
+- Publicación: los builds de Netlify permanecen detenidos entre liberaciones y solo se publica con autorización expresa; procedimiento en [docs/07_Despliegue/Netlify.md](docs/07_Despliegue/Netlify.md), sección 5. Los cambios locales pendientes de liberación se listan en [Manual_Tecnico.md](docs/08_Manuales/Manual_Tecnico.md), sección 15.
 
 La arquitectura de carpetas (sección 11) es la estructura **objetivo/autorizada**, ya creada de antemano (más `netlify/`, añadida con autorización para las Netlify Functions); no asumir que una carpeta tiene contenido solo porque existe. Antes de crear una página o componente nuevo, releer [Convenciones.md](docs/05_Desarrollo/Convenciones.md) para nomenclatura y [Alcance.md](docs/01_Gestion_Proyecto/Alcance.md) para confirmar que esa página está dentro del alcance aprobado — no inventar páginas nuevas sin verificarlo primero (sección 24).
 
@@ -819,6 +820,6 @@ Google Calendar es la fuente de los eventos públicos de la parroquia (Google Ca
 
 ## 29.9 Línea base temporal de las páginas implementadas
 
-Desde el 2026-10-10, Inicio, Parroquia, Grupos, Calendario y la navegación común están en **congelamiento temporal de desarrollo**: su estructura, composición visual, navegación y comportamiento aprobados son la línea base. Esto **no** es aceptación final del contenido editorial ni multimedia, que sigue siendo provisional hasta su incorporación y validación con la parroquia; no usar expresiones como «página finalizada» o «contenido definitivo». Transmisiones (implementada y publicada) y las páginas aún no implementadas (Servicios parroquiales, Sacramentos, Gestiones, Documentos e información y Contacto) no están congeladas.
+Desde el 2026-10-10, Inicio, Parroquia, Grupos, Calendario y la navegación común están en **congelamiento temporal de desarrollo**: su estructura, composición visual, navegación y comportamiento aprobados son la línea base. Esto **no** es aceptación final del contenido editorial ni multimedia, que sigue siendo provisional hasta su incorporación y validación con la parroquia; no usar expresiones como «página finalizada» o «contenido definitivo». Transmisiones y Contacto (implementadas y publicadas) y las páginas aún no implementadas (Servicios parroquiales, Sacramentos, Gestiones y Documentos e información) no están congeladas.
 
 Un error, una necesidad funcional, un requisito nuevo, o un problema de accesibilidad, seguridad o responsive puede justificar **proponer** un cambio a una página congelada, pero nunca autoriza hacerlo: el cambio debe identificarse, justificarse, presentarse y recibir autorización expresa antes de implementarse. Sustituir contenido provisional por contenido real no descongela la estructura; si exige cambiar estructura, clases, componentes, navegación o comportamiento, es una modificación de la línea base. La sección 29.6 mantiene sus reglas estrictas para Inicio. La limitación del embed de Calendario a ≈ 375 px queda fuera del congelamiento. Detalle: [docs/08_Manuales/Manual_Tecnico.md](docs/08_Manuales/Manual_Tecnico.md), sección 9.

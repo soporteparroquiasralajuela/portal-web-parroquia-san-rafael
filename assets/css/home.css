@@ -5,45 +5,107 @@
    docs/04_Diseno/Referencias_Conceptuales/Diseño inicio.png. */
 
 /* ===== Hero =====
-   Dos columnas (texto / área fotográfica), fondo claro, según el PNG
-   aprobado. El área fotográfica usa el mismo .img-placeholder del resto del
-   sitio hasta que exista una fotografía real — sustituirla ahí no requiere
-   tocar la estructura del Hero. */
+   Hero panorámico de ancho completo: imagen de fondo (recreación digital artística de la
+   parroquia), degradado azul institucional (#1D2A54) de izquierda a centro y texto/botones
+   en HTML sobre la imagen. La curva inferior (.hero-wave, en components.css) se superpone a la base de la imagen,
+   por eso el relleno inferior la deja libre (altura de la curva + espacio). */
 .hero {
   position: relative;
-  background-color: var(--color-bg-alt);
-  padding-block: var(--space-5) var(--space-4);
-  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: 680px;
+  padding-block: var(--space-6) calc(var(--hero-wave-height) + var(--space-4));
+  background-color: var(--color-primary); /* color de reserva mientras carga la imagen */
 }
 
-.hero__row {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+}
+
+/* El recorte se controla con object-position: en móvil se usa una versión recortada de la
+   imagen y se encuadra la fachada; en escritorio el templo queda a la derecha del texto. */
+.hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 55% 0%;
+}
+
+/* Degradado oscuro: por debajo de 992 px (texto sobre la imagen, en la base) sube desde abajo;
+   desde 992 px va de la izquierda hacia el centro y se vuelve transparente hacia la derecha
+   para no oscurecer las torres. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    0deg,
+    rgba(29, 42, 84, 0.96) 0%,
+    rgba(29, 42, 84, 0.95) 55%,
+    rgba(29, 42, 84, 0.94) 70%,
+    rgba(29, 42, 84, 0.62) 83%,
+    rgba(29, 42, 84, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__text-col {
+  max-width: 560px;
+}
+
+/* Tabletas (768–991 px): se mantiene la composición móvil (texto en la base, torres arriba),
+   con una imagen más amplia. */
+@media (min-width: 768px) {
+  .hero__img {
+    object-position: 50% 0%;
+  }
 }
 
 @media (min-width: 992px) {
-  .hero__row {
-    flex-direction: row;
+  .hero {
     align-items: center;
-    gap: var(--space-5);
+    min-height: clamp(540px, 44vw, 650px);
   }
 
   .hero__text-col {
-    flex: 0 0 45%;
-    max-width: 45%;
+    max-width: 480px;
   }
 
-  .hero__visual-col {
-    flex: 1;
+  .hero__img {
+    object-position: 30% 0%;
   }
+
+  .hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba(29, 42, 84, 0.95) 0%,
+      rgba(29, 42, 84, 0.9) 40%,
+      rgba(29, 42, 84, 0.5) 56%,
+      rgba(29, 42, 84, 0) 78%
+    );
+  }
+}
+
+.hero .eyebrow {
+  color: var(--color-secondary); /* dorado institucional (#DA981B) sobre el degradado */
 }
 
 .hero__title {
   font-size: var(--fs-display);
   font-weight: var(--weight-bold);
   line-height: var(--lh-heading);
-  color: var(--color-text-primary);
+  color: #ffffff;
   margin-bottom: var(--space-2);
 }
 
@@ -51,7 +113,7 @@
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.92);
   max-width: 480px;
   margin-bottom: var(--space-4);
 }
@@ -63,13 +125,34 @@
   margin-bottom: var(--space-4);
 }
 
+/* «Cómo llegar»: borde blanco y fondo semitransparente sobre la imagen; hover invertido. */
+.hero .btn-outline-primary {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: rgba(29, 42, 84, 0.35);
+  --bs-btn-border-color: #ffffff;
+  --bs-btn-hover-color: var(--color-primary);
+  --bs-btn-hover-bg: #ffffff;
+  --bs-btn-hover-border-color: #ffffff;
+  --bs-btn-active-color: var(--color-primary);
+  --bs-btn-active-bg: #ffffff;
+  --bs-btn-active-border-color: #ffffff;
+  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.4);
+}
+
+/* Foco de teclado visible sobre la imagen en ambos botones. */
+.hero .btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
 .hero__diocese {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  margin-bottom: 0;
   font-family: var(--font-accent);
   font-size: var(--fs-body-sm);
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .hero__diocese::before {
@@ -77,62 +160,15 @@
   display: inline-block;
   width: 32px;
   height: 1px;
-  background-color: var(--color-border-light);
-}
-
-/* Área fotográfica del Hero: placeholder + cita superpuesta.
-   El degradado oscuro en la esquina asegura que la cita en blanco sea
-   legible tanto sobre el placeholder actual como sobre la fotografía real
-   que lo sustituya más adelante. */
-.hero__visual {
-  position: relative;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  min-height: 280px;
-  height: 100%;
-}
-
-.hero__visual .img-placeholder {
-  min-height: 280px;
-  border-radius: var(--radius-md);
-}
-
-.hero__visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(200deg, rgba(29, 42, 84, 0.55) 0%, rgba(29, 42, 84, 0) 45%);
-  pointer-events: none;
-}
-
-.hero__quote {
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-3);
-  max-width: 220px;
-  margin: 0;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: var(--fs-h3);
-  line-height: 1.25;
-  color: #ffffff;
-  text-align: right;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* ===== Transición decorativa en capas (navy/dorado) =====
-   Cinta en capas (dorado asomando detrás del navy) con una insignia
-   circular centrada (solo en Hero → contenido), según el PNG aprobado.
-   Puramente decorativa (aria-hidden en el HTML). Se reutiliza en dos puntos
-   de Inicio: Hero → contenido (con insignia) y CTA de contacto → footer
-   (sin insignia). */
+   Cinta en capas (dorado asomando detrás del navy) entre el CTA de contacto y el footer.
+   Puramente decorativa (aria-hidden en el HTML). */
 .wave-transition {
   position: relative;
   height: 56px;
-}
-
-.hero .wave-transition {
-  margin-top: var(--space-3);
 }
 
 .wave-transition svg {
@@ -146,24 +182,6 @@
 
 .wave-transition-gold {
   transform: translateY(6px);
-}
-
-.wave-transition-badge {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-pill);
-  background-color: var(--color-bg-alt);
-  border: 2px solid var(--color-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-primary);
-  font-size: 1.1rem;
-  box-shadow: var(--shadow-sm);
 }
 
 /* ===== Próximos eventos =====
@@ -283,13 +301,38 @@
   position: relative;
 }
 
-.gallery-carousel .carousel-item .img-placeholder {
+/* Cada diapositiva conserva la proporción panorámica 21:9 (alto mínimo 280 px en móvil).
+   La imagen 16:9 se recorta con object-fit: cover; el encuadre se ajusta por diapositiva. */
+.gallery-carousel .carousel-item {
   aspect-ratio: 21 / 9;
-  border-radius: 0;
   min-height: 280px;
+  background-color: var(--color-border-light); /* reserva mientras carga la imagen diferida */
 }
 
-.gallery-carousel__quote {
+.gallery-carousel__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Interior del templo: prioriza el retablo y el altar mayor. */
+.gallery-carousel__img--templo {
+  object-position: 50% 20%;
+}
+
+/* Comunidad: deja ver a los fieles y la arquitectura interior. */
+.gallery-carousel__img--comunidad {
+  object-position: 50% 35%;
+}
+
+/* San Rafael y Tobías: mantiene a ambos con el rostro visible. */
+.gallery-carousel__img--rafael {
+  object-position: 47% 28%;
+}
+
+.gallery-carousel__caption {
   position: absolute;
   inset: 0;
   display: flex;
@@ -300,7 +343,7 @@
   pointer-events: none;
 }
 
-.gallery-carousel__quote blockquote {
+.gallery-carousel__caption p {
   margin: 0;
   max-width: 460px;
   text-align: right;
@@ -309,6 +352,20 @@
   font-size: var(--fs-h3);
   color: #ffffff;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* En móvil el pie es más pequeño y queda en la franja inferior (sobre los indicadores),
+   para no cubrir a los protagonistas de la imagen. */
+@media (max-width: 575.98px) {
+  .gallery-carousel__caption {
+    padding: var(--space-3) var(--space-3) 2.5rem;
+    background: linear-gradient(0deg, rgba(29, 42, 84, 0.7) 0%, rgba(29, 42, 84, 0) 40%);
+  }
+
+  .gallery-carousel__caption p {
+    max-width: none;
+    font-size: 1.05rem;
+  }
 }
 
 /* Indicadores como puntos circulares (el default de Bootstrap es una barra) */
@@ -396,10 +453,10 @@
 }
 
 .mass-card__media {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .mass-card {
     flex-direction: row;
     align-items: stretch;
@@ -418,17 +475,54 @@
   }
 }
 
-.mass-card__media .img-placeholder {
-  min-height: 0;
+/* Imagen de cada templo: recreación digital vertical (2:3) recortada con object-fit: cover.
+   Va en posición absoluta para que no condicione la altura de la tarjeta (la define el contenido). */
+.mass-card__media {
+  position: relative;
+  background-color: var(--color-border-light); /* color de reserva mientras carga la imagen diferida */
+}
+
+.mass-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  border-radius: 0;
+  object-fit: cover;
+}
+
+/* Encuadre en móvil (ventana apaisada 4:3): torres y fachada principal de cada templo. */
+.mass-card__img--templo {
+  object-position: 50% 24%;
+}
+
+.mass-card__img--diaconia {
+  object-position: 50% 56%;
+}
+
+@media (min-width: 992px) {
+  /* En fila la ventana es alta y estrecha: se ve casi toda la altura y se centra la arquitectura. */
+  .mass-card__img--templo {
+    object-position: 50% 30%;
+  }
+
+  .mass-card__img--diaconia {
+    object-position: 72% 50%;
+  }
 }
 
 .mass-card__body {
+  flex: 1 1 auto; /* el cuerpo absorbe el alto sobrante de la tarjeta (también apilada, 768–991 px) */
   padding: var(--space-3);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+}
+
+/* Cuando las dos tarjetas comparten fila de la cuadrícula tienen el mismo alto: el botón
+   «Cómo llegar» se empuja al borde inferior para quedar alineado aunque una tarjeta tenga
+   menos horarios. Con una tarjeta por fila (móvil) el cuerpo no sobra alto y no tiene efecto. */
+.mass-card__body > .btn {
+  margin-top: auto;
 }
 
 .mass-card__eyebrow {

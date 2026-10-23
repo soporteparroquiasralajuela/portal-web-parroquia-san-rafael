@@ -11,8 +11,8 @@
   min-height: 360px;
   display: flex;
   align-items: flex-end;
-  overflow: hidden;
-  padding-block: var(--space-4);
+  padding-block: var(--space-4) calc(var(--hero-wave-height) + var(--space-2));
+  --hero-wave-fill: var(--color-bg-alt); /* la sección siguiente (introducción) tiene fondo blanco */
 }
 
 .grupos-hero__media {

@@ -56,7 +56,7 @@ flowchart TD
 | Documento | Estado |
 |---|---|
 | [Arquitectura_General.md](03_Arquitectura/Arquitectura_General.md) | ✅ Vigente |
-| [Estructura_Proyecto.md](03_Arquitectura/Estructura_Proyecto.md) | ✅ Vigente (actualizada 2026-10-14 con el estado real del repositorio, incluida la página Transmisiones y la segunda Netlify Function) |
+| [Estructura_Proyecto.md](03_Arquitectura/Estructura_Proyecto.md) | ✅ Vigente (actualizada 2026-10-22 con el estado real del repositorio: seis páginas, favicon, imágenes y las dos Netlify Functions) |
 | [Integraciones.md](03_Arquitectura/Integraciones.md) | 🟡 Google Calendar, YouTube y Netlify implementadas; las demás previstas (incluye convención para documentación de integraciones) |
 | [Integracion_Google_Calendar.md](03_Arquitectura/Integracion_Google_Calendar.md) | ✅ Vigente — integración completada y operativa con el calendario secundario institucional (cerrada el 2026-10-14) |
 | [Integracion_YouTube.md](03_Arquitectura/Integracion_YouTube.md) | ✅ Vigente — funcional dentro del alcance aprobado y validada con una transmisión pública real; grabaciones de transmisiones finalizadas excluidas del alcance |
@@ -67,7 +67,7 @@ flowchart TD
 |---|---|
 | [Diseno_Conceptual_Aprobado.md](04_Diseno/Diseno_Conceptual_Aprobado.md) | ✅ Vigente — arquitectura de navegación, decisiones funcionales conceptuales y estado de las referencias visuales aprobadas; sección 8.6: congelamiento temporal y cadena metodológica del TCU |
 | [Guia_Estilos.md](04_Diseno/Guia_Estilos.md) | 🟡 Parcial (paleta/tipografía pendientes de extracción formal) |
-| [Componentes_UI.md](04_Diseno/Componentes_UI.md) | 🟡 Registro de uso real, sin implementar (inventario canónico vive en Bootstrap.md) |
+| [Componentes_UI.md](04_Diseno/Componentes_UI.md) | ✅ Vigente — registro de uso real de componentes propios y de Bootstrap (actualizado 2026-10-22; el inventario canónico de Bootstrap vive en Bootstrap.md) |
 | [Wireframes.md](04_Diseno/Wireframes.md) | 🟡 Parcial (7 páginas con diseño conceptual de alta fidelidad; Sacramentos/Gestiones/Documentos e información pendientes) |
 
 ## 05. Desarrollo
@@ -85,14 +85,14 @@ flowchart TD
 | Documento | Estado |
 |---|---|
 | [Plan_Pruebas.md](06_Pruebas/Plan_Pruebas.md) | ⏳ Pendiente |
-| [Evidencias.md](06_Pruebas/Evidencias.md) | 🟡 Parcial (pruebas simuladas y reales de la integración con YouTube, 2026-10-14) |
+| [Evidencias.md](06_Pruebas/Evidencias.md) | 🟡 Parcial (pruebas de la integración con YouTube, 2026-10-14, y validaciones visuales y responsive, 2026-10-18 a 2026-10-22) |
 | [Checklist_Calidad.md](06_Pruebas/Checklist_Calidad.md) | 🟡 Plantilla vigente |
 
 ## 07. Despliegue
 
 | Documento | Estado |
 |---|---|
-| [Netlify.md](07_Despliegue/Netlify.md) | 🟡 Parcial (rama `main`, dos Netlify Functions y variables de entorno confirmadas; directorio de publicación por confirmar) |
+| [Netlify.md](07_Despliegue/Netlify.md) | 🟡 Parcial (rama `main`, dos Netlify Functions y variables de entorno confirmadas; directorio de publicación por confirmar; incidente de créditos resuelto y procedimiento de liberaciones controladas en la sección 5) |
 | [Dominio.md](07_Despliegue/Dominio.md) | ⏳ Pendiente |
 | [Cloudflare.md](07_Despliegue/Cloudflare.md) | ⏳ Pendiente |
 | [Checklist_Despliegue.md](07_Despliegue/Checklist_Despliegue.md) | 🟡 Plantilla vigente |
@@ -101,7 +101,7 @@ flowchart TD
 
 | Documento | Estado |
 |---|---|
-| [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) | 🟡 Vigente (sección de Mantenimiento pendiente). Incluye la línea base temporal de las páginas implementadas (sección 9; estado de Transmisiones y de las integraciones actualizado 2026-10-14): estructura congelada temporalmente, contenido real pendiente de validación; resumen de la integración con YouTube en la sección 11 |
+| [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) | 🟡 Vigente (sección de Mantenimiento pendiente). Incluye recursos gráficos, componentes compartidos y cambios pendientes de liberación (secciones 12 a 15). Incluye la línea base temporal de las páginas implementadas (sección 9; estado de Transmisiones y de las integraciones actualizado 2026-10-14): estructura congelada temporalmente, contenido real pendiente de validación; resumen de la integración con YouTube en la sección 11 |
 | [Manual_Usuario.md](08_Manuales/Manual_Usuario.md) | ⏳ Pendiente |
 
 ## 09. Entregables

@@ -161,6 +161,12 @@
             </blockquote>
           </div>
         </div>
+        <!-- Curva de separación Hero → sección siguiente (componente compartido .hero-wave,
+             components.css): relleno del color de la sección que sigue y trazo dorado fino. -->
+        <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="hero-wave__fill" d="M0,56 C380,92 1010,6 1440,52 L1440,100 L0,100 Z" />
+          <path class="hero-wave__line" d="M0,56 C380,92 1010,6 1440,52" />
+        </svg>
       </section>
 
       <!-- ===================== MISIÓN / VISIÓN / VALORES / COMUNIDAD ===================== -->
@@ -243,16 +249,32 @@
           <div class="row g-4 align-items-center">
             <div class="col-12 col-lg-5 order-lg-1">
               <div class="patrono__media">
-                <div class="img-placeholder">
-                  <i class="bi bi-image" aria-hidden="true"></i>
-                  <span>Imagen pendiente</span>
-                </div>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ../assets/img/parroquia/parroquiapatrono-640.webp 640w,
+                      ../assets/img/parroquia/parroquiapatrono-1024.webp 1024w
+                    "
+                    sizes="(min-width: 992px) 460px, calc(100vw - 24px)"
+                  />
+                  <img
+                    class="patrono__img"
+                    src="../assets/img/parroquia/parroquiapatrono.png"
+                    alt="Representación artística de San Rafael Arcángel, con alas y bastón de peregrino, acompañando a Tobías, quien sostiene un pez, en un paisaje iluminado al amanecer"
+                    width="1536"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </div>
             <div class="col-12 col-lg-7 order-lg-2 patrono__text">
               <p class="eyebrow">Nuestro patrono</p>
               <h2 id="patrono-heading">San Rafael Arcángel</h2>
-              <p>Texto sobre el patrono pendiente de confirmar con la parroquia.</p>
+              <p>San Rafael Arcángel, cuyo nombre significa «Dios sana», es reconocido como guía, protector y mensajero de la sanación divina. En el libro de Tobías, acompaña al joven durante su viaje y lo ayuda a superar las dificultades.</p>
+              <p>Como patrono de nuestra comunidad, nos inspira a caminar con fe, esperanza y espíritu de servicio.</p>
               <a class="btn btn-outline-primary" href="https://www.catholically.com/es/blogs/noticias/el-poder-de-la-fe-la-historia-de-san-raphael-el-arcangel-el-santo-patron-de-la-sanacion?srsltid=AU7gw4WRQ3R4SPFvaQjBi0YVGux0sPc_mA_c3qh8MJFIQlzYyVbQivK5" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Conocer más sobre San Rafael Arcángel
               </a>
@@ -268,103 +290,467 @@
             <h2 id="galeria-heading">Galería de nuestra parroquia</h2>
           </div>
 
-          <div id="parroquiaCarousel" class="carousel slide parroquia-carousel" data-bs-touch="true">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Fotografía 1"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="1" aria-label="Fotografía 2"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="2" aria-label="Fotografía 3"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="3" aria-label="Fotografía 4"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="4" aria-label="Fotografía 5"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="5" aria-label="Fotografía 6"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="6" aria-label="Fotografía 7"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="7" aria-label="Fotografía 8"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="8" aria-label="Fotografía 9"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="9" aria-label="Fotografía 10"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="10" aria-label="Fotografía 11"></button>
-              <button type="button" data-bs-target="#parroquiaCarousel" data-bs-slide-to="11" aria-label="Fotografía 12"></button>
+          <div class="parroquia-mosaico">
+            <div class="parroquia-mosaico__grid">
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g9">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Vista aérea del templo y su entorno"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Vista aérea del templo y su entorno"
+                  data-visor-src="../assets/img/parroquia/parroquiagal9-ampliada.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal9-640.webp 640w, ../assets/img/parroquia/parroquiagal9-960.webp 960w, ../assets/img/parroquia/parroquiagal9-1280.webp 1280w, ../assets/img/parroquia/parroquiagal9-ampliada.webp 1365w"
+                  data-visor-ancho="1365"
+                  data-visor-alto="1024"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal9-640.webp 640w,
+                    ../assets/img/parroquia/parroquiagal9-960.webp 960w,
+                    ../assets/img/parroquia/parroquiagal9-1280.webp 1280w
+                      "
+                      sizes="(min-width: 1400px) 859px, (min-width: 1200px) 738px, (min-width: 992px) 618px, (min-width: 768px) 460px, calc(100vw - 24px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal9-960.webp"
+                      alt="Vista aérea del templo parroquial y su entorno al atardecer: la fachada con sus dos torres, el salón parroquial de techo rojo y las casas del pueblo, con las montañas al fondo"
+                      width="1280"
+                      height="960"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Vista aérea del templo y su entorno</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g3">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Fachada del templo al atardecer"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Fachada del templo al atardecer"
+                  data-visor-src="../assets/img/parroquia/parroquiagal3-ampliada.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal3-480.webp 480w, ../assets/img/parroquia/parroquiagal3-720.webp 720w, ../assets/img/parroquia/parroquiagal3-960.webp 960w, ../assets/img/parroquia/parroquiagal3-ampliada.webp 1080w"
+                  data-visor-ancho="1080"
+                  data-visor-alto="1440"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal3-480.webp 480w,
+                    ../assets/img/parroquia/parroquiagal3-720.webp 720w,
+                    ../assets/img/parroquia/parroquiagal3-960.webp 960w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal3-960.webp"
+                      alt="Fachada del templo al atardecer, vista de frente: las dos torres, la cruz sobre el frontón, el vitral y una gran manta de la Virgen con ángeles colgada del balcón, y el interior iluminado a través del arco de entrada"
+                      width="960"
+                      height="1280"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Fachada del templo al atardecer</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g12">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Celebración de la misa en el templo"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Celebración de la misa en el templo"
+                  data-visor-src="../assets/img/parroquia/parroquiagal12-ampliada.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal12-640.webp 640w, ../assets/img/parroquia/parroquiagal12-960.webp 960w, ../assets/img/parroquia/parroquiagal12-1280.webp 1280w, ../assets/img/parroquia/parroquiagal12-ampliada.webp 1600w"
+                  data-visor-ancho="1600"
+                  data-visor-alto="1200"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal12-640.webp 640w,
+                    ../assets/img/parroquia/parroquiagal12-960.webp 960w,
+                    ../assets/img/parroquia/parroquiagal12-1280.webp 1280w
+                      "
+                      sizes="(min-width: 1400px) 859px, (min-width: 1200px) 738px, (min-width: 992px) 618px, (min-width: 768px) 460px, calc(100vw - 24px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal12-960.webp"
+                      alt="Fieles de pie durante la celebración de la misa en el interior del templo, con el retablo dorado al fondo, un altar de cortinas blancas y azules a la izquierda y vitrales a la derecha"
+                      width="1280"
+                      height="960"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Celebración de la misa en el templo</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g5">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Costado de la fachada y entrada"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Costado de la fachada y entrada"
+                  data-visor-src="../assets/img/parroquia/parroquiagal5-900.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal5-480.webp 480w, ../assets/img/parroquia/parroquiagal5-720.webp 720w, ../assets/img/parroquia/parroquiagal5-900.webp 900w"
+                  data-visor-ancho="900"
+                  data-visor-alto="1200"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal5-480.webp 480w,
+                    ../assets/img/parroquia/parroquiagal5-720.webp 720w,
+                    ../assets/img/parroquia/parroquiagal5-900.webp 900w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal5-900.webp"
+                      alt="Costado de la fachada del templo con la torre, el balcón y las estatuas de santos en sus hornacinas, bajo un cielo azul, con un pequeño grupo de personas frente a la entrada"
+                      width="900"
+                      height="1200"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Costado de la fachada y entrada</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g4">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Sacerdote y fieles en la nave central"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Sacerdote y fieles en la nave central"
+                  data-visor-src="../assets/img/parroquia/parroquiagal4-ampliada.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal4-640.webp 640w, ../assets/img/parroquia/parroquiagal4-960.webp 960w, ../assets/img/parroquia/parroquiagal4-1280.webp 1280w, ../assets/img/parroquia/parroquiagal4-ampliada.webp 1500w"
+                  data-visor-ancho="1500"
+                  data-visor-alto="1125"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal4-640.webp 640w,
+                    ../assets/img/parroquia/parroquiagal4-960.webp 960w,
+                    ../assets/img/parroquia/parroquiagal4-1280.webp 1280w
+                      "
+                      sizes="(min-width: 1400px) 859px, (min-width: 1200px) 738px, (min-width: 992px) 618px, (min-width: 768px) 460px, calc(100vw - 24px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal4-960.webp"
+                      alt="Sacerdote con casulla morada y dorada avanzando por la nave central del templo entre fieles y bancas de madera, con los vitrales a los lados y el retablo al fondo"
+                      width="1280"
+                      height="960"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Sacerdote y fieles en la nave central</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g8">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Fieles con paraguas frente al templo"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Fieles con paraguas frente al templo"
+                  data-visor-src="../assets/img/parroquia/parroquiagal8-1200.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal8-640.webp 640w, ../assets/img/parroquia/parroquiagal8-960.webp 960w, ../assets/img/parroquia/parroquiagal8-1200.webp 1200w"
+                  data-visor-ancho="1200"
+                  data-visor-alto="900"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal8-640.webp 640w,
+                    ../assets/img/parroquia/parroquiagal8-960.webp 960w,
+                    ../assets/img/parroquia/parroquiagal8-1200.webp 1200w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal8-960.webp"
+                      alt="Fieles con paraguas frente a la fachada del templo en un día de lluvia, durante una celebración con una alfombra decorativa en la calle"
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Fieles con paraguas frente al templo</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g6">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Misa junto al altar de la Virgen"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Misa junto al altar de la Virgen"
+                  data-visor-src="../assets/img/parroquia/parroquiagal6-1200.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal6-640.webp 640w, ../assets/img/parroquia/parroquiagal6-960.webp 960w, ../assets/img/parroquia/parroquiagal6-1200.webp 1200w"
+                  data-visor-ancho="1200"
+                  data-visor-alto="900"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal6-640.webp 640w,
+                    ../assets/img/parroquia/parroquiagal6-960.webp 960w,
+                    ../assets/img/parroquia/parroquiagal6-1200.webp 1200w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal6-960.webp"
+                      alt="Sacerdote celebrando la misa ante los fieles, junto a un altar con la imagen de la Virgen entre nubes, palomas y ángeles, y el retablo dorado a la derecha"
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Misa junto al altar de la Virgen</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g1">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Altar de la Virgen con el Niño"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Altar de la Virgen con el Niño"
+                  data-visor-src="../assets/img/parroquia/parroquiagal1-480.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal1-480.webp 480w"
+                  data-visor-ancho="480"
+                  data-visor-alto="640"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal1-480.webp 480w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(100vw - 24px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal1-480.webp"
+                      alt="Altar adornado con cortinas y telas en tonos azules, flores y anclas decorativas, con la imagen de la Virgen con el Niño sobre un fondo de nubes y mar"
+                      width="480"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Altar de la Virgen con el Niño</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g2">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Altar con la imagen de la Virgen"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Altar con la imagen de la Virgen"
+                  data-visor-src="../assets/img/parroquia/parroquiagal2-632.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal2-632.webp 632w"
+                  data-visor-ancho="632"
+                  data-visor-alto="474"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal2-632.webp 632w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal2-632.webp"
+                      alt="Altar con la imagen de la Virgen bajo un dosel dorado, rodeado de flores rosadas y blancas y pequeños ángeles, con la inscripción «Estrella de la Mañana»"
+                      width="632"
+                      height="474"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Altar con la imagen de la Virgen</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g7">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Calle hacia el templo"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Calle hacia el templo"
+                  data-visor-src="../assets/img/parroquia/parroquiagal7-959.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal7-640.webp 640w, ../assets/img/parroquia/parroquiagal7-959.webp 959w"
+                  data-visor-ancho="959"
+                  data-visor-alto="719"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal7-640.webp 640w,
+                    ../assets/img/parroquia/parroquiagal7-959.webp 959w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal7-959.webp"
+                      alt="Vista desde la calle hacia el templo, con la fachada tras unas palmeras y la cerca, banderines amarillos y blancos a lo largo de la acera y cables sobre la vía"
+                      width="959"
+                      height="719"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Calle hacia el templo</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g11">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Fotografía antigua del templo"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Fotografía antigua del templo"
+                  data-visor-src="../assets/img/parroquia/parroquiagal11-788.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal11-640.webp 640w, ../assets/img/parroquia/parroquiagal11-788.webp 788w"
+                  data-visor-ancho="788"
+                  data-visor-alto="591"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal11-640.webp 640w,
+                    ../assets/img/parroquia/parroquiagal11-788.webp 788w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal11-788.webp"
+                      alt="Fotografía antigua a color del templo, con sus dos torres, el balcón sobre la entrada, palmeras y la cerca de hierro al frente"
+                      width="788"
+                      height="591"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Fotografía antigua del templo</figcaption>
+              </figure>
+              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g10">
+                <button
+                  type="button"
+                  class="parroquia-mosaico__btn"
+                  aria-label="Ampliar fotografía: Fotografía antigua en sepia"
+                  aria-haspopup="dialog"
+                  data-visor-titulo="Fotografía antigua en sepia"
+                  data-visor-src="../assets/img/parroquia/parroquiagal10-554.webp"
+                  data-visor-srcset="../assets/img/parroquia/parroquiagal10-554.webp 554w"
+                  data-visor-ancho="554"
+                  data-visor-alto="415"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                    ../assets/img/parroquia/parroquiagal10-554.webp 554w
+                      "
+                      sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
+                    />
+                    <img
+                      class="parroquia-mosaico__img"
+                      src="../assets/img/parroquia/parroquiagal10-554.webp"
+                      alt="Fotografía antigua en tono sepia de un templo de dos torres con una palmera y árboles junto a un camino de tierra"
+                      width="554"
+                      height="415"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                </button>
+                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Fotografía antigua en sepia</figcaption>
+              </figure>
             </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="img-placeholder">
-                  <i class="bi bi-images" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
+          </div>
+
+          <!-- Visor ampliado de la galería (Bootstrap Modal; comportamiento en assets/js/galeria-parroquia.js) -->
+          <div
+            class="modal fade parroquia-visor"
+            id="parroquiaVisor"
+            tabindex="-1"
+            aria-labelledby="parroquiaVisorTitulo"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-fullscreen">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <h2 id="parroquiaVisorTitulo" class="visually-hidden">Galería de nuestra parroquia: visor ampliado</h2>
+                  <button type="button" class="parroquia-visor__btn parroquia-visor__btn--cerrar" data-bs-dismiss="modal" aria-label="Cerrar visor">
+                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="parroquia-visor__btn parroquia-visor__btn--anterior" data-visor-anterior aria-label="Fotografía anterior">
+                    <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="parroquia-visor__btn parroquia-visor__btn--siguiente" data-visor-siguiente aria-label="Fotografía siguiente">
+                    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                  <figure class="parroquia-visor__figura">
+                    <img class="parroquia-visor__img" alt="" data-visor-img />
+                    <figcaption class="parroquia-visor__leyenda">
+                      <span data-visor-leyenda></span>
+                      <span class="parroquia-visor__contador" data-visor-contador></span>
+                    </figcaption>
+                  </figure>
+                  <p class="visually-hidden" role="status" aria-live="polite" data-visor-estado></p>
                 </div>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#parroquiaCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Fotografía anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#parroquiaCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Fotografía siguiente</span>
-            </button>
           </div>
         </div>
       </section>
@@ -383,7 +769,7 @@
               </div>
             </div>
             <div class="col-12 col-md-6 parroco__bio">
-              <h3>Nombre del párroco — Pendiente de confirmar</h3>
+              <h3>Pbro. Alexander Ramírez Arguedas</h3>
               <p>Biografía pendiente de confirmar con la parroquia.</p>
               <p>Biografía pendiente de confirmar con la parroquia.</p>
             </div>
@@ -528,7 +914,8 @@
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
 
-    <!-- Bootstrap Bundle (incluye Popper) — necesario para navbar, dropdown y carrusel -->
+    <!-- Bootstrap Bundle (incluye Popper) — necesario para navbar, dropdown y el visor de la galería -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/galeria-parroquia.js" defer></script>
   </body>
 </html>

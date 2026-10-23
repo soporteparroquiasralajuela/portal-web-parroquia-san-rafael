@@ -15,8 +15,7 @@
   min-height: 440px;
   display: flex;
   align-items: flex-end;
-  overflow: hidden;
-  padding-block: var(--space-4);
+  padding-block: var(--space-4) calc(var(--hero-wave-height) + var(--space-2));
 }
 
 .parroquia-hero__media {
@@ -215,25 +214,35 @@
 }
 
 .patrono__media {
-  min-height: 280px;
+  /* La ilustración es apaisada (3:2); se muestra completa, sin recortar ni deformar. */
+  aspect-ratio: 3 / 2;
+  background-color: var(--color-border-light); /* color de reserva mientras carga la imagen diferida */
   border-radius: var(--radius-md);
   overflow: hidden;
 }
 
-.patrono__media .img-placeholder {
-  min-height: 280px;
+.patrono__media picture {
+  display: block;
   height: 100%;
-  border-radius: var(--radius-md);
+}
+
+.patrono__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .patrono__text {
   color: var(--color-text-secondary);
 }
 
-/* ===== Galería de nuestra parroquia (carrusel) =====
-   Bootstrap Carousel propio de esta página (id/clases distintas al de
-   Inicio). Indicadores en punto: se reproduce aquí la misma regla visual
-   que en Inicio (Guia_Estilos.md), sin importar código desde home.css. */
+/* ===== Galería de nuestra parroquia (mosaico editorial) =====
+   Cuadrícula de 6 columnas desde 768 px y de 2 columnas en móvil. La unidad de fila
+   (--mosaico-fila) se mide en cqw respecto al ancho del contenedor, de modo que cada
+   tile conserva la proporción prevista a cualquier ancho (recorte máximo ≈ 25 %).
+   La posición de cada fotografía se fija por :nth-child (el orden del HTML es el orden
+   de lectura). Separación entre tiles: 12 px en móvil y 14 px desde 768 px. */
 .parroquia-galeria {
   padding-block: var(--space-5);
   text-align: center;
@@ -243,32 +252,285 @@
   margin-bottom: var(--space-3);
 }
 
-.parroquia-carousel {
-  max-width: 820px;
-  margin-inline: auto;
+.parroquia-mosaico {
+  container-type: inline-size;
 }
 
-.parroquia-carousel .img-placeholder {
-  aspect-ratio: 4 / 3;
-  min-height: 240px;
+.parroquia-mosaico__grid {
+  --mosaico-gap: 12px;
+  --mosaico-fila: 23cqw;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: var(--mosaico-fila);
+  gap: var(--mosaico-gap);
 }
 
-.parroquia-carousel .carousel-indicators [data-bs-target] {
-  width: 9px;
-  height: 9px;
+.parroquia-mosaico__item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--color-border-light); /* reserva mientras carga la imagen diferida */
+  box-shadow: var(--shadow-sm);
+}
+
+.parroquia-mosaico__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Móvil (2 columnas): tres fotografías a todo el ancho, las dos fachadas verticales
+   en pareja, la del altar en vertical grande y seis miniaturas en parejas. */
+.parroquia-mosaico__item:nth-child(1)  { grid-column: 1 / -1; grid-row: 1 / span 3; }
+.parroquia-mosaico__item:nth-child(2)  { grid-column: 1;      grid-row: 4 / span 3; }
+.parroquia-mosaico__item:nth-child(4)  { grid-column: 2;      grid-row: 4 / span 3; }
+.parroquia-mosaico__item:nth-child(3)  { grid-column: 1 / -1; grid-row: 7 / span 3; }
+.parroquia-mosaico__item:nth-child(5)  { grid-column: 1 / -1; grid-row: 10 / span 3; }
+.parroquia-mosaico__item:nth-child(8)  { grid-column: 1 / -1; grid-row: 13 / span 4; }
+.parroquia-mosaico__item:nth-child(6)  { grid-column: 1;      grid-row: 17 / span 2; }
+.parroquia-mosaico__item:nth-child(7)  { grid-column: 2;      grid-row: 17 / span 2; }
+.parroquia-mosaico__item:nth-child(10) { grid-column: 1;      grid-row: 19 / span 2; }
+.parroquia-mosaico__item:nth-child(11) { grid-column: 2;      grid-row: 19 / span 2; }
+.parroquia-mosaico__item:nth-child(9)  { grid-column: 1;      grid-row: 21 / span 2; }
+.parroquia-mosaico__item:nth-child(12) { grid-column: 2;      grid-row: 21 / span 2; }
+
+/* Encuadre de cada fotografía (object-position) */
+.parroquia-mosaico__item--g9  .parroquia-mosaico__img { object-position: 50% 70%; }
+.parroquia-mosaico__item--g3  .parroquia-mosaico__img { object-position: 50% 45%; }
+.parroquia-mosaico__item--g12 .parroquia-mosaico__img { object-position: 40% 40%; }
+.parroquia-mosaico__item--g5  .parroquia-mosaico__img { object-position: 55% 30%; }
+.parroquia-mosaico__item--g4  .parroquia-mosaico__img { object-position: 50% 50%; }
+.parroquia-mosaico__item--g1  .parroquia-mosaico__img { object-position: 50% 40%; }
+.parroquia-mosaico__item--g8  .parroquia-mosaico__img { object-position: 50% 40%; }
+.parroquia-mosaico__item--g6  .parroquia-mosaico__img { object-position: 35% 50%; }
+.parroquia-mosaico__item--g7  .parroquia-mosaico__img { object-position: 25% 50%; }
+.parroquia-mosaico__item--g11 .parroquia-mosaico__img { object-position: 30% 50%; }
+.parroquia-mosaico__item--g2  .parroquia-mosaico__img { object-position: 50% 50%; }
+.parroquia-mosaico__item--g10 .parroquia-mosaico__img { object-position: 30% 50%; }
+
+/* Tableta y escritorio (6 columnas): tres fotografías destacadas (4 columnas), tres
+   verticales (2 columnas) y seis miniaturas, en cinco bandas alternadas. */
+@media (min-width: 768px) {
+  .parroquia-mosaico__grid {
+    --mosaico-gap: 14px;
+    --mosaico-fila: 9.86cqw;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .parroquia-mosaico__item:nth-child(1)  { grid-column: 1 / span 4; grid-row: 1 / span 4; }
+  .parroquia-mosaico__item:nth-child(2)  { grid-column: 5 / span 2; grid-row: 1 / span 4; }
+  .parroquia-mosaico__item:nth-child(4)  { grid-column: 1 / span 2; grid-row: 5 / span 4; }
+  .parroquia-mosaico__item:nth-child(3)  { grid-column: 3 / span 4; grid-row: 5 / span 4; }
+  .parroquia-mosaico__item:nth-child(5)  { grid-column: 1 / span 4; grid-row: 9 / span 4; }
+  .parroquia-mosaico__item:nth-child(8)  { grid-column: 5 / span 2; grid-row: 9 / span 4; }
+  .parroquia-mosaico__item:nth-child(6)  { grid-column: 1 / span 2; grid-row: 13 / span 2; }
+  .parroquia-mosaico__item:nth-child(7)  { grid-column: 3 / span 2; grid-row: 13 / span 2; }
+  .parroquia-mosaico__item:nth-child(10) { grid-column: 5 / span 2; grid-row: 13 / span 2; }
+  .parroquia-mosaico__item:nth-child(9)  { grid-column: 1 / span 2; grid-row: 15 / span 2; }
+  .parroquia-mosaico__item:nth-child(11) { grid-column: 3 / span 2; grid-row: 15 / span 2; }
+  .parroquia-mosaico__item:nth-child(12) { grid-column: 5 / span 2; grid-row: 15 / span 2; }
+}
+
+/* Cada tile es un botón que abre el visor ampliado. */
+.parroquia-mosaico__btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: zoom-in;
+}
+
+.parroquia-mosaico__btn:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: -3px;
+}
+
+/* Descripción breve e icono de ampliación: aparecen al pasar el cursor o al enfocar con teclado.
+   En pantallas táctiles no se muestran (la descripción está en el visor). */
+.parroquia-mosaico__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.5rem var(--space-2) var(--space-2);
+  background: linear-gradient(0deg, rgba(29, 42, 84, 0.82) 0%, rgba(29, 42, 84, 0) 100%);
+  color: #ffffff;
+  font-size: var(--fs-body-sm);
+  line-height: 1.35;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.parroquia-mosaico__zoom {
+  position: absolute;
+  top: var(--space-1);
+  right: var(--space-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-pill);
-  opacity: 0.6;
-  background-color: var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.parroquia-carousel .carousel-indicators .active {
+.parroquia-mosaico__item:focus-within .parroquia-mosaico__caption,
+.parroquia-mosaico__item:focus-within .parroquia-mosaico__zoom {
   opacity: 1;
-  background-color: var(--color-secondary);
 }
 
-.parroquia-carousel .carousel-control-prev-icon,
-.parroquia-carousel .carousel-control-next-icon {
-  filter: invert(0.4);
+@media (hover: hover) {
+  .parroquia-mosaico__item:hover .parroquia-mosaico__caption,
+  .parroquia-mosaico__item:hover .parroquia-mosaico__zoom {
+    opacity: 1;
+  }
+}
+
+/* Movimiento: acercamiento sutil y aparición suave, solo sin reducción de movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  .parroquia-mosaico__img {
+    transition: transform 0.5s ease;
+  }
+
+  .parroquia-mosaico__caption,
+  .parroquia-mosaico__zoom {
+    transition: opacity 0.3s ease;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .parroquia-mosaico__item:hover .parroquia-mosaico__img {
+    transform: scale(1.04);
+  }
+}
+
+/* ===== Visor ampliado de la galería (Bootstrap Modal a pantalla completa) ===== */
+.parroquia-visor .modal-content {
+  background-color: rgba(18, 24, 48, 0.97);
+  border: 0;
+  border-radius: 0;
+}
+
+.parroquia-visor .modal-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem var(--space-2) 5.5rem;
+}
+
+.parroquia-visor__figura {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 100%;
+  margin: 0;
+}
+
+.parroquia-visor__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 15rem);
+  max-height: calc(100dvh - 15rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.06); /* reserva mientras carga la fotografía */
+}
+
+.parroquia-visor__leyenda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-inline: 4rem;
+  color: #ffffff;
+  font-size: var(--fs-body);
+  text-align: center;
+}
+
+.parroquia-visor__contador {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--fs-body-sm);
+}
+
+.parroquia-visor__btn {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.parroquia-visor__btn:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+.parroquia-visor__btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.parroquia-visor__btn--cerrar {
+  top: var(--space-2);
+  right: var(--space-2);
+}
+
+/* Móvil: anterior y siguiente quedan abajo, a ambos lados de la leyenda */
+.parroquia-visor__btn--anterior,
+.parroquia-visor__btn--siguiente {
+  bottom: var(--space-2);
+}
+
+.parroquia-visor__btn--anterior {
+  left: var(--space-2);
+}
+
+.parroquia-visor__btn--siguiente {
+  right: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .parroquia-visor .modal-body {
+    padding: 4rem 6rem 5rem;
+  }
+
+  .parroquia-visor__img {
+    max-height: calc(100vh - 13rem);
+    max-height: calc(100dvh - 13rem);
+  }
+
+  .parroquia-visor__btn--anterior,
+  .parroquia-visor__btn--siguiente {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  .parroquia-visor__leyenda {
+    padding-inline: 0;
+  }
 }
 
 /* ===== Nuestro párroco ===== */

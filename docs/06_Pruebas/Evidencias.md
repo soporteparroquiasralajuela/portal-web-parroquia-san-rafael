@@ -3,10 +3,10 @@
 | Campo | Valor |
 |---|---|
 | Documento | 06_Pruebas/Evidencias.md |
-| Versión | 1.1 |
+| Versión | 1.5 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-14 |
-| Estado | **Parcial** — evidencia de la integración con YouTube; el resto de la funcionalidad sin evidencia formal |
+| Última actualización | 2026-10-22 |
+| Estado | **Parcial** — evidencia de la integración con YouTube y registro de validaciones visuales y responsive; el resto de la funcionalidad sin evidencia formal |
 
 ---
 
@@ -64,9 +64,29 @@ Las validaciones de la integración con Google Calendar (también con scripts te
 - **Pruebas en otros navegadores y en dispositivos físicos:** no registradas.
 - **Transmisión pública real con cualquier otra configuración del canal:** no registrada.
 
+### 3.4 Validaciones visuales y responsive (2026-10-18 a 2026-10-22)
+
+Ejecutadas por el asistente con el navegador integrado del entorno de desarrollo (emulación de viewport) sobre un servidor estático local y, cuando se indica, sobre producción. Las capturas se conservan solo en una carpeta local no versionada.
+
+| ID | Fecha | Prueba | Resultado |
+|---|---|---|---|
+| VR-01 | 2026-10-18 | Footers estandarizados y botón flotante de WhatsApp en las seis páginas (escritorio y móvil): íconos alineados, WhatsApp sin tapar texto | Correcto |
+| VR-02 | 2026-10-21 | Navegación adaptable: seis páginas × 10 anchos (320 a 1280 px) × 2 modos (ancho de media query y ancho útil) = 120 casos; repetida en producción | Sin desbordamiento horizontal, marca completa y menú coherente; único hallazgo: desborde de ≈ 4 px en Contacto (VR-03) |
+| VR-03 | 2026-10-21 | Contacto a 992, 998, 1000, 1024 y 1280 px con y sin barra de desplazamiento clásica, antes y después de la corrección; confirmado en producción | Sin desbordamiento tras la corrección; diseño idéntico fuera de 992–998 px |
+| VR-04 | 2026-10-21/22 | Parroquia: Hero, historia, patrono y párroco a 320, 375, 390, 768, 1024, 1280 y 1440 px; variante WebP elegida, proporciones y carga | Correcto; variante de 1024 px con densidad ≥ 1,3 |
+| VR-05 | 2026-10-22 | Hero de Inicio a 320, 375, 390, 768, 1024, 1280, 1440 y 1920 px: contraste medido del texto sobre la imagen (peor 5 % de cada zona), foco con teclado, una sola imagen descargada | Título y descripción entre 9 y 13; «Cómo llegar» 11 a 13; «Horarios de misa» 5,7; texto superior entre 4,5 y 5,1; sin desbordamiento |
+| VR-06 | 2026-10-22 | Curva `.hero-wave` en las seis páginas a 375, 768, 1024 y 1440 px | Unión de 0 px con la sección siguiente, relleno igual al fondo (blanco en Grupos), trazo dorado de 2 px, margen de 34 a 69 px entre el texto y la curva, sin desbordamiento |
+| VR-07 | 2026-10-22 | «Horarios de misa» de Inicio a 320, 375, 390, 768, 992, 1024 y 1440 px: carga de ambas imágenes, proporción, encuadre, desbordamiento horizontal | Las dos imágenes cargan sin deformarse; sin desbordamiento; se vieron ambas torres del templo y la torre y fachada de la Diaconía. Entre 768 y 991 px se pasó a imagen apilada por recorte excesivo en fila |
+| VR-08 | 2026-10-22 | Alineación de «Cómo llegar» en las dos tarjetas a los mismos siete anchos | Botones a la misma altura con 25 px bajo ellos desde 768 px; en móvil, cada botón a 16 px de sus horarios y dentro de su tarjeta; sin superposiciones |
+| VR-09 | 2026-10-22 | Carrusel de Inicio a 320, 375, 390, 768, 1024, 1440 y 1920 px; navegación con flechas, indicadores y teclado; ausencia de rotación automática; imágenes y consola | Las tres imágenes cargan sin deformarse ni dejar márgenes; sin desbordamiento horizontal; protagonistas y rostros visibles desde 320 px; el pie de móvil se redujo tras verificar que cubría a Tobías a 390 px; sin errores de imagen (los 404 de consola son del endpoint `/api/proximos-eventos`, inexistente en el servidor local). No se probó el deslizamiento táctil real ni la animación de transición (el navegador de pruebas tenía el movimiento reducido activo) |
+| VR-10 | 2026-10-22 | Galería de Parroquia (mosaico) a 320, 375, 390, 768, 1024, 1440 y 1920 px: carga de las 12 fotografías, solapamientos, separación, recorte y desbordamiento | Sin solapamientos ni desbordamiento; separación de 12 px (móvil) y 14 px (desde 768 px); recorte máximo de 15 % (28 % en miniaturas móviles); las 12 cargan |
+| VR-11 | 2026-10-22 | Visor ampliado de la galería: apertura, navegación con botones y ← →, circularidad, Tab (trampa de foco), Escape, retorno del foco y restauración del desplazamiento; botones táctiles a 390 px | Correcto; botones de 48×48 px; el foco vuelve a la miniatura de origen. No se probó el deslizamiento táctil real (no existe el gesto) ni el efecto de la carga diferida en una primera visita (imágenes ya en caché). En el navegador de pruebas algunas capturas salen con tiles aún sin pintar aunque las imágenes ya están cargadas |
+
+**Limitaciones:** un solo motor de navegador (Chromium), sin dispositivos físicos ni otros navegadores; el contraste se calculó sobre la imagen y el degradado reales, sin considerar el pequeño sombreado del texto; las páginas con integración de servidor (`/api/*`) no se probaron en local (404 esperado).
+
 ## 4. Estado
 
-**Parcial.** Existe evidencia, simulada y real, de la integración con YouTube, que cubre todo su alcance aprobado. El resto de la funcionalidad del portal no tiene evidencia formal registrada. Se seguirá completando conforme se ejecuten pruebas reales sobre funcionalidad implementada.
+**Parcial.** Existe evidencia, simulada y real, de la integración con YouTube, que cubre todo su alcance aprobado. Además se registran validaciones visuales y responsive (3.4); el resto de la funcionalidad del portal no tiene evidencia formal registrada. Se seguirá completando conforme se ejecuten pruebas reales sobre funcionalidad implementada.
 
 ---
 

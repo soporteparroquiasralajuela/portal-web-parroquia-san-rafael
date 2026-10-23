@@ -126,61 +126,69 @@
 
     <main id="main-content">
       <!-- ===================== HERO ===================== -->
-      <!-- Composición de dos columnas según Diseño inicio.png: texto a la izquierda,
-           área fotográfica a la derecha. El área fotográfica usa el placeholder
-           estándar del proyecto hasta contar con una fotografía real; sustituirla
-           ahí no requiere modificar esta estructura. -->
+      <!-- Hero panorámico de ancho completo: la imagen (recreación digital artística de la
+           parroquia, no una fotografía documental) es el fondo; el texto y los botones son HTML
+           sobre un degradado azul institucional. La transición inferior se superpone a la base de
+           la imagen. El recorte se controla con object-position (ver home.css). -->
       <section class="hero" aria-labelledby="hero-heading">
-        <div class="container">
-          <div class="hero__row">
-            <div class="hero__text-col">
-              <p class="eyebrow">Bienvenidos a nuestra</p>
-              <h1 id="hero-heading" class="hero__title">Parroquia San Rafael Arcángel</h1>
-              <!-- Texto de bienvenida: tono aprobado en el diseño conceptual; redacción final por validar con la parroquia -->
-              <p class="hero__text">
-                Un lugar para encontrarnos con Dios, compartir la fe y servir a nuestra comunidad.
-              </p>
-              <div class="hero__actions">
-                <a class="btn btn-secondary" href="#horarios-de-misa">
-                  <i class="bi bi-house-door" aria-hidden="true"></i> Horarios de misa
-                </a>
-                <!-- Ubicación del templo principal en Google Maps (distinta de la oficina parroquial, que está en Contacto). -->
-                <a
-                  class="btn btn-outline-primary"
-                  href="https://maps.app.goo.gl/v12Fq4cVN8VUCgcr5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i class="bi bi-geo-alt" aria-hidden="true"></i> Cómo llegar
-                  <span class="visually-hidden">(se abre en Google Maps en una pestaña nueva)</span>
-                </a>
-              </div>
-              <p class="hero__diocese">Diócesis de Alajuela</p>
-            </div>
+        <picture class="hero__media">
+          <source
+            media="(max-width: 767.98px)"
+            type="image/webp"
+            srcset="assets/img/parroquia/parroquiainiciohero-mobile.webp"
+          />
+          <source
+            type="image/webp"
+            srcset="
+              assets/img/parroquia/parroquiainiciohero-1280.webp 1280w,
+              assets/img/parroquia/parroquiainiciohero-1983.webp 1983w
+            "
+            sizes="(max-width: 1023.98px) 1200px, (max-width: 1599.98px) 1500px, 100vw"
+          />
+          <img
+            class="hero__img"
+            src="assets/img/parroquia/parroquiainiciohero.png"
+            alt="Recreación digital artística del templo de la Parroquia San Rafael Arcángel al atardecer, con sus dos torres de techos azules, un jardín florido y palmeras"
+            width="1983"
+            height="793"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
 
-            <div class="hero__visual-col">
-              <div class="hero__visual">
-                <div class="img-placeholder">
-                  <i class="bi bi-image" aria-hidden="true"></i>
-                  <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-                </div>
-                <blockquote class="hero__quote">«Aquí estamos para servir.»</blockquote>
-              </div>
+        <div class="container hero__content">
+          <div class="hero__text-col">
+            <p class="eyebrow">Bienvenidos a nuestra</p>
+            <h1 id="hero-heading" class="hero__title">Parroquia San Rafael Arcángel</h1>
+            <!-- Texto de bienvenida: tono aprobado en el diseño conceptual; redacción final por validar con la parroquia -->
+            <p class="hero__text">
+              Un lugar para encontrarnos con Dios, compartir la fe y servir a nuestra comunidad.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn-secondary" href="#horarios-de-misa">
+                <i class="bi bi-house-door" aria-hidden="true"></i> Horarios de misa
+              </a>
+              <!-- Ubicación del templo principal en Google Maps (distinta de la oficina parroquial, que está en Contacto). -->
+              <a
+                class="btn btn-outline-primary"
+                href="https://maps.app.goo.gl/v12Fq4cVN8VUCgcr5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="bi bi-geo-alt" aria-hidden="true"></i> Cómo llegar
+                <span class="visually-hidden">(se abre en Google Maps en una pestaña nueva)</span>
+              </a>
             </div>
+            <p class="hero__diocese">Diócesis de Alajuela</p>
           </div>
         </div>
 
-        <!-- Transición orgánica: cinta en capas (dorado detrás de navy) + insignia central,
-             según Diseño inicio.png -->
-        <div class="wave-transition" aria-hidden="true">
-          <svg class="wave-transition-gold" viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="var(--color-secondary)" d="M0,30 C360,4 1080,44 1440,20 L1440,56 L0,56 Z" />
-          </svg>
-          <svg class="wave-transition-navy" viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="var(--color-primary)" d="M0,24 C360,50 1080,6 1440,28 L1440,56 L0,56 Z" />
-          </svg>
-          <span class="wave-transition-badge"><i class="bi bi-plus-lg" aria-hidden="true"></i></span>
-        </div>
+        <!-- Curva de separación Hero → «Próximos eventos» (componente compartido .hero-wave,
+             components.css): relleno crema y un trazo dorado fino. Decorativa. -->
+        <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="hero-wave__fill" d="M0,56 C380,92 1010,6 1440,52 L1440,100 L0,100 Z" />
+          <path class="hero-wave__line" d="M0,56 C380,92 1010,6 1440,52" />
+        </svg>
       </section>
 
       <!-- ===================== PRÓXIMOS EVENTOS ===================== -->
@@ -298,7 +306,7 @@
       </section>
 
       <!-- ===================== CARRUSEL FOTOGRÁFICO ===================== -->
-      <section class="gallery-carousel" aria-label="Fotografías de nuestra comunidad parroquial">
+      <section class="gallery-carousel" aria-label="Galería de imágenes de nuestra parroquia">
         <div
           id="carruselParroquial"
           class="carousel slide"
@@ -311,59 +319,110 @@
               data-bs-slide-to="0"
               class="active"
               aria-current="true"
-              aria-label="Fotografía 1"
+              aria-label="Imagen 1: La belleza de nuestro templo"
             ></button>
             <button
               type="button"
               data-bs-target="#carruselParroquial"
               data-bs-slide-to="1"
-              aria-label="Fotografía 2"
+              aria-label="Imagen 2: Una comunidad reunida en la fe"
             ></button>
             <button
               type="button"
               data-bs-target="#carruselParroquial"
               data-bs-slide-to="2"
-              aria-label="Fotografía 3"
+              aria-label="Imagen 3: Guiados por la fe y la esperanza"
             ></button>
           </div>
 
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="img-placeholder">
-                <i class="bi bi-images" aria-hidden="true"></i>
-                <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-              </div>
-              <div class="gallery-carousel__quote">
-                <blockquote>«Cita o frase inspiradora — contenido de ejemplo, pendiente de definir con la parroquia.»</blockquote>
+            <div class="carousel-item active" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                          assets/img/galeria/iniciogaleria3-640.webp 640w,
+                          assets/img/galeria/iniciogaleria3-960.webp 960w,
+                          assets/img/galeria/iniciogaleria3-1280.webp 1280w,
+                          assets/img/galeria/iniciogaleria3-1672.webp 1672w
+                  "
+                  sizes="(max-width: 500px) 500px, 100vw"
+                />
+                <img
+                  class="gallery-carousel__img gallery-carousel__img--templo"
+                  src="assets/img/galeria/iniciogaleria3.png"
+                  alt="Recreación digital del interior del templo parroquial: el retablo dorado y el altar mayor al fondo, con bancas de madera, vitrales laterales y una lámpara de cristal"
+                  width="1672"
+                  height="941"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <div class="gallery-carousel__caption">
+                <p>La belleza de nuestro templo</p>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="img-placeholder">
-                <i class="bi bi-images" aria-hidden="true"></i>
-                <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-              </div>
-              <div class="gallery-carousel__quote">
-                <blockquote>«Espacio reservado para una fotografía real de la vida de nuestra comunidad.»</blockquote>
+            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                          assets/img/galeria/iniciogaleria2-640.webp 640w,
+                          assets/img/galeria/iniciogaleria2-960.webp 960w,
+                          assets/img/galeria/iniciogaleria2-1280.webp 1280w,
+                          assets/img/galeria/iniciogaleria2-1672.webp 1672w
+                  "
+                  sizes="(max-width: 500px) 500px, 100vw"
+                />
+                <img
+                  class="gallery-carousel__img gallery-carousel__img--comunidad"
+                  src="assets/img/galeria/iniciogaleria2.png"
+                  alt="Recreación digital de una comunidad reunida en la celebración dentro del templo: fieles en las bancas frente al altar y al retablo, bajo lámparas de cristal"
+                  width="1672"
+                  height="941"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <div class="gallery-carousel__caption">
+                <p>Una comunidad reunida en la fe</p>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="img-placeholder">
-                <i class="bi bi-images" aria-hidden="true"></i>
-                <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-              </div>
-              <div class="gallery-carousel__quote">
-                <blockquote>«Imagen y texto de ejemplo — se reemplazarán por contenido oficial de la parroquia.»</blockquote>
+            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                          assets/img/galeria/iniciogaleria1-640.webp 640w,
+                          assets/img/galeria/iniciogaleria1-960.webp 960w,
+                          assets/img/galeria/iniciogaleria1-1280.webp 1280w,
+                          assets/img/galeria/iniciogaleria1-1672.webp 1672w
+                  "
+                  sizes="(max-width: 500px) 500px, 100vw"
+                />
+                <img
+                  class="gallery-carousel__img gallery-carousel__img--rafael"
+                  src="assets/img/galeria/iniciogaleria1.png"
+                  alt="Recreación digital de San Rafael Arcángel, con alas doradas y bastón de peregrino, guiando de la mano a Tobías, quien lleva un pez, entre flores blancas y amarillas frente a un altar"
+                  width="1672"
+                  height="941"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <div class="gallery-carousel__caption">
+                <p>Guiados por la fe y la esperanza</p>
               </div>
             </div>
           </div>
 
           <button class="carousel-control-prev" type="button" data-bs-target="#carruselParroquial" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Fotografía anterior</span>
+            <span class="visually-hidden">Imagen anterior</span>
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#carruselParroquial" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Fotografía siguiente</span>
+            <span class="visually-hidden">Imagen siguiente</span>
           </button>
         </div>
       </section>
@@ -384,10 +443,25 @@
             <div class="col-12 col-md-6">
               <article class="mass-card">
                 <div class="mass-card__media">
-                  <div class="img-placeholder">
-                    <i class="bi bi-building" aria-hidden="true"></i>
-                    <span>Imagen pendiente</span>
-                  </div>
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                        assets/img/parroquia/parroquiahistoria-640.webp 640w,
+                        assets/img/parroquia/parroquiahistoria-1024.webp 1024w
+                      "
+                      sizes="(min-width: 1200px) 230px, (min-width: 992px) 190px, (min-width: 768px) 340px, calc(100vw - 24px)"
+                    />
+                    <img
+                      class="mass-card__img mass-card__img--templo"
+                      src="assets/img/parroquia/parroquiahistoria.png"
+                      alt="Recreación digital de la fachada del templo de la Parroquia San Rafael Arcángel, con sus dos torres, el balcón sobre la entrada y estatuas de santos, al atardecer"
+                      width="1024"
+                      height="1536"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
                 <div class="mass-card__body">
                   <p class="eyebrow mass-card__eyebrow">Templo principal</p>
@@ -414,10 +488,25 @@
             <div class="col-12 col-md-6">
               <article class="mass-card">
                 <div class="mass-card__media">
-                  <div class="img-placeholder">
-                    <i class="bi bi-building" aria-hidden="true"></i>
-                    <span>Imagen pendiente</span>
-                  </div>
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="
+                        assets/img/parroquia/iniciodiaconia-640.webp 640w,
+                        assets/img/parroquia/iniciodiaconia-1024.webp 1024w
+                      "
+                      sizes="(min-width: 1200px) 230px, (min-width: 992px) 190px, (min-width: 768px) 340px, calc(100vw - 24px)"
+                    />
+                    <img
+                      class="mass-card__img mass-card__img--diaconia"
+                      src="assets/img/parroquia/iniciodiaconia.png"
+                      alt="Recreación digital de la Diaconía Nuestra Señora del Perpetuo Socorro: fachada blanca con techo de teja, una torre con cruz, reja negra y palmeras bajo un cielo azul"
+                      width="1024"
+                      height="1536"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
                 <div class="mass-card__body">
                   <p class="eyebrow mass-card__eyebrow">Diaconía</p>

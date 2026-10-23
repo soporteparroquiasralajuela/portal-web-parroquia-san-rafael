@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 08_Manuales/Manual_Tecnico.md |
-| Versión | 1.6 |
+| Versión | 2.0 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-14 |
+| Última actualización | 2026-10-22 |
 | Estado | Vigente (estado actual del proyecto) |
 
 ---
@@ -55,12 +55,14 @@ Ver el detalle completo en [Estructura_Proyecto.md](../03_Arquitectura/Estructur
 | Elemento | Estado |
 |---|---|
 | `index.html` | Implementado — página de Inicio (ver sección 9) |
-| `pages/` | Contiene `parroquia.html`, `grupos.html`, `calendario.html` y `transmisiones.html` (implementadas y publicadas) |
-| `assets/css` | Estilos globales (`variables.css`, `main.css`, `components.css`) y específicos de página (`home.css`, `parroquia.css`, `grupos.css`, `calendario.css`, `transmisiones.css`) |
-| `assets/js` | `grupos.js` (comportamiento móvil de Grupos), `proximos-eventos.js` (tarjetas de Próximos eventos de Inicio) y `transmisiones.js` (estados del reproductor y videos recientes de Transmisiones). El resto de la interactividad (navbar, dropdown, carrusel, pestañas) usa el bundle de Bootstrap |
+| `pages/` | Contiene `parroquia.html`, `grupos.html`, `calendario.html`, `transmisiones.html` y `contacto.html` (implementadas y publicadas) |
+| `assets/css` | Estilos globales (`variables.css`, `main.css`, `components.css`) y específicos de página (`home.css`, `parroquia.css`, `grupos.css`, `calendario.css`, `transmisiones.css`, `contacto.css`); `components.css` incluye la navegación, el footer, el botón flotante de WhatsApp y la curva `.hero-wave` (sección 13) |
+| `assets/js` | `grupos.js` (comportamiento móvil de Grupos), `proximos-eventos.js` (tarjetas de Próximos eventos de Inicio) y `transmisiones.js` (estados del reproductor y videos recientes de Transmisiones) y `galeria-parroquia.js` (visor ampliado de la galería de Parroquia). El resto de la interactividad (navbar, dropdown, carrusel, pestañas, modal) usa el bundle de Bootstrap |
 | `netlify/functions/` | `proximos-eventos.mjs` — Netlify Function de Google Calendar (sección 10) y `transmision-actual.mjs` — Netlify Function de YouTube (sección 11) |
+| `favicon.ico` y `assets/icons/` | Favicon institucional (`favicon.ico` en la raíz; `favicon-32x32.png` y `apple-touch-icon.png` en `assets/icons/`), sección 12.3 |
+| `assets/img/` | `logo/Logo.jpeg` y `parroquia/` (imágenes PNG con sus versiones WebP), sección 12; las demás subcarpetas siguen vacías |
 | `components/`, `config/`, `data/`, `scripts/` | Vacíos |
-| Funcionalidad | Inicio, Parroquia, Grupos, Calendario y Transmisiones implementadas y desplegadas; integración con Google Calendar completada y operativa; integración con YouTube funcional dentro del alcance aprobado (validada con una transmisión pública real; la visualización automática de grabaciones de transmisiones finalizadas está excluida del alcance). Aún sin desarrollar: Servicios parroquiales (y sus páginas de segundo nivel) y Contacto. Estructura de las cuatro páginas congeladas (Inicio, Parroquia, Grupos y Calendario) en línea base temporal; Transmisiones **no está congelada**; contenido real pendiente de incorporación y validación (sección 9) |
+| Funcionalidad | Inicio, Parroquia, Grupos, Calendario, Transmisiones y Contacto implementadas y desplegadas; integración con Google Calendar completada y operativa; integración con YouTube funcional dentro del alcance aprobado (validada con una transmisión pública real; la visualización automática de grabaciones de transmisiones finalizadas está excluida del alcance). Aún sin desarrollar: Servicios parroquiales (y sus páginas de segundo nivel). Estructura de las cuatro páginas congeladas (Inicio, Parroquia, Grupos y Calendario) en línea base temporal; Transmisiones y Contacto **no están congeladas**; contenido real pendiente de incorporación y validación (sección 9) |
 
 ## 7. Gobierno técnico
 
@@ -108,7 +110,7 @@ Estar en el primer estado no implica haber cumplido el segundo ni el tercero.
 - Navegación común (sección 9.8), footer y botón flotante de WhatsApp, en su estructura y comportamiento actuales.
 - Referencia de código: la línea base se estableció sobre el commit `2853c32`. Los cambios posteriores publicados sobre estas páginas, todos con autorización puntual y sin levantar el congelamiento, son: el enlace de ubicación de «Próximos eventos» (commit `7b0b821acfefbc5822b2faf7b9b90a943d895352`, sección 9.12); la referencia al calendario secundario del sitio web en la página Calendario (commit `4bfa4e2276cc5018cfab86985cb591e2a067a2f5`, 2026-10-13); y el enlace del ícono de YouTube del pie de página al canal oficial en Inicio, Parroquia, Grupos y Calendario (commit `26f5dad0709433d3f71a4d9f466f88ca892442d7`, 2026-10-14). No se creó ninguna etiqueta (tag) de Git para esta línea base.
 
-**No incluido:** Transmisiones (implementada y publicada, pero **no congelada**) y Servicios parroquiales, Sacramentos, Gestiones, Documentos e información y Contacto (todavía no existen como páginas implementadas). Estas secciones cuentan con diseño conceptual y decisiones previas ([Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 6) y con enlaces ya presentes en la navegación, pero eso es distinto de una implementación existente y no está congelado.
+**No incluido:** Transmisiones y Contacto (implementadas y publicadas, pero **no congeladas**) y Servicios parroquiales, Sacramentos, Gestiones y Documentos e información (todavía no existen como páginas implementadas). Estas secciones cuentan con diseño conceptual y decisiones previas ([Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 6) y con enlaces ya presentes en la navegación, pero eso es distinto de una implementación existente y no está congelado.
 
 **Estado de Transmisiones (2026-10-14):** página implementada y **publicada** (`pages/transmisiones.html`, `assets/css/transmisiones.css` y `assets/js/transmisiones.js`; commits `45416f28174fb5c253c8944ea882ab70e1c9bccc` y `27560ca0a6d6b36f53ab0100fa9aa5a1b7f4c461`), conectada con YouTube mediante la Netlify Function `transmision-actual` (commit `cf3b751d5f60070991e6bd3136984b12a169190f`). La Fase 1 visual del 2026-10-11 corresponde al commit `3f23ba40b18216e2059e60d059794ad796ea92fb` (citado antes como `c3d7ad9`; el contenido es idéntico y solo cambió el identificador por un rebase). Está **funcional y completada dentro del alcance aprobado**: validada con una transmisión pública real (detección, reproducción integrada y retiro automático) y con un video público normal. **No está congelada** y su contenido editorial y multimedia (por ejemplo, la fotografía institucional) sigue siendo provisional. **Fuera del alcance:** la visualización automática de grabaciones de transmisiones finalizadas, excluida por decisión del proyecto tras una investigación técnica (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md), sección 10).
 
@@ -148,14 +150,14 @@ La existencia de contenido dentro de una página **no significa que haya sido va
 | Diseño y estructura | Congelado temporalmente (formal, sección 9.12) | Congelado temporalmente | Congelado temporalmente | Congelado temporalmente, salvo lo indicado en 9.9 |
 | Implementación HTML | Implementada | Implementada | Implementada | Implementada |
 | CSS y responsive | Implementado (`home.css`) | Implementado (`parroquia.css`) | Implementado (`grupos.css`) | Implementado (`calendario.css`); limitación abierta del embed a ≈ 375 px (9.9) |
-| JavaScript | `proximos-eventos.js` | No aplica (solo Bootstrap) | `grupos.js` y pestañas de Bootstrap | No aplica |
+| JavaScript | `proximos-eventos.js` | `galeria-parroquia.js` | `grupos.js` y pestañas de Bootstrap | No aplica |
 | Integraciones | Google Calendar API v3 mediante Netlify Function (completada y operativa, con el calendario secundario institucional) | Ninguna propia | Formulario visual: no envía información | Iframe de Google Calendar (completado y operativo, con el calendario secundario institucional) |
-| Contenido real de la parroquia | Pendiente | Pendiente | Pendiente | Pendiente |
-| Imágenes definitivas | Pendientes (9 placeholders) | Pendientes (16 placeholders) | Pendientes (21 placeholders) | Pendientes (1 placeholder) |
+| Contenido real de la parroquia | Pendiente de validación (horarios y enlaces de Maps aportados por el equipo; ver 9.6) | Textos editoriales propuestos, pendientes de validación institucional (9.6) | Pendiente | Pendiente |
+| Imágenes definitivas | Hero con recreación digital (pendiente de liberación); 8 placeholders pendientes | Hero, historia y patrono con recreaciones digitales (el patrono, pendiente de liberación); 13 placeholders pendientes | Pendientes (21 placeholders) | Pendientes (1 placeholder) |
 | Validación con la parroquia | Pendiente | Pendiente | Pendiente | Pendiente |
 | Estado para entrega final | No alcanzada: pendiente de contenido, imágenes y validación | Ídem | Ídem | Ídem, más la limitación del embed a ≈ 375 px (9.9) |
 
-Los placeholders son los elementos `.img-placeholder` del código; el único recurso gráfico real incorporado es el logo institucional (`assets/img/logo/Logo.jpeg`).
+Los placeholders son los elementos `.img-placeholder` del código. Los recursos gráficos reales incorporados son el logo institucional (`assets/img/logo/Logo.jpeg`), el favicon derivado de él y las recreaciones digitales de Inicio y Parroquia descritas en la sección 12 (no son fotografías documentales).
 
 ### 9.6 Contenido provisional y pendiente de información real
 
@@ -163,8 +165,8 @@ Una parte importante del contenido visible de las cuatro páginas es genérico, 
 
 | Página | Pendiente de información real o validación |
 |---|---|
-| Inicio | Texto de bienvenida del Hero y frases decorativas (Hero, carruseles, llamadas), fotografías, horarios de misa y de confesiones de los dos templos (hoy «Pendiente de confirmar»), datos de contacto del footer, número de WhatsApp, URL de las redes sociales, eventos reales en el calendario |
-| Parroquia | Misión, visión, valores y comunidad, historia y su cita, patrono (y destino del botón asociado), galería de fotografías, información y fotografía del párroco |
+| Inicio | Texto de bienvenida del Hero (redacción final por validar), frase decorativa de la llamada final, confirmación de que las recreaciones digitales (Hero, templo, Diaconía y carrusel) representan fielmente el edificio y las celebraciones reales, validación contra el panfleto oficial de los horarios de misa, confesiones, Hora Santa y Ermita María Auxiliadora y del nombre del templo principal, confirmación de que el enlace de Google Maps de la Ermita corresponde a su ubicación (Google Maps lo muestra como «Salón María Auxiliadora»), eventos reales en el calendario |
+| Parroquia | Validación institucional de los textos editoriales propuestos (Hero, misión, visión, valores, comunidad, historia —contrastada con fuentes, sección 12.4— y patrono), constancia escrita de la autorización de uso y del consentimiento de las personas que aparecen en la galería (confirmados verbalmente por el responsable del proyecto el 2026-10-22; sección 12.5), biografía, cita y fotografía del párroco (el nombre «Pbro. Alexander Ramírez Arguedas» ya figura y coincide con la página de la Diócesis de Alajuela) |
 | Grupos | Introducción; nombres, descripciones, reuniones, lugares, destinatarios y fotografías de los grupos (hoy 10 grupos de referencia con nombre «pendiente de confirmar»); número real de grupos; plataforma y destino del formulario |
 | Calendario | Textos de apoyo, fotografía del Hero y calendario con eventos reales |
 | Transmisiones (no congelada) | Fotografía institucional del estado sin transmisión (hoy marcador sin imagen), textos de apoyo y validación con la parroquia |
@@ -173,32 +175,34 @@ Precisiones que deben mantenerse:
 
 - Los horarios marcados «Pendiente de confirmar» no se presentan como confirmados.
 - El formulario de Grupos es **visual**: su botón está deshabilitado de forma accesible (`aria-disabled`) y no envía información; no debe describirse como formulario funcional.
-- El botón flotante de WhatsApp **no es una integración operativa** mientras no tenga número o destino configurado.
-- Los íconos de redes sociales **sin URL** no son integraciones operativas.
+- El botón flotante de WhatsApp es un enlace a `wa.me` con el número de la oficina parroquial (6170-5997) y está operativo; ese número y los demás datos de contacto siguen sujetos a la validación final de la parroquia.
+- Los footers enlazan a Facebook y YouTube con las URL oficiales proporcionadas; Instagram no se usa.
 - Los tres eventos que devolvía el calendario durante la validación inicial **no se documentan como eventos reales de la parroquia**: no existe evidencia suficiente para determinar si eran reales o datos de prueba. La incorporación de eventos reales es una tarea de contenido, independiente de la integración técnica.
 
 ### 9.7 Integraciones
 
 | Clasificación | Integración |
 |---|---|
-| Operativas | Google Calendar embebido (página Calendario); Google Calendar API v3 mediante Netlify Function (Próximos eventos); enlace simple de búsqueda de Google Maps desde la ubicación de cada evento (sin API ni clave); YouTube Data API v3 mediante Netlify Function (Transmisiones: transmisión en vivo y videos públicos normales recientes; funcional dentro del alcance aprobado y validada con una transmisión pública real); enlace del ícono de YouTube del pie de página al canal oficial; Netlify como hosting |
+| Operativas | Google Calendar embebido (página Calendario); Google Calendar API v3 mediante Netlify Function (Próximos eventos); enlace simple de búsqueda de Google Maps desde la ubicación de cada evento (sin API ni clave); YouTube Data API v3 mediante Netlify Function (Transmisiones: transmisión en vivo y videos públicos normales recientes; funcional dentro del alcance aprobado y validada con una transmisión pública real); enlace del ícono de YouTube del pie de página al canal oficial; Contacto: Google Forms embebido (consultas generales) y mapa embebido de Google Maps con la ubicación de la oficina; enlaces «Cómo llegar» a Google Maps (templo principal, Diaconía, Ermita y oficina); botón flotante de WhatsApp (`wa.me`) y enlaces `tel:`/`mailto:`; enlaces a Facebook y YouTube en los footers; Netlify como hosting |
 | Configuradas según información del equipo, no verificables por completo desde el repositorio | Google Cloud y API keys; variables de entorno de Netlify (`GOOGLE_CALENDAR_API_KEY`, `GOOGLE_CALENDAR_ID`, `YOUTUBE_API_KEY`, `YOUTUBE_CHANNEL_ID` y, opcional, `YOUTUBE_DETECCION_DIRECTO`) |
-| Visuales o parciales | WhatsApp sin número ni destino; formulario de Grupos sin envío; redes sociales (Facebook e Instagram) sin URL |
+| Visuales o parciales | Formulario de Grupos sin envío |
 | Excluidas del alcance por decisión del proyecto | Visualización automática de grabaciones de transmisiones en vivo finalizadas (YouTube); ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md), sección 10 |
-| Planificadas, no implementadas | Google Maps embebido o mediante API (por ejemplo, el mapa de Contacto); Google Forms |
+| Planificadas, no implementadas | Google Drive (documentos descargables); analítica |
 | Pendientes | Dominio propio; Cloudflare; analítica |
 
 Ninguna integración planificada o visual debe considerarse implementada por el solo hecho de este congelamiento. Detalle técnico: [Integraciones.md](../03_Arquitectura/Integraciones.md), [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md) e [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md).
 
 ### 9.8 Navegación común
 
-Verificada en el código e idéntica en las cinco páginas implementadas (las cuatro congeladas y Transmisiones):
+Verificada en el código e idéntica en las seis páginas implementadas (las cuatro congeladas, Transmisiones y Contacto):
 
 `Inicio · Parroquia · Grupos · Calendario · Transmisiones · Servicios parroquiales ▾ · Contacto`
 
 con el submenú de Servicios parroquiales: `Sacramentos · Gestiones · Documentos e información`. No incluye buscador. Coincide con la arquitectura de navegación aprobada ([Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 4) y forma parte de la línea base: no se modifica sin autorización (sección 9.10).
 
-Hoy los enlaces a Servicios parroquiales, Sacramentos, Gestiones, Documentos e información y Contacto (y el enlace `contacto.html#como-llegar` de Inicio) apuntan a páginas **que aún no existen**. Es una consecuencia de las páginas pendientes, no una modificación pendiente de la navegación. El enlace a Transmisiones ya apunta a una página existente.
+Hoy los enlaces a Sacramentos, Gestiones y Documentos e información apuntan a páginas **que aún no existen**, y en los footers «Servicios parroquiales» se muestra sin enlace para evitar un error 404. Es una consecuencia de las páginas pendientes, no una modificación pendiente de la navegación. Los enlaces a Transmisiones y Contacto (incluido `contacto.html#como-llegar`) apuntan a páginas existentes.
+
+**Adaptabilidad (2026-10-21):** el menú se expande desde 1200 px y se colapsa por debajo (`navbar-expand-xl`); ver sección 13. No cambiaron las opciones ni sus nombres.
 
 ### 9.9 Calendario: lo que queda fuera del congelamiento
 
@@ -248,6 +252,10 @@ Esto incluye: `index.html` y su composición aprobada — header/navegación, He
 
 **Tercera autorización puntual (2026-10-14):** el destino del ícono de YouTube del pie de página de `index.html` pasó de un marcador sin destino al canal oficial de YouTube (commit `26f5dad0709433d3f71a4d9f466f88ca892442d7`, que aplicó el mismo cambio al pie de Parroquia, Grupos y Calendario). Solo se modificó el enlace de ese ícono (`href`, apertura en pestaña nueva y su etiqueta accesible); no se tocó ningún otro elemento de Inicio. No levantó el congelamiento del resto de la página.
 
+**Cuarta autorización puntual (2026-10-18, commits `ddd8d14` y `6375d5a`):** en Inicio, enlaces de Google Maps del templo principal y de la Diaconía, horarios de misa y franja complementaria (confesiones, Hora Santa, Ermita María Auxiliadora), botón «Cómo llegar» del Hero, footer estandarizado y botón flotante de WhatsApp (en las seis páginas), menor espacio entre Horarios y Contacto y retiro de la insignia circular de la transición previa al footer. Detalle en [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md).
+
+**Quinta autorización puntual (2026-10-22, local, pendiente de liberación):** rediseño del Hero de Inicio como hero panorámico con imagen de fondo y sustitución de su transición inferior por la curva `.hero-wave`, que se unificó en las demás páginas (secciones 12 y 13). Conserva los textos, botones y enlaces del Hero; los cambios en `index.html` se limitan al bloque del Hero.
+
 ## 10. Integración con Google Calendar (resumen)
 
 Google Calendar es la fuente única de los eventos públicos de la parroquia. La página Calendario los muestra con el iframe oficial de Google; la sección «Próximos eventos» de Inicio los obtiene así:
@@ -282,6 +290,88 @@ Canal de YouTube → YouTube Data API v3 → Netlify Function (netlify/functions
 
 Detalle completo, contrato de la Function, diagnóstico y alcance: [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md).
 
+## 12. Recursos gráficos, favicon y optimización de imágenes
+
+### 12.1 Archivos
+
+Las imágenes reales viven en `assets/img/parroquia/` (más `assets/img/logo/Logo.jpeg`, 1080×1045 px, 344 KB). Cada imagen conserva su **PNG original como respaldo** y tiene versiones **WebP** optimizadas:
+
+| Uso | Original (PNG) | Versiones WebP |
+|---|---|---|
+| Hero de Parroquia | `parroquiahero.png` — 1983×793, 2,55 MB | `parroquiahero-1280.webp` (105 KB), `parroquiahero-1983.webp` (211 KB) |
+| «Nuestra historia» | `parroquiahistoria.png` — 1024×1536, 2,40 MB | `parroquiahistoria-640.webp` (99 KB), `parroquiahistoria-1024.webp` (210 KB) |
+| «Nuestro Patrono» | `parroquiapatrono.png` — 1536×1024, 2,92 MB | `parroquiapatrono-640.webp` (74 KB), `parroquiapatrono-1024.webp` (157 KB) |
+| «Horarios de misa» de Inicio (Diaconía) | `iniciodiaconia.png` — 1024×1536, 2,84 MB | `iniciodiaconia-640.webp` (92 KB, 640×960), `iniciodiaconia-1024.webp` (216 KB, 1024×1536), calidad 72 |
+| Carrusel de Inicio | `assets/img/galeria/iniciogaleria1.png`, `iniciogaleria2.png`, `iniciogaleria3.png` — 1672×941 (16:9), 2,2 a 2,4 MB cada una | `iniciogaleriaN-640.webp` (43–46 KB), `-960.webp` (76–88 KB), `-1280.webp` (111–138 KB) y `-1672.webp` (154–201 KB), calidad 78 |
+| Galería de Parroquia (12 fotografías **reales**) | `parroquiagal1` a `parroquiagal12` (`.jpg`; la 11 es `.png`) en `assets/img/parroquia/` — de 480×640 a 2048×1536, 29 a 568 KB, 2,8 MB en total | `parroquiagalN-ANCHO.webp` (28 archivos, 21 a 231 KB) más cuatro `-ampliada.webp` de 141 a 289 KB para el visor; detalle en la sección 12.5 |
+| Hero de Inicio | `parroquiainiciohero.png` — 1983×793, 2,48 MB | `parroquiainiciohero-1280.webp` (117 KB), `parroquiainiciohero-1983.webp` (222 KB), `parroquiainiciohero-mobile.webp` (900×793, recorte centrado en el templo, 104 KB) |
+
+Las tres imágenes del carrusel de Inicio también son recreaciones digitales. **Los números de archivo no siguen el orden de las diapositivas:** `iniciogaleria3` (interior del templo) es la diapositiva 1, `iniciogaleria2` (comunidad reunida) la 2 e `iniciogaleria1` (San Rafael y Tobías) la 3. La tarjeta del templo principal de «Horarios de misa» de Inicio **reutiliza** `parroquiahistoria` (PNG y los dos WebP) sin generar archivos nuevos. Las imágenes del Hero y de «Nuestra historia» de Parroquia, la de «Nuestro Patrono», la del Hero de Inicio y la de la Diaconía son **recreaciones digitales artísticas** del templo y de San Rafael Arcángel, aportadas por el equipo del proyecto: sus textos alternativos las identifican así y no deben presentarse como fotografías documentales. Queda pendiente confirmar con la parroquia que representan fielmente el edificio real (por ejemplo, las dos vistas del templo difieren en algunos detalles).
+
+### 12.2 Cómo se generan y se incorporan
+
+- Los WebP se generan **fuera del repositorio** (no hay tooling de build): se redimensiona con filtro Lanczos a los anchos indicados y se guarda en WebP con calidad 80 (por ejemplo, con Pillow). Los originales no se modifican. Reducen el peso entre 10 y 40 veces.
+- En el HTML se usa `<picture>` con `<source type="image/webp" srcset="… 1280w, … 1983w" sizes="…">` y un `<img>` con el PNG como respaldo, con rutas relativas (`../assets/img/parroquia/…` desde `pages/`).
+- Cada `<img>` declara `width` y `height` (evita saltos de diseño) y un texto alternativo descriptivo que indica que es una recreación digital.
+- **Hero visible al abrir la página** (Parroquia e Inicio): `fetchpriority="high"` y **sin** `loading="lazy"`. Imágenes de más abajo (historia, patrono): `loading="lazy"` y un color de reserva (`--color-border-light`) mientras cargan.
+- El recorte se controla con `object-fit: cover` y `object-position` (no con imágenes de fondo CSS), de modo que el navegador descarga una sola variante. En el Hero de Inicio se usa, por debajo de 768 px, la versión `-mobile.webp` mediante `<source media="(max-width: 767.98px)">`.
+- **«Horarios de misa» (Inicio):** las dos imágenes (2:3) llevan `loading="lazy"` y `sizes="(min-width: 1200px) 230px, (min-width: 992px) 190px, (min-width: 768px) 340px, calc(100vw - 24px)"`. Se colocan en posición absoluta dentro de `.mass-card__media` (color de reserva `--color-border-light`) con `object-fit: cover`, de modo que no condicionan la altura de la tarjeta. Encuadre: `object-position` 50 % 24 % (templo) y 50 % 56 % (Diaconía) en móvil y tableta; 50 % 30 % y 72 % 50 % desde 992 px.
+- **Carrusel de Inicio:** `<picture>` con cuatro variantes WebP por imagen y `sizes="(max-width: 500px) 500px, 100vw"` (en móvil la imagen se recorta a 280 px de alto y se muestra más ancha que la pantalla, de ahí los 500 px). Las tres llevan `loading="lazy"` porque el carrusel está bajo el Hero y no debe competir con su imagen; las diapositivas inactivas están ocultas y no se descargan hasta mostrarse. El navegador puede reutilizar una variante mayor ya en caché.
+- **Galería de Parroquia:** las miniaturas usan `srcset` con las variantes de 480 a 1280 px y `sizes` según el tamaño real de cada tile; el visor ampliado usa además la variante `-ampliada` (resolución nativa del recorte). Todas llevan `loading="lazy"`, `decoding="async"` y `width`/`height`. El `<img src>` de respaldo es la variante de 960 px (no hay PNG de respaldo porque el recorte y la mejora difieren del original).
+- Para reemplazar una imagen: conservar el nombre, regenerar los WebP y comprobar que los textos alternativos sigan siendo correctos.
+
+### 12.3 Favicon
+
+`favicon.ico` en la raíz (16, 32 y 48 px; evita el 404 que el navegador genera al pedirlo por defecto), `assets/icons/favicon-32x32.png` y `assets/icons/apple-touch-icon.png` (180 px, fondo crema), generados a partir del logotipo oficial recortado al sello circular y enlazados con `<link rel="icon">` y `<link rel="apple-touch-icon">` en las seis páginas. A 16 px el sello se reconoce pero pierde detalle; se evaluó y se mantuvo esta versión (decisión del responsable del proyecto, 2026-10-21).
+
+### 12.4 Verificación de la reseña histórica de Parroquia
+
+El texto de «Nuestra historia» se contrastó el 2026-10-21 con la página de la Diócesis de Alajuela (fundación en 1960; fiesta patronal el 24 de octubre) y con la memoria histórica «memoria y fotos solicitadas» de la parroquia (oratorio público desde el 9/6/1912; Coadjutoría Territorial de San Rafael de Ojo de Agua el 17/6/1935; parroquia proclamada el 21/12/1959 y vigente desde el 1/1/1960; construcción del templo actual desde 1970; retablo del altar mayor bendecido el 23/10/2021 tras unos 17 años de trabajo). La frase «raíces que se remontan a la época colonial» **no está respaldada** por esas fuentes y se sustituyó por «más de un siglo de historia documentada». Los textos de Hero, misión, visión, valores y comunidad son **propuestas editoriales pendientes de validación institucional**.
+
+### 12.5 Mejora de las fotografías de la galería de Parroquia
+
+Las doce fotografías son **reales** (no recreaciones digitales) y de calidad desigual. Se evaluaron una por una (resolución, exposición, balance de blancos, ruido y encuadre) y se mejoraron **sin IA generativa ni reconstrucción de detalles**, con Pillow y numpy fuera del repositorio: recorte de composición, balance de blancos limitado (±8 %), estiramiento de niveles conservador, recuperación suave de sombras y altas luces, contraste y saturación moderados, reducción de ruido que respeta bordes y nitidez aplicada al tamaño final. **Los originales no se modificaron.** No se ampliaron imágenes: las variantes nunca superan el ancho nativo del recorte.
+
+| Foto | Original | Observación y ajuste principal |
+|---|---|---|
+| 1 | 480×640 | Muy baja resolución; reducción de ruido, sombras; se muestra sin ampliar |
+| 2 | 632×485 | Baja resolución, tono cálido; ruido y sombras; recorte 4:3 |
+| 3 | 1080×1920 | Mitad inferior oscura; sombras y recorte a 3:4 |
+| 4 | 1500×2000 | Tinte gris; balance de blancos y recorte a 4:3 sobre la nave |
+| 5 | 1200×1600 | Destello de lente (no corregible) y marca de agua «RFfotografic»; el recorte vertical a la fachada deja la marca fuera |
+| 6 | 1200×1600 | Mitad inferior sin interés; recorte 4:3 sobre altar y celebrante |
+| 7 | 1599×899 | Auto, reflejo y cables; recorte hacia el templo, balance de blancos y contraste |
+| 8 | 1200×1600 | Cielo gris apagado y cables; contraste, saturación y recorte 4:3 |
+| 9 | 1536×1024 | Vista aérea; sombras y altas luces |
+| 10 | 554×554 | Foto antigua sepia, cielo quemado; solo reducción de ruido, sin colorear |
+| 11 | 800×600 | Borde blanco a la derecha (recortado), colores desvaídos; conserva su etiqueta de catálogo |
+| 12 | 2048×1536 | Interior de misa; sombras y balance de blancos suaves |
+
+**Limitaciones sin resolver:** las fotos 1 y 2 se ven blandas a pantalla grande; el destello de la 5; los cables y el reflejo de las 7 y 8; el cielo quemado de la 10. **Autorización de uso y consentimiento:** el responsable del proyecto confirmó en el chat, el 2026-10-22 y antes de la liberación, que la parroquia cuenta con la autorización de uso de las 12 fotografías (incluidas la 5, con marca de agua «RFfotografic», y la 11, con etiqueta de catálogo) y con el consentimiento de las personas identificables de las fotos 4, 6, 8 y 12 (hay niños en la 4). La confirmación es verbal: **no hay constancia escrita en el repositorio, que es público**. Se recomienda archivar la autorización fuera del repositorio y retirar de inmediato cualquier fotografía si su autor o una persona retratada lo solicita. Sugerencia: reemplazar las fotos 1, 2, 7 y 10 por originales de mejor calidad si se consiguen.
+
+## 13. Componentes visuales compartidos y adaptabilidad
+
+Resumen; el registro de uso está en [Componentes_UI.md](../04_Diseno/Componentes_UI.md).
+
+- **Navegación:** `navbar-expand-xl`. Desde 1200 px el menú se muestra expandido; por debajo, colapsado. Antes se expandía desde 992 px y la marca más los siete elementos (~1105 px) no cabían en el contenedor de 960 px, con desborde horizontal entre ≈ 992 y 1159 px (incidencia resuelta, [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md)). Entre 1200 y 1399 px se acorta el relleno lateral de los enlaces (`components.css`). Por debajo de 576 px el nombre de la marca puede pasar a dos líneas (a 320 px no cabía en una).
+- **Footer estandarizado** (igual en las seis páginas): marca, enlaces rápidos, bloque «Contáctanos» (teléfono 2438-0379, WhatsApp 6170-5997, correo, ubicación y horario administrativo) y redes sociales (Facebook y YouTube; Instagram no se usa). «Servicios parroquiales» aparece sin enlace hasta que exista la página. El HTML del navbar y del footer está duplicado en cada página (no hay includes ni JavaScript): **todo cambio debe replicarse en las seis páginas**.
+- **Botón flotante de WhatsApp:** enlace real a `https://wa.me/50661705997` (nueva pestaña, `rel="noopener noreferrer"`, nombre accesible), idéntico en las seis páginas. El espacio inferior del footer reserva sitio **a la derecha** para que no tape el texto.
+- **Curva Hero → contenido (`.hero-wave`, `components.css`):** SVG de una sola curva con relleno del color de la sección siguiente y un trazo dorado de 2 px (`#DA981B`), compartido por los Heroes de las seis páginas. Altura: 44 px (móvil), 64 px (≥ 768 px) y 80 px (≥ 1200 px) mediante `--hero-wave-height`. Para usarla en un Hero nuevo: `position: relative`, **sin** `overflow: hidden` (con recorte aparece una línea fina en la unión), relleno inferior de al menos `var(--hero-wave-height)` y el SVG (dos `<path>`, ver `index.html`) al final del Hero. Si la sección siguiente no es crema, definir `--hero-wave-fill` en el Hero (Grupos usa blanco, `--color-bg-alt`). La transición navy/dorada previa al footer (`.wave-transition`) es otro componente y no cambió.
+- **Hero de Inicio:** hero panorámico de ancho completo, 540–650 px en escritorio y 680 px en móvil y tableta; imagen con degradado azul `#1D2A54` (de izquierda a centro desde 992 px; desde abajo por debajo); título blanco, texto superior dorado y botón «Cómo llegar» con borde blanco. El contraste medido del texto sobre la imagen (peor 5 % de cada zona) es ≥ 4,5 en todos los anchos probados.
+- **Carrusel de Inicio (`.gallery-carousel`, `home.css`):** carrusel de Bootstrap sin JavaScript propio, **sin rotación automática** (no tiene `data-bs-ride`), con flechas, tres indicadores, deslizamiento táctil (`data-bs-touch`) y teclado (← →). Cada `.carousel-item` mantiene proporción 21:9 con alto mínimo de 280 px y color de reserva; la imagen (16:9) va en posición absoluta con `object-fit: cover`. Encuadre (`object-position`): interior del templo 50 % 20 % (retablo y altar), comunidad 50 % 35 %, San Rafael y Tobías 47 % 28 % (ambos rostros visibles desde 320 px). Los pies de imagen («La belleza de nuestro templo», «Una comunidad reunida en la fe», «Guiados por la fe y la esperanza») son `<p>` en `.gallery-carousel__caption`, abajo a la derecha sobre un degradado; por debajo de 576 px son más pequeños (1,05 rem) y quedan sobre la franja de indicadores para no cubrir a los protagonistas. Accesibilidad: cada diapositiva es un `role="group"` con `aria-roledescription="diapositiva"` y «n de 3»; los controles se llaman «Imagen anterior/siguiente»; los textos alternativos las presentan como recreaciones digitales. Bootstrap ya anula la transición con `prefers-reduced-motion`. Con 1920 px el carrusel mide 816 px y los originales (1672 px) se amplían un 14 %.
+- **Galería de Parroquia (`.parroquia-mosaico`, `parroquia.css`):** mosaico editorial que sustituye al carrusel de 12 diapositivas. CSS Grid de 6 columnas desde 768 px y de 2 columnas en móvil; la unidad de fila se mide en `cqw` (contenedor con `container-type: inline-size`) para conservar proporciones a cualquier ancho. Composición: tres fotografías destacadas (4 columnas), tres verticales (2 columnas) y seis miniaturas, en cinco bandas; la posición de cada una se fija por `:nth-child` y **el orden del HTML es el orden de lectura** (9, 3, 12, 5, 4, 8, 6, 1, 2, 7, 11, 10: se abre con las mejores y las antiguas van al final). Separación de 14 px (12 px en móvil), esquinas redondeadas y recorte máximo de 15 % en escritorio y tableta (28 % en móvil). Cada tile es un `<button>` con `aria-label` «Ampliar fotografía: …»; al pasar el cursor (solo con puntero y sin `prefers-reduced-motion`) aparecen un acercamiento suave, una descripción breve y un icono de ampliar, y también al enfocar con teclado; en pantallas táctiles no hay hover. Los títulos y los textos alternativos solo describen lo que se ve, sin fechas ni celebraciones.
+- **Visor ampliado de la galería (`#parroquiaVisor`, `assets/js/galeria-parroquia.js`):** modal de Bootstrap a pantalla completa, sin librerías nuevas. Muestra la fotografía (variante `-ampliada` cuando existe), su descripción y «n de 12»; botones anterior, siguiente y cerrar de 48 px; navegación con ← →, cierre con Escape y circularidad (de la 12 a la 1). Bootstrap aporta la trampa de foco, el bloqueo del desplazamiento y `aria-modal`; el script añade la navegación, un `role="status"` que anuncia «Fotografía n de 12: …» y devuelve el foco a la miniatura de origen al cerrar. En móvil anterior y siguiente van abajo; desde 768 px, a los costados. No hay gesto de deslizamiento táctil (solo botones visibles). Para añadir una fotografía hay que crear su tile, asignarle posición en el CSS y, si procede, su variante `-ampliada`.
+- **Tarjetas de «Horarios de misa» (`.mass-card`, `home.css`):** por debajo de 992 px la imagen va arriba (proporción 4/3) y desde 992 px a la izquierda (40 % del ancho, alto completo). Entre 768 y 991 px se apilan y no se colocan en fila porque la ventana de imagen quedaba en ≈ 134×560 px y se perdía la arquitectura. El cuerpo (`.mass-card__body`) usa `flex: 1 1 auto` y su botón `margin-top: auto`, de modo que **«Cómo llegar» queda en el borde inferior y alineado entre ambas tarjetas** (25 px bajo el botón) aunque una tenga menos horarios; no se rellena el espacio con contenido. Con una tarjeta por fila (móvil) no sobra alto y el botón queda a 16 px de los horarios.
+- **Contacto:** la fila `row g-lg-5` excede en 12 px el relleno de su contenedor; entre 992 y 1199 px `contacto.css` reserva ese margen mínimo (`max-width: min(960px, calc(100% - 1.5rem))`), lo que evitó un desborde de ≈ 4 px con 992–998 px y barra de desplazamiento clásica. No se usa `overflow-x: hidden`.
+
+## 14. Publicación en Netlify
+
+Los builds de Netlify permanecen **detenidos** entre liberaciones y solo se publica con autorización expresa. El procedimiento, el costo en créditos y el incidente de suspensión por agotamiento de créditos están en [Netlify.md](../07_Despliegue/Netlify.md), secciones 5.1 a 5.3. Plan actual: Personal (US$ 9 mensuales, 1 000 créditos).
+
+## 15. Liberación conjunta del 2026-10-22
+
+Incluidos en la liberación conjunta del 2026-10-22, autorizada por el responsable del proyecto sobre el commit `a70de0e` (el hash de la liberación queda en el historial de Git y se registrará en la Bitácora): imagen y textos de «Nuestro Patrono» y nombre del párroco en Parroquia; Hero panorámico de Inicio con su imagen y WebP; componente `.hero-wave` en las seis páginas; imágenes de las dos tarjetas de «Horarios de misa» de Inicio (autorización puntual sobre una página congelada, sin cambiar nombres, horarios ni enlaces), con el cambio de apilado entre 768 y 991 px y la alineación de los botones «Cómo llegar»; las tres imágenes del carrusel con sus pies de imagen (reemplazan los marcadores provisionales y las citas de ejemplo); y la galería de Parroquia con las 12 fotografías mejoradas, el mosaico y el visor ampliado (`assets/js/galeria-parroquia.js`, estilos en `parroquia.css`). Los pendientes de contenido, autorización y validación siguen listados en la sección 9 y en la sección 12.5; esta liberación no los da por resueltos.
+
 ---
 
 ## Documentos relacionados
@@ -291,4 +381,6 @@ Detalle completo, contrato de la Function, diagnóstico y alcance: [Integracion_
 - [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md)
 - [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md)
 - [Estructura_Proyecto.md](../03_Arquitectura/Estructura_Proyecto.md)
+- [Componentes_UI.md](../04_Diseno/Componentes_UI.md)
+- [Netlify.md](../07_Despliegue/Netlify.md)
 - [Convenciones.md](../05_Desarrollo/Convenciones.md)

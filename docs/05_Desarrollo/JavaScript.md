@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 05_Desarrollo/JavaScript.md |
-| Versión | 1.2 |
+| Versión | 1.3 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-14 |
+| Última actualización | 2026-10-22 |
 | Estado | Vigente |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), sección 10 |
 
@@ -33,6 +33,7 @@ Establecer el estándar de escritura de JavaScript del proyecto.
 | `grupos.js` | En la página Grupos, en pantallas menores a 992 px, lleva al usuario a la ficha del grupo elegido con puntero o toque (no con teclado) y respeta `prefers-reduced-motion`. |
 | `proximos-eventos.js` | En Inicio, rellena las 3 tarjetas de «Próximos eventos» con los datos de `/api/proximos-eventos` (ver [Integracion_Google_Calendar.md](../03_Arquitectura/Integracion_Google_Calendar.md)). |
 | `transmisiones.js` | En Transmisiones, consulta `/api/transmision-actual` cada 60 s (solo con la pestaña visible), gestiona los estados del reproductor (comprobando, en vivo, sin transmisión y error), el botón «Copiar enlace» y los videos recientes de «Más de nuestra comunidad» (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md), sección 7). |
+| `galeria-parroquia.js` | En Parroquia, abre el visor ampliado (Modal de Bootstrap) al elegir una fotografía del mosaico, carga la variante de mayor resolución, navega con los botones y las flechas del teclado (circular), anuncia «Fotografía n de 12» en una región `role="status"` y devuelve el foco a la miniatura al cerrar. Escape, el bloqueo del desplazamiento y la trampa de foco los aporta Bootstrap. Se carga con `defer` tras el bundle. Ver [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13. |
 
 El resto de la interactividad (navbar, dropdown, carrusel, pestañas) usa el bundle de Bootstrap, sin JavaScript propio.
 
