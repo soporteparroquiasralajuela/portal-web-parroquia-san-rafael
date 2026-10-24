@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.16 |
+| Versión | 1.17 |
 | Fecha de creación | 2026-08-07 |
 | Última actualización | 2026-10-24 |
 | Estado | Vigente (registro vivo) |
@@ -32,7 +32,7 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 
 > **Incorporación de la Sesión 19 y conciliación general (2026-10-22):** el responsable del proyecto confirmó la fecha (jueves 22/10/2026), los dos bloques de trabajo (6:30 a. m. – 7:00 a. m., 30 minutos, y 7:30 p. m. – 11:00 p. m., 3 horas y 30 minutos) y el total efectivo (4 horas). Se auditaron las 18 sesiones previas y se contrastó este documento con la tabla por fase, con [Bitacora.md](Bitacora.md) y con el historial de Git: la duración de cada sesión coincide con su horario, no hay fechas repetidas ni horas contadas dos veces, la suma de las Sesiones 1 a 18 es de 52 horas (coincidente con el acumulado previo) y los encabezados de versión y fecha de ambas bitácoras estaban desactualizados (se actualizaron). Los encabezados de las Sesiones 1 a 3 pasan a numerarse explícitamente (antes solo llevaban la fecha); su contenido no cambió. El responsable confirmó que la Sesión 19 corresponde a la Fase 4, considerando las actividades de sus dos bloques; sus actividades se tomaron de las entradas técnicas del 22/10/2026 de [Bitacora.md](Bitacora.md) y la modalidad no fue indicada. Las Sesiones 1 a 18 y sus 52 horas no se modificaron; el acumulado pasa a 56 horas.
 
-> **Incorporación de la Sesión 20 (2026-10-24):** el responsable del proyecto indicó la fecha (sábado 24/10/2026), el horario (9:30 a. m. – 1:30 p. m.) y la duración (4 horas) de la jornada y solicitó registrar las actividades efectivamente realizadas según las evidencias y el historial del proyecto; se registra completa en la Fase 4, con el mismo criterio de las Sesiones 16 a 19 (la modalidad no fue indicada). Se verificó el acumulado previo (56 horas en 19 sesiones, coincidente con la suma de las Sesiones 1 a 19 y con la tabla por fase) y no se encontraron discrepancias ni fechas repetidas. Las actividades se tomaron de los commits del 24/10/2026 (`128d877`, `d3f6c46`, `ff4796c` y `86207df`) y de las entradas técnicas de [Bitacora.md](Bitacora.md). Las Sesiones 1 a 19 y sus 56 horas no se modificaron; el acumulado pasa a 60 horas.
+> **Incorporación de la Sesión 20 (2026-10-24):** el responsable del proyecto indicó la fecha (sábado 24/10/2026), el horario (9:30 a. m. – 1:30 p. m.) y la duración (4 horas) de la jornada y solicitó registrar las actividades efectivamente realizadas según las evidencias y el historial del proyecto; se registra completa en la Fase 4, con el mismo criterio de las Sesiones 16 a 19 (la modalidad no fue indicada). Se verificó el acumulado previo (56 horas en 19 sesiones, coincidente con la suma de las Sesiones 1 a 19 y con la tabla por fase) y no se encontraron discrepancias ni fechas repetidas. Las actividades se tomaron de los commits del 24/10/2026 (`128d877`, `d3f6c46`, `ff4796c` y `86207df`) y de las entradas técnicas de [Bitacora.md](Bitacora.md). Las Sesiones 1 a 19 y sus 56 horas no se modificaron; el acumulado pasa a 60 horas. El responsable del proyecto aprobó el registro de la sesión y el acumulado de 60 horas en 20 sesiones, y solicitó complementar la descripción de las actividades, que se reorganizó en seis frentes de trabajo; este complemento no modificó la fecha, el horario, la duración, la fase ni los acumulados.
 
 ## Sesión 1 — 03/08/2026
 
@@ -459,18 +459,16 @@ Los cambios visuales y de contenido de Inicio y Parroquia quedaron implementados
 
 **Horas dedicadas:** 4 horas
 
-**Labores realizadas** *(según el historial de Git y las entradas técnicas del 24/10/2026 de [Bitacora.md](Bitacora.md))*:
-- Hero e introducción de la página Grupos, con imagen optimizada en WebP y composición responsive.
-- Formulario de solicitud de información de Grupos con Netlify Forms: validación en español, consentimiento, protección contra spam, control de duplicados, mensajes de éxito, error e incertidumbre, activación tras el envío de prueba y documentación técnica; publicación en GitHub de sus tres etapas.
-- Nuevo Hero de Calendario con la imagen aprobada, encabezado de la agenda parroquial y reducción de su altura en escritorio (≈ 19–20 %).
-- Estandarización de los Heroes del portal: sistema compartido de alturas (`.hero-interior`) y doble curva institucional (`.hero-curva`) en las seis páginas, incluida la alineación del Hero de Inicio.
-- Integración de las fotografías de los Heroes de Transmisiones y Contacto, con variantes WebP, degradado azul, ajuste de contraste, tipografía común y eliminación de la variante compacta.
-- Correcciones tras la revisión visual del Hero de Contacto (degradado y tipografía).
-- Pruebas responsive y funcionales de 320 a 1920 px (contraste calculado, desbordamiento horizontal, menús, formulario, mapa y enlaces) y verificación de que el reformateo de la página Parroquia no alteró su contenido ni su comportamiento.
-- Actualización de la documentación técnica y registro de los cambios en commits locales, pendientes de la publicación final.
+**Labores realizadas** *(organizadas por frentes de trabajo, según el historial de Git y las entradas técnicas del 24/10/2026 de [Bitacora.md](Bitacora.md))*:
+1. **Formulario de solicitudes de Grupos parroquiales:** diseño del Hero y la introducción de la página, implementación del formulario con Netlify Forms (validación en español, consentimiento, protección contra spam y control de duplicados), pruebas de funcionamiento, verificación de la recepción de solicitudes y de las notificaciones por correo, y habilitación de la funcionalidad.
+2. **Página Calendario:** incorporación del Hero institucional con imagen optimizada (WebP responsivos), actualización de los contenidos y mejora de la transición visual hacia el calendario, con una reducción de ≈ 19–20 % de la altura del Hero en escritorio.
+3. **Estandarización de los componentes visuales del portal:** unificación de las alturas de los Heroes (sistema compartido `.hero-interior`), implementación de la doble curva institucional (`.hero-curva`) en las seis páginas, incluida la alineación del Hero de Inicio, ajustes responsivos y criterios de diseño consistentes.
+4. **Hero de Transmisiones:** incorporación de una imagen representativa de las transmisiones parroquiales (WebP responsivos) y adaptación a los componentes visuales estandarizados.
+5. **Hero de Contacto:** integración de la imagen institucional, corrección del degradado, estandarización tipográfica y validación responsiva de 320 a 1920 px.
+6. **Pruebas, revisión y documentación técnica:** comprobación de la visualización y el funcionamiento de las páginas, revisión de los cambios de Parroquia (el reformateo del editor no alteró su contenido ni su comportamiento), actualización de la documentación y control de versiones.
 
 **Resultado obtenido:**
-El formulario de Grupos quedó funcional y publicado, y los Heroes de las seis páginas comparten altura, doble curva y jerarquía tipográfica, con las nuevas imágenes de Calendario, Transmisiones y Contacto; estos últimos cambios están validados y guardados en commits locales, a la espera de la autorización para su publicación. Siguen pendientes los contenidos y validaciones registrados en el Manual técnico (por ejemplo, la confirmación de que las recreaciones digitales representan fielmente la parroquia y la constancia escrita de las autorizaciones de fotografías).
+El formulario de Grupos quedó funcional y habilitado, y los Heroes de las seis páginas comparten altura, doble curva y jerarquía tipográfica, con las nuevas imágenes de Calendario, Transmisiones y Contacto. Los cambios quedaron validados y publicados en producción (commit `a8406b2`), con una verificación posterior de las páginas, las imágenes, el formulario y las integraciones. Siguen pendientes los contenidos y validaciones registrados en el Manual técnico (por ejemplo, la confirmación de que las recreaciones digitales representan fielmente la parroquia y la constancia escrita de las autorizaciones de fotografías).
 
 ---
 
