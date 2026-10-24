@@ -9,11 +9,10 @@
    Imagen panorámica (templo a la izquierda, escena comunitaria con velas a la derecha). Por debajo
    de 992 px la imagen va arriba y el texto debajo, sobre el azul institucional, para no tapar la
    escena; desde 992 px el texto se superpone en la base de la imagen sobre un degradado azul que
-   deja libres las torres y las personas. La curva inferior es el componente compartido .hero-wave. */
+   deja libres las torres y las personas. Altura mínima y doble curva: sistema compartido (.hero-interior y
+   .hero-curva, components.css). */
 .grupos-hero {
-  position: relative;
-  isolation: isolate;
-  padding-bottom: calc(var(--hero-wave-height) + var(--space-3));
+  padding-bottom: calc(var(--hero-curva-height) + var(--space-3));
   background-color: var(--color-primary); /* reserva mientras carga la imagen */
   --hero-wave-fill: var(--color-bg-alt); /* la sección siguiente (introducción) tiene fondo blanco */
 }
@@ -103,9 +102,12 @@
   color: var(--color-secondary); /* dorado institucional sobre el azul */
 }
 
+/* Tabletas (768–991 px): franja casi con la proporción completa de la imagen (1958 × 803), acotada para
+   que el Hero conserve la altura de referencia. */
 @media (min-width: 768px) {
   .grupos-hero__media {
-    aspect-ratio: 1958 / 803; /* proporción completa de la imagen */
+    aspect-ratio: auto;
+    height: clamp(260px, 40vw, 380px);
   }
 
   .grupos-hero__img {
@@ -117,15 +119,14 @@
   .grupos-hero {
     display: flex;
     align-items: flex-end;
-    min-height: clamp(520px, 44vw, 640px);
-    padding-block: var(--space-6) calc(var(--hero-wave-height) + var(--space-3));
+    padding-block: var(--space-6) calc(var(--hero-curva-height) + var(--space-3));
   }
 
   .grupos-hero__media {
     position: absolute;
     inset: 0;
     z-index: -2;
-    aspect-ratio: auto;
+    height: auto;
   }
 
   .grupos-hero__media::after {

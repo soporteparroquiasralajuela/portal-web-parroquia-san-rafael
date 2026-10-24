@@ -8,12 +8,11 @@
    a la clase body.contacto-page de esta página. */
 
 /* ===== Hero de Contacto ===== */
+/* Altura mínima y doble curva: sistema compartido (.hero-interior y .hero-curva, components.css). */
 .contacto-hero {
-  position: relative;
-  min-height: 360px;
   display: flex;
   align-items: flex-end;
-  padding-block: var(--space-4) calc(var(--hero-wave-height) + var(--space-2));
+  padding-block: var(--space-4) calc(var(--hero-curva-height) + var(--space-2));
 }
 
 .contacto-hero__media {
@@ -23,7 +22,6 @@
 
 .contacto-hero__media .img-placeholder {
   height: 100%;
-  min-height: 360px;
   border-radius: 0;
 }
 

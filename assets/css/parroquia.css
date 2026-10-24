@@ -8,14 +8,11 @@
    declarada componente global, ver Diseno_Conceptual_Aprobado.md §7). */
 
 /* ===== Hero de Parroquia ===== */
+/* Altura mínima y doble curva: sistema compartido (.hero-interior y .hero-curva, components.css). */
 .parroquia-hero {
-  position: relative;
-  /* Más alto que antes (360 px) para que la fotografía conserve las torres: en móvil se
-     prioriza la altura; en escritorio la altura sigue el ancho (relación ≈ 2,5:1 de la foto). */
-  min-height: 440px;
   display: flex;
   align-items: flex-end;
-  padding-block: var(--space-4) calc(var(--hero-wave-height) + var(--space-2));
+  padding-block: var(--space-4) calc(var(--hero-curva-height) + var(--space-2));
 }
 
 .parroquia-hero__media {
@@ -56,12 +53,6 @@
     linear-gradient(0deg, rgba(29, 42, 84, 0.84) 0%, rgba(29, 42, 84, 0.5) 30%, rgba(29, 42, 84, 0) 55%),
     radial-gradient(ellipse 70% 75% at 0% 100%, rgba(29, 42, 84, 0.78) 0%, rgba(29, 42, 84, 0) 100%);
   pointer-events: none;
-}
-
-@media (min-width: 768px) {
-  .parroquia-hero {
-    min-height: clamp(380px, 36vw, 540px);
-  }
 }
 
 .parroquia-hero > .container {

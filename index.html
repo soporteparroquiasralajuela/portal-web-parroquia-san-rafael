@@ -183,11 +183,13 @@
           </div>
         </div>
 
-        <!-- Curva de separación Hero → «Próximos eventos» (componente compartido .hero-wave,
-             components.css): relleno crema y un trazo dorado fino. Decorativa. -->
-        <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-          <path class="hero-wave__fill" d="M0,56 C380,92 1010,6 1440,52 L1440,100 L0,100 Z" />
-          <path class="hero-wave__line" d="M0,56 C380,92 1010,6 1440,52" />
+        <!-- Doble curva de transición Hero → «Próximos eventos» (componente compartido .hero-curva,
+             components.css): banda azul translúcida, curva crema y filete dorado. Decorativa. -->
+        <svg class="hero-curva" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="hero-curva__azul" d="M0,62 C220,18 520,22 760,58 S1230,104 1440,46 L1440,120 L0,120 Z" />
+          <path class="hero-curva__eco" d="M0,62 C220,18 520,22 760,58 S1230,104 1440,46" />
+          <path class="hero-curva__crema" d="M0,86 C260,50 560,52 800,80 S1250,112 1440,72 L1440,120 L0,120 Z" />
+          <path class="hero-curva__linea" d="M0,86 C260,50 560,52 800,80 S1250,112 1440,72" />
         </svg>
       </section>
 

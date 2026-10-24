@@ -7,15 +7,19 @@
 /* ===== Hero =====
    Hero panorámico de ancho completo: imagen de fondo (recreación digital artística de la
    parroquia), degradado azul institucional (#1D2A54) de izquierda a centro y texto/botones
-   en HTML sobre la imagen. La curva inferior (.hero-wave, en components.css) se superpone a la base de la imagen,
-   por eso el relleno inferior la deja libre (altura de la curva + espacio). */
+   en HTML sobre la imagen. La doble curva inferior (.hero-curva, en components.css) se superpone a la base de la
+   imagen, por eso el relleno inferior la deja libre (altura de la curva + espacio).
+   Altura: Inicio es la portada y conserva una altura algo mayor que la referencia de los Heroes interiores
+   (--hero-min-height, components.css): en móvil y tableta un mínimo propio, porque el texto va sobre la base de
+   la imagen y necesita espacio libre arriba para que se vean las torres; desde 992 px, la referencia + 30 px. */
 .hero {
+  --hero-inicio-min-height: 620px;
   position: relative;
   isolation: isolate;
   display: flex;
   align-items: flex-end;
-  min-height: 680px;
-  padding-block: var(--space-6) calc(var(--hero-wave-height) + var(--space-4));
+  min-height: var(--hero-inicio-min-height);
+  padding-block: var(--space-6) calc(var(--hero-curva-height) + var(--space-4));
   background-color: var(--color-primary); /* color de reserva mientras carga la imagen */
 }
 
@@ -67,6 +71,10 @@
 /* Tabletas (768–991 px): se mantiene la composición móvil (texto en la base, torres arriba),
    con una imagen más amplia. */
 @media (min-width: 768px) {
+  .hero {
+    --hero-inicio-min-height: 600px;
+  }
+
   .hero__img {
     object-position: 50% 0%;
   }
@@ -75,7 +83,7 @@
 @media (min-width: 992px) {
   .hero {
     align-items: center;
-    min-height: clamp(540px, 44vw, 650px);
+    min-height: calc(var(--hero-min-height) + 30px);
   }
 
   .hero__text-col {

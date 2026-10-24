@@ -10,7 +10,10 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CR" />
-    <meta property="og:title" content="Parroquia | Parroquia San Rafael Arcángel" />
+    <meta
+      property="og:title"
+      content="Parroquia | Parroquia San Rafael Arcángel"
+    />
     <meta
       property="og:description"
       content="Conoce a la Parroquia San Rafael Arcángel: nuestra misión, visión, valores, historia, patrono y comunidad."
@@ -18,7 +21,12 @@
 
     <!-- Favicon (logotipo institucional) -->
     <link rel="icon" href="../favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/icons/favicon-32x32.png"
+    />
     <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
 
     <!-- Google Fonts -->
@@ -49,11 +57,16 @@
   </head>
 
   <body>
-    <a class="visually-hidden-focusable" href="#main-content">Saltar al contenido principal</a>
+    <a class="visually-hidden-focusable" href="#main-content"
+      >Saltar al contenido principal</a
+    >
 
     <!-- ===================== NAVBAR (global, igual que Inicio) ===================== -->
     <header>
-      <nav class="navbar navbar-expand-xl sticky-top site-navbar" aria-label="Navegación principal">
+      <nav
+        class="navbar navbar-expand-xl sticky-top site-navbar"
+        aria-label="Navegación principal"
+      >
         <div class="container">
           <a class="navbar-brand" href="../index.html">
             <img
@@ -87,7 +100,12 @@
                 <a class="nav-link" href="../index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="parroquia.html">Parroquia</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="parroquia.html"
+                  >Parroquia</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="grupos.html">Grupos</a>
@@ -110,9 +128,21 @@
                   Servicios parroquiales
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
-                  <li><a class="dropdown-item" href="sacramentos.html">Sacramentos</a></li>
-                  <li><a class="dropdown-item" href="gestiones.html">Gestiones</a></li>
-                  <li><a class="dropdown-item" href="documentos-e-informacion.html">Documentos e información</a></li>
+                  <li>
+                    <a class="dropdown-item" href="sacramentos.html"
+                      >Sacramentos</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="gestiones.html">Gestiones</a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="documentos-e-informacion.html"
+                      >Documentos e información</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -126,7 +156,7 @@
 
     <main id="main-content">
       <!-- ===================== HERO (propio de Parroquia) ===================== -->
-      <section class="parroquia-hero" aria-labelledby="parroquia-hero-heading">
+      <section class="hero-interior parroquia-hero" aria-labelledby="parroquia-hero-heading">
         <div class="parroquia-hero__media">
           <picture>
             <source
@@ -151,9 +181,12 @@
         <div class="container">
           <div class="parroquia-hero__row">
             <div class="parroquia-hero__content">
-              <h1 id="parroquia-hero-heading" class="parroquia-hero__title">Nuestra parroquia</h1>
+              <h1 id="parroquia-hero-heading" class="parroquia-hero__title">
+                Nuestra parroquia
+              </h1>
               <p class="parroquia-hero__subtitle">
-                Una comunidad de fe, tradición y servicio en San Rafael de Alajuela.
+                Una comunidad de fe, tradición y servicio en San Rafael de
+                Alajuela.
               </p>
             </div>
             <blockquote class="parroquia-hero__quote">
@@ -161,38 +194,71 @@
             </blockquote>
           </div>
         </div>
-        <!-- Curva de separación Hero → sección siguiente (componente compartido .hero-wave,
-             components.css): relleno del color de la sección que sigue y trazo dorado fino. -->
-        <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-          <path class="hero-wave__fill" d="M0,56 C380,92 1010,6 1440,52 L1440,100 L0,100 Z" />
-          <path class="hero-wave__line" d="M0,56 C380,92 1010,6 1440,52" />
+        <!-- Doble curva de transición Hero → sección siguiente (componente compartido .hero-curva,
+             components.css): banda azul translúcida, curva del color de la sección que sigue y filete dorado. -->
+        <svg class="hero-curva" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="hero-curva__azul" d="M0,62 C220,18 520,22 760,58 S1230,104 1440,46 L1440,120 L0,120 Z" />
+          <path class="hero-curva__eco" d="M0,62 C220,18 520,22 760,58 S1230,104 1440,46" />
+          <path class="hero-curva__crema" d="M0,86 C260,50 560,52 800,80 S1250,112 1440,72 L1440,120 L0,120 Z" />
+          <path class="hero-curva__linea" d="M0,86 C260,50 560,52 800,80 S1250,112 1440,72" />
         </svg>
       </section>
 
       <!-- ===================== MISIÓN / VISIÓN / VALORES / COMUNIDAD ===================== -->
       <!-- Textos editoriales propuestos, pendientes de validación institucional con la parroquia. -->
-      <section class="valores-parroquia" aria-label="Misión, visión, valores y comunidad">
+      <section
+        class="valores-parroquia"
+        aria-label="Misión, visión, valores y comunidad"
+      >
         <div class="container">
           <div class="row g-4">
             <div class="col-6 col-lg-3">
-              <i class="bi bi-bullseye valores-parroquia__icon" aria-hidden="true"></i>
+              <i
+                class="bi bi-bullseye valores-parroquia__icon"
+                aria-hidden="true"
+              ></i>
               <h2 class="h6 valores-parroquia__title">Misión</h2>
-              <p class="valores-parroquia__text">Acompañar a nuestra comunidad en su camino de fe, promoviendo la evangelización, la celebración de los sacramentos, la fraternidad y el servicio al prójimo.</p>
+              <p class="valores-parroquia__text">
+                Acompañar a nuestra comunidad en su camino de fe, promoviendo la
+                evangelización, la celebración de los sacramentos, la
+                fraternidad y el servicio al prójimo.
+              </p>
             </div>
             <div class="col-6 col-lg-3">
-              <i class="bi bi-eye valores-parroquia__icon" aria-hidden="true"></i>
+              <i
+                class="bi bi-eye valores-parroquia__icon"
+                aria-hidden="true"
+              ></i>
               <h2 class="h6 valores-parroquia__title">Visión</h2>
-              <p class="valores-parroquia__text">Ser una comunidad parroquial unida, participativa y acogedora, que fortalezca su vida espiritual y transmita la fe y sus tradiciones a las futuras generaciones.</p>
+              <p class="valores-parroquia__text">
+                Ser una comunidad parroquial unida, participativa y acogedora,
+                que fortalezca su vida espiritual y transmita la fe y sus
+                tradiciones a las futuras generaciones.
+              </p>
             </div>
             <div class="col-6 col-lg-3">
-              <i class="bi bi-heart valores-parroquia__icon" aria-hidden="true"></i>
+              <i
+                class="bi bi-heart valores-parroquia__icon"
+                aria-hidden="true"
+              ></i>
               <h2 class="h6 valores-parroquia__title">Valores</h2>
-              <p class="valores-parroquia__text">Vivimos nuestra fe a través del amor, la solidaridad, el respeto, la esperanza y el compromiso de servir a los demás.</p>
+              <p class="valores-parroquia__text">
+                Vivimos nuestra fe a través del amor, la solidaridad, el
+                respeto, la esperanza y el compromiso de servir a los demás.
+              </p>
             </div>
             <div class="col-6 col-lg-3">
-              <i class="bi bi-people valores-parroquia__icon" aria-hidden="true"></i>
+              <i
+                class="bi bi-people valores-parroquia__icon"
+                aria-hidden="true"
+              ></i>
               <h2 class="h6 valores-parroquia__title">Nuestra comunidad</h2>
-              <p class="valores-parroquia__text">San Rafael de Alajuela es una comunidad de historia y tradiciones, donde generaciones de familias han contribuido a mantener viva la fe y el espíritu de colaboración que caracteriza a nuestra parroquia.</p>
+              <p class="valores-parroquia__text">
+                San Rafael de Alajuela es una comunidad de historia y
+                tradiciones, donde generaciones de familias han contribuido a
+                mantener viva la fe y el espíritu de colaboración que
+                caracteriza a nuestra parroquia.
+              </p>
             </div>
           </div>
         </div>
@@ -205,13 +271,48 @@
             <div class="col-12 col-lg-6 historia__text">
               <p class="eyebrow">Parroquia San Rafael Arcángel</p>
               <h2 id="historia-heading">Nuestra historia</h2>
-              <p class="historia__subtitle">Fe, tradición y comunidad en San Rafael de Alajuela</p>
-              <p>San Rafael de Alajuela, conocido históricamente como San Rafael de Ojo de Agua, es una comunidad con más de un siglo de historia documentada en torno a su vida religiosa. A lo largo de generaciones, su desarrollo ha estado vinculado a la fe, las tradiciones y el compromiso de sus habitantes.</p>
-              <p>La historia de la Parroquia San Rafael Arcángel comenzó mucho antes de su fundación oficial. En 1912 ya existía un pequeño oratorio de adobe y teja, donde los vecinos se reunían para celebrar su fe y honrar a San Rafael Arcángel, patrono de la comunidad.</p>
-              <p>Con el crecimiento de la población, la vida religiosa también se fortaleció. En 1935 se estableció la Coadjutoría Territorial de San Rafael de Ojo de Agua y, finalmente, el 1.º de enero de 1960, nació oficialmente la Parroquia San Rafael Arcángel.</p>
-              <p>En 1970 comenzó la construcción del templo actual, en sustitución de la antigua iglesia de adobe. Desde entonces, el edificio ha experimentado distintas transformaciones, especialmente en su altar mayor, sus vitrales y sus elementos artísticos.</p>
-              <p>Uno de sus acontecimientos más significativos fue la bendición del retablo del altar mayor, el 23 de octubre de 2021, culminación de un esfuerzo desarrollado durante aproximadamente 17 años con la participación y el apoyo de numerosas familias y personas de la comunidad.</p>
-              <p>Hoy, la parroquia continúa siendo un espacio de encuentro, celebración y servicio, donde la historia de San Rafael se mantiene viva a través de su gente y sus tradiciones.</p>
+              <p class="historia__subtitle">
+                Fe, tradición y comunidad en San Rafael de Alajuela
+              </p>
+              <p>
+                San Rafael de Alajuela, conocido históricamente como San Rafael
+                de Ojo de Agua, es una comunidad con más de un siglo de historia
+                documentada en torno a su vida religiosa. A lo largo de
+                generaciones, su desarrollo ha estado vinculado a la fe, las
+                tradiciones y el compromiso de sus habitantes.
+              </p>
+              <p>
+                La historia de la Parroquia San Rafael Arcángel comenzó mucho
+                antes de su fundación oficial. En 1912 ya existía un pequeño
+                oratorio de adobe y teja, donde los vecinos se reunían para
+                celebrar su fe y honrar a San Rafael Arcángel, patrono de la
+                comunidad.
+              </p>
+              <p>
+                Con el crecimiento de la población, la vida religiosa también se
+                fortaleció. En 1935 se estableció la Coadjutoría Territorial de
+                San Rafael de Ojo de Agua y, finalmente, el 1.º de enero de
+                1960, nació oficialmente la Parroquia San Rafael Arcángel.
+              </p>
+              <p>
+                En 1970 comenzó la construcción del templo actual, en
+                sustitución de la antigua iglesia de adobe. Desde entonces, el
+                edificio ha experimentado distintas transformaciones,
+                especialmente en su altar mayor, sus vitrales y sus elementos
+                artísticos.
+              </p>
+              <p>
+                Uno de sus acontecimientos más significativos fue la bendición
+                del retablo del altar mayor, el 23 de octubre de 2021,
+                culminación de un esfuerzo desarrollado durante aproximadamente
+                17 años con la participación y el apoyo de numerosas familias y
+                personas de la comunidad.
+              </p>
+              <p>
+                Hoy, la parroquia continúa siendo un espacio de encuentro,
+                celebración y servicio, donde la historia de San Rafael se
+                mantiene viva a través de su gente y sus tradiciones.
+              </p>
             </div>
             <div class="col-12 col-lg-6">
               <div class="historia__media">
@@ -219,7 +320,7 @@
                   <source
                     type="image/webp"
                     srcset="
-                      ../assets/img/parroquia/parroquiahistoria-640.webp 640w,
+                      ../assets/img/parroquia/parroquiahistoria-640.webp   640w,
                       ../assets/img/parroquia/parroquiahistoria-1024.webp 1024w
                     "
                     sizes="(min-width: 992px) 540px, calc(100vw - 24px)"
@@ -235,7 +336,8 @@
                   />
                 </picture>
                 <blockquote class="historia__quote-box">
-                  Una historia construida con fe, esfuerzo y el compromiso de generaciones de sanrafaeleños.
+                  Una historia construida con fe, esfuerzo y el compromiso de
+                  generaciones de sanrafaeleños.
                 </blockquote>
               </div>
             </div>
@@ -253,7 +355,7 @@
                   <source
                     type="image/webp"
                     srcset="
-                      ../assets/img/parroquia/parroquiapatrono-640.webp 640w,
+                      ../assets/img/parroquia/parroquiapatrono-640.webp   640w,
                       ../assets/img/parroquia/parroquiapatrono-1024.webp 1024w
                     "
                     sizes="(min-width: 992px) 460px, calc(100vw - 24px)"
@@ -273,10 +375,24 @@
             <div class="col-12 col-lg-7 order-lg-2 patrono__text">
               <p class="eyebrow">Nuestro patrono</p>
               <h2 id="patrono-heading">San Rafael Arcángel</h2>
-              <p>San Rafael Arcángel, cuyo nombre significa «Dios sana», es reconocido como guía, protector y mensajero de la sanación divina. En el libro de Tobías, acompaña al joven durante su viaje y lo ayuda a superar las dificultades.</p>
-              <p>Como patrono de nuestra comunidad, nos inspira a caminar con fe, esperanza y espíritu de servicio.</p>
-              <a class="btn btn-outline-primary" href="https://www.catholically.com/es/blogs/noticias/el-poder-de-la-fe-la-historia-de-san-raphael-el-arcangel-el-santo-patron-de-la-sanacion?srsltid=AU7gw4WRQ3R4SPFvaQjBi0YVGux0sPc_mA_c3qh8MJFIQlzYyVbQivK5" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Conocer más sobre San Rafael Arcángel
+              <p>
+                San Rafael Arcángel, cuyo nombre significa «Dios sana», es
+                reconocido como guía, protector y mensajero de la sanación
+                divina. En el libro de Tobías, acompaña al joven durante su
+                viaje y lo ayuda a superar las dificultades.
+              </p>
+              <p>
+                Como patrono de nuestra comunidad, nos inspira a caminar con fe,
+                esperanza y espíritu de servicio.
+              </p>
+              <a
+                class="btn btn-outline-primary"
+                href="https://www.catholically.com/es/blogs/noticias/el-poder-de-la-fe-la-historia-de-san-raphael-el-arcangel-el-santo-patron-de-la-sanacion?srsltid=AU7gw4WRQ3R4SPFvaQjBi0YVGux0sPc_mA_c3qh8MJFIQlzYyVbQivK5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                Conocer más sobre San Rafael Arcángel
               </a>
             </div>
           </div>
@@ -292,7 +408,9 @@
 
           <div class="parroquia-mosaico">
             <div class="parroquia-mosaico__grid">
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g9">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g9"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -308,9 +426,9 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal9-640.webp 640w,
-                    ../assets/img/parroquia/parroquiagal9-960.webp 960w,
-                    ../assets/img/parroquia/parroquiagal9-1280.webp 1280w
+                        ../assets/img/parroquia/parroquiagal9-640.webp   640w,
+                        ../assets/img/parroquia/parroquiagal9-960.webp   960w,
+                        ../assets/img/parroquia/parroquiagal9-1280.webp 1280w
                       "
                       sizes="(min-width: 1400px) 859px, (min-width: 1200px) 738px, (min-width: 992px) 618px, (min-width: 768px) 460px, calc(100vw - 24px)"
                     />
@@ -324,11 +442,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Vista aérea del templo y su entorno</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Vista aérea del templo y su entorno
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g3">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g3"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -344,9 +471,9 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal3-480.webp 480w,
-                    ../assets/img/parroquia/parroquiagal3-720.webp 720w,
-                    ../assets/img/parroquia/parroquiagal3-960.webp 960w
+                        ../assets/img/parroquia/parroquiagal3-480.webp 480w,
+                        ../assets/img/parroquia/parroquiagal3-720.webp 720w,
+                        ../assets/img/parroquia/parroquiagal3-960.webp 960w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
                     />
@@ -360,11 +487,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Fachada del templo al atardecer</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Fachada del templo al atardecer
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g12">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g12"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -380,9 +516,9 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal12-640.webp 640w,
-                    ../assets/img/parroquia/parroquiagal12-960.webp 960w,
-                    ../assets/img/parroquia/parroquiagal12-1280.webp 1280w
+                        ../assets/img/parroquia/parroquiagal12-640.webp   640w,
+                        ../assets/img/parroquia/parroquiagal12-960.webp   960w,
+                        ../assets/img/parroquia/parroquiagal12-1280.webp 1280w
                       "
                       sizes="(min-width: 1400px) 859px, (min-width: 1200px) 738px, (min-width: 992px) 618px, (min-width: 768px) 460px, calc(100vw - 24px)"
                     />
@@ -396,11 +532,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Celebración de la misa en el templo</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Celebración de la misa en el templo
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g5">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g5"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -416,9 +561,9 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal5-480.webp 480w,
-                    ../assets/img/parroquia/parroquiagal5-720.webp 720w,
-                    ../assets/img/parroquia/parroquiagal5-900.webp 900w
+                        ../assets/img/parroquia/parroquiagal5-480.webp 480w,
+                        ../assets/img/parroquia/parroquiagal5-720.webp 720w,
+                        ../assets/img/parroquia/parroquiagal5-900.webp 900w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
                     />
@@ -432,17 +577,26 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Costado de la fachada y entrada</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Costado de la fachada y entrada
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g4">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g4"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
-                  aria-label="Ampliar fotografía: Sacerdote y fieles en la nave central"
+                  aria-label="Ampliar fotografía: Sacerdote y fieles"
                   aria-haspopup="dialog"
-                  data-visor-titulo="Sacerdote y fieles en la nave central"
+                  data-visor-titulo="Sacerdote y fieles"
                   data-visor-src="../assets/img/parroquia/parroquiagal4-ampliada.webp"
                   data-visor-srcset="../assets/img/parroquia/parroquiagal4-640.webp 640w, ../assets/img/parroquia/parroquiagal4-960.webp 960w, ../assets/img/parroquia/parroquiagal4-1280.webp 1280w, ../assets/img/parroquia/parroquiagal4-ampliada.webp 1500w"
                   data-visor-ancho="1500"
@@ -452,9 +606,9 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal4-640.webp 640w,
-                    ../assets/img/parroquia/parroquiagal4-960.webp 960w,
-                    ../assets/img/parroquia/parroquiagal4-1280.webp 1280w
+                        ../assets/img/parroquia/parroquiagal4-640.webp   640w,
+                        ../assets/img/parroquia/parroquiagal4-960.webp   960w,
+                        ../assets/img/parroquia/parroquiagal4-1280.webp 1280w
                       "
                       sizes="(min-width: 1400px) 859px, (min-width: 1200px) 738px, (min-width: 992px) 618px, (min-width: 768px) 460px, calc(100vw - 24px)"
                     />
@@ -468,11 +622,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Sacerdote y fieles en la nave central</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Sacerdote y fieles
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g8">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g8"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -488,9 +651,9 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal8-640.webp 640w,
-                    ../assets/img/parroquia/parroquiagal8-960.webp 960w,
-                    ../assets/img/parroquia/parroquiagal8-1200.webp 1200w
+                        ../assets/img/parroquia/parroquiagal8-640.webp   640w,
+                        ../assets/img/parroquia/parroquiagal8-960.webp   960w,
+                        ../assets/img/parroquia/parroquiagal8-1200.webp 1200w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
                     />
@@ -504,11 +667,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Fieles con paraguas frente al templo</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Fieles con paraguas frente al templo
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g6">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g6"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -524,9 +696,9 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal6-640.webp 640w,
-                    ../assets/img/parroquia/parroquiagal6-960.webp 960w,
-                    ../assets/img/parroquia/parroquiagal6-1200.webp 1200w
+                        ../assets/img/parroquia/parroquiagal6-640.webp   640w,
+                        ../assets/img/parroquia/parroquiagal6-960.webp   960w,
+                        ../assets/img/parroquia/parroquiagal6-1200.webp 1200w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
                     />
@@ -540,11 +712,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Misa junto al altar de la Virgen</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Misa junto al altar de la Virgen
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g1">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g1"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -560,7 +741,7 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal1-480.webp 480w
+                        ../assets/img/parroquia/parroquiagal1-480.webp 480w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(100vw - 24px)"
                     />
@@ -574,11 +755,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Altar de la Virgen con el Niño</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Altar de la Virgen con el Niño
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g2">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g2"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -594,7 +784,7 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal2-632.webp 632w
+                        ../assets/img/parroquia/parroquiagal2-632.webp 632w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
                     />
@@ -608,11 +798,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Altar con la imagen de la Virgen</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Altar con la imagen de la Virgen
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g7">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g7"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -628,8 +827,8 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal7-640.webp 640w,
-                    ../assets/img/parroquia/parroquiagal7-959.webp 959w
+                        ../assets/img/parroquia/parroquiagal7-640.webp 640w,
+                        ../assets/img/parroquia/parroquiagal7-959.webp 959w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
                     />
@@ -643,11 +842,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Calle hacia el templo</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Calle hacia el templo
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g11">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g11"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -663,8 +871,8 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal11-640.webp 640w,
-                    ../assets/img/parroquia/parroquiagal11-788.webp 788w
+                        ../assets/img/parroquia/parroquiagal11-640.webp 640w,
+                        ../assets/img/parroquia/parroquiagal11-788.webp 788w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
                     />
@@ -678,11 +886,20 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Fotografía antigua del templo</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Fotografía antigua del templo
+                </figcaption>
               </figure>
-              <figure class="parroquia-mosaico__item parroquia-mosaico__item--g10">
+              <figure
+                class="parroquia-mosaico__item parroquia-mosaico__item--g10"
+              >
                 <button
                   type="button"
                   class="parroquia-mosaico__btn"
@@ -698,7 +915,7 @@
                     <source
                       type="image/webp"
                       srcset="
-                    ../assets/img/parroquia/parroquiagal10-554.webp 554w
+                        ../assets/img/parroquia/parroquiagal10-554.webp 554w
                       "
                       sizes="(min-width: 1400px) 423px, (min-width: 1200px) 362px, (min-width: 992px) 302px, (min-width: 768px) 223px, calc(50vw - 18px)"
                     />
@@ -712,9 +929,16 @@
                       decoding="async"
                     />
                   </picture>
-                  <span class="parroquia-mosaico__zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span>
+                  <span class="parroquia-mosaico__zoom" aria-hidden="true"
+                    ><i class="bi bi-arrows-fullscreen"></i
+                  ></span>
                 </button>
-                <figcaption class="parroquia-mosaico__caption" aria-hidden="true">Fotografía antigua en sepia</figcaption>
+                <figcaption
+                  class="parroquia-mosaico__caption"
+                  aria-hidden="true"
+                >
+                  Fotografía antigua en sepia
+                </figcaption>
               </figure>
             </div>
           </div>
@@ -730,24 +954,49 @@
             <div class="modal-dialog modal-fullscreen">
               <div class="modal-content">
                 <div class="modal-body">
-                  <h2 id="parroquiaVisorTitulo" class="visually-hidden">Galería de nuestra parroquia: visor ampliado</h2>
-                  <button type="button" class="parroquia-visor__btn parroquia-visor__btn--cerrar" data-bs-dismiss="modal" aria-label="Cerrar visor">
+                  <h2 id="parroquiaVisorTitulo" class="visually-hidden">
+                    Galería de nuestra parroquia: visor ampliado
+                  </h2>
+                  <button
+                    type="button"
+                    class="parroquia-visor__btn parroquia-visor__btn--cerrar"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar visor"
+                  >
                     <i class="bi bi-x-lg" aria-hidden="true"></i>
                   </button>
-                  <button type="button" class="parroquia-visor__btn parroquia-visor__btn--anterior" data-visor-anterior aria-label="Fotografía anterior">
+                  <button
+                    type="button"
+                    class="parroquia-visor__btn parroquia-visor__btn--anterior"
+                    data-visor-anterior
+                    aria-label="Fotografía anterior"
+                  >
                     <i class="bi bi-chevron-left" aria-hidden="true"></i>
                   </button>
-                  <button type="button" class="parroquia-visor__btn parroquia-visor__btn--siguiente" data-visor-siguiente aria-label="Fotografía siguiente">
+                  <button
+                    type="button"
+                    class="parroquia-visor__btn parroquia-visor__btn--siguiente"
+                    data-visor-siguiente
+                    aria-label="Fotografía siguiente"
+                  >
                     <i class="bi bi-chevron-right" aria-hidden="true"></i>
                   </button>
                   <figure class="parroquia-visor__figura">
                     <img class="parroquia-visor__img" alt="" data-visor-img />
                     <figcaption class="parroquia-visor__leyenda">
                       <span data-visor-leyenda></span>
-                      <span class="parroquia-visor__contador" data-visor-contador></span>
+                      <span
+                        class="parroquia-visor__contador"
+                        data-visor-contador
+                      ></span>
                     </figcaption>
                   </figure>
-                  <p class="visually-hidden" role="status" aria-live="polite" data-visor-estado></p>
+                  <p
+                    class="visually-hidden"
+                    role="status"
+                    aria-live="polite"
+                    data-visor-estado
+                  ></p>
                 </div>
               </div>
             </div>
@@ -775,7 +1024,8 @@
             </div>
             <div class="col-12 col-md-3">
               <blockquote class="parroco__quote">
-                «Cita del párroco — contenido de ejemplo, pendiente de definir con la parroquia.»
+                «Cita del párroco — contenido de ejemplo, pendiente de definir
+                con la parroquia.»
               </blockquote>
             </div>
           </div>
@@ -787,11 +1037,27 @@
          Inicio usa en su transición CTA→footer (ver home.css), reproducido
          en parroquia.css sin la insignia circular. -->
     <div class="wave-transition" aria-hidden="true">
-      <svg class="wave-transition-gold" viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--color-secondary)" d="M0,30 C360,4 1080,44 1440,20 L1440,56 L0,56 Z" />
+      <svg
+        class="wave-transition-gold"
+        viewBox="0 0 1440 56"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="var(--color-secondary)"
+          d="M0,30 C360,4 1080,44 1440,20 L1440,56 L0,56 Z"
+        />
       </svg>
-      <svg class="wave-transition-navy" viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--color-primary)" d="M0,24 C360,50 1080,6 1440,28 L1440,56 L0,56 Z" />
+      <svg
+        class="wave-transition-navy"
+        viewBox="0 0 1440 56"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="var(--color-primary)"
+          d="M0,24 C360,50 1080,6 1440,28 L1440,56 L0,56 Z"
+        />
       </svg>
     </div>
 
@@ -802,10 +1068,17 @@
         <div class="row g-4">
           <div class="col-12 col-lg-3">
             <div class="site-footer__brand">
-              <img src="../assets/img/logo/Logo.jpeg" alt="Escudo de la Parroquia San Rafael Arcángel" />
-              <span class="site-footer__brand-name">Parroquia San Rafael Arcángel</span>
+              <img
+                src="../assets/img/logo/Logo.jpeg"
+                alt="Escudo de la Parroquia San Rafael Arcángel"
+              />
+              <span class="site-footer__brand-name"
+                >Parroquia San Rafael Arcángel</span
+              >
             </div>
-            <p class="site-footer__tagline">"Una comunidad que camina junto en la fe."</p>
+            <p class="site-footer__tagline">
+              "Una comunidad que camina junto en la fe."
+            </p>
           </div>
 
           <div class="col-12 col-sm-6 col-lg-2">
@@ -830,14 +1103,23 @@
               </li>
               <li class="site-footer__contact-item">
                 <i class="bi bi-whatsapp" aria-hidden="true"></i>
-                <a href="https://wa.me/50661705997" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://wa.me/50661705997"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   WhatsApp: 6170-5997
-                  <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+                  <span class="visually-hidden"
+                    >(se abre en una pestaña nueva)</span
+                  >
                 </a>
               </li>
               <li class="site-footer__contact-item">
                 <i class="bi bi-envelope" aria-hidden="true"></i>
-                <a class="site-footer__email" href="mailto:parroquiasanrafael.alajuela@gmail.com">
+                <a
+                  class="site-footer__email"
+                  href="mailto:parroquiasanrafael.alajuela@gmail.com"
+                >
                   parroquiasanrafael.alajuela<wbr />@gmail.com
                 </a>
               </li>
@@ -848,13 +1130,23 @@
               <li class="site-footer__contact-item">
                 <i class="bi bi-clock" aria-hidden="true"></i>
                 <div class="site-footer__hours">
-                  <span class="site-footer__hours-title">Horario de atención administrativa</span>
+                  <span class="site-footer__hours-title"
+                    >Horario de atención administrativa</span
+                  >
                   <dl class="site-footer__hours-list">
                     <div>
                       <dt>Lunes a viernes</dt>
                       <dd>
-                        <span class="d-block">8:00&nbsp;a.&nbsp;m. a 12:00&nbsp;m.<span class="visually-hidden"> y</span></span>
-                        <span class="d-block">1:00&nbsp;p.&nbsp;m. a 5:00&nbsp;p.&nbsp;m.</span>
+                        <span class="d-block"
+                          >8:00&nbsp;a.&nbsp;m. a 12:00&nbsp;m.<span
+                            class="visually-hidden"
+                          >
+                            y</span
+                          ></span
+                        >
+                        <span class="d-block"
+                          >1:00&nbsp;p.&nbsp;m. a 5:00&nbsp;p.&nbsp;m.</span
+                        >
                       </dd>
                     </div>
                     <div>
@@ -895,7 +1187,10 @@
         </div>
 
         <div class="site-footer__bottom">
-          <span>© 2026 Parroquia San Rafael Arcángel. Todos los derechos reservados.</span>
+          <span
+            >© 2026 Parroquia San Rafael Arcángel. Todos los derechos
+            reservados.</span
+          >
           <span>Diócesis de Alajuela</span>
         </div>
       </div>

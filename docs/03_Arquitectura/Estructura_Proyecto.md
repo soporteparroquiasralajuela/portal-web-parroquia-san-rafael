@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Estructura_Proyecto.md |
-| Versión | 1.7 |
+| Versión | 1.9 |
 | Fecha de creación | 2026-08-05 |
 | Última actualización | 2026-10-24 |
 | Estado | Vigente |
@@ -36,12 +36,12 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 │   ├── videos/                 # (vacía)
 │   └── img/
 │       ├── eventos/            # (vacía)
-│       ├── galeria/            # Carrusel de Inicio (3 PNG originales + 4 versiones WebP de cada uno)
+│       ├── galeria/            # Carrusel de Inicio (3 PNG originales + 4 versiones WebP de cada uno) y Hero de Calendario (herocalendario.png + 3 WebP)
 │       ├── grupos/             # Hero de Grupos (herogrupos.png + 4 versiones WebP)
 │       ├── logo/               # Logo.jpeg
 │       ├── parroquia/          # Hero, historia, patrono, Hero de Inicio, Diaconía y galería (parroquiagal1–12; originales + WebP)
 │       ├── sacerdotes/         # (vacía)
-│       └── transmisiones/      # (vacía)
+│       └── transmisiones/      # Hero de Transmisiones (herotransmisiones.png + 3 versiones WebP)
 │
 ├── pages/                      # parroquia.html, grupos.html, calendario.html, transmisiones.html, contacto.html
 ├── netlify/

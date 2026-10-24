@@ -1,5 +1,5 @@
 /* transmisiones.css — Estilos específicos de la página Transmisiones
-   Hero claro con fotografía (tratamiento del diseño conceptual aprobado), franja
+   Hero con fotografía y degradado azul, franja
    informativa de categorías, reproductor 16:9 con sus estados y estructura de
    "Últimas transmisiones". No se reutiliza en otras páginas y no depende de
    home.css, parroquia.css, grupos.css ni calendario.css. La transición
@@ -13,55 +13,47 @@
   --transmisiones-youtube-dark: #9f1116;
 }
 
-/* ===== Hero de Transmisiones ===== */
+/* ===== Hero de Transmisiones =====
+   Imagen aprobada (interior del templo con una cámara profesional de video en primer plano, a la derecha).
+   Altura mínima y doble curva: sistema compartido (.hero-interior y .hero-curva, components.css). Por debajo
+   de 992 px la imagen va arriba y el texto debajo, sobre el azul institucional; desde 992 px el texto se
+   superpone a la izquierda, sobre un degradado azul que deja libres el altar, el retablo y la cámara. */
 .transmisiones-hero {
-  position: relative;
-  min-height: 320px;
-  display: flex;
-  align-items: center;
-  padding-block: var(--space-5) calc(var(--hero-wave-height) + var(--space-3));
+  padding-bottom: calc(var(--hero-curva-height) + var(--space-2));
+  background-color: var(--color-primary); /* reserva mientras carga la imagen */
 }
 
 .transmisiones-hero__media {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
 }
 
-.transmisiones-hero__media .img-placeholder {
-  height: 100%;
-  min-height: 320px;
-  border-radius: 0;
-}
-
-/* Placeholder limpio: sin ícono ni texto genérico bajo el título. */
-.transmisiones-hero__media .img-placeholder i,
-.transmisiones-hero__media .img-placeholder span {
-  display: none;
-}
-
-/* Velo claro a la izquierda: asegura la lectura del texto azul sobre cualquier fotografía. */
-.transmisiones-hero::before {
+.transmisiones-hero__media::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(255, 255, 255, 0.55) 55%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  inset: 0 0 -1px; /* 1 px de solape: evita una línea fina entre la imagen y el fondo azul */
+  background: linear-gradient(0deg, var(--color-primary) 0%, rgba(29, 42, 84, 0) 28%);
   pointer-events: none;
-  z-index: 1;
+}
+
+.transmisiones-hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 80% 50%; /* móvil: conserva la cámara y el altar */
 }
 
 .transmisiones-hero > .container {
   position: relative;
-  z-index: 2;
-  width: 100%;
+  z-index: 1;
+  margin-top: calc(-1 * var(--space-3));
 }
 
 .transmisiones-hero__content {
   max-width: 560px;
+  color: #ffffff;
 }
 
 .transmisiones-hero__title {
@@ -69,7 +61,7 @@
   font-weight: var(--weight-bold);
   font-style: italic;
   line-height: 1.1;
-  color: var(--color-primary);
+  color: #ffffff;
   margin-bottom: var(--space-2);
 }
 
@@ -77,11 +69,16 @@
   display: block;
 }
 
+/* Segunda línea del título en dorado institucional (texto grande sobre el degradado azul). */
+.transmisiones-hero__title span:last-child {
+  color: var(--color-secondary);
+}
+
 .transmisiones-hero__subtitle {
   font-family: var(--font-body);
   font-size: var(--fs-h4);
   line-height: var(--lh-body);
-  color: var(--color-primary);
+  color: rgba(255, 255, 255, 0.92);
   max-width: 460px;
   margin-bottom: var(--space-2);
 }
@@ -107,6 +104,88 @@
 .transmisiones-hero__bars span:nth-child(3) {
   width: 40px;
   opacity: 0.5;
+}
+
+/* Tabletas (768–991 px): la imagen se limita a una franja para que el Hero conserve la altura de referencia. */
+@media (min-width: 768px) {
+  .transmisiones-hero__media {
+    aspect-ratio: auto;
+    height: clamp(260px, 40vw, 380px);
+  }
+
+  .transmisiones-hero__img {
+    object-position: 70% 65%;
+  }
+}
+
+@media (min-width: 992px) {
+  .transmisiones-hero {
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-6) calc(var(--hero-curva-height) + var(--space-4));
+  }
+
+  .transmisiones-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    height: auto;
+  }
+
+  .transmisiones-hero__media::after {
+    display: none;
+  }
+
+  /* El recorte vertical sale por arriba (lámpara y cornisa): se priorizan el altar y el cuerpo de la cámara
+     por encima de la curva. */
+  .transmisiones-hero__img {
+    object-position: 50% 75%;
+  }
+
+  /* Degradado azul de izquierda a derecha: oscuro bajo el texto y transparente sobre el altar y la cámara. */
+  .transmisiones-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgba(29, 42, 84, 0.94) 0%,
+      rgba(29, 42, 84, 0.88) 26%,
+      rgba(29, 42, 84, 0.6) 38%,
+      rgba(29, 42, 84, 0.16) 50%,
+      rgba(29, 42, 84, 0) 58%
+    );
+    pointer-events: none;
+  }
+
+  .transmisiones-hero > .container {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .transmisiones-hero__content {
+    max-width: 440px;
+  }
+}
+
+/* 992–1199 px: el Hero es más estrecho y el texto llega más lejos en proporción; se estrecha la columna y el
+   degradado se mantiene opaco hasta más a la derecha para conservar el contraste del párrafo. */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .transmisiones-hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba(29, 42, 84, 0.94) 0%,
+      rgba(29, 42, 84, 0.9) 36%,
+      rgba(29, 42, 84, 0.6) 48%,
+      rgba(29, 42, 84, 0.16) 58%,
+      rgba(29, 42, 84, 0) 66%
+    );
+  }
+
+  .transmisiones-hero__content {
+    max-width: 360px;
+  }
 }
 
 /* ===== Franja informativa de categorías ===== */
@@ -521,14 +600,6 @@
 }
 
 @media (min-width: 768px) {
-  .transmisiones-hero {
-    min-height: 360px;
-  }
-
-  .transmisiones-hero__media .img-placeholder {
-    min-height: 360px;
-  }
-
   .transmisiones-categorias {
     padding-block: var(--space-3) var(--space-5);
   }

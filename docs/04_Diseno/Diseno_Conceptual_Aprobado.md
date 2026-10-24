@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.6 |
+| Versión | 1.8 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-10-22 |
+| Última actualización | 2026-10-24 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -216,7 +216,7 @@ Páginas principales (en este orden de trabajo — ya cuentan con diseño concep
 | 1 | Parroquia | Implementada y dentro de la línea base temporal |
 | 2 | Grupos | Implementada y dentro de la línea base temporal |
 | 3 | Calendario | Implementada y dentro de la línea base temporal; integración con el calendario secundario institucional completada (2026-10-14). Siguen pendientes los eventos reales y la limitación del embed a ≈ 375 px |
-| 4 | Transmisiones | Implementada, publicada y funcional dentro del alcance aprobado (2026-10-14), con integración con YouTube validada con una transmisión pública real; **no congelada**. Pendientes de contenido: la fotografía institucional y la validación con la parroquia. Excluida del alcance, por decisión del proyecto, la visualización automática de grabaciones de transmisiones finalizadas (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md)) |
+| 4 | Transmisiones | Implementada, publicada y funcional dentro del alcance aprobado (2026-10-14), con integración con YouTube validada con una transmisión pública real; **no congelada**. Pendientes de contenido: la fotografía del estado sin transmisión del reproductor, la confirmación de que la imagen del Hero (composición digital basada en una fotografía real) representa fielmente la parroquia y la validación con la parroquia. Excluida del alcance, por decisión del proyecto, la visualización automática de grabaciones de transmisiones finalizadas (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md)) |
 | 5 | Servicios parroquiales | Pendiente de implementación |
 | 6 | Contacto | Pendiente de implementación |
 
@@ -275,7 +275,10 @@ Podrán existir ajustes posteriores únicamente por:
 Por la jerarquía de fuentes de verdad (sección 2.3), prevalecen sobre los PNG:
 
 - **Hero de Inicio (2026-10-22, local):** hero panorámico de ancho completo con una recreación digital del templo como fondo y degradado azul institucional, en lugar de dos columnas con recuadro de fotografía y cita decorativa. Se conservan los textos, los botones y sus enlaces.
-- **Curva Hero → contenido (2026-10-22, local):** una curva suave con relleno del color de la sección siguiente y un trazo dorado fino, igual en las seis páginas; sustituye la cinta navy/dorada con insignia circular y cruz.
+- **Curva Hero → contenido (2026-10-22, publicada):** una curva suave con relleno del color de la sección siguiente y un trazo dorado fino, igual en las seis páginas; sustituye la cinta navy/dorada con insignia circular y cruz. **Reemplazada el 2026-10-24** por la doble curva siguiente.
+- **Doble curva Hero → contenido (2026-10-24, local):** identidad visual común de las seis páginas, inspirada en el Hero de Calendario: una curva principal del color de la sección siguiente, una segunda capa azul institucional (`#1D2A54`) parcialmente translúcida, un eco dorado tenue y un filete dorado fino (`#DA981B`), sobre el crema `#F7F5F1`. Es discreta y de la misma altura en todas las páginas.
+- **Altura común de los Heroes (2026-10-24, local):** los Heroes interiores comparten una altura de referencia (460 px móvil, 520 px tableta, 520–620 px escritorio) para que la navegación entre páginas mantenga una estructura uniforme; la portada (Inicio) conserva una altura algo mayor y los Heroes sin fotografía (hoy solo Contacto) una variante compacta (≈ 80 %) hasta recibirla. El Hero de Calendario incorpora la imagen `herocalendario` (recreación digital) con título «Juntos en cada momento» y un párrafo, sin botones.
+- **Hero de Transmisiones (2026-10-24, local):** fotografía de fondo (composición digital basada en una fotografía real del interior del templo, con una cámara profesional de video en primer plano a la derecha), degradado azul de izquierda a derecha y el texto aprobado a la izquierda en blanco con detalles dorados; sustituye al Hero claro con marcador de imagen y adopta la altura estándar de los Heroes interiores y la doble curva.
 - **Transición hacia el footer:** la cinta navy/dorada se mantiene, sin insignia circular.
 - **Footer estandarizado (2026-10-18):** datos de la oficina parroquial, horario administrativo y redes Facebook y YouTube (Instagram no se usa); «Servicios parroquiales» sin enlace hasta que exista la página.
 - **Navegación adaptable (2026-10-21):** el menú se expande desde 1200 px.

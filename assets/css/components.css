@@ -393,6 +393,86 @@
   vector-effect: non-scaling-stroke;
 }
 
+/* ===== Sistema compartido de Heroes interiores (.hero-interior + .hero-curva) =====
+   Referencia de altura común para los Heroes de las páginas interiores (Parroquia, Grupos, Calendario,
+   Transmisiones y Contacto). Inicio es la portada y conserva su propia altura (home.css) y su curva simple
+   (.hero-wave, arriba). Cada página añade .hero-interior a su <section> de Hero y conserva solo lo propio
+   de su composición (imagen, degradado, textos).
+   - --hero-min-height: móvil 460 px; tabletas 520 px; desde 992 px sigue el ancho (42vw, entre 520 y 620 px)
+     y se limita para que, en pantallas poco altas, siempre asome la sección siguiente (≈ 100 px bajo la barra
+     de navegación). Es un mínimo: si el contenido es más alto, el Hero crece y no se recorta nada.
+   - --hero-curva-height: altura de la doble curva; el relleno inferior del Hero debe ser al menos esa altura.
+   - Variante .hero-interior--compacto (≈ 80 % de la altura de referencia): excepción para los Heroes que aún no
+     tienen fotografía (solo título, subtítulo y marcador de imagen): a la altura completa quedarían casi vacíos.
+     Cuando la parroquia entregue la fotografía se quita esa clase y el Hero adopta la altura de referencia. */
+:root {
+  --hero-min-height: 460px;
+  --hero-min-height-compacto: 400px;
+  --hero-curva-height: calc(var(--hero-wave-height) * 1.35);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --hero-min-height: 520px;
+    --hero-min-height-compacto: 440px;
+  }
+}
+
+@media (min-width: 992px) {
+  :root {
+    --hero-min-height: min(clamp(520px, 42vw, 620px), max(480px, calc(100vh - var(--navbar-height) - 100px)));
+    --hero-min-height-compacto: min(clamp(420px, 34vw, 500px), max(420px, calc(100vh - var(--navbar-height) - 100px)));
+  }
+}
+
+.hero-interior {
+  position: relative;
+  isolation: isolate;
+  min-height: var(--hero-min-height);
+}
+
+.hero-interior--compacto {
+  min-height: var(--hero-min-height-compacto);
+}
+
+/* Doble curva de transición Hero → sección siguiente (identidad visual común de las páginas interiores).
+   Cuatro capas en un SVG a todo el ancho: una banda azul institucional (#1D2A54) parcialmente translúcida
+   detrás, un eco dorado muy tenue sobre su borde, la curva principal del color de la sección siguiente
+   (--hero-wave-fill; por defecto crema) y un filete dorado (#DA981B) de 2 px sobre ella. Mismos requisitos
+   que .hero-wave: el Hero es position: relative, no usa overflow: hidden y deja un relleno inferior de al
+   menos var(--hero-curva-height). Sobresale 2 px para ocultar la unión con la sección siguiente. */
+.hero-curva {
+  position: absolute;
+  inset: auto 0 -2px 0;
+  z-index: 3;
+  display: block;
+  width: 100%;
+  height: var(--hero-curva-height);
+  pointer-events: none;
+}
+
+.hero-curva__azul {
+  fill: rgba(29, 42, 84, 0.34);
+}
+
+.hero-curva__eco {
+  fill: none;
+  stroke: rgba(218, 152, 27, 0.5);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.hero-curva__crema {
+  fill: var(--hero-wave-fill, var(--color-bg));
+}
+
+.hero-curva__linea {
+  fill: none;
+  stroke: var(--color-secondary);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
 /* ===== Botón flotante global de WhatsApp =====
    Aprobado en Diseno_Conceptual_Aprobado.md sección 7. Es un enlace real (<a>) a la conversación
    de WhatsApp de la oficina parroquial (wa.me), con el mismo marcado en todas las páginas. */
