@@ -5,64 +5,62 @@
    de ancho completo con placeholder limpio, y transición navy/dorada hacia el
    footer reproducida localmente (sin insignia circular). */
 
-/* ===== Hero de Grupos ===== */
+/* ===== Hero de Grupos =====
+   Imagen panorámica (templo a la izquierda, escena comunitaria con velas a la derecha). Por debajo
+   de 992 px la imagen va arriba y el texto debajo, sobre el azul institucional, para no tapar la
+   escena; desde 992 px el texto se superpone en la base de la imagen sobre un degradado azul que
+   deja libres las torres y las personas. La curva inferior es el componente compartido .hero-wave. */
 .grupos-hero {
   position: relative;
-  min-height: 360px;
-  display: flex;
-  align-items: flex-end;
-  padding-block: var(--space-4) calc(var(--hero-wave-height) + var(--space-2));
+  isolation: isolate;
+  padding-bottom: calc(var(--hero-wave-height) + var(--space-3));
+  background-color: var(--color-primary); /* reserva mientras carga la imagen */
   --hero-wave-fill: var(--color-bg-alt); /* la sección siguiente (introducción) tiene fondo blanco */
 }
 
 .grupos-hero__media {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
 }
 
-.grupos-hero__media .img-placeholder {
-  height: 100%;
-  min-height: 360px;
-  border-radius: 0;
-}
-
-/* Placeholder limpio: sin ícono ni texto genérico bajo el título y la cita. */
-.grupos-hero__media .img-placeholder i,
-.grupos-hero__media .img-placeholder span {
-  display: none;
-}
-
-.grupos-hero::after {
+.grupos-hero__media::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(29, 42, 84, 0.6) 0%, rgba(29, 42, 84, 0.05) 60%);
+  inset: 0 0 -1px; /* 1 px de solape: evita una línea fina entre la imagen y el fondo azul */
+  background: linear-gradient(0deg, var(--color-primary) 0%, rgba(29, 42, 84, 0) 38%);
   pointer-events: none;
+}
+
+.grupos-hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 50%;
 }
 
 .grupos-hero > .container {
   position: relative;
   z-index: 1;
-  width: 100%;
+  margin-top: calc(-1 * var(--space-3));
 }
 
 .grupos-hero__row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
   gap: var(--space-3);
 }
 
 .grupos-hero__content {
+  max-width: 560px;
   color: #ffffff;
-  max-width: 520px;
 }
 
 .grupos-hero__title {
+  text-wrap: balance;
   font-size: var(--fs-display);
   font-weight: var(--weight-bold);
-  font-style: italic;
   line-height: var(--lh-heading);
   color: #ffffff;
   margin-bottom: var(--space-1);
@@ -71,20 +69,119 @@
 .grupos-hero__subtitle {
   font-family: var(--font-body);
   font-size: var(--fs-body);
-  color: rgba(255, 255, 255, 0.88);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.92);
   margin-bottom: 0;
 }
 
+/* Cita bíblica: filete dorado a la izquierda en móvil; a la derecha y alineada a la derecha en escritorio. */
 .grupos-hero__quote {
-  flex: 0 1 320px;
   margin: 0;
+  padding-left: var(--space-2);
+  border-left: 2px solid var(--color-secondary);
+}
+
+.grupos-hero__quote blockquote {
+  margin: 0;
+}
+
+.grupos-hero__quote p {
+  margin: 0 0 var(--space-1);
   font-family: var(--font-heading);
   font-style: italic;
-  font-size: var(--fs-h4);
+  font-size: var(--fs-h3);
   line-height: 1.3;
   color: #ffffff;
-  text-align: right;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.grupos-hero__cite {
+  font-family: var(--font-accent);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary); /* dorado institucional sobre el azul */
+}
+
+@media (min-width: 768px) {
+  .grupos-hero__media {
+    aspect-ratio: 1958 / 803; /* proporción completa de la imagen */
+  }
+
+  .grupos-hero__img {
+    object-position: 50% 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .grupos-hero {
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(520px, 44vw, 640px);
+    padding-block: var(--space-6) calc(var(--hero-wave-height) + var(--space-3));
+  }
+
+  .grupos-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    aspect-ratio: auto;
+  }
+
+  .grupos-hero__media::after {
+    display: none;
+  }
+
+  .grupos-hero__img {
+    object-position: 28% 0%;
+  }
+
+  /* Degradado desde la base: oscuro bajo el texto (contraste medido ≥ 5 en título y descripción y ≥ 6 en la cita, en el percentil 5) y transparente en la franja superior. */
+  .grupos-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      0deg,
+      rgba(29, 42, 84, 0.95) 0%,
+      rgba(29, 42, 84, 0.88) 24%,
+      rgba(29, 42, 84, 0.66) 42%,
+      rgba(29, 42, 84, 0.22) 62%,
+      rgba(29, 42, 84, 0) 80%
+    );
+    pointer-events: none;
+  }
+
+  .grupos-hero > .container {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .grupos-hero__row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--space-5);
+  }
+
+  .grupos-hero__content {
+    flex: 0 1 520px;
+  }
+
+  .grupos-hero__quote {
+    flex: 0 1 340px;
+    padding-left: 0;
+    padding-right: var(--space-2);
+    border-left: 0;
+    border-right: 2px solid var(--color-secondary);
+    text-align: right;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  .grupos-hero__quote p {
+    font-size: var(--fs-h2);
+  }
 }
 
 /* ===== Introducción ===== */
@@ -94,25 +191,71 @@
   text-align: center;
 }
 
-.grupos-intro__text {
+.grupos-intro__inner {
   max-width: 760px;
   margin-inline: auto;
-  margin-bottom: var(--space-1);
-  font-size: var(--fs-h4);
+}
+
+/* Ornamento: icono dorado entre dos filetes. */
+.grupos-intro__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  color: var(--color-secondary);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.grupos-intro__ornament::before,
+.grupos-intro__ornament::after {
+  content: "";
+  width: 56px;
+  height: 1px;
+  background-color: var(--color-secondary);
+}
+
+.grupos-intro__title {
+  text-wrap: balance;
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-h1);
   color: var(--color-primary);
 }
 
-.grupos-intro__text--soft {
+.grupos-intro__lead {
+  max-width: 640px;
+  margin: 0 auto var(--space-3);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-body);
   color: var(--color-text-secondary);
 }
 
-.grupos-intro .container::after {
+/* Invitación: bloque destacado en crema con filete dorado superior. */
+.grupos-intro__invite {
+  position: relative;
+  text-wrap: balance;
+  margin: 0;
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--fs-h3);
+  line-height: 1.4;
+  color: var(--color-primary);
+}
+
+.grupos-intro__invite::before {
   content: "";
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
   width: 48px;
-  height: 2px;
-  margin: var(--space-3) auto 0;
+  height: 3px;
+  border-radius: var(--radius-pill);
   background-color: var(--color-secondary);
+  transform: translateX(-50%);
 }
 
 /* ===== Directorio de grupos ===== */
@@ -394,7 +537,7 @@
   border-radius: var(--radius-sm);
 }
 
-/* ===== Bloque de interés (esqueleto visual del formulario) ===== */
+/* ===== Bloque de interés (formulario de solicitud, Netlify Forms) ===== */
 .grupos-interes {
   margin-top: var(--space-4);
   padding: var(--space-3);
@@ -411,7 +554,9 @@
   border-left: 3px solid var(--color-secondary);
 }
 
-.grupos-interes__note {
+/* Aviso de privacidad (dorado suave) y resultados del envío (éxito y error). */
+.grupos-interes__note,
+.grupos-interes__result {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -425,10 +570,69 @@
   border-radius: var(--radius-sm);
 }
 
-.grupos-interes__note i {
+.grupos-interes__note i,
+.grupos-interes__result i {
   flex: 0 0 auto;
   margin-top: 2px;
   color: var(--color-secondary-dark);
+}
+
+/* Interruptor del formulario (data-estado en .grupos-interes): inactivo → aviso visible y formulario oculto
+   (sigue en el HTML para que Netlify lo detecte); activo → formulario visible; prueba → ambos, con aviso de prueba. */
+.grupos-interes__pronto,
+.grupos-interes__prueba {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 var(--space-3);
+  padding: 12px var(--space-2);
+  font-size: var(--fs-body-sm);
+  line-height: 1.45;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.grupos-interes__pronto i,
+.grupos-interes__prueba i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--color-secondary-dark);
+}
+
+.grupos-interes[data-estado="inactivo"] .grupos-interes__formulario,
+.grupos-interes:not([data-estado="inactivo"]) .grupos-interes__pronto,
+.grupos-interes:not([data-estado="prueba"]) .grupos-interes__prueba {
+  display: none;
+}
+
+.grupos-interes__result[hidden] {
+  display: none;
+}
+
+.grupos-interes__result--exito {
+  background-color: rgba(75, 122, 81, 0.12);
+  border-color: rgba(75, 122, 81, 0.55);
+}
+
+.grupos-interes__result--exito i {
+  color: var(--color-state-success);
+}
+
+.grupos-interes__result--error {
+  background-color: rgba(179, 65, 59, 0.1);
+  border-color: rgba(179, 65, 59, 0.55);
+}
+
+.grupos-interes__result--error i {
+  color: var(--color-state-error);
+}
+
+.grupos-interes__result:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .grupos-form .form-label {
@@ -456,18 +660,98 @@
   box-shadow: none;
 }
 
-.grupos-form :is(.form-control, .form-select):user-invalid {
+.grupos-form .form-control:focus-visible,
+.grupos-form .form-select:focus-visible,
+.grupos-form .btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Errores de validación: el texto lo escribe solicitud-grupos.js; Bootstrap lo muestra junto al campo con .is-invalid. */
+.grupos-form .is-invalid {
   border-color: var(--color-state-error);
+  background-image: none;
+}
+
+.grupos-form .invalid-feedback {
+  margin-top: 4px;
+  font-size: var(--fs-body-sm);
+  color: var(--color-state-error);
 }
 
 .grupos-form textarea.form-control {
   resize: vertical;
 }
 
+/* Casilla de consentimiento: objetivo táctil amplio y color institucional. */
+.grupos-form__consent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px 12px;
+  padding: 0;
+  min-height: 24px;
+}
+
+.grupos-form__consent .form-check-input {
+  flex: 0 0 auto;
+  float: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 2px 0 0;
+  border-color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.grupos-form__consent .form-check-input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.grupos-form__consent .form-check-input.is-invalid {
+  border-color: var(--color-state-error);
+}
+
+/* La etiqueta conserva su color aunque haya error (Bootstrap la pintaría en rojo): el error va en el mensaje inferior. */
+.grupos-form__consent .form-check-label,
+.grupos-form__consent .form-check-input.is-invalid ~ .form-check-label {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: var(--fs-body-sm);
+  line-height: 1.45;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.grupos-form__consent .invalid-feedback {
+  flex: 0 0 100%;
+  margin-top: 0;
+}
+
+.grupos-form__resumen {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-state-error);
+}
+
+.grupos-form__resumen[hidden] {
+  display: none;
+}
+
 .grupos-form__legend {
   margin: 0;
   font-size: 12px;
   color: var(--color-text-secondary);
+}
+
+/* Campo trampa (honeypot): fuera de la pantalla, sin display:none para que los robots lo vean. */
+.grupos-form__trampa {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .grupos-form .btn[aria-disabled="true"] {
