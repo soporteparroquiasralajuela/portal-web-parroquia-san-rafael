@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 06_Pruebas/Evidencias.md |
-| Versión | 1.5 |
+| Versión | 1.6 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-22 |
+| Última actualización | 2026-10-24 |
 | Estado | **Parcial** — evidencia de la integración con YouTube y registro de validaciones visuales y responsive; el resto de la funcionalidad sin evidencia formal |
 
 ---
@@ -81,6 +81,9 @@ Ejecutadas por el asistente con el navegador integrado del entorno de desarrollo
 | VR-09 | 2026-10-22 | Carrusel de Inicio a 320, 375, 390, 768, 1024, 1440 y 1920 px; navegación con flechas, indicadores y teclado; ausencia de rotación automática; imágenes y consola | Las tres imágenes cargan sin deformarse ni dejar márgenes; sin desbordamiento horizontal; protagonistas y rostros visibles desde 320 px; el pie de móvil se redujo tras verificar que cubría a Tobías a 390 px; sin errores de imagen (los 404 de consola son del endpoint `/api/proximos-eventos`, inexistente en el servidor local). No se probó el deslizamiento táctil real ni la animación de transición (el navegador de pruebas tenía el movimiento reducido activo) |
 | VR-10 | 2026-10-22 | Galería de Parroquia (mosaico) a 320, 375, 390, 768, 1024, 1440 y 1920 px: carga de las 12 fotografías, solapamientos, separación, recorte y desbordamiento | Sin solapamientos ni desbordamiento; separación de 12 px (móvil) y 14 px (desde 768 px); recorte máximo de 15 % (28 % en miniaturas móviles); las 12 cargan |
 | VR-11 | 2026-10-22 | Visor ampliado de la galería: apertura, navegación con botones y ← →, circularidad, Tab (trampa de foco), Escape, retorno del foco y restauración del desplazamiento; botones táctiles a 390 px | Correcto; botones de 48×48 px; el foco vuelve a la miniatura de origen. No se probó el deslizamiento táctil real (no existe el gesto) ni el efecto de la carga diferida en una primera visita (imágenes ya en caché). En el navegador de pruebas algunas capturas salen con tiles aún sin pintar aunque las imágenes ya están cargadas |
+| VR-12 | 2026-10-24 | Hero e introducción de Grupos a 320, 375, 390, 768, 1024, 1440 y 1920 px: carga de la variante WebP, encuadre del templo y las personas, curva inferior, desbordamiento horizontal y contraste del texto sobre la imagen (calculado con el degradado real) | Correcto; sin desbordamiento; contraste en el percentil 5 ≥ 6,2 (título), ≥ 8,1 (descripción) y ≥ 6,4 (cita); la mejora del degradado y la unión de 1 px entre la imagen y el fondo azul se corrigieron durante la revisión |
+| VR-13 | 2026-10-24 | Formulario de Grupos en local con `fetch` simulado: formulario vacío, sin grupo, nombre incompleto, correo y teléfono inválidos, mensaje de 1001 caracteres, sin consentimiento, envío correcto con doble clic, respuestas 404, 429 y 500, tiempo agotado y red caída, reintento, campo trampa, `grupo-id`, `solicitud-id` estable en reintentos y `form-name` sin duplicar; teclado y foco; interruptor `data-estado`; responsive a 320–1920 px | Correcto en todos los escenarios; el éxito solo aparece con respuesta HTTP satisfactoria y los datos se conservan ante cualquier fallo. Con el servidor estático local el POST real devuelve 501, como se esperaba |
+| VR-14 | 2026-10-24 | Formulario de Grupos en producción: HTML publicado con `solicitud-grupos` y todos sus campos, atributos de detección retirados por Netlify, selector con los diez grupos, formulario activo y sin recursos con error; envío de prueba, registro en *Verified submissions* y notificación por correo | HTML y recursos verificados por el asistente; el envío, el registro y la notificación fueron confirmados por el responsable del proyecto (el asistente no tiene acceso al panel de Netlify) |
 
 **Limitaciones:** un solo motor de navegador (Chromium), sin dispositivos físicos ni otros navegadores; el contraste se calculó sobre la imagen y el degradado reales, sin considerar el pequeño sombreado del texto; las páginas con integración de servidor (`/api/*`) no se probaron en local (404 esperado).
 

@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Estructura_Proyecto.md |
-| Versión | 1.6 |
+| Versión | 1.7 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-22 |
+| Última actualización | 2026-10-24 |
 | Estado | Vigente |
 | Fuente | Estado real del repositorio + [CLAUDE.md](../../CLAUDE.md) sección 11 |
 
@@ -29,7 +29,7 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 ├── assets/                     # Recursos estáticos
 │   ├── css/                    # variables.css, main.css, components.css (globales);
 │   │                           # home.css, parroquia.css, grupos.css, calendario.css, transmisiones.css, contacto.css (por página)
-│   ├── js/                     # grupos.js, proximos-eventos.js, transmisiones.js, galeria-parroquia.js
+│   ├── js/                     # grupos.js, solicitud-grupos.js, proximos-eventos.js, transmisiones.js, galeria-parroquia.js
 │   ├── fonts/                  # (vacía)
 │   ├── icons/                  # favicon-32x32.png, apple-touch-icon.png
 │   ├── downloads/              # (vacía)
@@ -37,7 +37,7 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 │   └── img/
 │       ├── eventos/            # (vacía)
 │       ├── galeria/            # Carrusel de Inicio (3 PNG originales + 4 versiones WebP de cada uno)
-│       ├── grupos/             # (vacía)
+│       ├── grupos/             # Hero de Grupos (herogrupos.png + 4 versiones WebP)
 │       ├── logo/               # Logo.jpeg
 │       ├── parroquia/          # Hero, historia, patrono, Hero de Inicio, Diaconía y galería (parroquiagal1–12; originales + WebP)
 │       ├── sacerdotes/         # (vacía)
@@ -69,7 +69,7 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 | Carpeta | Propósito | Estado actual |
 |---|---|---|
 | `assets/css/` | Hojas de estilo del proyecto | Con contenido: 3 globales y 6 específicas de página |
-| `assets/js/` | Scripts JavaScript del sitio | Con contenido: `grupos.js`, `proximos-eventos.js`, `transmisiones.js` y `galeria-parroquia.js` |
+| `assets/js/` | Scripts JavaScript del sitio | Con contenido: `grupos.js`, `solicitud-grupos.js`, `proximos-eventos.js`, `transmisiones.js` y `galeria-parroquia.js` |
 | `assets/img/` | Imágenes, organizadas por categoría (eventos, galería, grupos, logo, parroquia, sacerdotes, transmisiones — detalle en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md)) | Con contenido: `logo/` (`Logo.jpeg`) y `parroquia/` (recreaciones digitales en PNG y WebP; ver [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 12); el resto, vacías |
 | `assets/fonts/` | Tipografías locales, si aplica | Vacía |
 | `assets/icons/` | Iconografía propia (más allá de Bootstrap Icons) | Con contenido: favicon de 32 px y `apple-touch-icon.png`; el `favicon.ico` vive en la raíz |

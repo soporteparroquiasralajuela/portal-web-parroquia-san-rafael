@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora.md |
-| Versión | 1.14 |
+| Versión | 1.15 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-22 |
+| Última actualización | 2026-10-24 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -62,6 +62,7 @@ Este documento cumple simultáneamente los dos roles exigidos por CLAUDE.md secc
 | 2026-10-22 | Decisión técnica | **Galería de Parroquia** (solo local, sin commit): 12 fotografías reales evaluadas una a una y mejoradas sin IA generativa (recorte, balance de blancos, niveles, sombras, ruido, nitidez), con originales intactos y 28 WebP más 4 variantes ampliadas; el carrusel se sustituyó por un **mosaico editorial** (CSS Grid) con **visor ampliado** (Modal de Bootstrap y `assets/js/galeria-parroquia.js`). Quedan pendientes de la parroquia la autorización de uso de las fotos 5 y 11 y el consentimiento de las personas visibles. Verificado a 320–1920 px (VR-10 y VR-11 en [Evidencias.md](../06_Pruebas/Evidencias.md)). Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), secciones 12.5, 13 y 15 | Claude (asistente técnico) |
 | 2026-10-22 | Decisión técnica | **Liberación conjunta autorizada** por el responsable del proyecto (GitHub `main` y un único despliegue de producción en Netlify. El estado final de «Build status» de Netlify debe ser confirmado por el responsable: al publicar, la producción ya servía el commit nuevo sin que se hubiera ejecutado un despliegue manual desde esta sesión): Hero de Inicio, curvas `.hero-wave`, imágenes de Horarios de misa, carrusel de Inicio, contenido e imágenes de Parroquia, galería de 12 fotografías con mosaico y visor, y documentación. Antes de publicar se consultó la restricción de uso de las fotografías y el responsable confirmó la autorización de las 12 y el consentimiento de las personas visibles (confirmación verbal, sin constancia escrita en el repositorio; ver [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 12.5). Las horas de la jornada se registran como Sesión 19 en [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md) | Claude (asistente técnico) |
 | 2026-10-22 | Cambio de documento | Incorporación de la **Sesión 19** (22/10/2026; 6:30–7:00 a. m. y 7:30–11:00 p. m.; 4 horas efectivas; Fase 4, confirmada por el responsable) en [Bitacora_Horas_TCU.md](Bitacora_Horas_TCU.md) y **conciliación general** de ambas bitácoras: se auditaron las 18 sesiones previas (52 horas, sin duplicados ni diferencias de duración) y se actualizaron los encabezados de versión y fecha que estaban desactualizados. Acumulado: **56 de 150 horas (37,33 %) en 19 sesiones; 94 horas pendientes**. La sincronización con GitHub y el despliegue en Netlify son procesos distintos y no se confunden con el registro de horas | Claude (asistente técnico) |
+| 2026-10-24 | Decisión técnica | **Hero, introducción y formulario de Grupos** (publicados en producción, commits `128d877` y `d3f6c46`): Hero con la imagen `herogrupos.png` (WebP responsivos), introducción editorial y formulario de solicitud de información con **Netlify Forms** (`solicitud-grupos`), consentimiento obligatorio, filtro de spam, `grupo-id` y `solicitud-id`, y control de duplicados. El formulario se publicó primero inactivo y, tras el envío de prueba confirmado por el responsable (registro y notificación por correo), se activó; el modo de prueba se retiró. Se documenta además que los despliegues automáticos de Netlify están habilitados. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), secciones 13 y 16, y [Netlify.md](../07_Despliegue/Netlify.md), sección 5.4 | Claude (asistente técnico) |
 
 ## 3. Convención de registro
 

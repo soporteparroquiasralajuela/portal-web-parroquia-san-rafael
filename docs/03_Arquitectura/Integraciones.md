@@ -3,10 +3,10 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Integraciones.md |
-| Versión | 1.6 |
+| Versión | 1.7 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-22 |
-| Estado | Google Calendar, YouTube, Google Forms, Google Maps, WhatsApp, redes sociales (enlaces) y Netlify implementadas; las demás, previstas |
+| Última actualización | 2026-10-24 |
+| Estado | Google Calendar, YouTube, Google Forms, Google Maps, WhatsApp, redes sociales (enlaces), Netlify y Netlify Forms implementadas; las demás, previstas |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), sección 20 |
 
 ---
@@ -29,13 +29,14 @@ Registrar las integraciones externas previstas y autorizadas para el proyecto, y
 | WhatsApp | Contacto directo | **Implementada** — botón flotante global en las seis páginas (enlace `https://wa.me/50661705997` a la oficina parroquial) y enlace en el bloque de contacto. El número queda sujeto a la validación final de la parroquia. Ver [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 7 |
 | Correo institucional | Contacto / notificaciones | **Implementada (enlace `mailto:`)** — correo de la oficina parroquial en Contacto y en los footers; el sitio no envía correos propios |
 | Dominio personalizado | Identidad del sitio | No implementada (ver [Dominio.md](../07_Despliegue/Dominio.md)) |
-| Netlify | Hosting / despliegue | **Implementada** — hosting con despliegue automático desde la rama `main` y dos Netlify Functions: Google Calendar y YouTube; plan Personal, con los builds detenidos entre liberaciones autorizadas (ver [Netlify.md](../07_Despliegue/Netlify.md)) |
+| Netlify | Hosting / despliegue | **Implementada** — hosting con despliegue automático desde la rama `main` y dos Netlify Functions: Google Calendar y YouTube; plan Personal, con los despliegues automáticos habilitados (ver [Netlify.md](../07_Despliegue/Netlify.md), sección 5.4) |
+| Netlify Forms | Formularios procesados por el hosting | **Implementada** — formulario de solicitud de información de la página Grupos (`solicitud-grupos`): envío con `fetch`, consentimiento, filtro de spam (Akismet y campo trampa), notificación por correo al buzón institucional y almacenamiento en Netlify; gratuito e ilimitado en planes por créditos. Sin backend propio. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 16 |
 | Cloudflare | DNS / CDN / seguridad | No implementada (ver [Cloudflare.md](../07_Despliegue/Cloudflare.md)) |
 | Analytics | Medición de tráfico | No implementada |
 
 ## 3. Estado
 
-**Integraciones activas a la fecha:** Google Calendar (visualización embebida en Calendario y API v3 vía Netlify Function para Inicio), YouTube (YouTube Data API v3 vía Netlify Function para Transmisiones), Google Forms y Google Maps embebidos en Contacto, enlaces de Google Maps, WhatsApp, Facebook, YouTube y correo (enlaces) y Netlify (hosting y despliegue). Las demás integraciones de la tabla **no están activas**: la lista enumera las integraciones **autorizadas** por el gobierno del proyecto (CLAUDE.md sección 20) y no implica compromiso de implementación ni cronograma. Cada integración deberá documentarse formalmente (configuración, credenciales gestionadas de forma segura, alcance) en el momento en que se implemente, como se hizo con Google Calendar y YouTube.
+**Integraciones activas a la fecha:** Google Calendar (visualización embebida en Calendario y API v3 vía Netlify Function para Inicio), YouTube (YouTube Data API v3 vía Netlify Function para Transmisiones), Google Forms y Google Maps embebidos en Contacto, enlaces de Google Maps, WhatsApp, Facebook, YouTube y correo (enlaces) Netlify (hosting y despliegue) y Netlify Forms (formulario de solicitud de información de Grupos). Las demás integraciones de la tabla **no están activas**: la lista enumera las integraciones **autorizadas** por el gobierno del proyecto (CLAUDE.md sección 20) y no implica compromiso de implementación ni cronograma. Cada integración deberá documentarse formalmente (configuración, credenciales gestionadas de forma segura, alcance) en el momento en que se implemente, como se hizo con Google Calendar y YouTube.
 
 **Excepción serverless:** las dos Netlify Functions (`proximos-eventos`, de Google Calendar, y `transmision-actual`, de YouTube) son las únicas piezas de servidor del portal y constituyen una excepción deliberada y autorizada a su arquitectura estática (ver [Arquitectura_General.md](Arquitectura_General.md)). Toda Function adicional requiere autorización expresa y documentación.
 

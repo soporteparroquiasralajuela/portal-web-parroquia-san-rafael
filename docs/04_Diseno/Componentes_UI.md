@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Componentes_UI.md |
-| Versión | 1.7 |
+| Versión | 1.8 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-22 |
+| Última actualización | 2026-10-24 |
 | Estado | Vigente — registro de uso real al 2026-10-22 |
 | Fuente | [Bootstrap.md](../05_Desarrollo/Bootstrap.md) (inventario canónico); [CLAUDE.md](../../CLAUDE.md) sección 7 |
 
@@ -41,6 +41,8 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 | Curva de Hero (`.hero-wave`) | `components.css` | Las seis | Un solo SVG; relleno `--hero-wave-fill` (crema por defecto) y trazo dorado de 2 px; altura `--hero-wave-height` (44, 64 y 80 px). Requisitos de uso en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero con imagen y degradado | `home.css` (`.hero`) y `parroquia.css` (`.parroquia-hero`) | Inicio, Parroquia | `<picture>` con WebP, `object-position` y degradado azul `#1D2A54`; el de Inicio es panorámico |
 | Carrusel de imágenes (`.gallery-carousel`) | `home.css` | Inicio | Diapositivas 21:9 (alto mínimo 280 px) con `object-fit: cover` y encuadre por imagen; pie de imagen discreto abajo a la derecha. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
+| Hero e introducción de Grupos (`.grupos-hero`, `.grupos-intro`) | `grupos.css` | Grupos | Hero con imagen panorámica (WebP responsivos, recorte móvil), degradado azul desde la base, cita bíblica a la derecha y curva `.hero-wave`; introducción editorial con ornamento dorado y bloque de invitación. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
+| Formulario de solicitud de Grupos (`.grupos-interes`, `.grupos-form`) | `grupos.css` + `assets/js/solicitud-grupos.js` | Grupos | Formulario con validación en línea, casilla de consentimiento, mensajes de éxito, error e incertidumbre, y campo trampa; se activa o desactiva con `data-estado`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 16 |
 | Mosaico de galería (`.parroquia-mosaico`) | `parroquia.css` | Parroquia | Cuadrícula de 6 columnas (2 en móvil) con tiles-botón de proporciones variadas, hover sutil con descripción breve y visor ampliado. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Visor de galería (`.parroquia-visor`) | `parroquia.css` + `assets/js/galeria-parroquia.js` | Parroquia | Modal oscuro con imagen, leyenda, contador y botones anterior, siguiente y cerrar de 48 px |
 | Tarjeta de horarios de misa (`.mass-card`) | `home.css` | Inicio | Imagen 2:3 con `object-fit: cover` (4/3 apilada; 40 % de ancho en fila desde 992 px); botón «Cómo llegar» alineado al borde inferior con `margin-top: auto`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |

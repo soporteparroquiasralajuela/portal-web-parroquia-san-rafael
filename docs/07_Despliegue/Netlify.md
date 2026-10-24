@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 07_Despliegue/Netlify.md |
-| Versión | 1.7 |
+| Versión | 1.8 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-21 |
+| Última actualización | 2026-10-24 |
 | Estado | **Parcial** |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), sección 20 |
 
@@ -34,11 +34,11 @@ Netlify está **autorizado** como plataforma de hosting (CLAUDE.md sección 20).
 | URL de producción (temporal) | https://parroquiasanrafaelalajuela.netlify.app/ |
 | Dominio personalizado | No tiene aún — ver [Dominio.md](Dominio.md) |
 | Plan de Netlify | **Personal** (US$ 9 mensuales, 1 000 créditos mensuales) desde 2026-10-21; antes plan Free (300 créditos). Un production deploy consume 15 créditos; Deploy Previews y branch deploys, 0; el rollback a un deploy anterior no consume |
-| Estado de los builds | **Detenidos («Stopped builds»)** durante el desarrollo habitual, según lo configurado y verificado por el responsable del proyecto. Las publicaciones se hacen solo mediante liberaciones autorizadas (sección 5.3) |
+| Estado de los builds | **Despliegue automático habilitado** desde `main` (confirmado por el responsable del proyecto el 2026-10-24; ver la sección 5.4). Hasta el 2026-10-21 estuvieron detenidos («Stopped builds») |
 
 ## 4. Estado
 
-**Parcial.** El sitio está conectado a Netlify (rama `main`), con los builds detenidos entre liberaciones (ver sección 5.3), y está publicado en la URL temporal indicada arriba; las dos Netlify Functions y sus variables de entorno están configuradas y en uso. Queda por confirmar el directorio de publicación, además del dominio personalizado y Cloudflare (ver [Dominio.md](Dominio.md) y [Cloudflare.md](Cloudflare.md)).
+**Parcial.** El sitio está conectado a Netlify (rama `main`), con el despliegue automático habilitado (ver sección 5.4), y está publicado en la URL temporal indicada arriba; las dos Netlify Functions y sus variables de entorno están configuradas y en uso. Queda por confirmar el directorio de publicación, además del dominio personalizado y Cloudflare (ver [Dominio.md](Dominio.md) y [Cloudflare.md](Cloudflare.md)).
 
 ---
 
@@ -89,6 +89,12 @@ Netlify está **autorizado** como plataforma de hosting (CLAUDE.md sección 20).
 5. **Reactivar el flujo automático permanente:** dejar los builds activos (*Active builds*); cada push a `main` volverá a publicar y a consumir créditos.
 
 No se modificó ninguna otra configuración de Netlify, ni se desconectó GitHub ni se cambió la rama de producción.
+
+### 5.4 Actualización (2026-10-24): despliegue automático habilitado y Netlify Forms
+
+- **Estado:** las liberaciones del 22 de octubre (`824b510` y `b75d81d`) y del 24 de octubre (`128d877` y `d3f6c46`) se desplegaron automáticamente tras el `git push`, en menos de un minuto, y el responsable del proyecto confirmó que los despliegues automáticos están habilitados. El procedimiento de la sección 5.3 (builds detenidos entre liberaciones) **ya no describe el estado actual**; se conserva como referencia de lo que se hizo y como opción si se vuelve a detener los builds.
+- **Consecuencias:** cada push a `main` publica y consume créditos (unos 15 por despliegue de producción), también los de solo documentación; conviene agrupar los pushes y mantener la autorización expresa antes de cada uno. El asistente no tiene acceso al panel: no puede ver los créditos consumidos ni el estado de los builds.
+- **Netlify Forms:** el formulario `solicitud-grupos` de la página Grupos requiere *Forms > Enable form detection* activo (configurado por el responsable) y se registra en el despliegue; la notificación por correo se configura en *Forms > Form notifications*. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 16.
 
 ---
 
