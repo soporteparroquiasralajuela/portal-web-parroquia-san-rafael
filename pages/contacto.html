@@ -125,15 +125,28 @@
     </header>
 
     <main id="main-content">
-      <!-- ===================== HERO (propio de Contacto, mismo patrón que Calendario) ===================== -->
-      <section class="hero-interior hero-interior--compacto contacto-hero" aria-labelledby="contacto-hero-heading">
-        <div class="contacto-hero__media">
-          <!-- Fotografía institucional pendiente de recibir de la parroquia (assets/img/). -->
-          <div class="img-placeholder">
-            <i class="bi bi-image" aria-hidden="true"></i>
-            <span>Fotografía pendiente de sustituir por una imagen real de la parroquia</span>
-          </div>
-        </div>
+      <!-- ===================== HERO (propio de Contacto) ===================== -->
+      <section class="hero-interior contacto-hero" aria-labelledby="contacto-hero-heading">
+        <picture class="contacto-hero__media">
+          <source
+            type="image/webp"
+            srcset="
+              ../assets/img/galeria/herocontacto-960.webp 960w,
+              ../assets/img/galeria/herocontacto-1280.webp 1280w,
+              ../assets/img/galeria/herocontacto-1672.webp 1672w
+            "
+            sizes="(max-width: 767.98px) 120vw, 100vw"
+          />
+          <img
+            class="contacto-hero__img"
+            src="../assets/img/galeria/herocontacto.png"
+            alt="Recreación digital de un espacio de atención parroquial: un escritorio de madera con un crucifijo, folletos, una computadora portátil y un teléfono; al fondo, la imagen de San Rafael Arcángel y una puerta abierta hacia un patio iluminado"
+            width="1672"
+            height="940"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <div class="container">
           <div class="contacto-hero__row">
             <div class="contacto-hero__content">

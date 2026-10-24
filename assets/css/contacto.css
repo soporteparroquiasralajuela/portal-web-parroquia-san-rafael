@@ -1,5 +1,5 @@
 /* contacto.css — Estilos específicos de la página Contacto
-   Hero propio (mismo patrón que Calendario), tarjeta de información de la oficina
+   Hero propio con fotografía (mismo patrón que Calendario y Transmisiones), tarjeta de información de la oficina
    parroquial, formulario de Google Forms integrado sin marco, mapa de Google Maps,
    footer de referencia con los datos de la oficina, botón flotante de WhatsApp
    activo y transición navy/dorada hacia el footer reproducida localmente.
@@ -7,57 +7,43 @@
    altera un componente global (footer, botón de WhatsApp) está acotado al footer o
    a la clase body.contacto-page de esta página. */
 
-/* ===== Hero de Contacto ===== */
-/* Altura mínima y doble curva: sistema compartido (.hero-interior y .hero-curva, components.css). */
+/* ===== Hero de Contacto =====
+   Imagen aprobada (recreación digital de un espacio de atención parroquial: escritorio, crucifijo, imagen de
+   San Rafael y entrada iluminada). Altura mínima y doble curva: sistema compartido (.hero-interior y
+   .hero-curva, components.css). Por debajo de 992 px la imagen va arriba y el texto debajo, sobre el azul
+   institucional; desde 992 px el texto se superpone a la izquierda, sobre un degradado azul horizontal (el mismo
+   patrón que Transmisiones) que deja libres la puerta, el escritorio y el cartel. */
 .contacto-hero {
-  display: flex;
-  align-items: flex-end;
-  padding-block: var(--space-4) calc(var(--hero-curva-height) + var(--space-2));
+  padding-bottom: calc(var(--hero-curva-height) + var(--space-2));
+  background-color: var(--color-primary); /* reserva mientras carga la imagen */
 }
 
 .contacto-hero__media {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3; /* móvil: algo más alta que 3:2 porque el texto es corto y el Hero tiene un alto mínimo */
 }
 
-.contacto-hero__media .img-placeholder {
-  height: 100%;
-  border-radius: 0;
-}
-
-/* Placeholder limpio: sin ícono ni texto genérico bajo el título. */
-.contacto-hero__media .img-placeholder i,
-.contacto-hero__media .img-placeholder span {
-  display: none;
-}
-
-.contacto-hero::after {
+.contacto-hero__media::after {
   content: "";
   position: absolute;
-  inset: 0;
-  /* Velo más firme en la zona del texto: el subtítulo (≈19 px en móvil) necesita ≥ 4.5:1 sobre el
-     marcador claro de la fotografía pendiente. */
-  background: linear-gradient(
-    0deg,
-    rgba(29, 42, 84, 0.76) 0%,
-    rgba(29, 42, 84, 0.64) 45%,
-    rgba(29, 42, 84, 0.08) 100%
-  );
+  inset: 0 0 -1px; /* 1 px de solape: evita una línea fina entre la imagen y el fondo azul */
+  background: linear-gradient(0deg, var(--color-primary) 0%, rgba(29, 42, 84, 0) 28%);
   pointer-events: none;
+}
+
+.contacto-hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 28% 50%; /* móvil: conserva la imagen de San Rafael, la puerta y el escritorio */
 }
 
 .contacto-hero > .container {
   position: relative;
   z-index: 1;
-  width: 100%;
-}
-
-.contacto-hero__row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: var(--space-3);
+  margin-top: calc(-1 * var(--space-3));
 }
 
 .contacto-hero__content {
@@ -65,32 +51,116 @@
   max-width: 520px;
 }
 
+/* Jerarquía común de los Heroes: título (display, cursiva como en Transmisiones y Parroquia), mensaje secundario
+   destacado en dorado institucional y texto de apoyo en cuerpo de texto, sin cursiva. */
 .contacto-hero__title {
   font-size: var(--fs-display);
   font-weight: var(--weight-bold);
   font-style: italic;
   line-height: var(--lh-heading);
   color: #ffffff;
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
 }
 
 .contacto-hero__subtitle {
   font-family: var(--font-body);
-  font-size: var(--fs-h3);
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 0;
+  font-size: var(--fs-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-body);
+  color: var(--color-secondary);
+  margin-bottom: var(--space-1);
 }
 
 .contacto-hero__note {
-  flex: 0 1 320px;
+  max-width: 340px;
   margin: 0;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: var(--fs-h4);
-  line-height: 1.3;
-  color: #ffffff;
-  text-align: right;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Tabletas (768–991 px): la imagen se limita a una franja para que el Hero conserve la altura de referencia. */
+@media (min-width: 768px) {
+  .contacto-hero__media {
+    aspect-ratio: auto;
+    height: clamp(260px, 40vw, 380px);
+  }
+
+  .contacto-hero__img {
+    object-position: 40% 30%;
+  }
+}
+
+@media (min-width: 992px) {
+  .contacto-hero {
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-6) calc(var(--hero-curva-height) + var(--space-4));
+  }
+
+  .contacto-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    height: auto;
+  }
+
+  .contacto-hero__media::after {
+    display: none;
+  }
+
+  /* El recorte vertical sale sobre todo por abajo (mesa): se priorizan la imagen de San Rafael, la puerta y
+     el crucifijo por encima de la curva. */
+  .contacto-hero__img {
+    object-position: 50% 30%;
+  }
+
+  /* Degradado azul de izquierda a derecha, igual que en Transmisiones: oscuro bajo el texto y progresivamente
+     transparente hacia la puerta, el escritorio y el cartel. */
+  .contacto-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgba(29, 42, 84, 0.94) 0%,
+      rgba(29, 42, 84, 0.88) 26%,
+      rgba(29, 42, 84, 0.6) 38%,
+      rgba(29, 42, 84, 0.16) 50%,
+      rgba(29, 42, 84, 0) 58%
+    );
+    pointer-events: none;
+  }
+
+  .contacto-hero > .container {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .contacto-hero__content {
+    max-width: 420px;
+  }
+}
+
+/* 992–1199 px: el Hero es más estrecho y el texto ocupa más en proporción; el degradado se mantiene opaco hasta
+   más a la derecha (mismo ajuste que en Transmisiones). */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .contacto-hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba(29, 42, 84, 0.94) 0%,
+      rgba(29, 42, 84, 0.9) 36%,
+      rgba(29, 42, 84, 0.6) 48%,
+      rgba(29, 42, 84, 0.16) 58%,
+      rgba(29, 42, 84, 0) 66%
+    );
+  }
+
+  .contacto-hero__content {
+    max-width: 360px;
+  }
 }
 
 /* ===== Información + formulario ===== */
