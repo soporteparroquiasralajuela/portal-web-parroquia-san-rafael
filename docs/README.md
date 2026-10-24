@@ -101,7 +101,7 @@ flowchart TD
 
 | Documento | Estado |
 |---|---|
-| [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) | 🟡 Vigente (sección de Mantenimiento pendiente). Incluye recursos gráficos, componentes compartidos y cambios pendientes de liberación (secciones 12 a 15). Incluye la línea base temporal de las páginas implementadas (sección 9; estado de Transmisiones y de las integraciones actualizado 2026-10-14): estructura congelada temporalmente, contenido real pendiente de validación; resumen de la integración con YouTube en la sección 11 |
+| [Manual_Tecnico.md](08_Manuales/Manual_Tecnico.md) | 🟡 Vigente (sección de Mantenimiento pendiente). Incluye recursos gráficos, componentes compartidos y las liberaciones de octubre de 2026 (secciones 12 a 17). Incluye la línea base temporal de las páginas implementadas (sección 9; estado de Transmisiones y de las integraciones actualizado 2026-10-14): estructura congelada temporalmente, contenido real pendiente de validación; resumen de la integración con YouTube en la sección 11 |
 | [Manual_Usuario.md](08_Manuales/Manual_Usuario.md) | ⏳ Pendiente |
 
 ## 09. Entregables
