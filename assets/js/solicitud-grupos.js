@@ -11,9 +11,8 @@
 //   Si no hay respuesta (tiempo agotado o red caída) no se sabe si la solicitud llegó: se avisa
 //   de esa incertidumbre sin recomendar el reenvío. Cada solicitud lleva un identificador único
 //   («solicitud-id») que se conserva en los reintentos, para detectar duplicados en el panel.
-// - Interruptor: la sección .grupos-interes tiene data-estado="inactivo" mientras los nombres de
-//   los grupos no estén confirmados. Con ?formulario=prueba el formulario se muestra solo en esa
-//   visita, para probar el envío en producción.
+// - La visibilidad del formulario la controla solo el atributo data-estado de .grupos-interes
+//   (ver pages/grupos.html): no depende de este script.
 // - Netlify solo recibe envíos en el sitio publicado: con un servidor estático local el POST
 //   falla y se muestra el mensaje de error.
 (() => {
@@ -32,7 +31,6 @@
   };
   const grupoId = form.elements["grupo-id"];
   const solicitudId = form.elements["solicitud-id"];
-  const seccion = form.closest(".grupos-interes");
   const boton = form.querySelector("[data-enviar]");
   const textoBoton = boton.querySelector("[data-enviar-texto]");
   const textoOriginal = textoBoton.textContent;
@@ -44,15 +42,6 @@
 
   let enviando = false;
   let enviado = false;
-
-  // --- Interruptor de prueba (no activa el formulario para el resto de visitantes) ---
-  if (
-    seccion &&
-    seccion.dataset.estado === "inactivo" &&
-    new URLSearchParams(window.location.search).get("formulario") === "prueba"
-  ) {
-    seccion.dataset.estado = "prueba";
-  }
 
   // --- Selector de grupos sincronizado con la lista de grupos de la página ---
   const poblarGrupos = () => {

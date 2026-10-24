@@ -788,14 +788,13 @@
                    Netlify detecta el formulario al publicar (data-netlify) y lo registra con el nombre
                    «solicitud-grupos». El campo trampa (honeypot) y Akismet filtran el spam.
 
-                   INTERRUPTOR DE ACTIVACIÓN: el atributo data-estado de esta sección controla si el
-                   formulario es visible para los visitantes.
-                     - "inactivo": se muestra el aviso «estamos preparando el formulario» y el formulario
-                       queda oculto con CSS (sigue en el HTML, por lo que Netlify lo detecta al publicar).
-                     - "activo": se muestra el formulario y se oculta el aviso.
-                   Para una prueba en producción sin exponerlo: abrir la página con ?formulario=prueba.
+                   INTERRUPTOR: el atributo data-estado de esta sección controla si el formulario es visible.
+                     - "activo" (estado actual): se muestra el formulario y se oculta el aviso.
+                     - "inactivo": se muestra el aviso «estamos preparando el formulario» y el formulario queda
+                       oculto con CSS; sigue en el HTML, por lo que Netlify lo mantiene detectado. Sirve para
+                       desactivarlo temporalmente (por ejemplo, ante una oleada de spam) con un solo cambio.
                    NO quitar el formulario del HTML ni generarlo con JavaScript: Netlify dejaría de detectarlo. -->
-              <section class="grupos-interes" data-estado="inactivo" aria-labelledby="interes-heading">
+              <section class="grupos-interes" data-estado="activo" aria-labelledby="interes-heading">
                 <h2 id="interes-heading" class="grupos-interes__title">¿Te gustaría más información sobre algún grupo?</h2>
 
                 <p class="grupos-interes__pronto" id="interes-pronto">
@@ -804,11 +803,6 @@
                     <strong>Estamos preparando este formulario.</strong> Muy pronto podrás solicitar información sobre cada grupo desde esta página.
                     Mientras tanto, puedes escribirnos desde la página <a href="contacto.html">Contacto</a>.
                   </span>
-                </p>
-
-                <p class="grupos-interes__prueba" id="interes-prueba" role="note">
-                  <i class="bi bi-tools" aria-hidden="true"></i>
-                  <span><strong>Modo de prueba:</strong> este formulario no está visible para el público.</span>
                 </p>
 
                 <div class="grupos-interes__formulario">

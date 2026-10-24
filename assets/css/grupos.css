@@ -577,10 +577,9 @@
   color: var(--color-secondary-dark);
 }
 
-/* Interruptor del formulario (data-estado en .grupos-interes): inactivo → aviso visible y formulario oculto
-   (sigue en el HTML para que Netlify lo detecte); activo → formulario visible; prueba → ambos, con aviso de prueba. */
-.grupos-interes__pronto,
-.grupos-interes__prueba {
+/* Interruptor del formulario (data-estado en .grupos-interes): activo → formulario visible; inactivo → aviso visible
+   y formulario oculto (sigue en el HTML para que Netlify lo detecte). */
+.grupos-interes__pronto {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -595,16 +594,14 @@
   border-radius: var(--radius-sm);
 }
 
-.grupos-interes__pronto i,
-.grupos-interes__prueba i {
+.grupos-interes__pronto i {
   flex: 0 0 auto;
   margin-top: 2px;
   color: var(--color-secondary-dark);
 }
 
 .grupos-interes[data-estado="inactivo"] .grupos-interes__formulario,
-.grupos-interes:not([data-estado="inactivo"]) .grupos-interes__pronto,
-.grupos-interes:not([data-estado="prueba"]) .grupos-interes__prueba {
+.grupos-interes:not([data-estado="inactivo"]) .grupos-interes__pronto {
   display: none;
 }
 
