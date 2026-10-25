@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Guia_Estilos.md |
-| Versión | 2.0 |
+| Versión | 2.1 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-09-28 |
+| Última actualización | 2026-10-25 |
 | Estado | Vigente — Design System cerrado |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), secciones 6, 9, 16; logo oficial de la parroquia (paleta); [assets/css/variables.css](../../assets/css/variables.css) |
 
@@ -90,7 +90,7 @@ Escala responsive (móvil / tablet ≥768px / escritorio ≥1200px). Todos los t
 
 | Nivel | Familia | Peso | Tamaño (móvil / tablet / escritorio) | Variables | Uso |
 |---|---|---|---|---|---|
-| Display/Hero | Cormorant Garamond | 700 (Bold) | 32 / 42 / 52 px | `--fs-display`, `--weight-bold` | Titular principal del Hero de cada página |
+| Display/Hero | Cormorant Garamond | 700 (Bold) | 32 / 42 / 52 px | `--fs-display`, `--weight-bold` | Titular principal del Hero de cada página; en los Heroes interiores se aplica con `.hero-title`: sin cursiva, interlineado 1,2 y, cuando corresponde, una parte en dorado `--color-secondary` |
 | H1 | Cormorant Garamond | 700 (Bold) | 28 / 34 / 40 px | `--fs-h1`, `--weight-bold` | Título principal de una página sin Hero propio |
 | H2 | Cormorant Garamond | 600 (SemiBold) | 22 / 27 / 32 px | `--fs-h2`, `--weight-semibold` | Título de sección (p. ej. "Próximos eventos") |
 | H3 | Cormorant Garamond | 600 (SemiBold) | 19 / 21 / 24 px | `--fs-h3`, `--weight-semibold` | Subtítulo de sección o título de tarjeta destacada |

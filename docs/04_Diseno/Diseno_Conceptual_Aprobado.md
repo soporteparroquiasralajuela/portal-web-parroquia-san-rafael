@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.9 |
+| Versión | 1.10 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-10-24 |
+| Última actualización | 2026-10-25 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -280,6 +280,7 @@ Por la jerarquía de fuentes de verdad (sección 2.3), prevalecen sobre los PNG:
 - **Altura común de los Heroes (2026-10-24, publicado):** los Heroes interiores comparten una altura de referencia (460 px móvil, 520 px tableta, 520–620 px escritorio) para que la navegación entre páginas mantenga una estructura uniforme; la portada (Inicio) conserva una altura algo mayor y existe una variante compacta (≈ 80 %) para Heroes sin fotografía, hoy sin uso porque los seis Heroes ya tienen imagen. El Hero de Calendario incorpora la imagen `herocalendario` (recreación digital) con título «Juntos en cada momento» y un párrafo, sin botones.
 - **Hero de Transmisiones (2026-10-24, publicado):** fotografía de fondo (composición digital basada en una fotografía real del interior del templo, con una cámara profesional de video en primer plano a la derecha), degradado azul de izquierda a derecha y el texto aprobado a la izquierda en blanco con detalles dorados; sustituye al Hero claro con marcador de imagen y adopta la altura estándar de los Heroes interiores y la doble curva.
 - **Hero de Contacto (2026-10-24, publicado):** ilustración de un espacio de atención parroquial (escritorio, crucifijo, imagen de San Rafael y entrada iluminada; recreación digital, no una fotografía de la oficina real) como fondo, con el mismo degradado azul horizontal de Transmisiones, los textos actuales (título, subtítulo y frase de apoyo) con la jerarquía tipográfica común de los demás Heroes, altura estándar y doble curva.
+- **Tipografía común de los Heroes interiores (2026-10-25, local):** el título de Calendario («Juntos en cada momento») es la referencia única para los títulos principales de Parroquia, Grupos, Calendario, Transmisiones y Contacto: Cormorant Garamond 700 sin cursiva, blanco, con una parte en dorado institucional cuando el título tiene dos partes. Las descripciones usan Nunito Sans (blanco al 92 %) y las citas conservan la cursiva y el filete dorado de la cita de Grupos. Para garantizar la legibilidad del acento dorado se reforzaron los degradados de Parroquia y Grupos; Inicio queda fuera.
 - **Transición hacia el footer:** la cinta navy/dorada se mantiene, sin insignia circular.
 - **Footer estandarizado (2026-10-18):** datos de la oficina parroquial, horario administrativo y redes Facebook y YouTube (Instagram no se usa); «Servicios parroquiales» sin enlace hasta que exista la página.
 - **Navegación adaptable (2026-10-21):** el menú se expande desde 1200 px.

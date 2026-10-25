@@ -43,16 +43,33 @@
 }
 
 /* Degradado azul marino institucional (#1D2A54) localizado detrás del texto: más intenso abajo
-   y en las esquinas donde están el título (izquierda) y la cita (derecha); el centro y el cielo
-   quedan casi sin velo para que la fotografía sea la protagonista. */
+   y a la izquierda, donde están el título y su acento dorado, y en la esquina de la cita; el cielo
+   queda sin velo. En móvil y tableta el texto ocupa la mitad inferior y el título queda a media
+   altura, por lo que el velo sube más; con él, el acento dorado alcanza un contraste de 3:1 como
+   mínimo sobre la fotografía (medido sobre el resultado renderizado). */
 .parroquia-hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(0deg, rgba(29, 42, 84, 0.84) 0%, rgba(29, 42, 84, 0.5) 30%, rgba(29, 42, 84, 0) 55%),
-    radial-gradient(ellipse 70% 75% at 0% 100%, rgba(29, 42, 84, 0.78) 0%, rgba(29, 42, 84, 0) 100%);
+    linear-gradient(
+      0deg,
+      rgba(29, 42, 84, 0.92) 0%,
+      rgba(29, 42, 84, 0.85) 30%,
+      rgba(29, 42, 84, 0.6) 60%,
+      rgba(29, 42, 84, 0) 80%
+    ),
+    radial-gradient(ellipse 110% 100% at 0% 100%, rgba(29, 42, 84, 0.95) 0%, rgba(29, 42, 84, 0) 100%);
   pointer-events: none;
+}
+
+/* Escritorio: el título queda más abajo y el velo se concentra en la esquina izquierda. */
+@media (min-width: 992px) {
+  .parroquia-hero::after {
+    background:
+      linear-gradient(0deg, rgba(29, 42, 84, 0.9) 0%, rgba(29, 42, 84, 0.7) 35%, rgba(29, 42, 84, 0) 65%),
+      radial-gradient(ellipse 90% 120% at 0% 100%, rgba(29, 42, 84, 0.95) 0%, rgba(29, 42, 84, 0) 100%);
+  }
 }
 
 .parroquia-hero > .container {
@@ -74,33 +91,9 @@
   max-width: 520px;
 }
 
-.parroquia-hero__title {
-  font-size: var(--fs-display);
-  font-weight: var(--weight-bold);
-  font-style: italic;
-  line-height: var(--lh-heading);
-  color: #ffffff;
-  margin-bottom: var(--space-1);
-}
-
-.parroquia-hero__subtitle {
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  color: rgba(255, 255, 255, 0.88);
-  margin-bottom: 0;
-}
-
+/* Título, bajada y cita: tipografía común de los Heroes (.hero-title, .hero-lead y .hero-cita, components.css). */
 .parroquia-hero__quote {
   flex: 0 1 320px;
-  margin: 0;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: var(--fs-h4);
-  line-height: 1.3;
-  color: #ffffff;
-  text-align: right;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
-  text-wrap: balance; /* evita una palabra aislada en la última línea */
 }
 
 /* ===== Misión / Visión / Valores / Nuestra comunidad ===== */

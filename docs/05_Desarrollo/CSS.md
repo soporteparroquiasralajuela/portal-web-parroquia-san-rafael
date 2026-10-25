@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 05_Desarrollo/CSS.md |
-| Versión | 1.2 |
+| Versión | 1.3 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-24 |
+| Última actualización | 2026-10-25 |
 | Estado | Vigente |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), sección 9 |
 
@@ -42,6 +42,7 @@ Patrones que se aplican:
 - **Componente compartido:** si un patrón se repite en varias páginas, se define una vez en `components.css` con clases propias (`.hero-interior` y `.hero-curva` con sus elementos `__azul`, `__eco`, `__crema` y `__linea`) y se documentan sus requisitos de uso ([Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13).
 - **Sobrescribir Bootstrap:** Bootstrap fija algunos estilos con alta especificidad (por ejemplo, el relleno de `.navbar-expand-xl .navbar-nav .nav-link`); la regla propia debe igualar o superar esa especificidad (`.site-navbar .navbar-nav .nav-link`) y cargarse después. Una regla `.site-navbar .nav-link` no lo logra.
 - **Alturas de Hero:** se expresan como **mínimos** (`min-height` con variables y `clamp()`), nunca como alturas fijas, para que el contenido no se recorte; las hojas de página no repiten esos valores, solo añaden la clase `hero-interior` en el HTML. Una excepción se declara con una variante de la clase (`hero-interior--compacto`), no con un valor propio de la página.
+- **Tipografía de Hero:** el título, la descripción y la cita de los Heroes interiores se definen una sola vez en `components.css` (`.hero-title`, `.hero-lead`, `.hero-text` y `.hero-cita`); las hojas de página no repiten fuente, tamaño, peso, color ni interlineado, solo anchos y espaciados propios de su composición (Manual_Tecnico.md, sección 13).
 - **Imágenes:** `object-fit` y `object-position` para el recorte, `aspect-ratio` para reservar espacio y un color de reserva mientras cargan (sección 12 del Manual Técnico).
 - **Recortes con `overflow: hidden`:** no usarlo en contenedores con elementos que deben sobresalir a propósito (la curva del Hero); tampoco como parche de un desbordamiento horizontal: se corrige la causa.
 - **`!important`:** no se usa en las hojas del proyecto.

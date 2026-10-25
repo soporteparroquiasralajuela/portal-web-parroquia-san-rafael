@@ -43,31 +43,10 @@
   margin-top: calc(-1 * var(--space-3));
 }
 
+/* Título y descripción: tipografía común de los Heroes (.hero-title y .hero-text, components.css). */
 .calendario-hero__content {
   max-width: 560px;
   color: #ffffff;
-}
-
-.calendario-hero__title {
-  text-wrap: balance;
-  font-size: var(--fs-display);
-  font-weight: var(--weight-bold);
-  line-height: var(--lh-heading);
-  color: #ffffff;
-  margin-bottom: var(--space-2);
-}
-
-/* Parte del título en dorado institucional (contraste ≥ 4,4 sobre el degradado azul; texto grande). */
-.calendario-hero__acento {
-  color: var(--color-secondary);
-}
-
-.calendario-hero__subtitle {
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 0;
 }
 
 /* Tabletas (768–991 px): la imagen se limita a una franja para que el Hero conserve la altura de referencia. */

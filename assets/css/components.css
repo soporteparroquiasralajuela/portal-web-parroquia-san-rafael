@@ -473,6 +473,121 @@
   vector-effect: non-scaling-stroke;
 }
 
+/* ===== Tipografía común de los Heroes interiores =====
+   Una sola definición para los cinco Heroes interiores (Parroquia, Grupos, Calendario, Transmisiones y Contacto;
+   Inicio tiene la suya en home.css). La referencia del título es el de Calendario. Las hojas de página solo
+   conservan la composición propia (anchos, márgenes puntuales y posición).
+   - .hero-title: título principal (h1). Cormorant Garamond 700, sin cursiva, --fs-display (32/42/52 px),
+     interlineado 1,2, blanco y margen inferior de 16 px. .hero-title__acento: parte del título en dorado
+     institucional (--color-secondary).
+   - .hero-lead: frase introductoria breve (--fs-h4). .hero-text: párrafo descriptivo (--fs-body). Ambos en
+     Nunito Sans 400, blanco al 92 % e interlineado 1,6, sin margen. .hero-lead--acento: mensaje secundario
+     destacado en dorado (peso 600); excepción documentada de Contacto.
+   - .hero-cita: cita o lema (patrón de la cita bíblica de Grupos). Filete dorado de 2 px a la izquierda; en
+     .hero-cita--derecha (o .hero-cita--derecha-lg, solo desde 992 px) el filete pasa a la derecha, el texto se
+     alinea a la derecha y lleva una sombra suave para leerse sobre la fotografía. .hero-cita__texto: Cormorant
+     Garamond 400 cursiva, blanca, interlineado 1,3, --fs-h3 (--fs-h2 desde 992 px) o --fs-h4 con
+     .hero-cita--breve. .hero-cita__ref: referencia en Poppins 500, mayúsculas y dorada. */
+.hero-title {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--fs-display);
+  font-weight: var(--weight-bold);
+  font-style: normal;
+  line-height: var(--lh-heading);
+  color: #ffffff;
+  text-wrap: balance;
+}
+
+.hero-title__acento {
+  color: var(--color-secondary);
+}
+
+.hero-lead,
+.hero-text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hero-lead {
+  font-size: var(--fs-h4);
+}
+
+.hero-text {
+  font-size: var(--fs-body);
+}
+
+.hero-lead--acento {
+  font-weight: var(--weight-semibold);
+  color: var(--color-secondary);
+}
+
+.hero-cita {
+  margin: 0;
+  padding-left: var(--space-2);
+  border-left: 2px solid var(--color-secondary);
+}
+
+.hero-cita blockquote {
+  margin: 0;
+}
+
+.hero-cita__texto {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  line-height: 1.3;
+  color: #ffffff;
+  text-wrap: balance;
+}
+
+.hero-cita > .hero-cita__texto:last-child {
+  margin-bottom: 0;
+}
+
+.hero-cita--breve .hero-cita__texto {
+  font-size: var(--fs-h4);
+}
+
+.hero-cita__ref {
+  font-family: var(--font-accent);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--weight-medium);
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.hero-cita--derecha {
+  padding-right: var(--space-2);
+  padding-left: 0;
+  border-right: 2px solid var(--color-secondary);
+  border-left: 0;
+  text-align: right;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 992px) {
+  .hero-cita:not(.hero-cita--breve) .hero-cita__texto {
+    font-size: var(--fs-h2);
+  }
+
+  .hero-cita--derecha-lg {
+    padding-right: var(--space-2);
+    padding-left: 0;
+    border-right: 2px solid var(--color-secondary);
+    border-left: 0;
+    text-align: right;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  }
+}
+
 /* ===== Botón flotante global de WhatsApp =====
    Aprobado en Diseno_Conceptual_Aprobado.md sección 7. Es un enlace real (<a>) a la conversación
    de WhatsApp de la oficina parroquial (wa.me), con el mismo marcado en todas las páginas. */

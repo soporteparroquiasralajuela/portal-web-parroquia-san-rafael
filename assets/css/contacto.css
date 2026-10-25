@@ -51,33 +51,14 @@
   max-width: 520px;
 }
 
-/* Jerarquía común de los Heroes: título (display, cursiva como en Transmisiones y Parroquia), mensaje secundario
-   destacado en dorado institucional y texto de apoyo en cuerpo de texto, sin cursiva. */
-.contacto-hero__title {
-  font-size: var(--fs-display);
-  font-weight: var(--weight-bold);
-  font-style: italic;
-  line-height: var(--lh-heading);
-  color: #ffffff;
-  margin-bottom: var(--space-2);
-}
-
+/* Jerarquía común de los Heroes (components.css): título .hero-title, mensaje secundario destacado en dorado
+   (.hero-lead--acento) y nota de apoyo .hero-text; aquí solo el espaciado y el ancho propios. */
 .contacto-hero__subtitle {
-  font-family: var(--font-body);
-  font-size: var(--fs-h4);
-  font-weight: var(--weight-semibold);
-  line-height: var(--lh-body);
-  color: var(--color-secondary);
   margin-bottom: var(--space-1);
 }
 
 .contacto-hero__note {
   max-width: 340px;
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  color: rgba(255, 255, 255, 0.92);
 }
 
 /* Tabletas (768–991 px): la imagen se limita a una franja para que el Hero conserve la altura de referencia. */

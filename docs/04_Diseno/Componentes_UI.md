@@ -3,10 +3,10 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Componentes_UI.md |
-| Versión | 1.11 |
+| Versión | 1.12 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-24 |
-| Estado | Vigente — registro de uso real al 2026-10-24 |
+| Última actualización | 2026-10-25 |
+| Estado | Vigente — registro de uso real al 2026-10-25 |
 | Fuente | [Bootstrap.md](../05_Desarrollo/Bootstrap.md) (inventario canónico); [CLAUDE.md](../../CLAUDE.md) sección 7 |
 
 ---
@@ -40,6 +40,9 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 | Botón flotante de WhatsApp (`.whatsapp-float`) | `components.css` | Las seis | Enlace `wa.me`; el footer reserva espacio a la derecha para no quedar tapado |
 | Doble curva de Hero (`.hero-curva`) | `components.css` | Las seis | Un SVG de cuatro capas: banda azul `#1D2A54` translúcida, eco dorado tenue, curva del color de la sección siguiente (`--hero-wave-fill`, crema por defecto) y filete dorado de 2 px; altura `--hero-curva-height` (59, 86 y 108 px). Sustituye a `.hero-wave`, que ya no usa ninguna página. Requisitos de uso en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Altura de Hero interior (`.hero-interior`) | `components.css` | Parroquia, Grupos, Calendario, Transmisiones y Contacto | Altura mínima común `--hero-min-height` (460 px móvil, 520 px tableta, 520–620 px desde 992 px); variante `.hero-interior--compacto` (≈ 80 %) para Heroes sin fotografía (sin uso a la fecha: los seis Heroes ya tienen imagen). Inicio tiene altura propia en `home.css` (referencia + 30 px en escritorio) |
+| Título de Hero (`.hero-title`, `.hero-title__acento`) | `components.css` | Parroquia, Grupos, Calendario, Transmisiones y Contacto | Referencia única: el título de Calendario. Cormorant Garamond 700 sin cursiva, `--fs-display`, interlineado 1,2, blanco, margen inferior 16 px y `balance`; el acento va en dorado `--color-secondary` (Contacto, sin acento). Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
+| Descripción de Hero (`.hero-lead`, `.hero-text`, `.hero-lead--acento`) | `components.css` | Las cinco páginas interiores | Nunito Sans 400, blanco al 92 %, interlineado 1,6: `.hero-lead` (`--fs-h4`) para frases breves y `.hero-text` (`--fs-body`) para párrafos; `.hero-lead--acento` (dorado, peso 600) solo en el subtítulo de Contacto |
+| Cita de Hero (`.hero-cita`, `__texto`, `__ref`) | `components.css` | Grupos y Parroquia | Patrón de la cita bíblica de Grupos: filete dorado, Cormorant Garamond 400 cursiva blanca y referencia dorada opcional; variantes `--breve`, `--derecha` y `--derecha-lg` |
 | Hero con imagen y degradado | `home.css` (`.hero`), `parroquia.css` (`.parroquia-hero`), `grupos.css` y `calendario.css` | Inicio, Parroquia, Grupos, Calendario | `<picture>` con WebP, `object-position` y degradado azul `#1D2A54`; el de Inicio es panorámico |
 | Carrusel de imágenes (`.gallery-carousel`) | `home.css` | Inicio | Diapositivas 21:9 (alto mínimo 280 px) con `object-fit: cover` y encuadre por imagen; pie de imagen discreto abajo a la derecha. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero e introducción de Grupos (`.grupos-hero`, `.grupos-intro`) | `grupos.css` | Grupos | Hero con imagen panorámica (WebP responsivos, recorte móvil), degradado azul desde la base, cita bíblica a la derecha y doble curva `.hero-curva`; introducción editorial con ornamento dorado y bloque de invitación. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
@@ -48,8 +51,8 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 | Visor de galería (`.parroquia-visor`) | `parroquia.css` + `assets/js/galeria-parroquia.js` | Parroquia | Modal oscuro con imagen, leyenda, contador y botones anterior, siguiente y cerrar de 48 px |
 | Tarjeta de horarios de misa (`.mass-card`) | `home.css` | Inicio | Imagen 2:3 con `object-fit: cover` (4/3 apilada; 40 % de ancho en fila desde 992 px); botón «Cómo llegar» alineado al borde inferior con `margin-top: auto`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero de Calendario (`.calendario-hero`) | `calendario.css` | Calendario | Imagen `herocalendario` (WebP responsivos), título con acento dorado y un párrafo, sin botones; apilado por debajo de 992 px y superpuesto con degradado y máscara vertical desde 992 px. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
-| Hero de Transmisiones (`.transmisiones-hero`) | `transmisiones.css` | Transmisiones | Imagen `herotransmisiones` (WebP responsivos), título en cursiva con segunda línea dorada, párrafo y tres barras doradas; apilado por debajo de 992 px y superpuesto con degradado azul desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
-| Hero de Contacto (`.contacto-hero`) | `contacto.css` | Contacto | Imagen `herocontacto` (WebP responsivos; recreación digital), título en cursiva, subtítulo dorado y texto de apoyo; apilado por debajo de 992 px y superpuesto con degradado azul horizontal (el de Transmisiones) desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
+| Hero de Transmisiones (`.transmisiones-hero`) | `transmisiones.css` | Transmisiones | Imagen `herotransmisiones` (WebP responsivos), título con segunda línea dorada, frase introductoria y tres barras doradas; apilado por debajo de 992 px y superpuesto con degradado azul desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
+| Hero de Contacto (`.contacto-hero`) | `contacto.css` | Contacto | Imagen `herocontacto` (WebP responsivos; recreación digital), título blanco, subtítulo dorado y texto de apoyo; apilado por debajo de 992 px y superpuesto con degradado azul horizontal (el de Transmisiones) desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Transición hacia el footer (`.wave-transition`) | CSS de cada página (copia local) | Las seis | Cinta navy/dorada sin insignia; no cambió |
 | Marcador de imagen (`.img-placeholder`) y etiqueta (`.eyebrow`) | `components.css` | Varias | Utilidades compartidas |
 
