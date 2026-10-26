@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Componentes_UI.md |
-| Versión | 1.12 |
+| Versión | 1.13 |
 | Fecha de creación | 2026-08-05 |
 | Última actualización | 2026-10-25 |
 | Estado | Vigente — registro de uso real al 2026-10-25 |
@@ -54,6 +54,7 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 | Hero de Transmisiones (`.transmisiones-hero`) | `transmisiones.css` | Transmisiones | Imagen `herotransmisiones` (WebP responsivos), título con segunda línea dorada, frase introductoria y tres barras doradas; apilado por debajo de 992 px y superpuesto con degradado azul desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero de Contacto (`.contacto-hero`) | `contacto.css` | Contacto | Imagen `herocontacto` (WebP responsivos; recreación digital), título blanco, subtítulo dorado y texto de apoyo; apilado por debajo de 992 px y superpuesto con degradado azul horizontal (el de Transmisiones) desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Transición hacia el footer (`.wave-transition`) | CSS de cada página (copia local) | Las seis | Cinta navy/dorada sin insignia; no cambió |
+| Título de tarjeta con ícono (`.titulo-icono`) | `components.css` | Parroquia (Misión, Visión, Valores y Nuestra comunidad) y Transmisiones (Misas, Hora Santa, Actividades y Eventos especiales) | Poppins 600, azul institucional `--color-primary`, `--fs-body` (16 px; 18 px desde 1200 px), interlineado `--lh-heading` y margen inferior de 4 px. Se aplica junto a la clase propia del componente, que conserva solo el espacio hacia la descripción (6 px en Parroquia). Sustituye a `.h6` de Bootstrap en Parroquia y a la regla propia `.transmisiones-categoria__titulo`. Inicio no lo usa todavía (decisión pendiente de la primera etapa tipográfica). Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Marcador de imagen (`.img-placeholder`) y etiqueta (`.eyebrow`) | `components.css` | Varias | Utilidades compartidas |
 
 ## 3. Componentes reutilizables y carpeta `components/`

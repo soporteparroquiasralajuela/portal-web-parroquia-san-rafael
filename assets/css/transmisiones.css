@@ -201,15 +201,6 @@
   margin-bottom: var(--space-1);
 }
 
-.transmisiones-categoria__titulo {
-  font-family: var(--font-accent);
-  font-weight: var(--weight-semibold);
-  font-size: var(--fs-body);
-  line-height: var(--lh-heading);
-  color: var(--color-primary);
-  margin-bottom: 4px;
-}
-
 .transmisiones-categoria__eslogan {
   font-size: var(--fs-body-sm);
   line-height: 1.45;

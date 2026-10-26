@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Guia_Estilos.md |
-| Versión | 2.1 |
+| Versión | 2.2 |
 | Fecha de creación | 2026-08-05 |
 | Última actualización | 2026-10-25 |
 | Estado | Vigente — Design System cerrado |
@@ -98,6 +98,7 @@ Escala responsive (móvil / tablet ≥768px / escritorio ≥1200px). Todos los t
 | Body | Nunito Sans | 400 (Regular) | 16 / 16 / 18 px | `--fs-body`, `--weight-regular` | Texto de párrafo estándar |
 | Body small | Nunito Sans | 400 (Regular) | 14 / 14 / 15 px | `--fs-body-sm`, `--weight-regular` | Texto secundario, notas, pies de foto |
 | Eyebrow/label | Poppins | 600 (SemiBold) | 11 / 12 / 12 px | `--fs-eyebrow`, `--weight-semibold` | Etiquetas cortas en mayúsculas: badges, antetítulos, encabezados de columna de footer |
+| Título de tarjeta con ícono | Poppins | 600 (SemiBold) | 16 / 16 / 18 px | `--fs-body`, `--weight-semibold`; clase `.titulo-icono` | Título corto sobre la descripción de una tarjeta con ícono, en azul `--color-primary` con interlineado `--lh-heading`: Misión, Visión, Valores y Nuestra comunidad (Parroquia) y las categorías de Transmisiones |
 | Botones | Poppins | 600 (SemiBold) | 16 / 16 / 16 px | `--fs-button`, `--weight-semibold` | Texto de botones |
 | Navegación | Poppins | 500 (Medium) | 15 / 16 / 16 px | `--fs-nav`, `--weight-medium` | Enlaces del navbar |
 

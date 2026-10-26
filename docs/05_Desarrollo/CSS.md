@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 05_Desarrollo/CSS.md |
-| Versión | 1.3 |
+| Versión | 1.4 |
 | Fecha de creación | 2026-08-05 |
 | Última actualización | 2026-10-25 |
 | Estado | Vigente |
@@ -32,7 +32,7 @@ Establecer el estándar de escritura de CSS del proyecto.
 |---|---|
 | `variables.css` | Tokens de diseño (colores, tipografía, espaciado, radios, sombras, alturas) |
 | `main.css` | Base global y ajustes de Bootstrap |
-| `components.css` | Componentes compartidos: navegación, footer, botón flotante de WhatsApp, sistema de Heroes interiores (`.hero-interior`, `.hero-curva`; `.hero-wave` sin uso) y utilidades (`.eyebrow`, `.img-placeholder`) |
+| `components.css` | Componentes compartidos: navegación, footer, botón flotante de WhatsApp, sistema de Heroes interiores (`.hero-interior`, `.hero-curva`; `.hero-wave` sin uso) y utilidades (`.eyebrow`, `.titulo-icono`, `.img-placeholder`) |
 | `home.css`, `parroquia.css`, `grupos.css`, `calendario.css`, `transmisiones.css`, `contacto.css` | Estilos propios de cada página (Hero, secciones y la transición hacia el footer) |
 
 Patrones que se aplican:
@@ -43,6 +43,7 @@ Patrones que se aplican:
 - **Sobrescribir Bootstrap:** Bootstrap fija algunos estilos con alta especificidad (por ejemplo, el relleno de `.navbar-expand-xl .navbar-nav .nav-link`); la regla propia debe igualar o superar esa especificidad (`.site-navbar .navbar-nav .nav-link`) y cargarse después. Una regla `.site-navbar .nav-link` no lo logra.
 - **Alturas de Hero:** se expresan como **mínimos** (`min-height` con variables y `clamp()`), nunca como alturas fijas, para que el contenido no se recorte; las hojas de página no repiten esos valores, solo añaden la clase `hero-interior` en el HTML. Una excepción se declara con una variante de la clase (`hero-interior--compacto`), no con un valor propio de la página.
 - **Tipografía de Hero:** el título, la descripción y la cita de los Heroes interiores se definen una sola vez en `components.css` (`.hero-title`, `.hero-lead`, `.hero-text` y `.hero-cita`); las hojas de página no repiten fuente, tamaño, peso, color ni interlineado, solo anchos y espaciados propios de su composición (Manual_Tecnico.md, sección 13).
+- **Título de tarjeta con ícono:** `.titulo-icono` (`components.css`) define la tipografía una sola vez (Poppins 600, azul, `--fs-body`, `--lh-heading`); las hojas de página no la repiten y conservan solo el espacio propio de su composición. No se usa `.h6` de Bootstrap para este fin (Manual_Tecnico.md, sección 13).
 - **Imágenes:** `object-fit` y `object-position` para el recorte, `aspect-ratio` para reservar espacio y un color de reserva mientras cargan (sección 12 del Manual Técnico).
 - **Recortes con `overflow: hidden`:** no usarlo en contenedores con elementos que deben sobresalir a propósito (la curva del Hero); tampoco como parche de un desbordamiento horizontal: se corrige la causa.
 - **`!important`:** no se usa en las hojas del proyecto.

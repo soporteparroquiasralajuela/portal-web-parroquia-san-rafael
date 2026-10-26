@@ -15,6 +15,20 @@
   margin: 0 0 var(--space-1) 0;
 }
 
+/* ===== Utilidad: título de tarjeta con ícono =====
+   Poppins semibold en azul institucional, con el tamaño responsivo del cuerpo.
+   Se aplica junto a la clase propia del componente, que conserva solo su
+   disposición (espacios). Usado en Parroquia (Misión, Visión, Valores,
+   Nuestra comunidad) y Transmisiones (categorías). */
+.titulo-icono {
+  margin: 0 0 4px;
+  font-family: var(--font-accent);
+  font-size: var(--fs-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-heading);
+  color: var(--color-primary);
+}
+
 /* ===== Utilidad: placeholder de imagen =====
    Recuadro claramente identificable para contenido visual todavía no
    disponible en assets/img/. Se reemplaza por una <img> real cuando exista
