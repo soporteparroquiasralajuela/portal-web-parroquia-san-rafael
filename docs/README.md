@@ -68,7 +68,7 @@ flowchart TD
 | [Diseno_Conceptual_Aprobado.md](04_Diseno/Diseno_Conceptual_Aprobado.md) | ✅ Vigente — arquitectura de navegación, decisiones funcionales conceptuales y estado de las referencias visuales aprobadas; sección 8.6: congelamiento temporal y cadena metodológica del TCU |
 | [Guia_Estilos.md](04_Diseno/Guia_Estilos.md) | 🟡 Parcial (paleta/tipografía pendientes de extracción formal) |
 | [Componentes_UI.md](04_Diseno/Componentes_UI.md) | ✅ Vigente — registro de uso real de componentes propios y de Bootstrap (actualizado 2026-10-24; el inventario canónico de Bootstrap vive en Bootstrap.md) |
-| [Wireframes.md](04_Diseno/Wireframes.md) | 🟡 Parcial (7 páginas con diseño conceptual de alta fidelidad; Sacramentos/Gestiones/Documentos e información pendientes) |
+| [Wireframes.md](04_Diseno/Wireframes.md) | 🟡 Parcial (7 páginas con diseño conceptual de alta fidelidad; Servicios parroquiales pasó a ser una página única el 2026-10-29) |
 
 ## 05. Desarrollo
 

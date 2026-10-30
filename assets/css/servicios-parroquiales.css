@@ -1,0 +1,645 @@
+/* servicios-parroquiales.css — Estilos específicos de la página Servicios parroquiales
+   Hero interior sin fotografía (variante compacta del sistema compartido), dos secciones verticales
+   independientes (Requisitos y preparación / Solicitudes parroquiales) con acordeones de Bootstrap,
+   maquetación preliminar de formularios, aviso de solicitud recibida y bloque final de contacto.
+   No se reutiliza en otras páginas y no depende de home.css, parroquia.css ni grupos.css. La transición
+   navy/dorada hacia el footer se reproduce localmente (sin insignia circular), igual que en las demás
+   páginas.
+   Fase de maquetación: el contenido es provisional y los formularios no envían datos (ver
+   assets/js/servicios-parroquiales.js y docs/08_Manuales/Manual_Tecnico.md, sección 18). */
+
+/* Tintes locales derivados de la paleta institucional (no son colores nuevos): azul institucional al 5 % y
+   dorado institucional (--color-secondary) al 16 %. Los íconos van en azul institucional sobre el tinte dorado
+   (contraste ≈ 12:1). */
+:root {
+  --servicios-tinte-azul: rgba(29, 42, 84, 0.05);
+  --servicios-tinte-dorado: rgba(218, 152, 27, 0.16);
+}
+
+/* ===== Hero de Servicios parroquiales =====
+   Sin fotografía: usa la variante .hero-interior--compacto del sistema compartido (components.css) sobre el
+   azul institucional, con un destello dorado muy tenue. Cuando la parroquia entregue una imagen se
+   sustituye el fondo por un <picture> y se quita la variante compacta, como en los demás Heroes. */
+.servicios-hero {
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-5) calc(var(--hero-curva-height) + var(--space-3));
+  background-color: var(--color-primary);
+  background-image: radial-gradient(ellipse 60% 90% at 88% 15%, rgba(218, 152, 27, 0.2), transparent 70%),
+    linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+.servicios-hero > .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.servicios-hero__content {
+  max-width: 560px;
+}
+
+/* ===== Secciones =====
+   Las dos secciones permanecen visibles una debajo de otra; cada una es una tarjeta con su encabezado y un
+   acordeón propio (un panel abierto a la vez por sección). */
+.servicios-seccion {
+  padding-block: var(--space-3);
+}
+
+.servicios-hero + .servicios-seccion {
+  padding-top: var(--space-5);
+}
+
+.servicios-panel {
+  padding: var(--space-2);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.servicios-panel__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.servicios-panel__icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 1.75rem;
+  color: var(--color-primary);
+  background-color: var(--servicios-tinte-dorado);
+  border-radius: var(--radius-pill);
+}
+
+.servicios-panel__titles {
+  min-width: 0;
+}
+
+.servicios-panel__title {
+  margin-bottom: 4px;
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+}
+
+.servicios-panel__intro {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+/* ===== Acordeón (Bootstrap Accordion con el tema del portal) ===== */
+.servicios-acordeon {
+  --bs-accordion-bg: var(--color-bg-alt);
+  --bs-accordion-border-width: 1px;
+  --bs-accordion-border-color: var(--color-border-light);
+  --bs-accordion-border-radius: var(--radius-md);
+  --bs-accordion-inner-border-radius: calc(var(--radius-md) - 1px);
+  --bs-accordion-btn-padding-x: var(--space-2);
+  --bs-accordion-btn-padding-y: 14px;
+  --bs-accordion-btn-color: var(--color-primary);
+  --bs-accordion-active-color: var(--color-primary);
+  --bs-accordion-active-bg: var(--servicios-tinte-azul);
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-body-padding-x: var(--space-2);
+  --bs-accordion-body-padding-y: var(--space-3);
+  /* Flecha en azul institucional (#1D2A54): un data URI no admite variables CSS. */
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%231d2a54' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.6'%3E%3Cpath d='M2 5.5l6 6 6-6'/%3E%3C/svg%3E");
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+}
+
+.servicios-acordeon .accordion-button {
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--fs-h4);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-heading);
+  box-shadow: none;
+}
+
+.servicios-acordeon .accordion-button:not(.collapsed) {
+  box-shadow: inset 0 -1px 0 var(--color-border-light);
+}
+
+.servicios-acordeon .accordion-button:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -3px;
+}
+
+.servicios-acordeon__titulo {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.servicios-acordeon__icono {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  background-color: var(--servicios-tinte-dorado);
+  border-radius: var(--radius-pill);
+}
+
+/* ===== Contenido de cada panel ===== */
+.servicios-detalle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.servicios-detalle__lado > :last-child,
+.servicios-detalle__principal > :last-child {
+  margin-bottom: 0;
+}
+
+/* Aviso de contenido provisional: se retira panel por panel cuando la oficina confirme la información. */
+.servicios-aviso {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: var(--space-2);
+  padding: 6px 12px;
+  font-family: var(--font-accent);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--weight-medium);
+  line-height: 1.35;
+  color: var(--color-text-primary);
+  background-color: var(--servicios-tinte-dorado);
+  border-radius: var(--radius-sm);
+}
+
+.servicios-aviso i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--color-primary);
+}
+
+.servicios-descripcion {
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+}
+
+/* Filas de información (fecha, requisitos): ícono, etiqueta y valor. */
+.servicios-datos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.servicios-dato {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.servicios-dato__icono {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  background-color: var(--servicios-tinte-dorado);
+  border-radius: var(--radius-pill);
+}
+
+.servicios-dato__texto {
+  min-width: 0;
+}
+
+.servicios-dato__etiqueta {
+  margin: 0;
+  font-family: var(--font-accent);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-body);
+  color: var(--color-primary);
+}
+
+.servicios-dato__valor {
+  margin: 0;
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-secondary);
+}
+
+.servicios-dato__estado {
+  display: inline-block;
+  margin-left: 4px;
+  font-family: var(--font-accent);
+  font-size: 12px;
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* Recuadro del documento PDF: sin enlace mientras la oficina no entregue el archivo. */
+.servicios-descarga {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-2);
+  text-align: center;
+  background-color: var(--servicios-tinte-azul);
+  border-radius: var(--radius-md);
+}
+
+.servicios-descarga__icono {
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.servicios-descarga__titulo {
+  margin: 0;
+  font-family: var(--font-accent);
+  font-size: var(--fs-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-heading);
+  color: var(--color-primary);
+}
+
+.servicios-descarga__nota {
+  margin: 0;
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-secondary);
+}
+
+.servicios-descarga .btn {
+  margin-top: var(--space-1);
+}
+
+/* Botón de descarga deshabilitado (aún no existe el PDF): neutro, punteado y sin sombra. Bootstrap pintaría
+   .btn-primary:disabled con su azul de fábrica. Habilitado, el botón es un <a class="btn btn-primary"> con el
+   estilo y los estados de .btn-primary (main.css). */
+.servicios-descarga .btn-primary:disabled {
+  --bs-btn-disabled-color: var(--color-text-secondary);
+  --bs-btn-disabled-bg: var(--color-border-light);
+  --bs-btn-disabled-border-color: var(--color-text-secondary);
+  --bs-btn-disabled-opacity: 1;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+/* Nota «Importante» de las solicitudes. */
+.servicios-nota {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: var(--space-3);
+  padding: var(--space-2);
+  background-color: var(--servicios-tinte-azul);
+  border-radius: var(--radius-md);
+}
+
+.servicios-nota > i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.servicios-nota__titulo {
+  margin: 0 0 2px;
+  font-family: var(--font-accent);
+  font-size: var(--fs-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-heading);
+  color: var(--color-primary);
+}
+
+.servicios-nota p:last-child {
+  margin: 0;
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-secondary);
+}
+
+.servicios-nota--urgente {
+  background-color: var(--servicios-tinte-dorado);
+}
+
+.servicios-nota--urgente > i {
+  color: var(--color-primary);
+}
+
+/* ===== Formularios preliminares =====
+   Solo maquetación: no tienen acción ni integración (ver servicios-parroquiales.js). El patrón visual es el
+   del formulario de Grupos, reproducido aquí sin importar grupos.css. */
+.solicitud-form .form-label {
+  margin-bottom: 4px;
+  font-family: var(--font-accent);
+  font-weight: var(--weight-medium);
+  font-size: var(--fs-body-sm);
+}
+
+.solicitud-form__req {
+  color: var(--color-state-error);
+}
+
+.solicitud-form .form-control,
+.solicitud-form .form-select {
+  min-height: 44px;
+  font-size: 1rem;
+  border-color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.solicitud-form .form-control:focus,
+.solicitud-form .form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
+.solicitud-form .form-control:focus-visible,
+.solicitud-form .form-select:focus-visible,
+.solicitud-form .form-check-input:focus-visible,
+.solicitud-form .btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.solicitud-form textarea.form-control {
+  resize: vertical;
+}
+
+.solicitud-form .form-control:disabled {
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg);
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+.solicitud-form .is-invalid {
+  border-color: var(--color-state-error);
+  background-image: none;
+}
+
+.solicitud-form .invalid-feedback {
+  margin-top: 4px;
+  font-size: var(--fs-body-sm);
+  color: var(--color-state-error);
+}
+
+.solicitud-form__ayuda {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.solicitud-form__consent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px 12px;
+  padding: 0;
+  min-height: 24px;
+}
+
+.solicitud-form__consent .form-check-input {
+  flex: 0 0 auto;
+  float: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 2px 0 0;
+  border-color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.solicitud-form__consent .form-check-input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.solicitud-form__consent .form-check-input.is-invalid {
+  border-color: var(--color-state-error);
+}
+
+.solicitud-form__consent .form-check-label,
+.solicitud-form__consent .form-check-input.is-invalid ~ .form-check-label {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: var(--fs-body-sm);
+  line-height: 1.45;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.solicitud-form__consent .invalid-feedback {
+  flex: 0 0 100%;
+  margin-top: 0;
+}
+
+.solicitud-form__legend {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.solicitud-form__resumen {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-state-error);
+}
+
+.solicitud-form__resumen[hidden],
+.solicitud-form__estado[hidden] {
+  display: none;
+}
+
+/* Mensaje de estado del envío (en esta fase: «envío no habilitado»). */
+.solicitud-form__estado {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-primary);
+  background-color: var(--servicios-tinte-dorado);
+  border-radius: var(--radius-sm);
+}
+
+.solicitud-form__estado i {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: var(--color-primary);
+}
+
+/* ===== Aviso «Solicitud recibida» (ventana emergente de Bootstrap) ===== */
+.servicios-modal .modal-content {
+  border: 0;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-hover);
+}
+
+.servicios-modal .modal-body {
+  padding: var(--space-4) var(--space-3) var(--space-2);
+  text-align: center;
+}
+
+.servicios-modal__icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--space-2);
+  font-size: 2rem;
+  color: var(--color-state-success);
+  background-color: var(--servicios-tinte-azul);
+  border-radius: var(--radius-pill);
+}
+
+.servicios-modal__titulo {
+  margin-bottom: var(--space-1);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+}
+
+.servicios-modal .modal-body p {
+  margin-bottom: 0;
+  color: var(--color-text-secondary);
+}
+
+.servicios-modal .modal-footer {
+  justify-content: center;
+  padding: var(--space-1) var(--space-3) var(--space-3);
+  border-top: 0;
+}
+
+/* ===== Bloque final de contacto ===== */
+.servicios-contacto {
+  padding-block: var(--space-3) var(--space-5);
+}
+
+.servicios-contacto__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-2);
+  text-align: center;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.servicios-contacto__icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  background-color: var(--servicios-tinte-dorado);
+  border-radius: var(--radius-pill);
+}
+
+.servicios-contacto__titulo {
+  margin-bottom: 4px;
+  font-size: var(--fs-h3);
+  color: var(--color-primary);
+}
+
+.servicios-contacto__texto {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+/* ===== Transición hacia el footer (patrón navy/dorado, sin insignia) =====
+   Mismo patrón de capas SVG que las demás páginas, reproducido localmente. */
+.wave-transition {
+  position: relative;
+  height: 56px;
+}
+
+.wave-transition svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wave-transition-gold {
+  transform: translateY(6px);
+}
+
+/* ===== Tableta y escritorio ===== */
+@media (min-width: 576px) {
+  .servicios-panel {
+    padding: var(--space-3);
+  }
+
+  .servicios-acordeon {
+    --bs-accordion-btn-padding-x: var(--space-3);
+    --bs-accordion-body-padding-x: var(--space-3);
+  }
+}
+
+@media (min-width: 768px) {
+  .servicios-panel {
+    padding: var(--space-4);
+  }
+
+  .servicios-panel__icon {
+    width: 72px;
+    height: 72px;
+    font-size: 2.25rem;
+  }
+
+  .servicios-contacto__card {
+    flex-direction: row;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+  }
+
+  .servicios-contacto__cuerpo {
+    flex: 1 1 auto;
+  }
+
+  .servicios-contacto__card .btn {
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .servicios-detalle {
+    gap: var(--space-4);
+  }
+
+  .servicios-detalle--requisitos {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+
+  .servicios-detalle--solicitud {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+
+  .servicios-detalle--solicitud > .servicios-detalle__principal {
+    padding-left: var(--space-4);
+    border-left: 1px solid var(--color-border-light);
+  }
+
+  .servicios-detalle--requisitos > .servicios-detalle__lado {
+    align-self: center;
+  }
+}

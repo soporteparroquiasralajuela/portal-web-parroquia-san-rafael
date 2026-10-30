@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.10 |
+| Versión | 1.12 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-10-25 |
+| Última actualización | 2026-10-29 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -76,7 +76,7 @@ Estado real de estas carpetas al momento de este documento: `logo/` contiene `Lo
 
 ## 4. Arquitectura de navegación conceptual aprobada
 
-Navegación **oficial y definitiva** (confirmada 2026-09-16):
+Navegación **oficial y definitiva** (confirmada 2026-09-16; actualizada el 2026-10-29, ver más abajo):
 
 ```
 Inicio
@@ -85,15 +85,12 @@ Grupos
 Calendario
 Transmisiones
 Servicios parroquiales
-  - Sacramentos
-  - Gestiones
-  - Documentos e información
 Contacto
 ```
 
 **El portal NO tendrá botón, ícono ni elemento de "Buscar" en la navegación.**
 
-**No se han creado todavía** las páginas internas de Sacramentos, Gestiones ni Documentos e información — su contenido definitivo queda pendiente del levantamiento con la oficina parroquial (ver sección 6).
+**Decisión de arquitectura de información (2026-10-29):** Servicios parroquiales es **una única página**, no una portada con tres páginas secundarias. Se retiró el submenú (Sacramentos, Gestiones y Documentos e información), que figuraba en la navegación de la confirmación del 2026-09-16 y nunca llegó a tener páginas; «Servicios parroquiales» es un enlace directo a `servicios-parroquiales.html`. Los requisitos y las solicitudes se agrupan en dos bloques desplegables dentro de esa página ([Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18).
 
 > **Nota sobre los artes conceptuales:** las 7 imágenes en [Referencias_Conceptuales/](Referencias_Conceptuales/) corresponden a distintas iteraciones de diseño y no son consistentes entre sí en dos puntos, ya superados por esta decisión:
 > - Las imágenes de Parroquia, Grupos, Calendario, Transmisiones y Contacto muestran "Servicios" (sin la palabra "parroquiales", sin indicador de submenú) **antes** de "Transmisiones" — orden distinto al oficial.
@@ -148,15 +145,15 @@ La página conceptual integra en una misma página: misión, visión, valores, "
 - No se crearán páginas adicionales para estas secciones salvo que posteriormente se defina lo contrario.
 
 ### Servicios parroquiales
-Estructura conceptual: Sacramentos, Gestiones, Documentos e información.
+Decisión del 2026-10-29: página única con dos bloques desplegables, **Requisitos y preparación** (Bautizo, Matrimonio, Confirmación y Catequesis bautismal) y **Solicitudes parroquiales** (misas, constancias, visita de ministro, comunión para enfermos y unción de los enfermos), a partir de dos diseños conceptuales aportados por el responsable. Sustituye a la estructura conceptual anterior (Sacramentos, Gestiones y Documentos e información) y al arte `Diseño Pagina Servicios.png`, que queda como referencia histórica.
 - Los accesos rápidos son parte de la misma sección "¿Cómo podemos ayudarte?" y no constituyen una sección independiente.
-- El contenido definitivo de Sacramentos, Gestiones y Documentos e información queda pendiente del levantamiento con la oficina parroquial.
+- El contenido definitivo (requisitos, fechas, documentos y campos de los formularios) queda pendiente del levantamiento con la oficina parroquial; la fase 1 es provisional.
 
 ## 7. Componentes globales aprobados
 
 ### Botón flotante de WhatsApp
 
-- Aprobado como **componente global**, presente en todas las páginas del portal: Inicio, Parroquia, Grupos, Calendario, Transmisiones, Servicios parroquiales, Contacto, las futuras páginas internas de Sacramentos, Gestiones y Documentos e información, y cualquier otra página interna futura.
+- Aprobado como **componente global**, presente en todas las páginas del portal: Inicio, Parroquia, Grupos, Calendario, Transmisiones, Servicios parroquiales, Contacto y cualquier otra página interna futura.
 - Propósito: facilitar el contacto directo con la parroquia mediante WhatsApp.
 - Requisitos aprobados:
   - Ícono reconocible de WhatsApp.
@@ -200,7 +197,7 @@ Esta estrategia autoriza construir y validar la **estructura, composición visua
 
 Construir el esqueleto de una página **no compromete automáticamente** como alcance definitivo del TCU sus contenidos, formularios, integraciones, funcionalidades administrativas, ni las páginas de segundo nivel. Quedan explícitamente sujetos a información y validación posterior:
 
-- Sacramentos, Gestiones y Documentos e información (páginas de segundo nivel de Servicios parroquiales);
+- los requisitos, los documentos y los formularios de Servicios parroquiales (página única, fase 1 provisional);
 - páginas individuales de cada grupo;
 - formularios (más allá de lo ya previsto genéricamente en la sección 6);
 - integraciones (ver [Integraciones.md](../03_Arquitectura/Integraciones.md));
@@ -217,12 +214,12 @@ Páginas principales (en este orden de trabajo — ya cuentan con diseño concep
 | 2 | Grupos | Implementada y dentro de la línea base temporal |
 | 3 | Calendario | Implementada y dentro de la línea base temporal; integración con el calendario secundario institucional completada (2026-10-14). Siguen pendientes los eventos reales y la limitación del embed a ≈ 375 px |
 | 4 | Transmisiones | Implementada, publicada y funcional dentro del alcance aprobado (2026-10-14), con integración con YouTube validada con una transmisión pública real; **no congelada**. Pendientes de contenido: la fotografía del estado sin transmisión del reproductor, la confirmación de que la imagen del Hero (composición digital basada en una fotografía real) representa fielmente la parroquia y la validación con la parroquia. Excluida del alcance, por decisión del proyecto, la visualización automática de grabaciones de transmisiones finalizadas (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md)) |
-| 5 | Servicios parroquiales | Pendiente de implementación |
+| 5 | Servicios parroquiales | Página única con dos bloques desplegables, aprobada conceptualmente el 2026-10-29. Fase 1 (estructura y diseño visual) construida **solo en local** y aprobada visual y estructuralmente el 2026-10-29, con contenido provisional (commit local, sin push); siguen pendientes de validación con la oficina los formularios reales, adjuntos, pagos, notificaciones y requisitos oficiales ([Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18) |
 | 6 | Contacto | Implementada y publicada (2026-10-18 a 2026-10-24), no congelada: Google Forms y Google Maps embebidos; el Hero con imagen se publicó el 2026-10-24 (commit `a8406b2`) |
 
 «Implementada» se refiere a la estructura: el contenido real, su validación con la parroquia y la aceptación final siguen pendientes en las cinco páginas existentes (sección 8.6).
 
-Páginas de segundo nivel (posteriormente, según alcance e información validada; pendientes de implementación): Sacramentos, Gestiones, Documentos e información, páginas individuales de grupos, y otras páginas internas futuras.
+Páginas de segundo nivel (posteriormente, según alcance e información validada; pendientes de implementación): páginas individuales de grupos y otras páginas internas futuras. Servicios parroquiales ya no tiene páginas de segundo nivel.
 
 ### 8.5 Ciclo de trabajo por página
 
@@ -256,7 +253,7 @@ Se distinguen tres estados que no deben confundirse:
 2. **Incorporación y validación de contenido real:** sustitución de placeholders y contenido provisional por información suministrada o validada por la parroquia.
 3. **Aceptación final:** etapa posterior, tras incorporar el contenido real, validar y atender los ajustes.
 
-Este congelamiento aplica solo a las cuatro páginas indicadas. Transmisiones está **implementada y publicada, pero no congelada**. Contacto está implementado y publicado (sin congelar); Servicios parroquiales, Sacramentos, Gestiones y Documentos e información cuentan con diseño conceptual (sección 6), pero **no están implementados ni congelados**: seguirán el ciclo de la sección 8.5 cuando se autorice su desarrollo. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
+Este congelamiento aplica solo a las cuatro páginas indicadas. Transmisiones está **implementada y publicada, pero no congelada**. Contacto está implementado y publicado (sin congelar); Servicios parroquiales (página única) cuenta con diseño conceptual (sección 6) y una fase 1 solo en local, pero **no está publicada ni congelada**: sigue el ciclo de la sección 8.5. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
 
 ## 9. Estado del diseño
 

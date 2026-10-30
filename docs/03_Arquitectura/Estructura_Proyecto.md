@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Estructura_Proyecto.md |
-| Versión | 1.10 |
+| Versión | 1.12 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-24 |
+| Última actualización | 2026-10-29 |
 | Estado | Vigente |
 | Fuente | Estado real del repositorio + [CLAUDE.md](../../CLAUDE.md) sección 11 |
 
@@ -29,7 +29,9 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 ├── assets/                     # Recursos estáticos
 │   ├── css/                    # variables.css, main.css, components.css (globales);
 │   │                           # home.css, parroquia.css, grupos.css, calendario.css, transmisiones.css, contacto.css (por página)
+│   │                           # y, solo en local, servicios-parroquiales.css
 │   ├── js/                     # grupos.js, solicitud-grupos.js, proximos-eventos.js, transmisiones.js, galeria-parroquia.js
+│   │                           # y, solo en local, servicios-parroquiales.js
 │   ├── fonts/                  # (vacía)
 │   ├── icons/                  # favicon-32x32.png, apple-touch-icon.png
 │   ├── downloads/              # (vacía)
@@ -68,8 +70,8 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 
 | Carpeta | Propósito | Estado actual |
 |---|---|---|
-| `assets/css/` | Hojas de estilo del proyecto | Con contenido: 3 globales y 6 específicas de página |
-| `assets/js/` | Scripts JavaScript del sitio | Con contenido: `grupos.js`, `solicitud-grupos.js`, `proximos-eventos.js`, `transmisiones.js` y `galeria-parroquia.js` |
+| `assets/css/` | Hojas de estilo del proyecto | Con contenido: 3 globales y 6 específicas de página (más `servicios-parroquiales.css`, solo en local) |
+| `assets/js/` | Scripts JavaScript del sitio | Con contenido: `grupos.js`, `solicitud-grupos.js`, `proximos-eventos.js`, `transmisiones.js` y `galeria-parroquia.js` (más `servicios-parroquiales.js`, solo en local) |
 | `assets/img/` | Imágenes, organizadas por categoría (eventos, galería, grupos, logo, parroquia, sacerdotes, transmisiones — detalle en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md)) | Con contenido: `logo/` (`Logo.jpeg`) y `parroquia/` (recreaciones digitales en PNG y WebP; ver [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 12); el resto, vacías |
 | `assets/fonts/` | Tipografías locales, si aplica | Vacía |
 | `assets/icons/` | Iconografía propia (más allá de Bootstrap Icons) | Con contenido: favicon de 32 px y `apple-touch-icon.png`; el `favicon.ico` vive en la raíz |
@@ -90,7 +92,7 @@ El repositorio contenía adicionalmente un conjunto de carpetas vacías bajo `do
 
 ## 5. Mapa del sitio
 
-**Parcial.** Páginas implementadas: Inicio (`index.html`) y, en `pages/`, Parroquia, Grupos, Calendario, Transmisiones y Contacto. Aún no existen las páginas de Servicios parroquiales (y sus páginas de segundo nivel), aunque la navegación global ya enlaza a ellas. La arquitectura de navegación conceptual aprobada está en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 4. Un mapa del sitio formal, ligado a requerimientos funcionales confirmados, sigue pendiente (ver nota de contradicción en [Alcance.md](../01_Gestion_Proyecto/Alcance.md), sección 5, todavía no actualizada respecto a esta arquitectura conceptual).
+**Parcial.** Páginas implementadas: Inicio (`index.html`) y, en `pages/`, Parroquia, Grupos, Calendario, Transmisiones y Contacto. Existe, **solo en local y sin publicar**, la fase 1 de Servicios parroquiales (`pages/servicios-parroquiales.html`, contenido provisional; [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18), enlazada desde el menú principal y el footer de todas las páginas. Servicios parroquiales es una **única página** (decisión del 2026-10-29): se retiró el submenú y no habrá páginas de segundo nivel (Sacramentos, Gestiones, Documentos e información). La arquitectura de navegación conceptual aprobada está en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 4. Un mapa del sitio formal, ligado a requerimientos funcionales confirmados, sigue pendiente (ver nota de contradicción en [Alcance.md](../01_Gestion_Proyecto/Alcance.md), sección 5, todavía no actualizada respecto a esta arquitectura conceptual).
 
 ---
 

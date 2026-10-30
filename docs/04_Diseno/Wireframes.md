@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Wireframes.md |
-| Versión | 1.1 |
+| Versión | 1.2 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-09-16 |
+| Última actualización | 2026-10-29 |
 | Estado | **Parcial** |
 | Fuente | [Diseno_Conceptual_Aprobado.md](Diseno_Conceptual_Aprobado.md) |
 
@@ -21,7 +21,7 @@ No se elaboraron wireframes de baja fidelidad independientes. En su lugar, se ap
 
 Estos diseños **no constituyen una fuente oficial de datos** — ver la aclaración completa en [Diseno_Conceptual_Aprobado.md](Diseno_Conceptual_Aprobado.md), sección 2.1.
 
-Las páginas internas de Servicios parroquiales (Sacramentos, Gestiones, Documentos e información) todavía no tienen wireframe ni diseño conceptual propio — su contenido queda pendiente del levantamiento con la oficina parroquial.
+Servicios parroquiales es una única página (decisión del 2026-10-29); sus dos bloques desplegables se construyeron a partir de dos referencias conceptuales aportadas por el responsable, que todavía no se han guardado en `Referencias_Conceptuales/` (ver [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18.2). El contenido definitivo queda pendiente del levantamiento con la oficina parroquial.
 
 ## 3. Registro de páginas
 
@@ -32,11 +32,9 @@ Las páginas internas de Servicios parroquiales (Sacramentos, Gestiones, Documen
 | Grupos | [Referencias_Conceptuales/Diseño Pagina Grupos.png](Referencias_Conceptuales/Diseño%20Pagina%20Grupos.png) | Aprobado (alta fidelidad) |
 | Calendario | [Referencias_Conceptuales/Diseño Pagina Calendario.png](Referencias_Conceptuales/Diseño%20Pagina%20Calendario.png) | Aprobado (alta fidelidad) |
 | Transmisiones | [Referencias_Conceptuales/Diseño Pagina Transmisiones.png](Referencias_Conceptuales/Diseño%20Pagina%20Transmisiones.png) | Aprobado (alta fidelidad) |
-| Servicios parroquiales (portada de la sección) | [Referencias_Conceptuales/Diseño Pagina Servicios.png](Referencias_Conceptuales/Diseño%20Pagina%20Servicios.png) | Aprobado (alta fidelidad) |
+| Servicios parroquiales (portada de la sección) | [Referencias_Conceptuales/Diseño Pagina Servicios.png](Referencias_Conceptuales/Diseño%20Pagina%20Servicios.png) | Sustituido el 2026-10-29: la sección es una página única con dos bloques desplegables (referencia histórica) |
 | Contacto | [Referencias_Conceptuales/Diseño Pagina Contacto.png](Referencias_Conceptuales/Diseño%20Pagina%20Contacto.png) | Aprobado (alta fidelidad) |
-| Sacramentos | — | Pendiente |
-| Gestiones | — | Pendiente |
-| Documentos e información | — | Pendiente |
+| Sacramentos, Gestiones y Documentos e información | — | Descartadas el 2026-10-29 (Servicios parroquiales es una única página) |
 
 ## 4. Estado
 

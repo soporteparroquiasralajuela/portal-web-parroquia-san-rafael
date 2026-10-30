@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Componentes_UI.md |
-| Versión | 1.13 |
+| Versión | 1.15 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-25 |
+| Última actualización | 2026-10-29 |
 | Estado | Vigente — registro de uso real al 2026-10-25 |
 | Fuente | [Bootstrap.md](../05_Desarrollo/Bootstrap.md) (inventario canónico); [CLAUDE.md](../../CLAUDE.md) sección 7 |
 
@@ -23,9 +23,10 @@ El inventario y las reglas de uso de los componentes Bootstrap autorizados **no 
 
 | Componente | Páginas | Notas |
 |---|---|---|
-| Navbar, Collapse y Dropdown | Las seis | `navbar-expand-xl`: menú expandido desde 1200 px y colapsado por debajo; submenú de Servicios parroquiales |
+| Navbar y Collapse | Las seis y Servicios parroquiales (local) | `navbar-expand-xl`: menú expandido desde 1200 px y colapsado por debajo; «Servicios parroquiales» es un enlace directo, sin submenú (desde el 2026-10-29, local) |
 | Carousel | Inicio | Carrusel de tres imágenes (recreaciones digitales), sin rotación automática. Parroquia ya no usa carrusel: su galería es un mosaico |
-| Modal | Parroquia | Visor ampliado de la galería, a pantalla completa (`modal-fullscreen`) |
+| Modal | Parroquia; Servicios parroquiales (solo en local) | Parroquia: visor ampliado de la galería, a pantalla completa (`modal-fullscreen`). Servicios parroquiales: aviso «¡Solicitud recibida!» centrado, que solo se abre tras un envío exitoso |
+| Accordion | Servicios parroquiales (solo en local) | Dos acordeones independientes (requisitos y solicitudes), un panel abierto a la vez por sección (`data-bs-parent`) y tema propio con las variables `--bs-accordion-*` |
 | Grid, Cards, Buttons y utilidades | Las seis | Uso general |
 | Tabs / Pills | Grupos | Directorio de grupos (ver [JavaScript.md](../05_Desarrollo/JavaScript.md)) |
 
@@ -54,6 +55,7 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 | Hero de Transmisiones (`.transmisiones-hero`) | `transmisiones.css` | Transmisiones | Imagen `herotransmisiones` (WebP responsivos), título con segunda línea dorada, frase introductoria y tres barras doradas; apilado por debajo de 992 px y superpuesto con degradado azul desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero de Contacto (`.contacto-hero`) | `contacto.css` | Contacto | Imagen `herocontacto` (WebP responsivos; recreación digital), título blanco, subtítulo dorado y texto de apoyo; apilado por debajo de 992 px y superpuesto con degradado azul horizontal (el de Transmisiones) desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Transición hacia el footer (`.wave-transition`) | CSS de cada página (copia local) | Las seis | Cinta navy/dorada sin insignia; no cambió |
+| Página Servicios parroquiales (`.servicios-*`, `.solicitud-form`) | `servicios-parroquiales.css` | Servicios parroquiales (solo en local) | Hero sin fotografía (variante compacta), tarjeta de sección con encabezado e ícono dorado suave, panel con aviso de contenido provisional, recuadro de documento PDF deshabilitado, nota «Importante» y formularios preliminares sin envío. Íconos en azul institucional sobre el dorado institucional al 16 %; botón de descarga habilitado con `.btn-primary` y deshabilitado neutro y punteado. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18 |
 | Título de tarjeta con ícono (`.titulo-icono`) | `components.css` | Parroquia (Misión, Visión, Valores y Nuestra comunidad) y Transmisiones (Misas, Hora Santa, Actividades y Eventos especiales) | Poppins 600, azul institucional `--color-primary`, `--fs-body` (16 px; 18 px desde 1200 px), interlineado `--lh-heading` y margen inferior de 4 px. Se aplica junto a la clase propia del componente, que conserva solo el espacio hacia la descripción (6 px en Parroquia). Sustituye a `.h6` de Bootstrap en Parroquia y a la regla propia `.transmisiones-categoria__titulo`. Inicio no lo usa todavía (decisión pendiente de la primera etapa tipográfica). Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Marcador de imagen (`.img-placeholder`) y etiqueta (`.eyebrow`) | `components.css` | Varias | Utilidades compartidas |
 

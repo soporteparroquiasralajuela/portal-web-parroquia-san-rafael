@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 08_Manuales/Manual_Tecnico.md |
-| Versión | 2.7 |
+| Versión | 2.9 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-25 |
+| Última actualización | 2026-10-29 |
 | Estado | Vigente (estado actual del proyecto) |
 
 ---
@@ -55,14 +55,14 @@ Ver el detalle completo en [Estructura_Proyecto.md](../03_Arquitectura/Estructur
 | Elemento | Estado |
 |---|---|
 | `index.html` | Implementado — página de Inicio (ver sección 9) |
-| `pages/` | Contiene `parroquia.html`, `grupos.html`, `calendario.html`, `transmisiones.html` y `contacto.html` (implementadas y publicadas) |
-| `assets/css` | Estilos globales (`variables.css`, `main.css`, `components.css`) y específicos de página (`home.css`, `parroquia.css`, `grupos.css`, `calendario.css`, `transmisiones.css`, `contacto.css`); `components.css` incluye la navegación, el footer, el botón flotante de WhatsApp y el sistema compartido de Heroes interiores (`.hero-interior`, `.hero-curva`; sección 13) |
-| `assets/js` | `grupos.js` (comportamiento móvil de Grupos), `proximos-eventos.js` (tarjetas de Próximos eventos de Inicio) y `transmisiones.js` (estados del reproductor y videos recientes de Transmisiones), `galeria-parroquia.js` (visor ampliado de la galería de Parroquia) y `solicitud-grupos.js` (formulario de solicitud de información de Grupos). El resto de la interactividad (navbar, dropdown, carrusel, pestañas, modal) usa el bundle de Bootstrap |
+| `pages/` | Contiene `parroquia.html`, `grupos.html`, `calendario.html`, `transmisiones.html` y `contacto.html` (implementadas y publicadas) y, solo en local, `servicios-parroquiales.html` (fase 1 provisional, sección 18) |
+| `assets/css` | Estilos globales (`variables.css`, `main.css`, `components.css`) y específicos de página (`home.css`, `parroquia.css`, `grupos.css`, `calendario.css`, `transmisiones.css`, `contacto.css` y, solo en local, `servicios-parroquiales.css`); `components.css` incluye la navegación, el footer, el botón flotante de WhatsApp y el sistema compartido de Heroes interiores (`.hero-interior`, `.hero-curva`; sección 13) |
+| `assets/js` | `grupos.js` (comportamiento móvil de Grupos), `proximos-eventos.js` (tarjetas de Próximos eventos de Inicio) y `transmisiones.js` (estados del reproductor y videos recientes de Transmisiones), `galeria-parroquia.js` (visor ampliado de la galería de Parroquia) y `solicitud-grupos.js` (formulario de solicitud de información de Grupos) y, solo en local, `servicios-parroquiales.js` (validación de los formularios preliminares y aviso de solicitud recibida). El resto de la interactividad (navbar, carrusel, pestañas, acordeones, modal) usa el bundle de Bootstrap |
 | `netlify/functions/` | `proximos-eventos.mjs` — Netlify Function de Google Calendar (sección 10) y `transmision-actual.mjs` — Netlify Function de YouTube (sección 11) |
 | `favicon.ico` y `assets/icons/` | Favicon institucional (`favicon.ico` en la raíz; `favicon-32x32.png` y `apple-touch-icon.png` en `assets/icons/`), sección 12.3 |
 | `assets/img/` | `logo/Logo.jpeg` y `parroquia/` (imágenes PNG con sus versiones WebP), sección 12; las demás subcarpetas siguen vacías |
 | `components/`, `config/`, `data/`, `scripts/` | Vacíos |
-| Funcionalidad | Inicio, Parroquia, Grupos, Calendario, Transmisiones y Contacto implementadas y desplegadas; integración con Google Calendar completada y operativa; integración con YouTube funcional dentro del alcance aprobado (validada con una transmisión pública real; la visualización automática de grabaciones de transmisiones finalizadas está excluida del alcance). Aún sin desarrollar: Servicios parroquiales (y sus páginas de segundo nivel). Estructura de las cuatro páginas congeladas (Inicio, Parroquia, Grupos y Calendario) en línea base temporal; Transmisiones y Contacto **no están congeladas**; contenido real pendiente de incorporación y validación (sección 9) |
+| Funcionalidad | Inicio, Parroquia, Grupos, Calendario, Transmisiones y Contacto implementadas y desplegadas; integración con Google Calendar completada y operativa; integración con YouTube funcional dentro del alcance aprobado (validada con una transmisión pública real; la visualización automática de grabaciones de transmisiones finalizadas está excluida del alcance). Servicios parroquiales: página única (sin páginas de segundo nivel), fase 1 (estructura y diseño visual) en local y provisional, sin publicar (sección 18). Estructura de las cuatro páginas congeladas (Inicio, Parroquia, Grupos y Calendario) en línea base temporal; Transmisiones y Contacto **no están congeladas**; contenido real pendiente de incorporación y validación (sección 9) |
 
 ## 7. Gobierno técnico
 
@@ -110,7 +110,7 @@ Estar en el primer estado no implica haber cumplido el segundo ni el tercero.
 - Navegación común (sección 9.8), footer y botón flotante de WhatsApp, en su estructura y comportamiento actuales.
 - Referencia de código: la línea base se estableció sobre el commit `2853c32`. Los cambios posteriores publicados sobre estas páginas, todos con autorización puntual y sin levantar el congelamiento, son: el enlace de ubicación de «Próximos eventos» (commit `7b0b821acfefbc5822b2faf7b9b90a943d895352`, sección 9.12); la referencia al calendario secundario del sitio web en la página Calendario (commit `4bfa4e2276cc5018cfab86985cb591e2a067a2f5`, 2026-10-13); y el enlace del ícono de YouTube del pie de página al canal oficial en Inicio, Parroquia, Grupos y Calendario (commit `26f5dad0709433d3f71a4d9f466f88ca892442d7`, 2026-10-14). No se creó ninguna etiqueta (tag) de Git para esta línea base.
 
-**No incluido:** Transmisiones y Contacto (implementadas y publicadas, pero **no congeladas**) y Servicios parroquiales, Sacramentos, Gestiones y Documentos e información (todavía no existen como páginas implementadas). Estas secciones cuentan con diseño conceptual y decisiones previas ([Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 6) y con enlaces ya presentes en la navegación, pero eso es distinto de una implementación existente y no está congelado.
+**No incluido:** Transmisiones y Contacto (implementadas y publicadas, pero **no congeladas**) y Servicios parroquiales (página única; fase 1 solo en local y sin publicar, sección 18), que no está congelada. Cuenta con diseño conceptual y decisiones previas ([Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 6), pero eso es distinto de una implementación publicada.
 
 **Estado de Transmisiones (2026-10-14):** página implementada y **publicada** (`pages/transmisiones.html`, `assets/css/transmisiones.css` y `assets/js/transmisiones.js`; commits `45416f28174fb5c253c8944ea882ab70e1c9bccc` y `27560ca0a6d6b36f53ab0100fa9aa5a1b7f4c461`), conectada con YouTube mediante la Netlify Function `transmision-actual` (commit `cf3b751d5f60070991e6bd3136984b12a169190f`). La Fase 1 visual del 2026-10-11 corresponde al commit `3f23ba40b18216e2059e60d059794ad796ea92fb` (citado antes como `c3d7ad9`; el contenido es idéntico y solo cambió el identificador por un rebase). Está **funcional y completada dentro del alcance aprobado**: validada con una transmisión pública real (detección, reproducción integrada y retiro automático) y con un video público normal. **No está congelada** y su contenido editorial y multimedia (por ejemplo, la fotografía institucional) sigue siendo provisional. **Fuera del alcance:** la visualización automática de grabaciones de transmisiones finalizadas, excluida por decisión del proyecto tras una investigación técnica (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md), sección 10).
 
@@ -194,13 +194,13 @@ Ninguna integración planificada o visual debe considerarse implementada por el 
 
 ### 9.8 Navegación común
 
-Verificada en el código e idéntica en las seis páginas implementadas (las cuatro congeladas, Transmisiones y Contacto):
+Verificada en el código e idéntica en las siete páginas (las cuatro congeladas, Transmisiones, Contacto y, solo en local, Servicios parroquiales):
 
-`Inicio · Parroquia · Grupos · Calendario · Transmisiones · Servicios parroquiales ▾ · Contacto`
+`Inicio · Parroquia · Grupos · Calendario · Transmisiones · Servicios parroquiales · Contacto`
 
-con el submenú de Servicios parroquiales: `Sacramentos · Gestiones · Documentos e información`. No incluye buscador. Coincide con la arquitectura de navegación aprobada ([Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md), sección 4) y forma parte de la línea base: no se modifica sin autorización (sección 9.10).
+No incluye buscador. Desde el 2026-10-29 (local, sin push) «Servicios parroquiales» es un **enlace directo** a `servicios-parroquiales.html`, sin submenú ni flecha: el submenú anterior (Sacramentos, Gestiones y Documentos e información) se retiró por decisión de arquitectura de información, ya que Servicios parroquiales es una única página (secciones 9.10 y 18.3). El menú forma parte de la línea base: no se modifica sin autorización (sección 9.10).
 
-Hoy los enlaces a Sacramentos, Gestiones y Documentos e información apuntan a páginas **que aún no existen**, y en los footers «Servicios parroquiales» se muestra sin enlace para evitar un error 404. Es una consecuencia de las páginas pendientes, no una modificación pendiente de la navegación. Los enlaces a Transmisiones y Contacto (incluido `contacto.html#como-llegar`) apuntan a páginas existentes.
+También en los footers «Servicios parroquiales» pasó de texto sin enlace a enlace. Los enlaces a Transmisiones y Contacto (incluido `contacto.html#como-llegar`) apuntan a páginas existentes.
 
 **Adaptabilidad (2026-10-21):** el menú se expande desde 1200 px y se colapsa por debajo (`navbar-expand-xl`); ver sección 13. No cambiaron las opciones ni sus nombres.
 
@@ -230,6 +230,8 @@ Esta regla es compatible con [CLAUDE.md](../../CLAUDE.md) (secciones 12, 29.6 y 
 **Autorización puntual sobre la tipografía y los degradados de los Heroes interiores (2026-10-25, local, pendiente de liberación):** el responsable del proyecto fijó el título de Calendario como referencia única de los títulos de los cinco Heroes interiores y autorizó, en Parroquia, Grupos y Calendario (páginas de la línea base), los ajustes tipográficos necesarios y el refuerzo de los degradados de Parroquia y Grupos, solo en la medida necesaria para que el acento dorado del título alcance un contraste de 3:1 (sección 13). Inicio quedó excluido y no se modificó; tampoco se tocaron fotografías, alturas, doble curva, navegación, footer, formularios ni textos.
 
 **Autorización puntual sobre los títulos de las tarjetas con íconos de Parroquia (2026-10-25, local, pendiente de liberación):** el responsable del proyecto aprobó que «Misión», «Visión», «Valores» y «Nuestra comunidad» (Parroquia, página de la línea base) usen el mismo tratamiento tipográfico que las categorías de Transmisiones mediante la clase compartida `.titulo-icono` (sección 13). Solo se modificaron las cuatro etiquetas de título de Parroquia (la clase `h6` por `titulo-icono`) y, en Transmisiones, la misma clase junto con el traslado de su regla a `components.css`; no se tocaron íconos, descripciones, espacios entre tarjetas, estructura, Inicio ni el resto de la tipografía de la auditoría.
+
+**Autorización puntual sobre la navegación relacionada con Servicios parroquiales (2026-10-29, local, sin push):** el responsable del proyecto aprobó que «Servicios parroquiales» sea una única página y autorizó retirar el submenú anterior y convertir la opción en un enlace directo en todas las páginas que usan la navegación institucional (Inicio, Parroquia, Grupos, Calendario, Transmisiones y Contacto, más la nueva). La autorización cubre **exclusivamente** esa navegación (el menú principal, su versión móvil y el enlace del footer); no autoriza rediseñar contenidos, Heroes, tipografías ni otras secciones, y no se tocaron. Detalle en la sección 18.3.
 
 ### 9.11 Sustitución de contenido real
 
@@ -366,6 +368,7 @@ Las doce fotografías son **reales** (no recreaciones digitales) y de calidad de
 Resumen; el registro de uso está en [Componentes_UI.md](../04_Diseno/Componentes_UI.md).
 
 - **Navegación:** `navbar-expand-xl`. Desde 1200 px el menú se muestra expandido; por debajo, colapsado. Antes se expandía desde 992 px y la marca más los siete elementos (~1105 px) no cabían en el contenedor de 960 px, con desborde horizontal entre ≈ 992 y 1159 px (incidencia resuelta, [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md)). Entre 1200 y 1399 px se acorta el relleno lateral de los enlaces (`components.css`). Por debajo de 576 px el nombre de la marca puede pasar a dos líneas (a 320 px no cabía en una).
+- **Menú «Servicios parroquiales» (2026-10-29, local):** enlace directo a la página única de servicios, sin submenú ni flecha; el menú móvil lo muestra como una opción más y, en la página, aparece como activa. Cada HTML tiene su propia copia del menú, por lo que el cambio se replicó en las siete páginas (secciones 9.8 y 18.3).
 - **Footer estandarizado** (igual en las seis páginas): marca, enlaces rápidos, bloque «Contáctanos» (teléfono 2438-0379, WhatsApp 6170-5997, correo, ubicación y horario administrativo) y redes sociales (Facebook y YouTube; Instagram no se usa). «Servicios parroquiales» aparece sin enlace hasta que exista la página. El HTML del navbar y del footer está duplicado en cada página (no hay includes ni JavaScript): **todo cambio debe replicarse en las seis páginas**.
 - **Botón flotante de WhatsApp:** enlace real a `https://wa.me/50661705997` (nueva pestaña, `rel="noopener noreferrer"`, nombre accesible), idéntico en las seis páginas. El espacio inferior del footer reserva sitio **a la derecha** para que no tape el texto.
 - **Altura común de los Heroes interiores (`.hero-interior`, `components.css`; 2026-10-24, publicado en `a8406b2`):** Parroquia, Grupos, Calendario, Transmisiones y Contacto comparten una altura mínima de referencia, `--hero-min-height`: 460 px en móvil, 520 px entre 768 y 991 px y, desde 992 px, `min(clamp(520px, 42vw, 620px), max(480px, 100vh − --navbar-height − 100px))` (605 px a 1440 px; 620 px a 1920 px). El segundo término evita que el Hero ocupe toda la pantalla en ventanas poco altas y deja a la vista ≈ 100 px de la sección siguiente. Es un **mínimo**: si el contenido es más alto, el Hero crece y no se recorta ningún texto ni botón (por eso Grupos, con su cita, mide 607 px a 768 px y los Heroes apilados de móvil miden entre 484 y 570 px). Cada página añade la clase `hero-interior` a su `<section>` (que aporta `position: relative`, `isolation: isolate` y la altura) y conserva en su hoja solo lo propio de su composición: imagen, degradado, textos y relleno inferior `calc(var(--hero-curva-height) + …)`. En los Heroes apilados (Grupos, Calendario, Transmisiones y Contacto, por debajo de 992 px) la imagen va arriba y, desde 768 px, se limita a una franja de `clamp(260px, 40vw, 380px)` para que el total se acerque a la referencia. **Excepción justificada:** la variante `.hero-interior--compacto` (≈ 80 % de la referencia: `--hero-min-height-compacto`, 400 px en móvil, 440 px en tableta y entre 420 y 500 px desde 992 px) está pensada para Heroes que todavía no tienen fotografía (a la altura completa quedarían casi vacíos). **A la fecha ninguna página la usa:** Transmisiones y Contacto la utilizaron hasta incorporar su fotografía (2026-10-24) y ya adoptan la altura de referencia. Sigue definida en `components.css` para páginas futuras, por ejemplo las de Servicios parroquiales. **Inicio** es la portada y conserva una altura algo mayor (`home.css`): 620 px en móvil, 600 px en tableta y, desde 992 px, la referencia + 30 px; en móvil y tableta el texto va sobre la base de la imagen y necesita espacio libre arriba para que se vean las torres.
@@ -476,6 +479,73 @@ Aprobados visualmente por el responsable del proyecto como parte de la primera e
 | Excluido | Inicio (sus títulos de información complementaria de horarios no cambian), íconos, descripciones, estructura, URL de fuentes y las demás decisiones de la auditoría tipográfica (cursivas reales, token de eyebrow, bajadas, lemas, etiquetas y valores, enlaces) |
 | Validaciones | VR-23 en [Evidencias.md](../06_Pruebas/Evidencias.md) |
 | Capturas | Carpeta local no versionada `_capturas_revision/tipografia_etapa1/` (propuesta completa de la etapa y resultado aprobado en `09_valores_parroquia_aprobado.png`) |
+
+## 18. Servicios parroquiales — Fase 1: estructura y diseño visual (2026-10-29, local)
+
+Primera versión visual y funcional **solo en local** (guardada en un commit local, sin push ni despliegue) de la página Servicios parroquiales, construida a partir de dos diseños conceptuales aportados por el responsable del proyecto (sección «Requisitos y preparación» y sección «Solicitudes parroquiales»). El contenido es **provisional**: no se inventaron requisitos, fechas, documentos ni procedimientos. El responsable del proyecto aprobó la **base visual y estructural** el 2026-10-29; los formularios reales, los adjuntos, los pagos, las notificaciones y los requisitos oficiales siguen pendientes de validación con la oficina parroquial.
+
+| Aspecto | Detalle |
+|---|---|
+| Archivos nuevos | `pages/servicios-parroquiales.html`, `assets/css/servicios-parroquiales.css` y `assets/js/servicios-parroquiales.js`. No se modificó el contenido de las páginas existentes; sí su menú y su footer, y se retiraron las reglas del submenú de `components.css` (sección 18.3) |
+| Estructura | Navegación y footer globales (idénticos a los de las demás páginas) → Hero interior → sección **Requisitos y preparación** → sección **Solicitudes parroquiales** → bloque «¿Necesitás más información?» (enlace a Contacto) → footer. Las dos secciones están **una debajo de la otra**, sin pestañas principales |
+| Hero | Sistema compartido (`.hero-interior`, `.hero-title`, `.hero-text`, `.hero-curva`). Como aún no hay fotografía usa la variante `.hero-interior--compacto` sobre el azul institucional; al recibir la imagen se agrega un `<picture>` y se quita la variante, como en los demás Heroes. Título «Servicios **parroquiales**» (acento dorado) y la frase provisional «Estamos para acompañarte en cada etapa de tu vida de fe.» |
+| Acordeones | Bootstrap Accordion (sin JavaScript propio): **un panel abierto a la vez por sección** (`data-bs-parent`) y dos acordeones independientes. Cada sección abre su primer panel de forma predeterminada. Requisitos: Bautizo, Matrimonio, Confirmación y Catequesis bautismal. Solicitudes: misas, constancias, visita de ministro, comunión para enfermos y unción de los enfermos. Los encabezados de panel son `h3` con botón, con `aria-expanded` y `aria-controls`, foco visible y teclado nativo (Tab, Intro y Espacio) |
+| Paneles de requisitos | Descripción, fecha, requisitos y recuadro del documento PDF (a la derecha en escritorio y apilado en móvil). El botón de descarga está **deshabilitado** («Descarga no disponible todavía») y no enlaza a ningún archivo: no existen documentos oficiales. Cada panel lleva el aviso «Contenido provisional» |
+| Paneles de solicitud | Columna izquierda con la descripción y la nota «Importante» y columna derecha con el formulario (una sola columna por debajo de 992 px). Campos ilustrativos, marcados como pendientes de validar con la oficina parroquial; los de adjuntos (`type="file"`) están deshabilitados. La unción de los enfermos incluye un espacio visual para el canal de contacto directo en casos urgentes (sin número: pendiente de confirmación). No se solicita información médica |
+| Formularios | `.solicitud-form`: sin `action`, sin `method` y **sin `data-netlify`**, por lo que Netlify no los registra. El script valida en el navegador (obligatorios, correo, teléfono de al menos 8 dígitos y consentimiento) con mensajes en español y, como el envío aún no existe, muestra «la solicitud no fue enviada». No hay campo trampa, almacenamiento de archivos, notificación por correo ni pagos |
+| Aviso «¡Solicitud recibida!» | Ventana emergente de Bootstrap (`#solicitudRecibida`) con el texto aprobado y el botón «Entendido». Solo se abre si `enviarSolicitud()` se resuelve; en esta fase esa función siempre se rechaza, de modo que **no aparece si el envío falla ni mientras no haya envío**. Ayuda de revisión: la URL con `?vista-previa=confirmacion` la muestra sin enviar nada (retirar al activar el envío real) |
+| Integración futura | Basta sustituir `enviarSolicitud()` (resolver solo ante la confirmación del servidor), definir los campos con la oficina y decidir el mecanismo de envío y notificación. Un envío con adjuntos o pagos exigirá una decisión de arquitectura aparte (la excepción serverless de CLAUDE.md sección 29.8 cubre solo dos Functions) |
+| Navegación | «Servicios parroquiales» es un enlace directo a la página, sin submenú, en el menú principal (escritorio y móvil) y en el footer de todas las páginas; en esta página aparece como activo (sección 18.3) |
+| Robots | La página lleva `noindex, nofollow` mientras su contenido sea provisional; se retira al publicarla |
+| Estilos | `servicios-parroquiales.css` define el Hero, las tarjetas de sección, el tema del acordeón, los paneles, los formularios (patrón visual del formulario de Grupos, reproducido sin importar `grupos.css`), la ventana emergente y el bloque final. Usa los tokens existentes; los únicos valores propios son dos tintes derivados de la paleta (`--servicios-tinte-azul` y `--servicios-tinte-dorado`) y la flecha del acordeón (un data URI en `#1D2A54`) |
+
+### 18.1 Información pendiente de confirmar con la oficina parroquial
+
+- Requisitos, descripciones, fechas y documentos PDF de Bautizo, Matrimonio, Confirmación y Catequesis bautismal. La fecha de Bautizo («segundo sábado de cada mes a las 10:00 a. m.») es un dato preliminar que debe reconfirmarse antes de publicarse como oficial.
+- Campos exactos y obligatoriedad de cada formulario; tipos de constancia y datos para localizar el registro; instrucciones de contribución o pago de las misas (sin montos ni reglas de cobro) y si aplica el comprobante de SINPE Móvil.
+- Tipo, tamaño y almacenamiento de los adjuntos (comprobantes, documentación y fotografía de la vivienda).
+- Canal de contacto directo para situaciones urgentes (unción de los enfermos), anticipación y condiciones de las visitas, y texto legal del consentimiento.
+- Correo oficial que recibirá las solicitudes y mecanismo de seguimiento.
+
+### 18.2 Decisiones que requieren aprobación del responsable
+
+Resueltas el 2026-10-29: la arquitectura definitiva de la sección es **una única página con dos bloques desplegables** (el diseño conceptual anterior, `Diseño Pagina Servicios.png`, que preveía una portada con tres páginas de segundo nivel, queda sustituido) y se accede a ella con un enlace directo en el menú, sin submenú (sección 18.3).
+
+Pendientes:
+
+1. **Hero sin fotografía:** aprobar el Hero compacto sobre el azul institucional o proporcionar la imagen.
+2. **Referencias conceptuales:** si las dos imágenes de referencia (requisitos y solicitudes) se guardan en `docs/04_Diseno/Referencias_Conceptuales/`.
+3. **Consentimiento y contenido provisional** de cada formulario (sección 18.1).
+
+### 18.3 Ajustes del 2026-10-29: íconos, botones de descarga y navegación
+
+Aprobada la página conceptualmente por el responsable del proyecto, se hicieron tres ajustes puntuales, aprobados por el responsable el 2026-10-29 y guardados en el mismo commit local:
+
+| Ajuste | Detalle |
+|---|---|
+| Íconos | Se conservan íconos, tamaños, círculos y posiciones. El círculo pasa del dorado claro `#F9C94C` al 30 % al dorado institucional `--color-secondary` al 16 % (`--servicios-tinte-dorado`) y el ícono, del ocre `--color-secondary-dark` al azul institucional `--color-primary`. Contraste medido: 11,2:1 en los círculos de los acordeones y 12,1:1 en los encabezados de sección, los datos, el aviso, la nota urgente y el bloque final. Sin colores nuevos |
+| Botón de descarga | Habilitado: `<a class="btn btn-primary" download>` con el estilo y los estados de «Enviar solicitud» (`.btn-primary`, main.css; azul `#1D2A54`, hover y activo `--color-primary-dark`). Deshabilitado (aún no existe el PDF): `<button disabled>` neutro (fondo `--color-border-light`, texto y borde punteado `--color-text-secondary`, contraste 5,75:1, sin sombra ni opacidad) con el texto «Descarga no disponible todavía». Antes Bootstrap lo pintaba con su azul de fábrica (el celeste). No enlaza a ningún archivo y el comportamiento no cambió. Para habilitarlo se sustituye el botón por el enlace (hay una nota en el HTML) |
+| Navegación | «Servicios parroquiales» es un **enlace directo** a `servicios-parroquiales.html` (en Inicio, `pages/servicios-parroquiales.html`), sin submenú ni flecha. Se retiraron Sacramentos, Gestiones y Documentos e información. Cada HTML conserva su propia copia del menú (no hay componente compartido ni includes), de modo que se actualizó en las siete páginas (Inicio, Parroquia, Grupos, Calendario, Transmisiones, Contacto y la nueva); en la nueva queda como enlace activo (`active` y `aria-current="page"`). Se enlazó también «Servicios parroquiales» en «Enlaces rápidos» del footer, que estaba sin enlace porque la página no existía. Se retiraron de `components.css` las tres reglas del submenú (`.site-navbar .dropdown-menu` y `.dropdown-item`), que ya no tenían a qué aplicarse, y la mención a «dropdown» en los comentarios del script de Bootstrap. No se tocó ninguna otra opción del menú |
+
+Verificación: VR-25 en [Evidencias.md](../06_Pruebas/Evidencias.md). Capturas comparativas locales no versionadas en `_capturas_revision/servicios_parroquiales/ajustes/`.
+
+### 18.4 Pendientes técnicos y funcionales
+
+La aprobación del 2026-10-29 corresponde únicamente a la **base visual y estructural**. Siguen pendientes de validación con la oficina parroquial los formularios reales, los adjuntos, los pagos, las notificaciones y los requisitos oficiales (sección 18.1).
+
+Pendientes técnicos:
+
+- **Envío real:** definir el mecanismo de envío y de notificación al correo oficial, el almacenamiento y los límites de los adjuntos y, si aplica, los pagos; sustituir `enviarSolicitud()` y probar los avisos de éxito y de error con envíos reales. Un envío con archivos o pagos exige una decisión de arquitectura aparte. Considerar la protección contra spam y duplicados que tiene el formulario de Grupos.
+- **Al activar el envío:** retirar la ayuda `?vista-previa=confirmacion` y la etiqueta `noindex, nofollow` cuando el contenido sea oficial.
+- **Documentos PDF:** sustituir los cuatro botones deshabilitados por enlaces `<a class="btn btn-primary" download>` cuando existan los archivos (nota en el HTML).
+- **Hero:** incorporar la fotografía y quitar `.hero-interior--compacto`, si el responsable la proporciona.
+- **Referencias conceptuales:** guardar o no las dos imágenes de referencia en `docs/04_Diseno/Referencias_Conceptuales/` (18.2).
+- **Foco del menú (preexistente):** Bootstrap pinta el foco de `.nav-link` con una sombra azul al 25 % que anula el contorno global de `main.css`; el indicador es tenue y afecta a todo el menú desde antes de estos cambios. Se propone un ajuste aparte, con autorización, porque toca un componente compartido.
+- **Estilos compartidos:** el formulario preliminar reproduce el patrón de Grupos y es candidato a `components.css`; si se aprueban las decisiones tipográficas pendientes (bajadas, lemas, etiquetas y valores) habrá que revisar qué clases comunes adopta esta página.
+- **Publicación:** la página se publicará con el primer push a `main` (despliegue automático de Netlify); hasta que el contenido sea oficial conviene mantener `noindex`.
+- **Pruebas no realizadas:** hover y foco en dispositivos reales y en otros navegadores; solo se probó con Chromium.
+
+Validaciones: VR-24 y VR-25 en [Evidencias.md](../06_Pruebas/Evidencias.md). Capturas locales no versionadas en `_capturas_revision/servicios_parroquiales/`.
 
 ---
 

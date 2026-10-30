@@ -139,23 +139,6 @@
   color: var(--color-primary);
 }
 
-.site-navbar .dropdown-menu {
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-hover);
-}
-
-.site-navbar .dropdown-item {
-  font-family: var(--font-accent);
-  font-size: var(--fs-body-sm);
-}
-
-.site-navbar .dropdown-item:hover,
-.site-navbar .dropdown-item:focus-visible {
-  background-color: var(--color-bg);
-  color: var(--color-primary);
-}
-
 /* ===== Footer ===== */
 .site-footer {
   background-color: var(--color-primary);
