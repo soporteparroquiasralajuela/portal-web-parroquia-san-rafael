@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.17 |
+| Versión | 1.18 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-10-24 |
+| Última actualización | 2026-10-29 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -33,6 +33,8 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 > **Incorporación de la Sesión 19 y conciliación general (2026-10-22):** el responsable del proyecto confirmó la fecha (jueves 22/10/2026), los dos bloques de trabajo (6:30 a. m. – 7:00 a. m., 30 minutos, y 7:30 p. m. – 11:00 p. m., 3 horas y 30 minutos) y el total efectivo (4 horas). Se auditaron las 18 sesiones previas y se contrastó este documento con la tabla por fase, con [Bitacora.md](Bitacora.md) y con el historial de Git: la duración de cada sesión coincide con su horario, no hay fechas repetidas ni horas contadas dos veces, la suma de las Sesiones 1 a 18 es de 52 horas (coincidente con el acumulado previo) y los encabezados de versión y fecha de ambas bitácoras estaban desactualizados (se actualizaron). Los encabezados de las Sesiones 1 a 3 pasan a numerarse explícitamente (antes solo llevaban la fecha); su contenido no cambió. El responsable confirmó que la Sesión 19 corresponde a la Fase 4, considerando las actividades de sus dos bloques; sus actividades se tomaron de las entradas técnicas del 22/10/2026 de [Bitacora.md](Bitacora.md) y la modalidad no fue indicada. Las Sesiones 1 a 18 y sus 52 horas no se modificaron; el acumulado pasa a 56 horas.
 
 > **Incorporación de la Sesión 20 (2026-10-24):** el responsable del proyecto indicó la fecha (sábado 24/10/2026), el horario (9:30 a. m. – 1:30 p. m.) y la duración (4 horas) de la jornada y solicitó registrar las actividades efectivamente realizadas según las evidencias y el historial del proyecto; se registra completa en la Fase 4, con el mismo criterio de las Sesiones 16 a 19 (la modalidad no fue indicada). Se verificó el acumulado previo (56 horas en 19 sesiones, coincidente con la suma de las Sesiones 1 a 19 y con la tabla por fase) y no se encontraron discrepancias ni fechas repetidas. Las actividades se tomaron de los commits del 24/10/2026 (`128d877`, `d3f6c46`, `ff4796c` y `86207df`) y de las entradas técnicas de [Bitacora.md](Bitacora.md). Las Sesiones 1 a 19 y sus 56 horas no se modificaron; el acumulado pasa a 60 horas. El responsable del proyecto aprobó el registro de la sesión y el acumulado de 60 horas en 20 sesiones, y solicitó complementar la descripción de las actividades, que se reorganizó en seis frentes de trabajo; este complemento no modificó la fecha, el horario, la duración, la fase ni los acumulados.
+
+> **Incorporación de la Sesión 21 (2026-10-29):** el responsable del proyecto indicó la fecha (jueves 29/10/2026), el horario (6:00 p. m. – 11:00 p. m.), la duración (5 horas) y las actividades de la jornada, que se registran a nivel general. El responsable del proyecto confirmó la clasificación de la sesión en la Fase 4, con el mismo criterio de las Sesiones 16 a 20. Se verificó el acumulado previo (60 horas en 20 sesiones, coincidente con la suma de las Sesiones 1 a 20 y con la tabla por fase) y no se encontraron discrepancias, fechas repetidas ni horas contadas dos veces. Las decisiones técnicas de la jornada ya están registradas en [Bitacora.md](Bitacora.md) y no se repiten aquí. Esta sesión no incluye envíos reales de formularios, pagos, documentos oficiales ni publicación en producción. Las Sesiones 1 a 20 y sus 60 horas no se modificaron; el acumulado pasa a 65 horas.
 
 ## Sesión 1 — 03/08/2026
 
@@ -472,6 +474,25 @@ El formulario de Grupos quedó funcional y habilitado, y los Heroes de las seis 
 
 ---
 
+## Sesión 21 — 29/10/2026
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica *(confirmada por el responsable del proyecto el 2026-10-29)*
+
+**Horario:** 6:00 p. m. – 11:00 p. m.
+
+**Horas dedicadas:** 5 horas
+
+**Labores realizadas** *(a nivel general, según lo indicado por el responsable del proyecto)*:
+1. **Análisis:** estudio de la información y los requerimientos suministrados por la oficina parroquial, identificando los servicios disponibles y las necesidades de información.
+2. **Conceptualización:** definición de la arquitectura de información y de la experiencia de usuario de Servicios parroquiales, organizada en dos bloques: Requisitos y preparación, y Solicitudes parroquiales.
+3. **Desarrollo inicial:** construcción de la primera versión de la página, con su estructura visual, paneles desplegables, formularios preliminares y adaptación a la identidad institucional.
+4. **Revisión y ajustes:** ajustes generales de colores, íconos, botones y navegación, junto con validaciones de responsividad y funcionamiento.
+
+**Resultado obtenido:**
+La primera versión de Servicios parroquiales quedó disponible en el entorno local y aprobada visual y estructuralmente por el responsable del proyecto, con su documentación técnica sincronizada y guardada en un commit local (`e76a398`). La página **no se ha publicado en producción** y su contenido es provisional: el envío real de los formularios, los adjuntos, los pagos, las notificaciones y los documentos y requisitos oficiales siguen pendientes de validación con la oficina parroquial (Manual técnico, sección 18).
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -496,8 +517,9 @@ El formulario de Grupos quedó funcional y habilitado, y los Heroes de las seis 
 | Sesión 18 (21/10/2026) | Fase 4 | Integración de imágenes de Parroquia, optimización WebP, gestión del incidente de créditos de Netlify y publicación controlada | 3 |
 | Sesión 19 (22/10/2026) | Fase 4 | Hero, curvas, imágenes de Inicio y Parroquia, carrusel, galería con mosaico y visor, documentación y liberación conjunta | 4 |
 | Sesión 20 (24/10/2026) | Fase 4 | Hero e introducción de Grupos, formulario con Netlify Forms, Heroes de Calendario, Transmisiones y Contacto, estandarización de alturas y doble curva, pruebas y documentación | 4 |
+| Sesión 21 (29/10/2026) | Fase 4 | Análisis, conceptualización, primera versión y ajustes de la página Servicios parroquiales (solo local) | 5 |
 
-**Total acumulado:** 60 horas en 20 sesiones, de las **150 horas oficiales** del TCU, es decir, el **40,00 %**; quedan **90 horas** para completar el requisito oficial (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17 + 3 de la Sesión 18 + 4 de la Sesión 19 + 4 de la Sesión 20)
+**Total acumulado:** 65 horas en 21 sesiones, de las **150 horas oficiales** del TCU, es decir, el **43,33 %**; quedan **85 horas** para completar el requisito oficial (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17 + 3 de la Sesión 18 + 4 de la Sesión 19 + 4 de la Sesión 20 + 5 de la Sesión 21)
 
 ---
 
@@ -510,14 +532,14 @@ Las fases y horas estimadas corresponden a la **planificación provisional** de 
 | Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 5 | 5 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 42 | 18 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 47 | 13 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 2 | 13 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **60** | **100** |
+| **Total** | — | **160** | **65** | **95** |
 
-> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas), 16 (3 horas), 17 (4 horas), 18 (3 horas), 19 (4 horas) y 20 (4 horas) se registran completas en la Fase 4.
+> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas), 16 (3 horas), 17 (4 horas), 18 (3 horas), 19 (4 horas), 20 (4 horas) y 21 (5 horas) se registran completas en la Fase 4.
 
-> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (60)** son las efectivamente trabajadas y no dependen de esa conciliación: 60 de 150 horas oficiales (40,00 %), con 90 horas pendientes respecto del requisito oficial.
+> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (65)** son las efectivamente trabajadas y no dependen de esa conciliación: 65 de 150 horas oficiales (43,33 %), con 85 horas pendientes respecto del requisito oficial.
 
 ---
 
