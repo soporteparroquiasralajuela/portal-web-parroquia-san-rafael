@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 07_Despliegue/Netlify.md |
-| Versión | 1.8 |
+| Versión | 1.9 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-24 |
+| Última actualización | 2026-10-29 |
 | Estado | **Parcial** |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), sección 20 |
 
@@ -93,6 +93,7 @@ No se modificó ninguna otra configuración de Netlify, ni se desconectó GitHub
 ### 5.4 Actualización (2026-10-24): despliegue automático habilitado y Netlify Forms
 
 - **Estado:** las liberaciones del 22 de octubre (`824b510` y `b75d81d`) y del 24 de octubre (`128d877` y `d3f6c46`, por la mañana, y `86207df` y `a8406b2`, tras el push `ff4796c..a8406b2`, verificada en producción por su contenido) se desplegaron automáticamente tras el `git push`, en menos de un minuto, y el responsable del proyecto confirmó que los despliegues automáticos están habilitados. El procedimiento de la sección 5.3 (builds detenidos entre liberaciones) **ya no describe el estado actual**; se conserva como referencia de lo que se hizo y como opción si se vuelve a detener los builds.
+- **Liberaciones posteriores:** el 25 de octubre se publicaron `c06242f` y `39a7126` (push `0d9b722..39a7126`) y el 29 de octubre `e76a398` y `10c4de5` (push `39a7126..10c4de5`, 23:14 hora local), con autorización expresa en ambos casos. Se desplegaron automáticamente y el contenido servido se verificó en producción (la segunda, en VR-26 de [Evidencias.md](../06_Pruebas/Evidencias.md)); sin incidencias. El asistente sigue sin acceso al panel de Netlify.
 - **Consecuencias:** cada push a `main` publica y consume créditos (unos 15 por despliegue de producción), también los de solo documentación; conviene agrupar los pushes y mantener la autorización expresa antes de cada uno. El asistente no tiene acceso al panel: no puede ver los créditos consumidos ni el estado de los builds.
 - **Netlify Forms:** el formulario `solicitud-grupos` de la página Grupos requiere *Forms > Enable form detection* activo (configurado por el responsable) y se registra en el despliegue; la notificación por correo se configura en *Forms > Form notifications*. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 16.
 

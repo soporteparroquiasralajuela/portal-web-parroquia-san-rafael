@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.18 |
+| Versión | 1.19 |
 | Fecha de creación | 2026-08-07 |
 | Última actualización | 2026-10-29 |
 | Estado | Vigente (registro vivo) |
@@ -489,7 +489,7 @@ El formulario de Grupos quedó funcional y habilitado, y los Heroes de las seis 
 4. **Revisión y ajustes:** ajustes generales de colores, íconos, botones y navegación, junto con validaciones de responsividad y funcionamiento.
 
 **Resultado obtenido:**
-La primera versión de Servicios parroquiales quedó disponible en el entorno local y aprobada visual y estructuralmente por el responsable del proyecto, con su documentación técnica sincronizada y guardada en un commit local (`e76a398`). La página **no se ha publicado en producción** y su contenido es provisional: el envío real de los formularios, los adjuntos, los pagos, las notificaciones y los documentos y requisitos oficiales siguen pendientes de validación con la oficina parroquial (Manual técnico, sección 18).
+La primera versión de Servicios parroquiales quedó disponible en el entorno local y aprobada visual y estructuralmente por el responsable del proyecto, con su documentación técnica sincronizada y guardada en el commit `e76a398`. La publicación en producción (2026-10-29) no forma parte de las actividades de esta sesión y se registra en [Bitacora.md](Bitacora.md); el contenido de la página es provisional: el envío real de los formularios, los adjuntos, los pagos, las notificaciones y los documentos y requisitos oficiales siguen pendientes de validación con la oficina parroquial (Manual técnico, sección 18).
 
 ---
 
@@ -517,7 +517,7 @@ La primera versión de Servicios parroquiales quedó disponible en el entorno lo
 | Sesión 18 (21/10/2026) | Fase 4 | Integración de imágenes de Parroquia, optimización WebP, gestión del incidente de créditos de Netlify y publicación controlada | 3 |
 | Sesión 19 (22/10/2026) | Fase 4 | Hero, curvas, imágenes de Inicio y Parroquia, carrusel, galería con mosaico y visor, documentación y liberación conjunta | 4 |
 | Sesión 20 (24/10/2026) | Fase 4 | Hero e introducción de Grupos, formulario con Netlify Forms, Heroes de Calendario, Transmisiones y Contacto, estandarización de alturas y doble curva, pruebas y documentación | 4 |
-| Sesión 21 (29/10/2026) | Fase 4 | Análisis, conceptualización, primera versión y ajustes de la página Servicios parroquiales (solo local) | 5 |
+| Sesión 21 (29/10/2026) | Fase 4 | Análisis, conceptualización, primera versión y ajustes de la página Servicios parroquiales | 5 |
 
 **Total acumulado:** 65 horas en 21 sesiones, de las **150 horas oficiales** del TCU, es decir, el **43,33 %**; quedan **85 horas** para completar el requisito oficial (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17 + 3 de la Sesión 18 + 4 de la Sesión 19 + 4 de la Sesión 20 + 5 de la Sesión 21)
 

@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.12 |
+| Versión | 1.13 |
 | Fecha de creación | 2026-09-16 |
 | Última actualización | 2026-10-29 |
 | Estado | Vigente |
@@ -168,7 +168,7 @@ Decisión del 2026-10-29: página única con dos bloques desplegables, **Requisi
 - **Pendiente de configurar:** el número oficial de WhatsApp de la parroquia todavía no ha sido validado. No se define aquí número, enlace `wa.me` ni mensaje predeterminado — se completarán únicamente cuando la parroquia confirme esta información.
 - Nota: este botón no aparece en los PNG de [Referencias_Conceptuales/](Referencias_Conceptuales/) (artes anteriores a esta decisión). Por la jerarquía de fuentes de verdad (sección 2.3), esta decisión documental prevalece y debe incorporarse en la implementación aunque no esté dibujada en las referencias visuales.
 
-**Actualización (2026-10-18):** el botón se implementó como enlace real a `https://wa.me/50661705997` (número de la oficina parroquial), idéntico en las seis páginas implementadas, con nombre accesible y apertura en pestaña nueva. El número sigue sujeto a la validación final de la parroquia.
+**Actualización (2026-10-18):** el botón se implementó como enlace real a `https://wa.me/50661705997` (número de la oficina parroquial), idéntico en las siete páginas implementadas, con nombre accesible y apertura en pestaña nueva. El número sigue sujeto a la validación final de la parroquia.
 
 ## 8. Estrategia de implementación de páginas del portal
 
@@ -214,7 +214,7 @@ Páginas principales (en este orden de trabajo — ya cuentan con diseño concep
 | 2 | Grupos | Implementada y dentro de la línea base temporal |
 | 3 | Calendario | Implementada y dentro de la línea base temporal; integración con el calendario secundario institucional completada (2026-10-14). Siguen pendientes los eventos reales y la limitación del embed a ≈ 375 px |
 | 4 | Transmisiones | Implementada, publicada y funcional dentro del alcance aprobado (2026-10-14), con integración con YouTube validada con una transmisión pública real; **no congelada**. Pendientes de contenido: la fotografía del estado sin transmisión del reproductor, la confirmación de que la imagen del Hero (composición digital basada en una fotografía real) representa fielmente la parroquia y la validación con la parroquia. Excluida del alcance, por decisión del proyecto, la visualización automática de grabaciones de transmisiones finalizadas (ver [Integracion_YouTube.md](../03_Arquitectura/Integracion_YouTube.md)) |
-| 5 | Servicios parroquiales | Página única con dos bloques desplegables, aprobada conceptualmente el 2026-10-29. Fase 1 (estructura y diseño visual) construida **solo en local** y aprobada visual y estructuralmente el 2026-10-29, con contenido provisional (commit local, sin push); siguen pendientes de validación con la oficina los formularios reales, adjuntos, pagos, notificaciones y requisitos oficiales ([Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18) |
+| 5 | Servicios parroquiales | Página única con dos bloques desplegables, aprobada conceptualmente el 2026-10-29. Fase 1 (estructura y diseño visual) construida y aprobada visual y estructuralmente el 2026-10-29 y **publicada ese día** con contenido provisional y `noindex` (commits `e76a398` y `10c4de5`); siguen pendientes de validación con la oficina los formularios reales, adjuntos, pagos, notificaciones y requisitos oficiales ([Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18) |
 | 6 | Contacto | Implementada y publicada (2026-10-18 a 2026-10-24), no congelada: Google Forms y Google Maps embebidos; el Hero con imagen se publicó el 2026-10-24 (commit `a8406b2`) |
 
 «Implementada» se refiere a la estructura: el contenido real, su validación con la parroquia y la aceptación final siguen pendientes en las cinco páginas existentes (sección 8.6).
@@ -253,7 +253,7 @@ Se distinguen tres estados que no deben confundirse:
 2. **Incorporación y validación de contenido real:** sustitución de placeholders y contenido provisional por información suministrada o validada por la parroquia.
 3. **Aceptación final:** etapa posterior, tras incorporar el contenido real, validar y atender los ajustes.
 
-Este congelamiento aplica solo a las cuatro páginas indicadas. Transmisiones está **implementada y publicada, pero no congelada**. Contacto está implementado y publicado (sin congelar); Servicios parroquiales (página única) cuenta con diseño conceptual (sección 6) y una fase 1 solo en local, pero **no está publicada ni congelada**: sigue el ciclo de la sección 8.5. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
+Este congelamiento aplica solo a las cuatro páginas indicadas. Transmisiones está **implementada y publicada, pero no congelada**. Contacto está implementado y publicado (sin congelar); Servicios parroquiales (página única) cuenta con diseño conceptual (sección 6) y una fase 1 publicada con contenido provisional, pero **no está congelada**: sigue el ciclo de la sección 8.5. Alcance, estado por página, integraciones, contenido pendiente y reglas de cambio: [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 9.
 
 ## 9. Estado del diseño
 
@@ -277,9 +277,9 @@ Por la jerarquía de fuentes de verdad (sección 2.3), prevalecen sobre los PNG:
 - **Altura común de los Heroes (2026-10-24, publicado):** los Heroes interiores comparten una altura de referencia (460 px móvil, 520 px tableta, 520–620 px escritorio) para que la navegación entre páginas mantenga una estructura uniforme; la portada (Inicio) conserva una altura algo mayor y existe una variante compacta (≈ 80 %) para Heroes sin fotografía, hoy sin uso porque los seis Heroes ya tienen imagen. El Hero de Calendario incorpora la imagen `herocalendario` (recreación digital) con título «Juntos en cada momento» y un párrafo, sin botones.
 - **Hero de Transmisiones (2026-10-24, publicado):** fotografía de fondo (composición digital basada en una fotografía real del interior del templo, con una cámara profesional de video en primer plano a la derecha), degradado azul de izquierda a derecha y el texto aprobado a la izquierda en blanco con detalles dorados; sustituye al Hero claro con marcador de imagen y adopta la altura estándar de los Heroes interiores y la doble curva.
 - **Hero de Contacto (2026-10-24, publicado):** ilustración de un espacio de atención parroquial (escritorio, crucifijo, imagen de San Rafael y entrada iluminada; recreación digital, no una fotografía de la oficina real) como fondo, con el mismo degradado azul horizontal de Transmisiones, los textos actuales (título, subtítulo y frase de apoyo) con la jerarquía tipográfica común de los demás Heroes, altura estándar y doble curva.
-- **Tipografía común de los Heroes interiores (2026-10-25, local):** el título de Calendario («Juntos en cada momento») es la referencia única para los títulos principales de Parroquia, Grupos, Calendario, Transmisiones y Contacto: Cormorant Garamond 700 sin cursiva, blanco, con una parte en dorado institucional cuando el título tiene dos partes. Las descripciones usan Nunito Sans (blanco al 92 %) y las citas conservan la cursiva y el filete dorado de la cita de Grupos. Para garantizar la legibilidad del acento dorado se reforzaron los degradados de Parroquia y Grupos; Inicio queda fuera.
+- **Tipografía común de los Heroes interiores (2026-10-25, publicado):** el título de Calendario («Juntos en cada momento») es la referencia única para los títulos principales de Parroquia, Grupos, Calendario, Transmisiones y Contacto: Cormorant Garamond 700 sin cursiva, blanco, con una parte en dorado institucional cuando el título tiene dos partes. Las descripciones usan Nunito Sans (blanco al 92 %) y las citas conservan la cursiva y el filete dorado de la cita de Grupos. Para garantizar la legibilidad del acento dorado se reforzaron los degradados de Parroquia y Grupos; Inicio queda fuera.
 - **Transición hacia el footer:** la cinta navy/dorada se mantiene, sin insignia circular.
-- **Footer estandarizado (2026-10-18):** datos de la oficina parroquial, horario administrativo y redes Facebook y YouTube (Instagram no se usa); «Servicios parroquiales» sin enlace hasta que exista la página.
+- **Footer estandarizado (2026-10-18):** datos de la oficina parroquial, horario administrativo y redes Facebook y YouTube (Instagram no se usa); «Servicios parroquiales» enlazado a la página de servicios desde el 2026-10-29.
 - **Navegación adaptable (2026-10-21):** el menú se expande desde 1200 px.
 - **Hero y textos de Parroquia (2026-10-21/22):** textos editoriales propuestos (pendientes de validación) y recreaciones digitales en el Hero, la historia y el patrono.
 

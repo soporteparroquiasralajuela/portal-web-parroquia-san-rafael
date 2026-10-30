@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Componentes_UI.md |
-| Versión | 1.15 |
+| Versión | 1.16 |
 | Fecha de creación | 2026-08-05 |
 | Última actualización | 2026-10-29 |
 | Estado | Vigente — registro de uso real al 2026-10-25 |
@@ -23,11 +23,11 @@ El inventario y las reglas de uso de los componentes Bootstrap autorizados **no 
 
 | Componente | Páginas | Notas |
 |---|---|---|
-| Navbar y Collapse | Las seis y Servicios parroquiales (local) | `navbar-expand-xl`: menú expandido desde 1200 px y colapsado por debajo; «Servicios parroquiales» es un enlace directo, sin submenú (desde el 2026-10-29, local) |
+| Navbar y Collapse | Las siete | `navbar-expand-xl`: menú expandido desde 1200 px y colapsado por debajo; «Servicios parroquiales» es un enlace directo, sin submenú (desde el 2026-10-29) |
 | Carousel | Inicio | Carrusel de tres imágenes (recreaciones digitales), sin rotación automática. Parroquia ya no usa carrusel: su galería es un mosaico |
-| Modal | Parroquia; Servicios parroquiales (solo en local) | Parroquia: visor ampliado de la galería, a pantalla completa (`modal-fullscreen`). Servicios parroquiales: aviso «¡Solicitud recibida!» centrado, que solo se abre tras un envío exitoso |
-| Accordion | Servicios parroquiales (solo en local) | Dos acordeones independientes (requisitos y solicitudes), un panel abierto a la vez por sección (`data-bs-parent`) y tema propio con las variables `--bs-accordion-*` |
-| Grid, Cards, Buttons y utilidades | Las seis | Uso general |
+| Modal | Parroquia; Servicios parroquiales | Parroquia: visor ampliado de la galería, a pantalla completa (`modal-fullscreen`). Servicios parroquiales: aviso «¡Solicitud recibida!» centrado, que solo se abre tras un envío exitoso |
+| Accordion | Servicios parroquiales | Dos acordeones independientes (requisitos y solicitudes), un panel abierto a la vez por sección (`data-bs-parent`) y tema propio con las variables `--bs-accordion-*` |
+| Grid, Cards, Buttons y utilidades | Las siete | Uso general |
 | Tabs / Pills | Grupos | Directorio de grupos (ver [JavaScript.md](../05_Desarrollo/JavaScript.md)) |
 
 El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstrap.md](../05_Desarrollo/Bootstrap.md).
@@ -36,10 +36,10 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 
 | Componente | Dónde se define | Páginas | Notas |
 |---|---|---|---|
-| Navegación (`.site-navbar`) | `components.css` (HTML duplicado en cada página) | Las seis | Marca en dos líneas por debajo de 576 px; relleno de enlaces reducido entre 1200 y 1399 px |
-| Footer estandarizado (`.site-footer*`) | `components.css` (HTML duplicado en cada página) | Las seis | Marca, enlaces rápidos, «Contáctanos» (teléfono, WhatsApp, correo, ubicación y horario), Facebook y YouTube; «Servicios parroquiales» sin enlace hasta que exista la página |
-| Botón flotante de WhatsApp (`.whatsapp-float`) | `components.css` | Las seis | Enlace `wa.me`; el footer reserva espacio a la derecha para no quedar tapado |
-| Doble curva de Hero (`.hero-curva`) | `components.css` | Las seis | Un SVG de cuatro capas: banda azul `#1D2A54` translúcida, eco dorado tenue, curva del color de la sección siguiente (`--hero-wave-fill`, crema por defecto) y filete dorado de 2 px; altura `--hero-curva-height` (59, 86 y 108 px). Sustituye a `.hero-wave`, que ya no usa ninguna página. Requisitos de uso en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
+| Navegación (`.site-navbar`) | `components.css` (HTML duplicado en cada página) | Las siete | Marca en dos líneas por debajo de 576 px; relleno de enlaces reducido entre 1200 y 1399 px |
+| Footer estandarizado (`.site-footer*`) | `components.css` (HTML duplicado en cada página) | Las siete | Marca, enlaces rápidos, «Contáctanos» (teléfono, WhatsApp, correo, ubicación y horario), Facebook y YouTube; «Servicios parroquiales» enlazado a la página de servicios |
+| Botón flotante de WhatsApp (`.whatsapp-float`) | `components.css` | Las siete | Enlace `wa.me`; el footer reserva espacio a la derecha para no quedar tapado |
+| Doble curva de Hero (`.hero-curva`) | `components.css` | Las siete | Un SVG de cuatro capas: banda azul `#1D2A54` translúcida, eco dorado tenue, curva del color de la sección siguiente (`--hero-wave-fill`, crema por defecto) y filete dorado de 2 px; altura `--hero-curva-height` (59, 86 y 108 px). Sustituye a `.hero-wave`, que ya no usa ninguna página. Requisitos de uso en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Altura de Hero interior (`.hero-interior`) | `components.css` | Parroquia, Grupos, Calendario, Transmisiones y Contacto | Altura mínima común `--hero-min-height` (460 px móvil, 520 px tableta, 520–620 px desde 992 px); variante `.hero-interior--compacto` (≈ 80 %) para Heroes sin fotografía (sin uso a la fecha: los seis Heroes ya tienen imagen). Inicio tiene altura propia en `home.css` (referencia + 30 px en escritorio) |
 | Título de Hero (`.hero-title`, `.hero-title__acento`) | `components.css` | Parroquia, Grupos, Calendario, Transmisiones y Contacto | Referencia única: el título de Calendario. Cormorant Garamond 700 sin cursiva, `--fs-display`, interlineado 1,2, blanco, margen inferior 16 px y `balance`; el acento va en dorado `--color-secondary` (Contacto, sin acento). Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Descripción de Hero (`.hero-lead`, `.hero-text`, `.hero-lead--acento`) | `components.css` | Las cinco páginas interiores | Nunito Sans 400, blanco al 92 %, interlineado 1,6: `.hero-lead` (`--fs-h4`) para frases breves y `.hero-text` (`--fs-body`) para párrafos; `.hero-lead--acento` (dorado, peso 600) solo en el subtítulo de Contacto |
@@ -54,8 +54,8 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 | Hero de Calendario (`.calendario-hero`) | `calendario.css` | Calendario | Imagen `herocalendario` (WebP responsivos), título con acento dorado y un párrafo, sin botones; apilado por debajo de 992 px y superpuesto con degradado y máscara vertical desde 992 px. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero de Transmisiones (`.transmisiones-hero`) | `transmisiones.css` | Transmisiones | Imagen `herotransmisiones` (WebP responsivos), título con segunda línea dorada, frase introductoria y tres barras doradas; apilado por debajo de 992 px y superpuesto con degradado azul desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero de Contacto (`.contacto-hero`) | `contacto.css` | Contacto | Imagen `herocontacto` (WebP responsivos; recreación digital), título blanco, subtítulo dorado y texto de apoyo; apilado por debajo de 992 px y superpuesto con degradado azul horizontal (el de Transmisiones) desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
-| Transición hacia el footer (`.wave-transition`) | CSS de cada página (copia local) | Las seis | Cinta navy/dorada sin insignia; no cambió |
-| Página Servicios parroquiales (`.servicios-*`, `.solicitud-form`) | `servicios-parroquiales.css` | Servicios parroquiales (solo en local) | Hero sin fotografía (variante compacta), tarjeta de sección con encabezado e ícono dorado suave, panel con aviso de contenido provisional, recuadro de documento PDF deshabilitado, nota «Importante» y formularios preliminares sin envío. Íconos en azul institucional sobre el dorado institucional al 16 %; botón de descarga habilitado con `.btn-primary` y deshabilitado neutro y punteado. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18 |
+| Transición hacia el footer (`.wave-transition`) | CSS de cada página (copia local) | Las siete | Cinta navy/dorada sin insignia; no cambió |
+| Página Servicios parroquiales (`.servicios-*`, `.solicitud-form`) | `servicios-parroquiales.css` | Servicios parroquiales | Hero sin fotografía (variante compacta), tarjeta de sección con encabezado e ícono dorado suave, panel con aviso de contenido provisional, recuadro de documento PDF deshabilitado, nota «Importante» y formularios preliminares sin envío. Íconos en azul institucional sobre el dorado institucional al 16 %; botón de descarga habilitado con `.btn-primary` y deshabilitado neutro y punteado. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18 |
 | Título de tarjeta con ícono (`.titulo-icono`) | `components.css` | Parroquia (Misión, Visión, Valores y Nuestra comunidad) y Transmisiones (Misas, Hora Santa, Actividades y Eventos especiales) | Poppins 600, azul institucional `--color-primary`, `--fs-body` (16 px; 18 px desde 1200 px), interlineado `--lh-heading` y margen inferior de 4 px. Se aplica junto a la clase propia del componente, que conserva solo el espacio hacia la descripción (6 px en Parroquia). Sustituye a `.h6` de Bootstrap en Parroquia y a la regla propia `.transmisiones-categoria__titulo`. Inicio no lo usa todavía (decisión pendiente de la primera etapa tipográfica). Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Marcador de imagen (`.img-placeholder`) y etiqueta (`.eyebrow`) | `components.css` | Varias | Utilidades compartidas |
 
