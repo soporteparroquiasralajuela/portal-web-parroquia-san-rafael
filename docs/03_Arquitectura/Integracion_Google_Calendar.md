@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Integracion_Google_Calendar.md |
-| Versión | 1.3 |
+| Versión | 1.4 |
 | Fecha de creación | 2026-10-10 |
-| Última actualización | 2026-10-14 |
+| Última actualización | 2026-11-02 |
 | Estado | **Vigente — integración completada y operativa** con el calendario secundario institucional de la parroquia; validada y cerrada por el responsable del proyecto el 2026-10-14 |
 | Fuente | Código del repositorio (`netlify/functions/`, `assets/js/`, `index.html`, `pages/calendario.html`) y configuración confirmada por el equipo del proyecto |
 
@@ -21,6 +21,8 @@ Esos eventos se publican en dos lugares del portal:
 |---|---|---|
 | Página **Calendario** ([pages/calendario.html](../../pages/calendario.html)) | El calendario completo | Visualización embebida (iframe) oficial de Google. No usa API key ni la Netlify Function. |
 | Sección **Próximos eventos** de **Inicio** ([index.html](../../index.html)) | Los próximos 3 eventos vigentes, en tarjetas | Google Calendar API v3, consultada por una Netlify Function (server-side). Es el tema central de este documento. |
+
+Las imágenes de las tarjetas de «Próximos eventos» **no provienen de Google Calendar ni de la Netlify Function**: son tres imágenes genéricas fijas por posición de tarjeta (`evento-1.webp`, `evento-2.webp` y `evento-3.webp`), asignadas con CSS y sin relación con el contenido del evento (Manual_Tecnico.md, sección 13).
 
 Este documento deja registrado **qué se configuró, dónde, por qué y cómo mantenerlo**, de forma que otra persona pueda comprender, diagnosticar, mantener y migrar la integración sin depender del conocimiento del desarrollador original.
 

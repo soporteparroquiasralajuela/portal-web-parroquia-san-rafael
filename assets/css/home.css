@@ -252,20 +252,30 @@
   flex: 0 0 auto;
   width: 76px;
   height: 76px;
-}
-
-.event-card__media .img-placeholder {
-  min-height: 0;
-  height: 100%;
   border-radius: var(--radius-sm);
+  background-color: var(--color-border-light); /* reserva el espacio mientras carga la imagen */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.event-card__media .img-placeholder i {
-  font-size: 1.1rem;
+/* Imagen decorativa fija por posición de tarjeta (evento-1, evento-2 y evento-3, WebP de 432 × 288 px, 3:2),
+   asignada con CSS: no depende del contenido del evento y, como las tarjetas se muestran u ocultan con
+   [hidden], el navegador solo descarga las imágenes de las tarjetas visibles. background-size: cover recorta
+   la fotografía dentro del cuadrado de la tarjeta; background-position conserva el motivo de cada una
+   (crucifijo, libro y rosario, vitral). */
+.event-card__media--1 {
+  background-image: url("../img/galeria/evento-1.webp");
+  background-position: 65% 50%;
 }
 
-.event-card__media .img-placeholder span {
-  display: none;
+.event-card__media--2 {
+  background-image: url("../img/galeria/evento-2.webp");
+  background-position: 65% 50%;
+}
+
+.event-card__media--3 {
+  background-image: url("../img/galeria/evento-3.webp");
+  background-position: 80% 50%;
 }
 
 .event-card__body {

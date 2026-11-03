@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.13 |
+| Versión | 1.15 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-10-29 |
+| Última actualización | 2026-11-02 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -168,7 +168,7 @@ Decisión del 2026-10-29: página única con dos bloques desplegables, **Requisi
 - **Pendiente de configurar:** el número oficial de WhatsApp de la parroquia todavía no ha sido validado. No se define aquí número, enlace `wa.me` ni mensaje predeterminado — se completarán únicamente cuando la parroquia confirme esta información.
 - Nota: este botón no aparece en los PNG de [Referencias_Conceptuales/](Referencias_Conceptuales/) (artes anteriores a esta decisión). Por la jerarquía de fuentes de verdad (sección 2.3), esta decisión documental prevalece y debe incorporarse en la implementación aunque no esté dibujada en las referencias visuales.
 
-**Actualización (2026-10-18):** el botón se implementó como enlace real a `https://wa.me/50661705997` (número de la oficina parroquial), idéntico en las siete páginas implementadas, con nombre accesible y apertura en pestaña nueva. El número sigue sujeto a la validación final de la parroquia.
+**Actualización (2026-10-18):** el botón se implementó como enlace real a WhatsApp (`wa.me`), idéntico en las siete páginas implementadas, con nombre accesible y apertura en pestaña nueva. **Actualización (2026-11-02):** el número oficial de WhatsApp de la parroquia es `+506 8847-8444` (enlace `https://wa.me/50688478444`, sin mensaje predeterminado), confirmado por el responsable del proyecto tras la revisión de la reunión del 31/10/2026; el cambio solo reemplazó el número de destino (ver Manual_Tecnico.md, sección 13).
 
 ## 8. Estrategia de implementación de páginas del portal
 
@@ -279,7 +279,7 @@ Por la jerarquía de fuentes de verdad (sección 2.3), prevalecen sobre los PNG:
 - **Hero de Contacto (2026-10-24, publicado):** ilustración de un espacio de atención parroquial (escritorio, crucifijo, imagen de San Rafael y entrada iluminada; recreación digital, no una fotografía de la oficina real) como fondo, con el mismo degradado azul horizontal de Transmisiones, los textos actuales (título, subtítulo y frase de apoyo) con la jerarquía tipográfica común de los demás Heroes, altura estándar y doble curva.
 - **Tipografía común de los Heroes interiores (2026-10-25, publicado):** el título de Calendario («Juntos en cada momento») es la referencia única para los títulos principales de Parroquia, Grupos, Calendario, Transmisiones y Contacto: Cormorant Garamond 700 sin cursiva, blanco, con una parte en dorado institucional cuando el título tiene dos partes. Las descripciones usan Nunito Sans (blanco al 92 %) y las citas conservan la cursiva y el filete dorado de la cita de Grupos. Para garantizar la legibilidad del acento dorado se reforzaron los degradados de Parroquia y Grupos; Inicio queda fuera.
 - **Transición hacia el footer:** la cinta navy/dorada se mantiene, sin insignia circular.
-- **Footer estandarizado (2026-10-18):** datos de la oficina parroquial, horario administrativo y redes Facebook y YouTube (Instagram no se usa); «Servicios parroquiales» enlazado a la página de servicios desde el 2026-10-29.
+- **Footer estandarizado (2026-10-18):** datos de la oficina parroquial, horario administrativo (sábados de 8:00 a. m. – 12:00 p. m. desde el 2026-11-02, según lo confirmado en la reunión del 31/10/2026) y redes Facebook y YouTube (Instagram no se usa); «Servicios parroquiales» enlazado a la página de servicios desde el 2026-10-29.
 - **Navegación adaptable (2026-10-21):** el menú se expande desde 1200 px.
 - **Hero y textos de Parroquia (2026-10-21/22):** textos editoriales propuestos (pendientes de validación) y recreaciones digitales en el Hero, la historia y el patrono.
 

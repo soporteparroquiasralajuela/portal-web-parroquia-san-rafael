@@ -193,7 +193,11 @@
           <div class="row g-4">
             <!-- Las 3 tarjetas permanecen ocultas (hidden) hasta que assets/js/proximos-eventos.js
                  las rellena con los próximos eventos de Google Calendar; su texto actual es solo
-                 contenido de ejemplo y nunca se muestra al público. -->
+                 contenido de ejemplo y nunca se muestra al público.
+                 La imagen de cada tarjeta es fija por su posición (evento-1, evento-2 y evento-3, .webp en
+                 assets/img/galeria/): se asigna con CSS (.event-card__media--1/2/3, home.css) y no depende
+                 del título, la fecha ni el tipo de evento. Son imágenes genéricas y decorativas, sin alt, y
+                 el navegador solo descarga las de las tarjetas que llegan a mostrarse. -->
             <!-- Tarjeta de evento 1 de 3 -->
             <div class="col-12" hidden>
               <article class="event-card">
@@ -201,12 +205,7 @@
                   <strong>DD</strong>
                   <span>MES</span>
                 </div>
-                <div class="event-card__media">
-                  <div class="img-placeholder">
-                    <i class="bi bi-image" aria-hidden="true"></i>
-                    <span>Imagen pendiente</span>
-                  </div>
-                </div>
+                <div class="event-card__media event-card__media--1"></div>
                 <div class="event-card__body">
                   <h3>Evento de ejemplo 1</h3>
                   <div class="event-card__meta">
@@ -228,12 +227,7 @@
                   <strong>DD</strong>
                   <span>MES</span>
                 </div>
-                <div class="event-card__media">
-                  <div class="img-placeholder">
-                    <i class="bi bi-image" aria-hidden="true"></i>
-                    <span>Imagen pendiente</span>
-                  </div>
-                </div>
+                <div class="event-card__media event-card__media--2"></div>
                 <div class="event-card__body">
                   <h3>Evento de ejemplo 2</h3>
                   <div class="event-card__meta">
@@ -255,12 +249,7 @@
                   <strong>DD</strong>
                   <span>MES</span>
                 </div>
-                <div class="event-card__media">
-                  <div class="img-placeholder">
-                    <i class="bi bi-image" aria-hidden="true"></i>
-                    <span>Imagen pendiente</span>
-                  </div>
-                </div>
+                <div class="event-card__media event-card__media--3"></div>
                 <div class="event-card__body">
                   <h3>Evento de ejemplo 3</h3>
                   <div class="event-card__meta">
@@ -622,8 +611,8 @@
               </li>
               <li class="site-footer__contact-item">
                 <i class="bi bi-whatsapp" aria-hidden="true"></i>
-                <a href="https://wa.me/50661705997" target="_blank" rel="noopener noreferrer">
-                  WhatsApp: 6170-5997
+                <a href="https://wa.me/50688478444" target="_blank" rel="noopener noreferrer">
+                  WhatsApp: +506 8847-8444
                   <span class="visually-hidden">(se abre en una pestaña nueva)</span>
                 </a>
               </li>
@@ -645,13 +634,13 @@
                     <div>
                       <dt>Lunes a viernes</dt>
                       <dd>
-                        <span class="d-block">8:00&nbsp;a.&nbsp;m. a 12:00&nbsp;m.<span class="visually-hidden"> y</span></span>
+                        <span class="d-block">8:00&nbsp;a.&nbsp;m. a 12:00&nbsp;p.&nbsp;m.<span class="visually-hidden"> y</span></span>
                         <span class="d-block">1:00&nbsp;p.&nbsp;m. a 5:00&nbsp;p.&nbsp;m.</span>
                       </dd>
                     </div>
                     <div>
                       <dt>Sábados</dt>
-                      <dd>7:00&nbsp;a.&nbsp;m. a 11:00&nbsp;a.&nbsp;m.</dd>
+                      <dd>8:00&nbsp;a.&nbsp;m. – 12:00&nbsp;p.&nbsp;m.</dd>
                     </div>
                   </dl>
                 </div>
@@ -698,7 +687,7 @@
          (components.css) en todas las páginas. -->
     <a
       class="whatsapp-float"
-      href="https://wa.me/50661705997"
+      href="https://wa.me/50688478444"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escribir por WhatsApp a la oficina parroquial (se abre en una pestaña nueva)"

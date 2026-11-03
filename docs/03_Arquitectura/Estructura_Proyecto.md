@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Estructura_Proyecto.md |
-| Versión | 1.13 |
+| Versión | 1.14 |
 | Fecha de creación | 2026-08-05 |
 | Última actualización | 2026-10-29 |
 | Estado | Vigente |
@@ -38,7 +38,7 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 │   ├── videos/                 # (vacía)
 │   └── img/
 │       ├── eventos/            # (vacía)
-│       ├── galeria/            # Carrusel de Inicio (3 PNG originales + 4 versiones WebP de cada uno) y Heroes de Calendario y Contacto (herocalendario.png y herocontacto.png, con 3 WebP cada uno)
+│       ├── galeria/            # Carrusel de Inicio (3 PNG originales + 4 versiones WebP de cada uno) Heroes de Calendario y Contacto (herocalendario.png y herocontacto.png, con 3 WebP cada uno) y las tres imágenes de las tarjetas de «Próximos eventos» (evento-1/2/3.webp de 432×288 px; sus PNG originales no se versionan en Git y se conservan solo en el equipo local)
 │       ├── grupos/             # Hero de Grupos (herogrupos.png + 4 versiones WebP)
 │       ├── logo/               # Logo.jpeg
 │       ├── parroquia/          # Hero, historia, patrono, Hero de Inicio, Diaconía y galería (parroquiagal1–12; originales + WebP)

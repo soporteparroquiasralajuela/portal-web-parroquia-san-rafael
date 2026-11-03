@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Componentes_UI.md |
-| Versión | 1.16 |
+| Versión | 1.17 |
 | Fecha de creación | 2026-08-05 |
 | Última actualización | 2026-10-29 |
 | Estado | Vigente — registro de uso real al 2026-10-25 |
@@ -50,6 +50,7 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 | Formulario de solicitud de Grupos (`.grupos-interes`, `.grupos-form`) | `grupos.css` + `assets/js/solicitud-grupos.js` | Grupos | Formulario con validación en línea, casilla de consentimiento, mensajes de éxito, error e incertidumbre, y campo trampa; se activa o desactiva con `data-estado`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 16 |
 | Mosaico de galería (`.parroquia-mosaico`) | `parroquia.css` | Parroquia | Cuadrícula de 6 columnas (2 en móvil) con tiles-botón de proporciones variadas, hover sutil con descripción breve y visor ampliado. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Visor de galería (`.parroquia-visor`) | `parroquia.css` + `assets/js/galeria-parroquia.js` | Parroquia | Modal oscuro con imagen, leyenda, contador y botones anterior, siguiente y cerrar de 48 px |
+| Imagen de la tarjeta de evento (`.event-card__media--1/2/3`) | `home.css` | Inicio | Imagen decorativa **fija por posición** de la tarjeta (`evento-1.webp`, `evento-2.webp` y `evento-3.webp`, 432×288 px) asignada como fondo CSS (`background-size: cover`, 76 px y 96 px desde 576 px); no depende del contenido del evento y solo se descarga si la tarjeta se muestra. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Tarjeta de horarios de misa (`.mass-card`) | `home.css` | Inicio | Imagen 2:3 con `object-fit: cover` (4/3 apilada; 40 % de ancho en fila desde 992 px); botón «Cómo llegar» alineado al borde inferior con `margin-top: auto`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero de Calendario (`.calendario-hero`) | `calendario.css` | Calendario | Imagen `herocalendario` (WebP responsivos), título con acento dorado y un párrafo, sin botones; apilado por debajo de 992 px y superpuesto con degradado y máscara vertical desde 992 px. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero de Transmisiones (`.transmisiones-hero`) | `transmisiones.css` | Transmisiones | Imagen `herotransmisiones` (WebP responsivos), título con segunda línea dorada, frase introductoria y tres barras doradas; apilado por debajo de 992 px y superpuesto con degradado azul desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |

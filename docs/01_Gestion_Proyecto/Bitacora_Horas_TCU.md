@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.20 |
+| Versión | 1.21 |
 | Fecha de creación | 2026-08-07 |
 | Última actualización | 2026-11-02 |
 | Estado | Vigente (registro vivo) |
@@ -514,7 +514,7 @@ La primera versión de Servicios parroquiales quedó disponible en el entorno lo
 4. **Coordinación de próximos ajustes:** recopilación de observaciones y acuerdos para orientar las siguientes actividades de actualización, validación y mejora del portal.
 
 **Resultado obtenido:**
-Se realizó la reunión de seguimiento y validación con las responsables de la oficina parroquial y de comunicaciones, con la revisión de los avances, las observaciones y las necesidades de ajuste para continuar el desarrollo del sitio. Durante la sesión no se implementaron modificaciones, y las observaciones y los acuerdos específicos no se detallan en este registro; los ajustes que de ellas resulten se documentarán, cuando se realicen, en [Bitacora.md](Bitacora.md).
+Se realizó la reunión de seguimiento y validación con las responsables de la oficina parroquial y de comunicaciones, con la revisión de los avances, las observaciones y las necesidades de ajuste para continuar el desarrollo del sitio. Durante la sesión no se implementaron modificaciones. Se confirmó la corrección del horario de atención administrativa de los sábados (8:00 a. m. – 12:00 p. m.), cuya aplicación al portal se registra en [Bitacora.md](Bitacora.md); las demás observaciones y los acuerdos específicos no se detallan en este registro, y los ajustes que de ellas resulten se documentarán, cuando se realicen, en esa misma bitácora.
 
 ---
 
