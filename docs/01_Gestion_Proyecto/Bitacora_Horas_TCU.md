@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.19 |
+| Versión | 1.20 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-10-29 |
+| Última actualización | 2026-11-02 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -35,6 +35,8 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 > **Incorporación de la Sesión 20 (2026-10-24):** el responsable del proyecto indicó la fecha (sábado 24/10/2026), el horario (9:30 a. m. – 1:30 p. m.) y la duración (4 horas) de la jornada y solicitó registrar las actividades efectivamente realizadas según las evidencias y el historial del proyecto; se registra completa en la Fase 4, con el mismo criterio de las Sesiones 16 a 19 (la modalidad no fue indicada). Se verificó el acumulado previo (56 horas en 19 sesiones, coincidente con la suma de las Sesiones 1 a 19 y con la tabla por fase) y no se encontraron discrepancias ni fechas repetidas. Las actividades se tomaron de los commits del 24/10/2026 (`128d877`, `d3f6c46`, `ff4796c` y `86207df`) y de las entradas técnicas de [Bitacora.md](Bitacora.md). Las Sesiones 1 a 19 y sus 56 horas no se modificaron; el acumulado pasa a 60 horas. El responsable del proyecto aprobó el registro de la sesión y el acumulado de 60 horas en 20 sesiones, y solicitó complementar la descripción de las actividades, que se reorganizó en seis frentes de trabajo; este complemento no modificó la fecha, el horario, la duración, la fase ni los acumulados.
 
 > **Incorporación de la Sesión 21 (2026-10-29):** el responsable del proyecto indicó la fecha (jueves 29/10/2026), el horario (6:00 p. m. – 11:00 p. m.), la duración (5 horas) y las actividades de la jornada, que se registran a nivel general. El responsable del proyecto confirmó la clasificación de la sesión en la Fase 4, con el mismo criterio de las Sesiones 16 a 20. Se verificó el acumulado previo (60 horas en 20 sesiones, coincidente con la suma de las Sesiones 1 a 20 y con la tabla por fase) y no se encontraron discrepancias, fechas repetidas ni horas contadas dos veces. Las decisiones técnicas de la jornada ya están registradas en [Bitacora.md](Bitacora.md) y no se repiten aquí. Esta sesión no incluye envíos reales de formularios, pagos, documentos oficiales ni publicación en producción. Las Sesiones 1 a 20 y sus 60 horas no se modificaron; el acumulado pasa a 65 horas.
+
+> **Incorporación de la Sesión 22 (2026-11-02):** el responsable del proyecto indicó la fecha (sábado 31/10/2026), el horario (8:00 a. m. – 12:00 m.), la duración (4 horas), la modalidad (reunión presencial de trabajo y seguimiento), los participantes (el encargado del proyecto TCU, la encargada de la oficina parroquial y la encargada de comunicaciones) y las actividades de la jornada, que se registran a nivel general. Es una sesión de seguimiento y validación con la parroquia, **no de programación**: no se le atribuye implementación de cambios, acuerdos específicos ni aprobaciones definitivas, porque no fueron documentados. El responsable del proyecto confirmó su clasificación en la **Fase 1** (diagnóstico y levantamiento de necesidades de comunicación parroquial), con el mismo criterio de las reuniones con la oficina parroquial de las Sesiones 4, 7 y 12: el objetivo principal fue revisar y verificar información, identificar las modificaciones necesarias, aclarar necesidades y recopilar observaciones para continuar el desarrollo; no fue una sesión de pruebas finales, aceptación formal, entrega ni cierre del proyecto. Se verificó el acumulado previo (65 horas en 21 sesiones, coincidente con la suma de las Sesiones 1 a 21 y con la tabla por fase) y no se encontraron discrepancias, fechas repetidas ni horas contadas dos veces. Las Sesiones 1 a 21 y sus 65 horas no se modificaron; el acumulado pasa a 69 horas.
 
 ## Sesión 1 — 03/08/2026
 
@@ -493,6 +495,29 @@ La primera versión de Servicios parroquiales quedó disponible en el entorno lo
 
 ---
 
+## Sesión 22 — 31/10/2026
+
+**Fase:** Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial *(confirmada por el responsable del proyecto el 2026-11-02)*
+
+**Horario:** 8:00 a. m. – 12:00 m.
+
+**Horas dedicadas:** 4 horas
+
+**Modalidad:** reunión presencial de trabajo y seguimiento
+
+**Participantes:** encargado del proyecto TCU, encargada de la oficina parroquial y encargada de comunicaciones
+
+**Labores realizadas** *(a nivel general, según lo indicado por el responsable del proyecto)*:
+1. **Presentación y revisión de avances:** reunión de seguimiento con las representantes de la parroquia para presentar los avances del portal web y revisar las funcionalidades y secciones desarrolladas.
+2. **Validación de información y contenidos:** revisión conjunta de la información incorporada en diferentes secciones del sitio, identificando ajustes, correcciones y aspectos pendientes de confirmación.
+3. **Revisión de modificaciones y propuestas:** análisis de los cambios solicitados y de las observaciones sobre el diseño, la organización de los contenidos y la presentación de la información para los usuarios.
+4. **Coordinación de próximos ajustes:** recopilación de observaciones y acuerdos para orientar las siguientes actividades de actualización, validación y mejora del portal.
+
+**Resultado obtenido:**
+Se realizó la reunión de seguimiento y validación con las responsables de la oficina parroquial y de comunicaciones, con la revisión de los avances, las observaciones y las necesidades de ajuste para continuar el desarrollo del sitio. Durante la sesión no se implementaron modificaciones, y las observaciones y los acuerdos específicos no se detallan en este registro; los ajustes que de ellas resulten se documentarán, cuando se realicen, en [Bitacora.md](Bitacora.md).
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -518,8 +543,9 @@ La primera versión de Servicios parroquiales quedó disponible en el entorno lo
 | Sesión 19 (22/10/2026) | Fase 4 | Hero, curvas, imágenes de Inicio y Parroquia, carrusel, galería con mosaico y visor, documentación y liberación conjunta | 4 |
 | Sesión 20 (24/10/2026) | Fase 4 | Hero e introducción de Grupos, formulario con Netlify Forms, Heroes de Calendario, Transmisiones y Contacto, estandarización de alturas y doble curva, pruebas y documentación | 4 |
 | Sesión 21 (29/10/2026) | Fase 4 | Análisis, conceptualización, primera versión y ajustes de la página Servicios parroquiales | 5 |
+| Sesión 22 (31/10/2026) | Fase 1 | Reunión presencial de seguimiento y revisión de información y contenidos del portal con la oficina parroquial y comunicaciones | 4 |
 
-**Total acumulado:** 65 horas en 21 sesiones, de las **150 horas oficiales** del TCU, es decir, el **43,33 %**; quedan **85 horas** para completar el requisito oficial (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17 + 3 de la Sesión 18 + 4 de la Sesión 19 + 4 de la Sesión 20 + 5 de la Sesión 21)
+**Total acumulado:** 69 horas en 22 sesiones, de las **150 horas oficiales** del TCU, es decir, el **46,00 %**; quedan **81 horas** para completar el requisito oficial (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17 + 3 de la Sesión 18 + 4 de la Sesión 19 + 4 de la Sesión 20 + 5 de la Sesión 21 + 4 de la Sesión 22)
 
 ---
 
@@ -529,17 +555,17 @@ Las fases y horas estimadas corresponden a la **planificación provisional** de 
 
 | Fase | Periodo estimado | Horas estimadas | Horas registradas | Horas pendientes estimadas |
 |---|---|---:|---:|---:|
-| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 5 | 5 |
+| Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 9 | 1 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
 | Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 47 | 13 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 2 | 13 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **65** | **95** |
+| **Total** | — | **160** | **69** | **91** |
 
-> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas), 16 (3 horas), 17 (4 horas), 18 (3 horas), 19 (4 horas), 20 (4 horas) y 21 (5 horas) se registran completas en la Fase 4.
+> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas), 16 (3 horas), 17 (4 horas), 18 (3 horas), 19 (4 horas), 20 (4 horas) y 21 (5 horas) se registran completas en la Fase 4. La Sesión 22 (4 horas, reunión de seguimiento con la oficina parroquial) se registra completa en la Fase 1, con el mismo criterio de las Sesiones 4, 7 y 12; las horas de la Fase 1 pasan de 5 a 9 (la planificación provisional estimaba 10).
 
-> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (65)** son las efectivamente trabajadas y no dependen de esa conciliación: 65 de 150 horas oficiales (43,33 %), con 85 horas pendientes respecto del requisito oficial.
+> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (69)** son las efectivamente trabajadas y no dependen de esa conciliación: 69 de 150 horas oficiales (46,00 %), con 81 horas pendientes respecto del requisito oficial.
 
 ---
 
