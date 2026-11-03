@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | 08_Manuales/Manual_Tecnico.md |
-| Versión | 2.14 |
+| Versión | 2.15 |
 | Fecha de creación | 2026-08-05 |
 | Última actualización | 2026-11-02 |
 | Estado | Vigente (estado actual del proyecto) |
@@ -55,7 +55,7 @@ Ver el detalle completo en [Estructura_Proyecto.md](../03_Arquitectura/Estructur
 | Elemento | Estado |
 |---|---|
 | `index.html` | Implementado — página de Inicio (ver sección 9) |
-| `pages/` | Contiene `parroquia.html`, `grupos.html`, `calendario.html`, `transmisiones.html` y `contacto.html` (implementadas y publicadas) y `servicios-parroquiales.html` (publicada el 2026-10-29 con contenido provisional, sección 18) |
+| `pages/` | Contiene `parroquia.html`, `grupos.html`, `calendario.html`, `transmisiones.html` y `contacto.html` (implementadas y publicadas) y `servicios-parroquiales.html` (publicada el 2026-10-29 con contenido provisional, sección 18; con la fotografía del Hero desde el 2026-11-02, commit `fb7bd7a`) |
 | `assets/css` | Estilos globales (`variables.css`, `main.css`, `components.css`) y específicos de página (`home.css`, `parroquia.css`, `grupos.css`, `calendario.css`, `transmisiones.css`, `contacto.css` y `servicios-parroquiales.css`); `components.css` incluye la navegación, el footer, el botón flotante de WhatsApp y el sistema compartido de Heroes interiores (`.hero-interior`, `.hero-curva`; sección 13) |
 | `assets/js` | `grupos.js` (comportamiento móvil de Grupos), `proximos-eventos.js` (tarjetas de Próximos eventos de Inicio) y `transmisiones.js` (estados del reproductor y videos recientes de Transmisiones), `galeria-parroquia.js` (visor ampliado de la galería de Parroquia) y `solicitud-grupos.js` (formulario de solicitud de información de Grupos) y `servicios-parroquiales.js` (validación de los formularios preliminares y aviso de solicitud recibida). El resto de la interactividad (navbar, carrusel, pestañas, acordeones, modal) usa el bundle de Bootstrap |
 | `netlify/functions/` | `proximos-eventos.mjs` — Netlify Function de Google Calendar (sección 10) y `transmision-actual.mjs` — Netlify Function de YouTube (sección 11) |
@@ -153,7 +153,7 @@ La existencia de contenido dentro de una página **no significa que haya sido va
 | JavaScript | `proximos-eventos.js` | `galeria-parroquia.js` | `grupos.js`, `solicitud-grupos.js` y pestañas de Bootstrap | No aplica |
 | Integraciones | Google Calendar API v3 mediante Netlify Function (completada y operativa, con el calendario secundario institucional) | Ninguna propia | Formulario visual: no envía información | Iframe de Google Calendar (completado y operativo, con el calendario secundario institucional) |
 | Contenido real de la parroquia | Pendiente de validación (horarios y enlaces de Maps aportados por el equipo; ver 9.6) | Textos editoriales propuestos, pendientes de validación institucional (9.6) | Pendiente | Pendiente |
-| Imágenes definitivas | Hero con recreación digital (publicado); tarjetas de «Próximos eventos» con tres imágenes genéricas fijas por posición (2026-11-02, local); sin placeholders | Hero, historia y patrono con recreaciones digitales (publicados); 13 placeholders pendientes | Pendientes (21 placeholders) | Hero con recreación digital (`herocalendario`, publicado el 2026-10-24, commit `a8406b2`); sin placeholders |
+| Imágenes definitivas | Hero con recreación digital (publicado); tarjetas de «Próximos eventos» con tres imágenes genéricas fijas por posición (publicadas el 2026-11-02, commit `c5670c5`); sin placeholders | Hero, historia y patrono con recreaciones digitales (publicados); 13 placeholders pendientes | Pendientes (21 placeholders) | Hero con recreación digital (`herocalendario`, publicado el 2026-10-24, commit `a8406b2`); sin placeholders |
 | Validación con la parroquia | Pendiente | Pendiente | Pendiente | Pendiente |
 | Estado para entrega final | No alcanzada: pendiente de contenido, imágenes y validación | Ídem | Ídem | Ídem, más la limitación del embed a ≈ 375 px (9.9) |
 
@@ -517,7 +517,7 @@ Resueltas el 2026-10-29: la arquitectura definitiva de la sección es **una úni
 
 Pendientes:
 
-1. **Hero con fotografía:** la fotografía definitiva se incorporó el 2026-11-02 (aprobada por el responsable el 2026-11-02, con el commit local pendiente de publicación); el PNG original no se versiona en Git y se conserva solo como respaldo local.
+1. **Hero con fotografía:** la fotografía definitiva se incorporó el 2026-11-02 (aprobada por el responsable y publicada el 2026-11-02 en el commit `fb7bd7a`); el PNG original no se versiona en Git y se conserva solo como respaldo local.
 2. **Referencias conceptuales:** si las dos imágenes de referencia (requisitos y solicitudes) se guardan en `docs/04_Diseno/Referencias_Conceptuales/`.
 3. **Consentimiento y contenido provisional** de cada formulario (sección 18.1).
 
