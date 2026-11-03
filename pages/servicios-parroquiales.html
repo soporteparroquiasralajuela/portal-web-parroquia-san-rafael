@@ -116,9 +116,25 @@
     <main id="main-content">
       <!-- ===================== HERO (Servicios parroquiales) =====================
            Sistema compartido de Heroes interiores (.hero-interior, .hero-title, .hero-text y .hero-curva en
-           components.css). Aún no hay fotografía: se usa la variante compacta sobre el azul institucional.
-           Cuando la parroquia entregue la imagen se agrega un <picture> y se quita .hero-interior--compacto. -->
+           components.css). Fotografía decorativa del interior del templo (altar de San Miguel Arcángel) como fondo
+           a todo el ancho, con un degradado azul institucional que oscurece el lado del texto; conserva la
+           variante compacta (altura) y la doble curva. Es decorativa: sin texto alternativo (alt vacío). -->
       <section class="hero-interior hero-interior--compacto servicios-hero" aria-labelledby="servicios-hero-heading">
+        <img
+          class="servicios-hero__img"
+          src="../assets/img/galeria/hero_serviciosparro-1280.webp"
+          srcset="
+            ../assets/img/galeria/hero_serviciosparro-960.webp 960w,
+            ../assets/img/galeria/hero_serviciosparro-1280.webp 1280w,
+            ../assets/img/galeria/hero_serviciosparro-1672.webp 1672w
+          "
+          sizes="(max-width: 767.98px) 200vw, 100vw"
+          alt=""
+          width="1672"
+          height="941"
+          fetchpriority="high"
+          decoding="async"
+        />
         <div class="container">
           <div class="servicios-hero__content">
             <h1 id="servicios-hero-heading" class="hero-title">Servicios <span class="hero-title__acento">parroquiales</span></h1>

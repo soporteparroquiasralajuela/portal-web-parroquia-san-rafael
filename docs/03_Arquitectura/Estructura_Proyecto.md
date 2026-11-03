@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Estructura_Proyecto.md |
-| Versión | 1.14 |
+| Versión | 1.15 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-29 |
+| Última actualización | 2026-11-02 |
 | Estado | Vigente |
 | Fuente | Estado real del repositorio + [CLAUDE.md](../../CLAUDE.md) sección 11 |
 
@@ -38,7 +38,7 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 │   ├── videos/                 # (vacía)
 │   └── img/
 │       ├── eventos/            # (vacía)
-│       ├── galeria/            # Carrusel de Inicio (3 PNG originales + 4 versiones WebP de cada uno) Heroes de Calendario y Contacto (herocalendario.png y herocontacto.png, con 3 WebP cada uno) y las tres imágenes de las tarjetas de «Próximos eventos» (evento-1/2/3.webp de 432×288 px; sus PNG originales no se versionan en Git y se conservan solo en el equipo local)
+│       ├── galeria/            # Carrusel de Inicio (3 PNG originales + 4 versiones WebP de cada uno) Heroes de Calendario y Contacto (herocalendario.png y herocontacto.png, con 3 WebP cada uno) y las tres imágenes de las tarjetas de «Próximos eventos» (evento-1/2/3.webp de 432×288 px; sus PNG originales no se versionan en Git y se conservan solo en el equipo local) y el Hero de Servicios parroquiales (3 WebP hero_serviciosparro-960/1280/1672; su PNG original no se versiona en Git y se conserva solo en el equipo local)
 │       ├── grupos/             # Hero de Grupos (herogrupos.png + 4 versiones WebP)
 │       ├── logo/               # Logo.jpeg
 │       ├── parroquia/          # Hero, historia, patrono, Hero de Inicio, Diaconía y galería (parroquiagal1–12; originales + WebP)
