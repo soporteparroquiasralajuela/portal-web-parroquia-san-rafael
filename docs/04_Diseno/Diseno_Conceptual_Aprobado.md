@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Diseno_Conceptual_Aprobado.md |
-| Versión | 1.15 |
+| Versión | 1.16 |
 | Fecha de creación | 2026-09-16 |
-| Última actualización | 2026-11-02 |
+| Última actualización | 2026-11-04 |
 | Estado | Vigente |
 | Fuente | [Bitacora.md](../01_Gestion_Proyecto/Bitacora.md) (entradas 2026-09-05, 2026-09-06, 2026-09-13); [CLAUDE.md](../../CLAUDE.md) secciones 14, 16, 20, 24 |
 
@@ -145,7 +145,7 @@ La página conceptual integra en una misma página: misión, visión, valores, "
 - No se crearán páginas adicionales para estas secciones salvo que posteriormente se defina lo contrario.
 
 ### Servicios parroquiales
-Decisión del 2026-10-29: página única con dos bloques desplegables, **Requisitos y preparación** (Bautizo, Matrimonio, Confirmación y Catequesis bautismal) y **Solicitudes parroquiales** (misas, constancias, visita de ministro, comunión para enfermos y unción de los enfermos), a partir de dos diseños conceptuales aportados por el responsable. Sustituye a la estructura conceptual anterior (Sacramentos, Gestiones y Documentos e información) y al arte `Diseño Pagina Servicios.png`, que queda como referencia histórica.
+Decisión del 2026-10-29: página única con dos bloques desplegables, **Requisitos y preparación** (Bautizo, Matrimonio, Confirmación y Catequesis bautismal) y **Solicitudes parroquiales** (misas, constancias, visita de ministro, comunión para enfermos y unción de los enfermos), a partir de dos diseños conceptuales aportados por el responsable. **Actualización del 2026-11-04 (aprobada y publicada):** los requisitos de Bautizo y Matrimonio incorporan la información oficial de la oficina parroquial con descarga del documento original, y las solicitudes pasan a **cuatro** (misas, constancias, visita para unción de los enfermos y comunión para enfermos): «Visita de ministro» y «Unción de los enfermos» se unifican en un solo trámite (Manual_Tecnico.md, sección 18.6). Sustituye a la estructura conceptual anterior (Sacramentos, Gestiones y Documentos e información) y al arte `Diseño Pagina Servicios.png`, que queda como referencia histórica.
 - Los accesos rápidos son parte de la misma sección "¿Cómo podemos ayudarte?" y no constituyen una sección independiente.
 - El contenido definitivo (requisitos, fechas, documentos y campos de los formularios) queda pendiente del levantamiento con la oficina parroquial; la fase 1 es provisional.
 

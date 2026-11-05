@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 03_Arquitectura/Estructura_Proyecto.md |
-| Versión | 1.15 |
+| Versión | 1.16 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-11-02 |
+| Última actualización | 2026-11-04 |
 | Estado | Vigente |
 | Fuente | Estado real del repositorio + [CLAUDE.md](../../CLAUDE.md) sección 11 |
 
@@ -34,7 +34,7 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 │   │                           # y servicios-parroquiales.js
 │   ├── fonts/                  # (vacía)
 │   ├── icons/                  # favicon-32x32.png, apple-touch-icon.png
-│   ├── downloads/              # (vacía)
+│   ├── downloads/              # Documentos oficiales descargables: requisitos-bautizo.png y requisitos-matrimonio.jpg
 │   ├── videos/                 # (vacía)
 │   └── img/
 │       ├── eventos/            # (vacía)
@@ -75,7 +75,7 @@ Documentar la estructura real y actual de carpetas del repositorio, y el propós
 | `assets/img/` | Imágenes, organizadas por categoría (eventos, galería, grupos, logo, parroquia, sacerdotes, transmisiones — detalle en [Diseno_Conceptual_Aprobado.md](../04_Diseno/Diseno_Conceptual_Aprobado.md)) | Con contenido: `logo/` (`Logo.jpeg`) y `parroquia/` (recreaciones digitales en PNG y WebP; ver [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 12); el resto, vacías |
 | `assets/fonts/` | Tipografías locales, si aplica | Vacía |
 | `assets/icons/` | Iconografía propia (más allá de Bootstrap Icons) | Con contenido: favicon de 32 px y `apple-touch-icon.png`; el `favicon.ico` vive en la raíz |
-| `assets/downloads/` | Archivos descargables (documentos, boletines, etc.) | Vacía |
+| `assets/downloads/` | Archivos descargables (documentos, boletines, etc.) | Con contenido desde el 2026-11-04 (publicado): imágenes oficiales de los requisitos de Bautizo y Matrimonio, enlazadas desde Servicios parroquiales |
 | `assets/videos/` | Contenido de video | Vacía |
 | `components/` | Fragmentos de interfaz reutilizables | Vacía |
 | `pages/` | Páginas del sitio distintas de `index.html` | Con contenido: Parroquia, Grupos, Calendario, Transmisiones y Contacto |

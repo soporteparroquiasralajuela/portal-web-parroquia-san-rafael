@@ -5,8 +5,9 @@
    No se reutiliza en otras páginas y no depende de home.css, parroquia.css ni grupos.css. La transición
    navy/dorada hacia el footer se reproduce localmente (sin insignia circular), igual que en las demás
    páginas.
-   Fase de maquetación: el contenido es provisional y los formularios no envían datos (ver
-   assets/js/servicios-parroquiales.js y docs/08_Manuales/Manual_Tecnico.md, sección 18). */
+   Requisitos de Bautizo y Matrimonio con la información oficial de la oficina parroquial (listas, bloque de
+   fechas y documento descargable); el resto del contenido es provisional y los formularios no envían datos
+   (ver assets/js/servicios-parroquiales.js y docs/08_Manuales/Manual_Tecnico.md, sección 18). */
 
 /* Tintes locales derivados de la paleta institucional (no son colores nuevos): azul institucional al 5 % y
    dorado institucional (--color-secondary) al 16 %. Los íconos van en azul institucional sobre el tinte dorado
@@ -239,9 +240,129 @@
   color: var(--color-primary);
 }
 
+/* Información oficial entregada por la oficina parroquial: mismo recuadro, en azul suave en lugar de dorado. */
+.servicios-aviso--oficial {
+  background-color: var(--servicios-tinte-azul);
+}
+
 .servicios-descripcion {
   margin-bottom: var(--space-3);
   color: var(--color-text-primary);
+}
+
+/* Subtítulos de los requisitos: h4 para cada tema y h5 para los grupos dentro de él (niño, padres, padrinos). */
+.servicios-subtitulo {
+  margin: var(--space-3) 0 var(--space-1);
+  font-family: var(--font-accent);
+  font-size: var(--fs-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-heading);
+  color: var(--color-primary);
+}
+
+.servicios-subtitulo--grupo {
+  margin: var(--space-2) 0 6px;
+  padding-left: 10px;
+  font-size: var(--fs-body-sm);
+  border-left: 3px solid var(--color-secondary);
+}
+
+.servicios-subtitulo--bloque {
+  margin: 0 0 var(--space-2);
+}
+
+/* Listas de documentos: viñeta dorada o, en Matrimonio, numeración con la misma secuencia del documento oficial. */
+.servicios-lista {
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  list-style: none;
+  color: var(--color-text-primary);
+}
+
+.servicios-lista li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 22px;
+}
+
+.servicios-lista li:last-child {
+  margin-bottom: 0;
+}
+
+.servicios-lista:not(.servicios-lista--numerada) li::before {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-pill);
+}
+
+.servicios-lista--numerada {
+  counter-reset: requisito;
+}
+
+.servicios-lista--numerada li {
+  margin-bottom: var(--space-2);
+  padding-left: 40px;
+  counter-increment: requisito;
+}
+
+.servicios-lista--numerada li::before {
+  content: counter(requisito);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-family: var(--font-accent);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--weight-semibold);
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+}
+
+.servicios-lista__titulo {
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+}
+
+/* Condición destacada dentro de un requisito (por ejemplo, el año del certificado). */
+.servicios-lista__nota {
+  padding: 0 6px;
+  font-weight: var(--weight-semibold);
+  background-color: var(--servicios-tinte-dorado);
+  border-radius: 4px;
+}
+
+.servicios-cierre {
+  margin: var(--space-3) 0 0;
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Bloque informativo de fechas, plazos y datos administrativos (recuadro azul suave). */
+.servicios-bloque {
+  padding: var(--space-2);
+  background-color: var(--servicios-tinte-azul);
+  border-radius: var(--radius-md);
+}
+
+.servicios-detalle__principal > .servicios-bloque {
+  margin-top: var(--space-3);
+}
+
+/* Columna lateral de los requisitos: bloque informativo y documento descargable, uno bajo el otro. */
+.servicios-detalle--requisitos > .servicios-detalle__lado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
 }
 
 /* Filas de información (fecha, requisitos): ícono, etiqueta y valor. */
@@ -292,16 +413,21 @@
   color: var(--color-text-secondary);
 }
 
-.servicios-dato__estado {
-  display: inline-block;
-  margin-left: 4px;
-  font-family: var(--font-accent);
-  font-size: 12px;
-  font-weight: var(--weight-medium);
-  color: var(--color-text-primary);
+.servicios-dato__etiqueta a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-/* Recuadro del documento PDF: sin enlace mientras la oficina no entregue el archivo. */
+/* Canales de consulta (Confirmación y Catequesis bautismal): una columna en móvil, dos en tableta y tres en escritorio. */
+.servicios-datos--canales {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2) var(--space-3);
+}
+
+/* Recuadro del documento oficial descargable (Bautizo y Matrimonio). Confirmación y Catequesis bautismal no lo
+   muestran mientras no exista un documento oficial. */
 .servicios-descarga {
   display: flex;
   flex-direction: column;
@@ -336,21 +462,10 @@
 
 .servicios-descarga .btn {
   margin-top: var(--space-1);
+  padding-inline: var(--space-2); /* evita que «Descargar documento» se parta en dos líneas en móvil */
 }
 
-/* Botón de descarga deshabilitado (aún no existe el PDF): neutro, punteado y sin sombra. Bootstrap pintaría
-   .btn-primary:disabled con su azul de fábrica. Habilitado, el botón es un <a class="btn btn-primary"> con el
-   estilo y los estados de .btn-primary (main.css). */
-.servicios-descarga .btn-primary:disabled {
-  --bs-btn-disabled-color: var(--color-text-secondary);
-  --bs-btn-disabled-bg: var(--color-border-light);
-  --bs-btn-disabled-border-color: var(--color-text-secondary);
-  --bs-btn-disabled-opacity: 1;
-  border-style: dashed;
-  box-shadow: none;
-}
-
-/* Nota «Importante» de las solicitudes. */
+/* Notas «Importante» de las solicitudes y condiciones de los requisitos. */
 .servicios-nota {
   display: flex;
   align-items: flex-start;
@@ -383,12 +498,25 @@
   color: var(--color-text-secondary);
 }
 
-.servicios-nota--urgente {
+.servicios-nota a {
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.servicios-nota--urgente,
+.servicios-nota--condicion {
   background-color: var(--servicios-tinte-dorado);
 }
 
-.servicios-nota--urgente > i {
+.servicios-nota--urgente > i,
+.servicios-nota--condicion > i {
   color: var(--color-primary);
+}
+
+/* Dentro de un formulario la nota ya está separada por el espaciado de la cuadrícula. */
+.solicitud-form .servicios-nota {
+  margin-top: 0;
 }
 
 /* ===== Formularios preliminares =====
@@ -655,6 +783,10 @@
     padding: var(--space-4);
   }
 
+  .servicios-datos--canales {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .servicios-panel__icon {
     width: 72px;
     height: 72px;
@@ -696,6 +828,15 @@
   }
 
   .servicios-detalle--requisitos > .servicios-detalle__lado {
-    align-self: center;
+    align-self: start;
+  }
+
+  .servicios-datos--canales {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Sin documento ni bloque lateral (Confirmación y Catequesis bautismal): una sola columna. */
+  .servicios-detalle--sin-lado {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

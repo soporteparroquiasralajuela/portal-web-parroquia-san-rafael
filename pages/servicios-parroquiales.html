@@ -6,7 +6,7 @@
     <title>Servicios parroquiales | Parroquia San Rafael Arcángel</title>
     <meta
       name="description"
-      content="Requisitos y preparación para los sacramentos y la catequesis, y solicitudes parroquiales en línea: misas, constancias, visita de ministro, comunión para enfermos y unción de los enfermos."
+      content="Requisitos y preparación para los sacramentos y la catequesis, y solicitudes parroquiales en línea: misas, constancias, visita para unción de los enfermos y comunión para enfermos."
     />
     <!-- Página en fase de maquetación con contenido provisional: se mantiene fuera de los buscadores
          hasta que la oficina parroquial confirme la información. Retirar esta línea al publicarla. -->
@@ -16,7 +16,7 @@
     <meta property="og:title" content="Servicios parroquiales | Parroquia San Rafael Arcángel" />
     <meta
       property="og:description"
-      content="Requisitos y preparación para los sacramentos y la catequesis, y solicitudes parroquiales en línea: misas, constancias, visita de ministro, comunión para enfermos y unción de los enfermos."
+      content="Requisitos y preparación para los sacramentos y la catequesis, y solicitudes parroquiales en línea: misas, constancias, visita para unción de los enfermos y comunión para enfermos."
     />
 
     <!-- Favicon (logotipo institucional) -->
@@ -151,7 +151,9 @@
 
       <!-- ===================== REQUISITOS Y PREPARACIÓN =====================
            Sección independiente; los cuatro procesos son un acordeón de Bootstrap (uno abierto a la vez).
-           Contenido provisional: requisitos, fechas y documentos PDF los entrega la oficina parroquial. -->
+           Bautizo y Matrimonio: requisitos oficiales entregados por la oficina parroquial, con el documento
+           original descargable (assets/downloads/). Confirmación y Catequesis bautismal: sin descarga mientras no
+           exista un documento oficial; incluyen el bloque «Inscripciones y consultas» con los canales oficiales. -->
       <section class="servicios-seccion" aria-labelledby="requisitos-heading">
         <div class="container">
           <div class="servicios-panel">
@@ -181,35 +183,61 @@
                 <div class="accordion-body">
                   <div class="servicios-detalle servicios-detalle--requisitos">
                     <div class="servicios-detalle__principal">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Contenido provisional, pendiente de confirmar con la oficina parroquial</span></p>
+                      <p class="servicios-aviso servicios-aviso--oficial"><i class="bi bi-patch-check" aria-hidden="true"></i><span>Información proporcionada por la oficina parroquial</span></p>
                       <p class="servicios-descripcion">El bautizo es el inicio de la vida cristiana y un regalo de Dios para toda la familia.</p>
-                      <ul class="servicios-datos">
-                        <li class="servicios-dato">
-                          <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
-                          <div class="servicios-dato__texto">
-                            <p class="servicios-dato__etiqueta">Fecha de celebración</p>
-                            <p class="servicios-dato__valor">Segundo sábado de cada mes a las 10:00 a. m. <span class="servicios-dato__estado">(dato preliminar, por reconfirmar)</span></p>
-                          </div>
-                        </li>
-                        <li class="servicios-dato">
-                          <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-list-check"></i></span>
-                          <div class="servicios-dato__texto">
-                            <p class="servicios-dato__etiqueta">Requisitos</p>
-                            <p class="servicios-dato__valor">Pendientes de entrega por la oficina parroquial.</p>
-                          </div>
-                        </li>
+                      <h4 class="servicios-subtitulo">Documentos requeridos</h4>
+                      <h5 class="servicios-subtitulo servicios-subtitulo--grupo">Del niño o niña</h5>
+                      <ul class="servicios-lista">
+                        <li>Original y fotocopia de la constancia de nacimiento.</li>
                       </ul>
+                      <h5 class="servicios-subtitulo servicios-subtitulo--grupo">De los padres</h5>
+                      <ul class="servicios-lista">
+                        <li>Original y copia del certificado de catequesis bautismal. <span class="servicios-lista__nota">Debe ser del 2024 a la actualidad.</span></li>
+                        <li>Fotocopia de las cédulas vigentes.</li>
+                      </ul>
+                      <h5 class="servicios-subtitulo servicios-subtitulo--grupo">De los padrinos</h5>
+                      <ul class="servicios-lista">
+                        <li>Original y copia del certificado de catequesis bautismal. <span class="servicios-lista__nota">Debe ser del 2024 a la actualidad.</span></li>
+                        <li>Fotocopia de las cédulas vigentes.</li>
+                        <li>Constancia reciente de confirmación, cuando sean solteros.</li>
+                        <li>Certificación reciente de soltería emitida por el Registro Civil, cuando sean solteros.</li>
+                        <li>Si están casados sacramentalmente, constancia de sacramentos recibidos.</li>
+                      </ul>
+                      <div class="servicios-nota servicios-nota--condicion">
+                        <i class="bi bi-exclamation-circle" aria-hidden="true"></i>
+                        <div>
+                          <p class="servicios-nota__titulo">Condición para los padrinos</p>
+                          <p>No pueden ser padrinos casados civil, ni en unión libre.</p>
+                        </div>
+                      </div>
                     </div>
                     <div class="servicios-detalle__lado">
+                      <div class="servicios-bloque">
+                        <h4 class="servicios-subtitulo servicios-subtitulo--bloque">Fechas importantes</h4>
+                        <ul class="servicios-datos">
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-check"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta">Recepción de documentos</p>
+                              <p class="servicios-dato__valor">De lunes a jueves de la segunda semana de cada mes.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta">Celebración de bautizos</p>
+                              <p class="servicios-dato__valor">Segundo sábado de cada mes.</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                       <div class="servicios-descarga">
-                        <i class="bi bi-file-earmark-pdf servicios-descarga__icono" aria-hidden="true"></i>
+                        <i class="bi bi-file-earmark-image servicios-descarga__icono" aria-hidden="true"></i>
                         <p class="servicios-descarga__titulo">Requisitos para Bautizo</p>
-                        <p class="servicios-descarga__nota">Documento PDF pendiente de entrega por la oficina parroquial.</p>
-                        <!-- Al recibir el PDF: sustituir este botón por <a class="btn btn-primary" href="../assets/downloads/ARCHIVO.pdf" download>
-                             con el ícono bi-download y el texto «Descargar documento». -->
-                        <button type="button" class="btn btn-primary" disabled>
-                          <i class="bi bi-download" aria-hidden="true"></i> Descarga no disponible todavía
-                        </button>
+                        <p class="servicios-descarga__nota">Documento oficial de la oficina parroquial (imagen PNG, 617 KB).</p>
+                        <a class="btn btn-primary" href="../assets/downloads/requisitos-bautizo.png" download="Requisitos-Bautizo-Parroquia-San-Rafael.png">
+                          <i class="bi bi-download" aria-hidden="true"></i> Descargar documento
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -234,33 +262,54 @@
                 <div class="accordion-body">
                   <div class="servicios-detalle servicios-detalle--requisitos">
                     <div class="servicios-detalle__principal">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Contenido provisional, pendiente de confirmar con la oficina parroquial</span></p>
-                      <p class="servicios-descripcion">Descripción del proceso de preparación pendiente de confirmar con la oficina parroquial.</p>
-                      <ul class="servicios-datos">
-                        <li class="servicios-dato">
-                          <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
-                          <div class="servicios-dato__texto">
-                            <p class="servicios-dato__etiqueta">Fecha de celebración</p>
-                            <p class="servicios-dato__valor">Pendiente de confirmar.</p>
-                          </div>
-                        </li>
-                        <li class="servicios-dato">
-                          <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-list-check"></i></span>
-                          <div class="servicios-dato__texto">
-                            <p class="servicios-dato__etiqueta">Requisitos</p>
-                            <p class="servicios-dato__valor">Pendientes de entrega por la oficina parroquial.</p>
-                          </div>
-                        </li>
-                      </ul>
+                      <p class="servicios-aviso servicios-aviso--oficial"><i class="bi bi-patch-check" aria-hidden="true"></i><span>Información proporcionada por la oficina parroquial</span></p>
+                      <p class="servicios-descripcion">Estos documentos son necesarios para iniciar el trámite de presentación matrimonial en nuestra parroquia.</p>
+                      <h4 class="servicios-subtitulo">Documentos requeridos</h4>
+                      <ol class="servicios-lista servicios-lista--numerada">
+                        <li><strong class="servicios-lista__titulo">Constancias de sacramentos.</strong> Originales de las constancias de sacramentos de ambos contrayentes, con el sello de la parroquia y la firma del sacerdote. No pueden tener más de 2 meses. Se solicitan en la parroquia donde se bautizaron e indican que son para matrimonio. <span class="servicios-lista__nota">La confirmación es obligatoria.</span></li>
+                        <li><strong class="servicios-lista__titulo">Certificación del Registro Civil.</strong> Certificación del Registro de la Condición Civil de uno y otro contrayente. Estas certificaciones tienen una vigencia de un mes; si es necesario, tendrían que presentar una reciente. Si uno de los contrayentes es viudo, debe presentar acta de defunción y que hayan pasado 300 días desde el fallecimiento o divorcio del matrimonio civil.</li>
+                        <li><strong class="servicios-lista__titulo">Fotografías.</strong> De ambos contrayentes, 2 fotos cuando ambos viven en San Rafael, o 3 si uno vive acá y el otro en otra comunidad. Tienen que ser tamaño pasaporte.</li>
+                        <li><strong class="servicios-lista__titulo">Curso matrimonial.</strong> Original y fotocopia del certificado del curso matrimonial realizado en cualquier parroquia de la Diócesis de Alajuela.</li>
+                        <li><strong class="servicios-lista__titulo">Documentos de identidad.</strong> Fotocopia de los documentos de identidad de ambos contrayentes, que estén vigentes.</li>
+                        <li><strong class="servicios-lista__titulo">Testigo para la presentación.</strong> Ambos contrayentes tienen que aportar un testigo para la presentación (ningún grado de familiaridad), con fotocopia de los documentos de identidad vigentes, y agregar sus calidades: dirección, condición civil, ocupación y teléfono.</li>
+                        <li><strong class="servicios-lista__titulo">Testigos de boda.</strong> Testigos de boda, afines a la fe, con fotocopia de las cédulas vigentes, donde se indique de igual manera: dirección, condición civil, ocupación y teléfono.</li>
+                      </ol>
+                      <p class="servicios-descripcion servicios-cierre">Gracias por entregar toda la documentación completa. Esto nos ayuda a servirles mejor y a preparar su camino hacia el matrimonio sacramental.</p>
                     </div>
                     <div class="servicios-detalle__lado">
+                      <div class="servicios-bloque">
+                        <h4 class="servicios-subtitulo servicios-subtitulo--bloque">Información administrativa</h4>
+                        <ul class="servicios-datos">
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-check"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta">Entrega de documentación</p>
+                              <p class="servicios-dato__valor">De lunes a miércoles, en la oficina parroquial.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-clock-history"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta">Tiempo mínimo entre la presentación y la boda</p>
+                              <p class="servicios-dato__valor">Un mes y quince días. En matrimonios mixtos o con disparidad de cultos: un mes y veintidós días.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-cash-coin"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta">Aporte económico</p>
+                              <p class="servicios-dato__valor">₡17.000 en efectivo, para cubrir los gastos de papeleo y trámite ante el Registro Civil.</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                       <div class="servicios-descarga">
-                        <i class="bi bi-file-earmark-pdf servicios-descarga__icono" aria-hidden="true"></i>
+                        <i class="bi bi-file-earmark-image servicios-descarga__icono" aria-hidden="true"></i>
                         <p class="servicios-descarga__titulo">Requisitos para Matrimonio</p>
-                        <p class="servicios-descarga__nota">Documento PDF pendiente de entrega por la oficina parroquial.</p>
-                        <button type="button" class="btn btn-primary" disabled>
-                          <i class="bi bi-download" aria-hidden="true"></i> Descarga no disponible todavía
-                        </button>
+                        <p class="servicios-descarga__nota">Documento oficial de la oficina parroquial (imagen JPEG, 456 KB).</p>
+                        <a class="btn btn-primary" href="../assets/downloads/requisitos-matrimonio.jpg" download="Requisitos-Matrimonio-Parroquia-San-Rafael.jpg">
+                          <i class="bi bi-download" aria-hidden="true"></i> Descargar documento
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -283,35 +332,72 @@
               </h3>
               <div id="req-confirmacion" class="accordion-collapse collapse" data-bs-parent="#acordeon-requisitos">
                 <div class="accordion-body">
-                  <div class="servicios-detalle servicios-detalle--requisitos">
+                  <div class="servicios-detalle servicios-detalle--requisitos servicios-detalle--sin-lado">
                     <div class="servicios-detalle__principal">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Contenido provisional, pendiente de confirmar con la oficina parroquial</span></p>
-                      <p class="servicios-descripcion">Descripción del proceso de preparación pendiente de confirmar con la oficina parroquial.</p>
-                      <ul class="servicios-datos">
-                        <li class="servicios-dato">
-                          <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
-                          <div class="servicios-dato__texto">
-                            <p class="servicios-dato__etiqueta">Fecha de celebración</p>
-                            <p class="servicios-dato__valor">Pendiente de confirmar.</p>
-                          </div>
-                        </li>
-                        <li class="servicios-dato">
-                          <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-list-check"></i></span>
-                          <div class="servicios-dato__texto">
-                            <p class="servicios-dato__etiqueta">Requisitos</p>
-                            <p class="servicios-dato__valor">Pendientes de entrega por la oficina parroquial.</p>
-                          </div>
-                        </li>
+                      <p class="servicios-descripcion">Estos son los requisitos para la catequesis de confirmación.</p>
+                      <h4 class="servicios-subtitulo">Documentos requeridos</h4>
+                      <ul class="servicios-lista">
+                        <li>Constancia de bautismo.</li>
+                        <li>Constancia de primera comunión.</li>
                       </ul>
-                    </div>
-                    <div class="servicios-detalle__lado">
-                      <div class="servicios-descarga">
-                        <i class="bi bi-file-earmark-pdf servicios-descarga__icono" aria-hidden="true"></i>
-                        <p class="servicios-descarga__titulo">Requisitos para Confirmación</p>
-                        <p class="servicios-descarga__nota">Documento PDF pendiente de entrega por la oficina parroquial.</p>
-                        <button type="button" class="btn btn-primary" disabled>
-                          <i class="bi bi-download" aria-hidden="true"></i> Descarga no disponible todavía
-                        </button>
+                      <div class="servicios-bloque">
+                        <h4 class="servicios-subtitulo servicios-subtitulo--bloque">Inscripciones</h4>
+                        <ul class="servicios-datos">
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-check"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta">Fechas de inscripción</p>
+                              <p class="servicios-dato__valor">Las inscripciones se realizan en las fechas que indique la Catequesis. Estas serán comunicadas a través de los canales oficiales de la parroquia.</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="servicios-bloque">
+                        <h4 class="servicios-subtitulo servicios-subtitulo--bloque">Inscripciones y consultas</h4>
+                        <ul class="servicios-datos servicios-datos--canales">
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="calendario.html">Calendario parroquial</a></p>
+                              <p class="servicios-dato__valor">Consultá las actividades de la parroquia.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-facebook"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="https://www.facebook.com/p/Parroquia-San-Rafael-Arc%C3%A1ngel-Alajuela-61587443041769/?locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook oficial<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></p>
+                              <p class="servicios-dato__valor">Página oficial de la parroquia.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-whatsapp"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="https://wa.me/50688478444" target="_blank" rel="noopener noreferrer">WhatsApp<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></p>
+                              <p class="servicios-dato__valor">+506 8847-8444</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-telephone"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="tel:+50624380379">Llamar a la oficina</a></p>
+                              <p class="servicios-dato__valor">2438-0379</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-geo-alt"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta">Visita presencial</p>
+                              <p class="servicios-dato__valor">Acercate a la oficina parroquial en su horario de atención administrativa.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="contacto.html">Formulario de Contacto</a></p>
+                              <p class="servicios-dato__valor">Escribinos desde la página de Contacto.</p>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -334,35 +420,67 @@
               </h3>
               <div id="req-catequesis" class="accordion-collapse collapse" data-bs-parent="#acordeon-requisitos">
                 <div class="accordion-body">
-                  <div class="servicios-detalle servicios-detalle--requisitos">
+                  <div class="servicios-detalle servicios-detalle--requisitos servicios-detalle--sin-lado">
                     <div class="servicios-detalle__principal">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Contenido provisional, pendiente de confirmar con la oficina parroquial</span></p>
-                      <p class="servicios-descripcion">Descripción del proceso pendiente de confirmar con la oficina parroquial.</p>
-                      <ul class="servicios-datos">
-                        <li class="servicios-dato">
-                          <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
-                          <div class="servicios-dato__texto">
-                            <p class="servicios-dato__etiqueta">Fecha de celebración</p>
-                            <p class="servicios-dato__valor">Pendiente de confirmar.</p>
-                          </div>
-                        </li>
-                        <li class="servicios-dato">
-                          <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-list-check"></i></span>
-                          <div class="servicios-dato__texto">
-                            <p class="servicios-dato__etiqueta">Requisitos</p>
-                            <p class="servicios-dato__valor">Pendientes de entrega por la oficina parroquial.</p>
-                          </div>
-                        </li>
+                      <p class="servicios-descripcion">El certificado de catequesis bautismal es un requisito del trámite de Bautizo, tanto para los padres como para los padrinos.</p>
+                      <h4 class="servicios-subtitulo">Información confirmada</h4>
+                      <ul class="servicios-lista">
+                        <li>Se requiere el original y la copia del certificado de catequesis bautismal de los padres y de los padrinos.</li>
+                        <li>El certificado debe ser del 2024 a la actualidad.</li>
                       </ul>
-                    </div>
-                    <div class="servicios-detalle__lado">
-                      <div class="servicios-descarga">
-                        <i class="bi bi-file-earmark-pdf servicios-descarga__icono" aria-hidden="true"></i>
-                        <p class="servicios-descarga__titulo">Requisitos para Catequesis bautismal</p>
-                        <p class="servicios-descarga__nota">Documento PDF pendiente de entrega por la oficina parroquial.</p>
-                        <button type="button" class="btn btn-primary" disabled>
-                          <i class="bi bi-download" aria-hidden="true"></i> Descarga no disponible todavía
-                        </button>
+                      <div class="servicios-nota">
+                        <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+                        <div>
+                          <p class="servicios-nota__titulo">Inscripción y disponibilidad</p>
+                          <p>Para conocer las próximas fechas de catequesis bautismal y el proceso de inscripción, podés consultar los canales oficiales de la parroquia o comunicarte directamente con la oficina parroquial.</p>
+                        </div>
+                      </div>
+                      <div class="servicios-bloque">
+                        <h4 class="servicios-subtitulo servicios-subtitulo--bloque">Inscripciones y consultas</h4>
+                        <ul class="servicios-datos servicios-datos--canales">
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="calendario.html">Calendario parroquial</a></p>
+                              <p class="servicios-dato__valor">Consultá las actividades de la parroquia.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-facebook"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="https://www.facebook.com/p/Parroquia-San-Rafael-Arc%C3%A1ngel-Alajuela-61587443041769/?locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook oficial<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></p>
+                              <p class="servicios-dato__valor">Página oficial de la parroquia.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-whatsapp"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="https://wa.me/50688478444" target="_blank" rel="noopener noreferrer">WhatsApp<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></p>
+                              <p class="servicios-dato__valor">+506 8847-8444</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-telephone"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="tel:+50624380379">Llamar a la oficina</a></p>
+                              <p class="servicios-dato__valor">2438-0379</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-geo-alt"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta">Visita presencial</p>
+                              <p class="servicios-dato__valor">Acercate a la oficina parroquial en su horario de atención administrativa.</p>
+                            </div>
+                          </li>
+                          <li class="servicios-dato">
+                            <span class="servicios-dato__icono" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+                            <div class="servicios-dato__texto">
+                              <p class="servicios-dato__etiqueta"><a href="contacto.html">Formulario de Contacto</a></p>
+                              <p class="servicios-dato__valor">Escribinos desde la página de Contacto.</p>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -375,8 +493,8 @@
       </section>
 
       <!-- ===================== SOLICITUDES PARROQUIALES =====================
-           Sección independiente con su propio acordeón. Los formularios son solo maquetación: no tienen
-           acción ni integración (envío, correo, archivos y pagos quedan para una fase posterior). -->
+           Sección independiente con su propio acordeón (cuatro trámites). Los formularios son solo maquetación:
+           no tienen acción ni integración (envío, correo, archivos y pagos quedan para una fase posterior). -->
       <section class="servicios-seccion" aria-labelledby="solicitudes-heading">
         <div class="container">
           <div class="servicios-panel">
@@ -406,13 +524,12 @@
                 <div class="accordion-body">
                   <div class="servicios-detalle servicios-detalle--solicitud">
                     <div class="servicios-detalle__lado">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Campos y texto provisionales, pendientes de validar con la oficina parroquial</span></p>
                       <p class="servicios-descripcion mb-0">Podés solicitar una misa por tus intenciones, por un ser querido o en una ocasión especial.</p>
                       <div class="servicios-nota">
                         <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
                         <div>
-                          <p class="servicios-nota__titulo">Importante</p>
-                          <p>La oficina parroquial te brindará la información sobre el monto de la contribución, el medio de pago y cualquier indicación adicional.</p>
+                          <p class="servicios-nota__titulo">Ofrenda y gestión de la solicitud</p>
+                          <p>La parroquia contempla una ofrenda voluntaria de ₡500. Podés realizar la solicitud presencialmente en la oficina parroquial o gestionar la intención por este formulario. Si realizás una transferencia mediante SINPE Móvil, adjuntá el comprobante para su revisión y posterior coordinación.</p>
                         </div>
                       </div>
                     </div>
@@ -420,16 +537,6 @@
                     <form class="solicitud-form" data-solicitud="misas" novalidate aria-label="Formulario preliminar de solicitud de misas">
                       <p class="solicitud-form__resumen" role="alert" hidden></p>
                       <div class="row g-3">
-                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="misas-nombre" class="form-label">Nombre de quien solicita <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="text" id="misas-nombre" name="nombre" class="form-control" required autocomplete="name" aria-describedby="misas-nombre-error" />
-                          <div class="invalid-feedback" id="misas-nombre-error"></div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="misas-telefono" class="form-label">Teléfono de contacto <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="tel" id="misas-telefono" name="telefono" class="form-control" required autocomplete="tel" inputmode="tel" aria-describedby="misas-telefono-error" />
-                          <div class="invalid-feedback" id="misas-telefono-error"></div>
-                        </div>
                         <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
                           <label for="misas-intencion" class="form-label">Intención de la misa <span class="solicitud-form__req" aria-hidden="true">*</span></label>
                           <input type="text" id="misas-intencion" name="intencion" class="form-control" required placeholder="Ej. Por el eterno descanso de…" aria-describedby="misas-intencion-error" />
@@ -441,14 +548,15 @@
                           <div class="invalid-feedback" id="misas-fecha-error"></div>
                         </div>
                         <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="misas-hora" class="form-label">Hora solicitada (opcional)</label>
-                          <input type="time" id="misas-hora" name="hora" class="form-control" aria-describedby="misas-hora-error" />
+                          <label for="misas-hora" class="form-label">Hora de la misa <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <input type="time" id="misas-hora" name="hora" class="form-control" required aria-describedby="misas-hora-error misas-hora-ayuda" />
                           <div class="invalid-feedback" id="misas-hora-error"></div>
+                          <p class="solicitud-form__ayuda" id="misas-hora-ayuda">Indicá el horario de la misa en la que deseás que se mencione tu intención. La hora debe coincidir con uno de los horarios de misa de la parroquia.</p>
                         </div>
                         <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
                           <label for="misas-comprobante" class="form-label">Comprobante de pago (si aplica)</label>
                           <input type="file" id="misas-comprobante" name="misas-comprobante" class="form-control" disabled aria-describedby="misas-comprobante-ayuda" />
-                          <p class="solicitud-form__ayuda" id="misas-comprobante-ayuda">Adjuntar archivos todavía no está disponible. Tipos y tamaño por confirmar. Medio de pago pendiente de confirmar.</p>
+                          <p class="solicitud-form__ayuda" id="misas-comprobante-ayuda">La carga de comprobantes todavía no está disponible.</p>
                         </div>
                       </div>
                       <div class="form-check solicitud-form__consent mt-3 mb-3">
@@ -458,7 +566,7 @@
                         </label>
                         <div class="invalid-feedback" id="misas-consentimiento-error"></div>
                       </div>
-                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio. Campos y texto de consentimiento pendientes de validar con la oficina parroquial.</p>
+                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio.</p>
                       <button type="submit" class="btn btn-primary w-100">
                         <i class="bi bi-send" aria-hidden="true"></i> Enviar solicitud
                       </button>
@@ -490,13 +598,12 @@
                 <div class="accordion-body">
                   <div class="servicios-detalle servicios-detalle--solicitud">
                     <div class="servicios-detalle__lado">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Campos y texto provisionales, pendientes de validar con la oficina parroquial</span></p>
                       <p class="servicios-descripcion mb-0">Podés iniciar aquí la solicitud de una constancia emitida por la oficina parroquial.</p>
                       <div class="servicios-nota">
                         <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
                         <div>
                           <p class="servicios-nota__titulo">Importante</p>
-                          <p>Los tipos de constancia, los datos para localizar el registro, los plazos y los documentos de respaldo están pendientes de confirmar con la oficina parroquial.</p>
+                          <p>Una vez recibida tu solicitud, la oficina parroquial se pondrá en contacto con vos para coordinar los detalles y comunicarte el plazo estimado de entrega.</p>
                         </div>
                       </div>
                     </div>
@@ -504,6 +611,56 @@
                     <form class="solicitud-form" data-solicitud="constancias" novalidate aria-label="Formulario preliminar de solicitud de constancias">
                       <p class="solicitud-form__resumen" role="alert" hidden></p>
                       <div class="row g-3">
+                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
+                          <label for="constancias-tipo" class="form-label">Tipo de constancia <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <select id="constancias-tipo" name="tipo-constancia" class="form-select" required aria-describedby="constancias-tipo-error">
+                            <option value="" selected>Seleccioná una opción</option>
+                            <option value="bautismo">Constancia de bautismo</option>
+                            <option value="confirmacion">Constancia de confirmación</option>
+                          </select>
+                          <div class="invalid-feedback" id="constancias-tipo-error"></div>
+                          <span class="visually-hidden" id="constancias-aviso-lectores" role="status"></span>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
+                          <label for="constancias-finalidad" class="form-label">Finalidad del documento <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <select id="constancias-finalidad" name="finalidad" class="form-select" required aria-describedby="constancias-finalidad-error">
+                            <option value="" selected>Seleccioná una opción</option>
+                            <option value="personal">Trámite personal</option>
+                            <option value="matrimonio">Matrimonio</option>
+                            <option value="padrino">Padrino o madrina</option>
+                            <option value="otro">Otro</option>
+                          </select>
+                          <div class="invalid-feedback" id="constancias-finalidad-error"></div>
+                        </div>
+                        <div class="col-12" data-visible-si="tipo-constancia=bautismo" data-anuncio-en="constancias-aviso-lectores" hidden>
+                          <div class="servicios-nota servicios-nota--condicion">
+                            <i class="bi bi-exclamation-circle" aria-hidden="true"></i>
+                            <div>
+                              <p class="servicios-nota__titulo">Importante</p>
+                              <p>Las constancias de bautismo deben solicitarse en la parroquia donde se realizó el bautizo.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <label for="constancias-persona" class="form-label">Nombre completo de la persona cuyo sacramento se certifica <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <input type="text" id="constancias-persona" name="persona-sacramento" class="form-control" required autocomplete="off" aria-describedby="constancias-persona-error" />
+                          <div class="invalid-feedback" id="constancias-persona-error"></div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
+                          <label for="constancias-nacimiento" class="form-label">Fecha de nacimiento <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <input type="date" id="constancias-nacimiento" name="fecha-nacimiento" class="form-control" required data-max-hoy aria-describedby="constancias-nacimiento-error" />
+                          <div class="invalid-feedback" id="constancias-nacimiento-error"></div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
+                          <label for="constancias-cedula" class="form-label">Número de cédula <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <input type="text" id="constancias-cedula" name="cedula" class="form-control" required maxlength="20" autocomplete="off" aria-describedby="constancias-cedula-error" />
+                          <div class="invalid-feedback" id="constancias-cedula-error"></div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6" data-visible-si="tipo-constancia=confirmacion" hidden>
+                          <label for="constancias-anio-confirmacion" class="form-label">Año de confirmación <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <input type="number" id="constancias-anio-confirmacion" name="anio-confirmacion" class="form-control" required disabled min="1900" data-max-anio-actual inputmode="numeric" aria-describedby="constancias-anio-confirmacion-error" />
+                          <div class="invalid-feedback" id="constancias-anio-confirmacion-error"></div>
+                        </div>
                         <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
                           <label for="constancias-nombre" class="form-label">Nombre de quien solicita <span class="solicitud-form__req" aria-hidden="true">*</span></label>
                           <input type="text" id="constancias-nombre" name="nombre" class="form-control" required autocomplete="name" aria-describedby="constancias-nombre-error" />
@@ -519,23 +676,6 @@
                           <input type="email" id="constancias-correo" name="correo" class="form-control" autocomplete="email" aria-describedby="constancias-correo-error" />
                           <div class="invalid-feedback" id="constancias-correo-error"></div>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="constancias-tipo" class="form-label">Tipo de constancia <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="text" id="constancias-tipo" name="tipo-constancia" class="form-control" required aria-describedby="constancias-tipo-error constancias-tipo-ayuda" />
-                          <div class="invalid-feedback" id="constancias-tipo-error"></div>
-                            <p class="solicitud-form__ayuda" id="constancias-tipo-ayuda">Lista de constancias pendiente de definir con la oficina parroquial.</p>
-                        </div>
-                        <div class="col-12">
-                          <label for="constancias-datos" class="form-label">Datos para localizar el registro</label>
-                          <textarea id="constancias-datos" name="datos-registro" class="form-control" rows="3" maxlength="500" aria-describedby="constancias-datos-error constancias-datos-ayuda"></textarea>
-                          <div class="invalid-feedback" id="constancias-datos-error"></div>
-                            <p class="solicitud-form__ayuda" id="constancias-datos-ayuda">Datos necesarios pendientes de definir con la oficina parroquial.</p>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="constancias-documentos" class="form-label">Documentación de respaldo (si corresponde)</label>
-                          <input type="file" id="constancias-documentos" name="constancias-documentos" class="form-control" disabled aria-describedby="constancias-documentos-ayuda" />
-                          <p class="solicitud-form__ayuda" id="constancias-documentos-ayuda">Adjuntar archivos todavía no está disponible. Tipos y tamaño por confirmar.</p>
-                        </div>
                       </div>
                       <div class="form-check solicitud-form__consent mt-3 mb-3">
                         <input class="form-check-input" type="checkbox" id="constancias-consentimiento" name="consentimiento" value="Acepto" required aria-describedby="constancias-consentimiento-error" />
@@ -544,7 +684,7 @@
                         </label>
                         <div class="invalid-feedback" id="constancias-consentimiento-error"></div>
                       </div>
-                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio. Campos y texto de consentimiento pendientes de validar con la oficina parroquial.</p>
+                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio.</p>
                       <button type="submit" class="btn btn-primary w-100">
                         <i class="bi bi-send" aria-hidden="true"></i> Enviar solicitud
                       </button>
@@ -564,72 +704,78 @@
                   class="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#sol-visita"
+                  data-bs-target="#sol-uncion"
                   aria-expanded="false"
-                  aria-controls="sol-visita"
+                  aria-controls="sol-uncion"
                 >
-                  <span class="servicios-acordeon__icono" aria-hidden="true"><i class="bi bi-house-heart"></i></span>
-                  <span class="servicios-acordeon__titulo">Solicitud de visita de ministro</span>
+                  <span class="servicios-acordeon__icono" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
+                  <span class="servicios-acordeon__titulo">Solicitud de visita para unción de los enfermos</span>
                 </button>
               </h3>
-              <div id="sol-visita" class="accordion-collapse collapse" data-bs-parent="#acordeon-solicitudes">
+              <div id="sol-uncion" class="accordion-collapse collapse" data-bs-parent="#acordeon-solicitudes">
                 <div class="accordion-body">
                   <div class="servicios-detalle servicios-detalle--solicitud">
                     <div class="servicios-detalle__lado">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Campos y texto provisionales, pendientes de validar con la oficina parroquial</span></p>
-                      <p class="servicios-descripcion mb-0">Podés solicitar la visita de un ministro a tu hogar.</p>
+                      <p class="servicios-descripcion mb-0">Podés solicitar que un ministro visite a una persona enferma para la unción de los enfermos.</p>
                       <div class="servicios-nota">
                         <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
                         <div>
                           <p class="servicios-nota__titulo">Importante</p>
-                          <p>La oficina parroquial coordinará contigo los detalles de la visita. La anticipación necesaria y las condiciones están pendientes de confirmar.</p>
+                          <p>La oficina parroquial se pondrá en contacto con vos para coordinar los detalles de la visita.</p>
+                        </div>
+                      </div>
+                      <div class="servicios-nota servicios-nota--urgente">
+                        <i class="bi bi-telephone" aria-hidden="true"></i>
+                        <div>
+                          <p class="servicios-nota__titulo">En una situación urgente</p>
+                          <p>Si se trata de una situación urgente, te recomendamos llamar directamente a la oficina parroquial al <a href="tel:+50624380379">2438-0379</a>, en lugar de realizar la solicitud mediante este formulario.</p>
                         </div>
                       </div>
                     </div>
                     <div class="servicios-detalle__principal">
-                    <form class="solicitud-form" data-solicitud="visita" novalidate aria-label="Formulario preliminar de solicitud de visita de ministro">
+                    <form class="solicitud-form" data-solicitud="uncion" novalidate aria-label="Formulario preliminar de solicitud de visita para unción de los enfermos">
                       <p class="solicitud-form__resumen" role="alert" hidden></p>
                       <div class="row g-3">
                         <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="visita-nombre" class="form-label">Nombre de quien solicita <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="text" id="visita-nombre" name="nombre" class="form-control" required autocomplete="name" aria-describedby="visita-nombre-error" />
-                          <div class="invalid-feedback" id="visita-nombre-error"></div>
+                          <label for="uncion-nombre" class="form-label">Nombre de quien solicita <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <input type="text" id="uncion-nombre" name="nombre" class="form-control" required autocomplete="name" aria-describedby="uncion-nombre-error" />
+                          <div class="invalid-feedback" id="uncion-nombre-error"></div>
                         </div>
                         <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="visita-telefono" class="form-label">Teléfono de contacto <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="tel" id="visita-telefono" name="telefono" class="form-control" required autocomplete="tel" inputmode="tel" aria-describedby="visita-telefono-error" />
-                          <div class="invalid-feedback" id="visita-telefono-error"></div>
+                          <label for="uncion-telefono" class="form-label">Teléfono de contacto <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <input type="tel" id="uncion-telefono" name="telefono" class="form-control" required autocomplete="tel" inputmode="tel" aria-describedby="uncion-telefono-error" />
+                          <div class="invalid-feedback" id="uncion-telefono-error"></div>
                         </div>
                         <div class="col-12">
-                          <label for="visita-persona" class="form-label">Nombre de la persona a visitar <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="text" id="visita-persona" name="persona-a-visitar" class="form-control" required aria-describedby="visita-persona-error" />
-                          <div class="invalid-feedback" id="visita-persona-error"></div>
+                          <label for="uncion-persona" class="form-label">Nombre de la persona enferma <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <input type="text" id="uncion-persona" name="persona-a-visitar" class="form-control" required aria-describedby="uncion-persona-error" />
+                          <div class="invalid-feedback" id="uncion-persona-error"></div>
                         </div>
                         <div class="col-12">
-                          <label for="visita-direccion" class="form-label">Dirección del domicilio <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <textarea id="visita-direccion" name="direccion" class="form-control" rows="3" maxlength="500" required aria-describedby="visita-direccion-error"></textarea>
-                          <div class="invalid-feedback" id="visita-direccion-error"></div>
+                          <label for="uncion-direccion" class="form-label">Dirección del domicilio <span class="solicitud-form__req" aria-hidden="true">*</span></label>
+                          <textarea id="uncion-direccion" name="direccion" class="form-control" rows="3" maxlength="500" required aria-describedby="uncion-direccion-error"></textarea>
+                          <div class="invalid-feedback" id="uncion-direccion-error"></div>
                         </div>
                         <div class="col-12">
-                          <label for="visita-ubicacion" class="form-label">Ubicación del domicilio (opcional)</label>
-                          <input type="text" id="visita-ubicacion" name="ubicacion" class="form-control" aria-describedby="visita-ubicacion-error visita-ubicacion-ayuda" />
-                          <div class="invalid-feedback" id="visita-ubicacion-error"></div>
-                            <p class="solicitud-form__ayuda" id="visita-ubicacion-ayuda">Enlace de mapa o referencias para llegar. Forma de indicarla pendiente de confirmar.</p>
+                          <label for="uncion-ubicacion" class="form-label">Ubicación del domicilio (opcional)</label>
+                          <input type="text" id="uncion-ubicacion" name="ubicacion" class="form-control" aria-describedby="uncion-ubicacion-error uncion-ubicacion-ayuda" />
+                          <div class="invalid-feedback" id="uncion-ubicacion-error"></div>
+                            <p class="solicitud-form__ayuda" id="uncion-ubicacion-ayuda">Enlace de mapa o referencias para llegar.</p>
                         </div>
                         <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="visita-fotografia" class="form-label">Fotografía frontal de la vivienda (opcional)</label>
-                          <input type="file" id="visita-fotografia" name="visita-fotografia" class="form-control" disabled aria-describedby="visita-fotografia-ayuda" />
-                          <p class="solicitud-form__ayuda" id="visita-fotografia-ayuda">Adjuntar archivos todavía no está disponible. Tipos y tamaño por confirmar.</p>
+                          <label for="uncion-fotografia" class="form-label">Fotografía frontal de la vivienda (opcional)</label>
+                          <input type="file" id="uncion-fotografia" name="uncion-fotografia" class="form-control" disabled aria-describedby="uncion-fotografia-ayuda" />
+                          <p class="solicitud-form__ayuda" id="uncion-fotografia-ayuda">La carga de archivos todavía no está disponible.</p>
                         </div>
                       </div>
                       <div class="form-check solicitud-form__consent mt-3 mb-3">
-                        <input class="form-check-input" type="checkbox" id="visita-consentimiento" name="consentimiento" value="Acepto" required aria-describedby="visita-consentimiento-error" />
-                        <label class="form-check-label" for="visita-consentimiento">
+                        <input class="form-check-input" type="checkbox" id="uncion-consentimiento" name="consentimiento" value="Acepto" required aria-describedby="uncion-consentimiento-error" />
+                        <label class="form-check-label" for="uncion-consentimiento">
                           Acepto que la Parroquia San Rafael Arcángel utilice los datos proporcionados para atender esta solicitud. <span class="solicitud-form__req" aria-hidden="true">*</span>
                         </label>
-                        <div class="invalid-feedback" id="visita-consentimiento-error"></div>
+                        <div class="invalid-feedback" id="uncion-consentimiento-error"></div>
                       </div>
-                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio. Campos y texto de consentimiento pendientes de validar con la oficina parroquial.</p>
+                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio.</p>
                       <button type="submit" class="btn btn-primary w-100">
                         <i class="bi bi-send" aria-hidden="true"></i> Enviar solicitud
                       </button>
@@ -661,13 +807,12 @@
                 <div class="accordion-body">
                   <div class="servicios-detalle servicios-detalle--solicitud">
                     <div class="servicios-detalle__lado">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Campos y texto provisionales, pendientes de validar con la oficina parroquial</span></p>
                       <p class="servicios-descripcion mb-0">Podés solicitar que un ministro lleve la comunión a una persona enferma que no puede asistir al templo.</p>
                       <div class="servicios-nota">
                         <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
                         <div>
                           <p class="servicios-nota__titulo">Importante</p>
-                          <p>Los datos necesarios y las condiciones están pendientes de confirmar con la oficina parroquial. No se solicita información médica.</p>
+                          <p>Una vez recibida tu solicitud, la oficina parroquial se pondrá en contacto con vos para coordinar los detalles de la visita.</p>
                         </div>
                       </div>
                     </div>
@@ -699,12 +844,12 @@
                           <label for="comunion-ubicacion" class="form-label">Ubicación del domicilio (opcional)</label>
                           <input type="text" id="comunion-ubicacion" name="ubicacion" class="form-control" aria-describedby="comunion-ubicacion-error comunion-ubicacion-ayuda" />
                           <div class="invalid-feedback" id="comunion-ubicacion-error"></div>
-                            <p class="solicitud-form__ayuda" id="comunion-ubicacion-ayuda">Enlace de mapa o referencias para llegar. Forma de indicarla pendiente de confirmar.</p>
+                            <p class="solicitud-form__ayuda" id="comunion-ubicacion-ayuda">Enlace de mapa o referencias para llegar.</p>
                         </div>
                         <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
                           <label for="comunion-fotografia" class="form-label">Fotografía frontal de la vivienda (opcional)</label>
                           <input type="file" id="comunion-fotografia" name="comunion-fotografia" class="form-control" disabled aria-describedby="comunion-fotografia-ayuda" />
-                          <p class="solicitud-form__ayuda" id="comunion-fotografia-ayuda">Adjuntar archivos todavía no está disponible. Tipos y tamaño por confirmar.</p>
+                          <p class="solicitud-form__ayuda" id="comunion-fotografia-ayuda">La carga de archivos todavía no está disponible.</p>
                         </div>
                       </div>
                       <div class="form-check solicitud-form__consent mt-3 mb-3">
@@ -714,92 +859,7 @@
                         </label>
                         <div class="invalid-feedback" id="comunion-consentimiento-error"></div>
                       </div>
-                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio. Campos y texto de consentimiento pendientes de validar con la oficina parroquial.</p>
-                      <button type="submit" class="btn btn-primary w-100">
-                        <i class="bi bi-send" aria-hidden="true"></i> Enviar solicitud
-                      </button>
-                      <div class="solicitud-form__estado" role="status" hidden>
-                        <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
-                        <span></span>
-                      </div>
-                    </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h3 class="accordion-header">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#sol-uncion"
-                  aria-expanded="false"
-                  aria-controls="sol-uncion"
-                >
-                  <span class="servicios-acordeon__icono" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
-                  <span class="servicios-acordeon__titulo">Solicitud de unción de los enfermos</span>
-                </button>
-              </h3>
-              <div id="sol-uncion" class="accordion-collapse collapse" data-bs-parent="#acordeon-solicitudes">
-                <div class="accordion-body">
-                  <div class="servicios-detalle servicios-detalle--solicitud">
-                    <div class="servicios-detalle__lado">
-                      <p class="servicios-aviso"><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Campos y texto provisionales, pendientes de validar con la oficina parroquial</span></p>
-                      <p class="servicios-descripcion mb-0">Podés solicitar la unción de los enfermos para una persona que lo necesite.</p>
-                      <div class="servicios-nota servicios-nota--urgente">
-                        <i class="bi bi-telephone" aria-hidden="true"></i>
-                        <div>
-                          <p class="servicios-nota__titulo">En una situación urgente</p>
-                          <p>El canal de contacto directo para casos urgentes está pendiente de confirmación por la oficina parroquial. No se solicita información médica.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="servicios-detalle__principal">
-                    <form class="solicitud-form" data-solicitud="uncion" novalidate aria-label="Formulario preliminar de solicitud de unción de los enfermos">
-                      <p class="solicitud-form__resumen" role="alert" hidden></p>
-                      <div class="row g-3">
-                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="uncion-nombre" class="form-label">Nombre de quien solicita <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="text" id="uncion-nombre" name="nombre" class="form-control" required autocomplete="name" aria-describedby="uncion-nombre-error" />
-                          <div class="invalid-feedback" id="uncion-nombre-error"></div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="uncion-telefono" class="form-label">Teléfono de contacto <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="tel" id="uncion-telefono" name="telefono" class="form-control" required autocomplete="tel" inputmode="tel" aria-describedby="uncion-telefono-error" />
-                          <div class="invalid-feedback" id="uncion-telefono-error"></div>
-                        </div>
-                        <div class="col-12">
-                          <label for="uncion-persona" class="form-label">Nombre de la persona enferma <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <input type="text" id="uncion-persona" name="persona-a-visitar" class="form-control" required aria-describedby="uncion-persona-error" />
-                          <div class="invalid-feedback" id="uncion-persona-error"></div>
-                        </div>
-                        <div class="col-12">
-                          <label for="uncion-direccion" class="form-label">Dirección del domicilio <span class="solicitud-form__req" aria-hidden="true">*</span></label>
-                          <textarea id="uncion-direccion" name="direccion" class="form-control" rows="3" maxlength="500" required aria-describedby="uncion-direccion-error"></textarea>
-                          <div class="invalid-feedback" id="uncion-direccion-error"></div>
-                        </div>
-                        <div class="col-12">
-                          <label for="uncion-ubicacion" class="form-label">Ubicación del domicilio (opcional)</label>
-                          <input type="text" id="uncion-ubicacion" name="ubicacion" class="form-control" aria-describedby="uncion-ubicacion-error uncion-ubicacion-ayuda" />
-                          <div class="invalid-feedback" id="uncion-ubicacion-error"></div>
-                            <p class="solicitud-form__ayuda" id="uncion-ubicacion-ayuda">Enlace de mapa o referencias para llegar. Forma de indicarla pendiente de confirmar.</p>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-12 col-xl-6">
-                          <label for="uncion-fotografia" class="form-label">Fotografía frontal de la vivienda (opcional)</label>
-                          <input type="file" id="uncion-fotografia" name="uncion-fotografia" class="form-control" disabled aria-describedby="uncion-fotografia-ayuda" />
-                          <p class="solicitud-form__ayuda" id="uncion-fotografia-ayuda">Adjuntar archivos todavía no está disponible. Tipos y tamaño por confirmar.</p>
-                        </div>
-                      </div>
-                      <div class="form-check solicitud-form__consent mt-3 mb-3">
-                        <input class="form-check-input" type="checkbox" id="uncion-consentimiento" name="consentimiento" value="Acepto" required aria-describedby="uncion-consentimiento-error" />
-                        <label class="form-check-label" for="uncion-consentimiento">
-                          Acepto que la Parroquia San Rafael Arcángel utilice los datos proporcionados para atender esta solicitud. <span class="solicitud-form__req" aria-hidden="true">*</span>
-                        </label>
-                        <div class="invalid-feedback" id="uncion-consentimiento-error"></div>
-                      </div>
-                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio. Campos y texto de consentimiento pendientes de validar con la oficina parroquial.</p>
+                      <p class="solicitud-form__legend mb-3"><span class="solicitud-form__req" aria-hidden="true">*</span> Campo obligatorio.</p>
                       <button type="submit" class="btn btn-primary w-100">
                         <i class="bi bi-send" aria-hidden="true"></i> Enviar solicitud
                       </button>

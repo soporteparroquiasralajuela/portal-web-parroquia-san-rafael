@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 05_Desarrollo/CSS.md |
-| Versión | 1.7 |
+| Versión | 1.9 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-10-29 |
+| Última actualización | 2026-11-04 |
 | Estado | Vigente |
 | Fuente | [CLAUDE.md](../../CLAUDE.md), sección 9 |
 
@@ -34,7 +34,7 @@ Establecer el estándar de escritura de CSS del proyecto.
 | `main.css` | Base global y ajustes de Bootstrap |
 | `components.css` | Componentes compartidos: navegación, footer, botón flotante de WhatsApp, sistema de Heroes interiores (`.hero-interior`, `.hero-curva`; `.hero-wave` sin uso) y utilidades (`.eyebrow`, `.titulo-icono`, `.img-placeholder`) |
 | `home.css`, `parroquia.css`, `grupos.css`, `calendario.css`, `transmisiones.css`, `contacto.css` | Estilos propios de cada página (Hero, secciones y la transición hacia el footer) |
-| `servicios-parroquiales.css` | Estilos de Servicios parroquiales (tema del acordeón de Bootstrap con variables `--bs-accordion-*`, paneles, formularios preliminares, ventana emergente y botón de descarga deshabilitado con las variables `--bs-btn-disabled-*`) |
+| `servicios-parroquiales.css` | Estilos de Servicios parroquiales (tema del acordeón de Bootstrap con variables `--bs-accordion-*`, paneles, listas y subtítulos de requisitos, bloque informativo y de canales de consulta, notas, formularios preliminares y ventana emergente) |
 
 Patrones que se aplican:
 

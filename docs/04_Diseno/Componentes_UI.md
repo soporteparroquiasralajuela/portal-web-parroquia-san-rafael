@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 04_Diseno/Componentes_UI.md |
-| Versión | 1.18 |
+| Versión | 1.20 |
 | Fecha de creación | 2026-08-05 |
-| Última actualización | 2026-11-02 |
+| Última actualización | 2026-11-04 |
 | Estado | Vigente — registro de uso real al 2026-10-25 |
 | Fuente | [Bootstrap.md](../05_Desarrollo/Bootstrap.md) (inventario canónico); [CLAUDE.md](../../CLAUDE.md) sección 7 |
 
@@ -56,7 +56,7 @@ El inventario y las reglas de uso de los componentes Bootstrap viven en [Bootstr
 | Hero de Transmisiones (`.transmisiones-hero`) | `transmisiones.css` | Transmisiones | Imagen `herotransmisiones` (WebP responsivos), título con segunda línea dorada, frase introductoria y tres barras doradas; apilado por debajo de 992 px y superpuesto con degradado azul desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Hero de Contacto (`.contacto-hero`) | `contacto.css` | Contacto | Imagen `herocontacto` (WebP responsivos; recreación digital), título blanco, subtítulo dorado y texto de apoyo; apilado por debajo de 992 px y superpuesto con degradado azul horizontal (el de Transmisiones) desde 992 px; altura estándar `.hero-interior`. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Transición hacia el footer (`.wave-transition`) | CSS de cada página (copia local) | Las siete | Cinta navy/dorada sin insignia; no cambió |
-| Página Servicios parroquiales (`.servicios-*`, `.solicitud-form`) | `servicios-parroquiales.css` | Servicios parroquiales | Hero con fotografía decorativa a todo el ancho bajo un degradado azul institucional (variante compacta y doble curva del sistema compartido), tarjeta de sección con encabezado e ícono dorado suave, panel con aviso de contenido provisional, recuadro de documento PDF deshabilitado, nota «Importante» y formularios preliminares sin envío. Íconos en azul institucional sobre el dorado institucional al 16 %; botón de descarga habilitado con `.btn-primary` y deshabilitado neutro y punteado. Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18 |
+| Página Servicios parroquiales (`.servicios-*`, `.solicitud-form`) | `servicios-parroquiales.css` | Servicios parroquiales | Hero con fotografía decorativa a todo el ancho bajo un degradado azul institucional (variante compacta y doble curva del sistema compartido), tarjeta de sección con encabezado e ícono dorado suave, panel con aviso de contenido provisional u oficial (`.servicios-aviso--oficial`), subtítulos (`.servicios-subtitulo`), listas de documentos con viñeta dorada o numeradas (`.servicios-lista`), bloque informativo de fechas y plazos y de canales de consulta (`.servicios-bloque`, `.servicios-datos--canales`), nota «Importante» o de condición (`.servicios-nota--condicion`), recuadro de documento oficial descargable (Bautizo y Matrimonio) y formularios preliminares sin envío, con campos condicionales y listas desplegables. Íconos en azul institucional sobre el dorado institucional al 16 %; botón de descarga con `.btn-primary` (2026-11-04, sección 18.6). Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 18 |
 | Título de tarjeta con ícono (`.titulo-icono`) | `components.css` | Parroquia (Misión, Visión, Valores y Nuestra comunidad) y Transmisiones (Misas, Hora Santa, Actividades y Eventos especiales) | Poppins 600, azul institucional `--color-primary`, `--fs-body` (16 px; 18 px desde 1200 px), interlineado `--lh-heading` y margen inferior de 4 px. Se aplica junto a la clase propia del componente, que conserva solo el espacio hacia la descripción (6 px en Parroquia). Sustituye a `.h6` de Bootstrap en Parroquia y a la regla propia `.transmisiones-categoria__titulo`. Inicio no lo usa todavía (decisión pendiente de la primera etapa tipográfica). Detalle en [Manual_Tecnico.md](../08_Manuales/Manual_Tecnico.md), sección 13 |
 | Marcador de imagen (`.img-placeholder`) y etiqueta (`.eyebrow`) | `components.css` | Varias | Utilidades compartidas |
 
