@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Documento | 01_Gestion_Proyecto/Bitacora_Horas_TCU.md |
-| Versión | 1.22 |
+| Versión | 1.23 |
 | Fecha de creación | 2026-08-07 |
-| Última actualización | 2026-11-02 |
+| Última actualización | 2026-11-04 |
 | Estado | Vigente (registro vivo) |
 
 ---
@@ -39,6 +39,8 @@ Este documento complementa a [Bitacora.md](Bitacora.md), que registra el detalle
 > **Incorporación de la Sesión 22 (2026-11-02):** el responsable del proyecto indicó la fecha (sábado 31/10/2026), el horario (8:00 a. m. – 12:00 m.), la duración (4 horas), la modalidad (reunión presencial de trabajo y seguimiento), los participantes (el encargado del proyecto TCU, la encargada de la oficina parroquial y la encargada de comunicaciones) y las actividades de la jornada, que se registran a nivel general. Es una sesión de seguimiento y validación con la parroquia, **no de programación**: no se le atribuye implementación de cambios, acuerdos específicos ni aprobaciones definitivas, porque no fueron documentados. El responsable del proyecto confirmó su clasificación en la **Fase 1** (diagnóstico y levantamiento de necesidades de comunicación parroquial), con el mismo criterio de las reuniones con la oficina parroquial de las Sesiones 4, 7 y 12: el objetivo principal fue revisar y verificar información, identificar las modificaciones necesarias, aclarar necesidades y recopilar observaciones para continuar el desarrollo; no fue una sesión de pruebas finales, aceptación formal, entrega ni cierre del proyecto. Se verificó el acumulado previo (65 horas en 21 sesiones, coincidente con la suma de las Sesiones 1 a 21 y con la tabla por fase) y no se encontraron discrepancias, fechas repetidas ni horas contadas dos veces. Las Sesiones 1 a 21 y sus 65 horas no se modificaron; el acumulado pasa a 69 horas.
 
 > **Incorporación de la Sesión 23 (2026-11-02):** el responsable del proyecto indicó la fecha (lunes 02/11/2026), el horario (6:30 p. m. – 10:00 p. m.), la duración (3 horas y 30 minutos, es decir, 3,5 horas), la modalidad (trabajo técnico de desarrollo, implementación y validación del portal web) y las actividades de la jornada, que se registran a nivel general. Se verificó que la última sesión registrada era la Sesión 22 y que el acumulado previo (69 horas en 22 sesiones) coincide con la suma de las Sesiones 1 a 22 y con la tabla por fase, por lo que la numeración correcta es la 23; no se encontraron fechas repetidas ni horas contadas dos veces. La clasificación en la **Fase 4** (desarrollo e implementación de la solución tecnológica), propuesta por el responsable del proyecto, se contrastó con la distribución oficial de fases del anteproyecto (sección 4) y con el criterio aplicado a las Sesiones 16 a 21: las actividades fueron de implementación de mejoras y de actualización de información en el portal, con pruebas y revisión como parte de ese trabajo, y no una validación final, una aceptación formal ni una entrega del proyecto (Fase 5), por lo que la sesión se registra completa en la Fase 4, sin dividir sus horas. Es la primera sesión con una fracción de hora, de modo que los totales de esta bitácora pasan a expresarse con decimales (coma decimal). Esta sesión **no** incluye formularios funcionales de Servicios parroquiales, pagos, adjuntos ni otras funcionalidades que continúan pendientes. Las Sesiones 1 a 22 y sus 69 horas no se modificaron (la Sesión 22 conserva sus 4 horas y su clasificación en la Fase 1); el acumulado pasa a 72,5 horas.
+
+> **Incorporación de la Sesión 24 (2026-11-04):** el responsable del proyecto indicó la fecha (miércoles 04/11/2026), el horario (9:00 p. m. – 11:30 p. m.), la duración (2 horas y 30 minutos, es decir, 2,5 horas), la modalidad (trabajo técnico de desarrollo, revisión y validación del portal web) y las actividades de la jornada, que se registran a nivel general. Se verificó que la última sesión registrada era la Sesión 23 y que el acumulado previo (72,5 horas en 23 sesiones) coincide con la suma de las Sesiones 1 a 23 y con la tabla por fase, por lo que la numeración correcta es la 24; no existía ninguna sesión registrada para el 04/11/2026 y no se encontraron fechas repetidas ni horas contadas dos veces. La clasificación en la **Fase 4** (desarrollo e implementación de la solución tecnológica), propuesta por el responsable del proyecto, se contrastó con la distribución oficial de fases del anteproyecto (sección 4) y con el criterio aplicado a las Sesiones 16 a 23: las actividades fueron de actualización y ajuste de los contenidos, requisitos y formularios del portal con la información de la oficina parroquial, con la revisión y las comprobaciones como parte de ese trabajo y no una validación final, una aceptación formal ni una entrega del proyecto (Fase 5), por lo que la sesión se registra completa en la Fase 4, sin dividir sus horas. El commit y el push de los cambios (`4502700`, 04/11/2026, 23:09 hora local) corresponden a esta jornada. Esta sesión **no** incluye la recepción efectiva de solicitudes en línea, los pagos, los adjuntos ni otras integraciones, que continúan pendientes. Las Sesiones 1 a 23 y sus 72,5 horas no se modificaron (la Sesión 23 conserva sus 3,5 horas y su clasificación en la Fase 4); el acumulado pasa a 75 horas.
 
 ## Sesión 1 — 03/08/2026
 
@@ -544,6 +546,32 @@ Mejoras visuales e informativas incorporadas y verificadas en el portal web, con
 
 ---
 
+## Sesión 24 — 04/11/2026
+
+**Fase:** Fase 4 — Desarrollo e implementación de la solución tecnológica *(propuesta por el responsable del proyecto el 2026-11-04 y contrastada con la distribución oficial de fases)*
+
+**Horario:** 9:00 p. m. – 11:30 p. m.
+
+**Horas dedicadas:** 2,5 horas (2 horas y 30 minutos)
+
+**Modalidad:** trabajo técnico de desarrollo, revisión y validación del portal web
+
+**Actividad principal:** revisión, actualización y validación de los contenidos, requisitos y formularios de la página Servicios parroquiales, con base en la información proporcionada por la oficina parroquial.
+
+**Labores realizadas** *(a nivel general, según lo indicado por el responsable del proyecto)*:
+1. **Revisión de requisitos parroquiales:** análisis y contraste de la información de Bautizo y Matrimonio con los documentos oficiales facilitados por la oficina parroquial, verificando requisitos, condiciones y documentación descargable.
+2. **Actualización de información sobre catequesis:** revisión y ajuste de los apartados de Confirmación y Catequesis bautismal, especialmente la orientación sobre fechas de inscripción, disponibilidad y canales oficiales de consulta.
+3. **Mejoras en los canales de comunicación:** incorporación de accesos a Calendario, Facebook, WhatsApp, teléfono y formulario de Contacto, manteniendo la opción de atención presencial.
+4. **Revisión de solicitudes parroquiales:** actualización de la información y los formularios correspondientes a intenciones de misa, constancias, visita para unción de los enfermos y comunión para enfermos.
+5. **Ajustes de información administrativa:** incorporación de indicaciones sobre la ofrenda de ₡500 para intenciones de misa, modalidades de gestión, comprobantes de SINPE Móvil, coordinación de solicitudes y atención telefónica en situaciones urgentes.
+6. **Validación funcional y visual:** revisión del comportamiento de acordeones, campos obligatorios, enlaces, descargas, formularios y adaptación a diferentes resoluciones, conservando el diseño institucional.
+7. **Revisión de publicación y documentación:** preparación y revisión de los cambios para su control de versiones y publicación (commit `4502700` y push a `main`), así como actualización de la documentación técnica correspondiente.
+
+**Resultado obtenido:**
+Se actualizaron y verificaron los contenidos y componentes de la página Servicios parroquiales, incorporando información suministrada por la oficina parroquial, mejoras en los canales de consulta y ajustes en los formularios de solicitudes. Se realizaron comprobaciones funcionales y de presentación, manteniendo pendientes las integraciones necesarias para habilitar la recepción efectiva de solicitudes en línea. Los cambios se publicaron en producción y se verificaron allí; el detalle técnico y las pruebas están en [Bitacora.md](Bitacora.md) y en [Evidencias.md](../06_Pruebas/Evidencias.md) (VR-32 a VR-34).
+
+---
+
 ## 3. Resumen de horas
 
 | Sesión | Fase | Actividad principal | Horas |
@@ -571,8 +599,9 @@ Mejoras visuales e informativas incorporadas y verificadas en el portal web, con
 | Sesión 21 (29/10/2026) | Fase 4 | Análisis, conceptualización, primera versión y ajustes de la página Servicios parroquiales | 5 |
 | Sesión 22 (31/10/2026) | Fase 1 | Reunión presencial de seguimiento y revisión de información y contenidos del portal con la oficina parroquial y comunicaciones | 4 |
 | Sesión 23 (02/11/2026) | Fase 4 | Actualización de horarios y del WhatsApp oficial, imágenes de Próximos eventos y del Hero de Servicios parroquiales, pruebas, documentación y publicación | 3,5 |
+| Sesión 24 (04/11/2026) | Fase 4 | Revisión y actualización de los requisitos, los canales de consulta y las solicitudes de Servicios parroquiales, validación funcional y visual, y publicación | 2,5 |
 
-**Total acumulado:** 72,5 horas en 23 sesiones, de las **150 horas oficiales** del TCU, es decir, el **48,33 %**; quedan **77,5 horas** para completar el requisito oficial (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17 + 3 de la Sesión 18 + 4 de la Sesión 19 + 4 de la Sesión 20 + 5 de la Sesión 21 + 4 de la Sesión 22 + 3,5 de la Sesión 23)
+**Total acumulado:** 75 horas en 24 sesiones, de las **150 horas oficiales** del TCU, es decir, el **50,00 %**; quedan **75 horas** para completar el requisito oficial (36 horas de las Sesiones 1 a 13 + 2 de la Sesión 14 + 4 de la Sesión 15 + 3 de la Sesión 16 + 4 de la Sesión 17 + 3 de la Sesión 18 + 4 de la Sesión 19 + 4 de la Sesión 20 + 5 de la Sesión 21 + 4 de la Sesión 22 + 3,5 de la Sesión 23 + 2,5 de la Sesión 24)
 
 ---
 
@@ -585,14 +614,14 @@ Las fases y horas estimadas corresponden a la **planificación provisional** de 
 | Fase 1 — Diagnóstico y levantamiento de necesidades de comunicación parroquial | Septiembre 2026 | 10 | 9 | 1 |
 | Fase 2 — Análisis y definición de la solución tecnológica | Septiembre – octubre 2026 | 20 | 9 | 11 |
 | Fase 3 — Diseño funcional y estructuración de la solución digital | Octubre 2026 | 40 | 2 | 38 |
-| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 50,5 | 9,5 |
+| Fase 4 — Desarrollo e implementación de la solución tecnológica | Octubre – noviembre 2026 | 60 | 53 | 7 |
 | Fase 5 — Validación, ajustes y revisión de la solución implementada | Noviembre – diciembre 2026 | 15 | 2 | 13 |
 | Fase 6 — Documentación, transferencia y cierre del proyecto | Diciembre 2026 – enero 2027 | 15 | 0 | 15 |
-| **Total** | — | **160** | **72,5** | **87,5** |
+| **Total** | — | **160** | **75** | **85** |
 
-> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas), 16 (3 horas), 17 (4 horas), 18 (3 horas), 19 (4 horas), 20 (4 horas) y 21 (5 horas) se registran completas en la Fase 4. La Sesión 22 (4 horas, reunión de seguimiento con la oficina parroquial) se registra completa en la Fase 1, con el mismo criterio de las Sesiones 4, 7 y 12; las horas de la Fase 1 pasan de 5 a 9 (la planificación provisional estimaba 10). La Sesión 23 (3,5 horas, implementación de mejoras visuales y de información del portal, con pruebas y publicación) se registra completa en la Fase 4, que pasa de 47 a 50,5 horas (la planificación provisional estimaba 60).
+> **Nota sobre la distribución de la Sesión 15:** sus 4 horas se reparten entre la Fase 4 (2 horas: integración técnica, ajustes funcionales y publicación) y la Fase 5 (2 horas: pruebas y validaciones, incluida la prueba con una transmisión pública real). Cada hora se cuenta una sola vez en la fase indicada; el total no se duplica. Las Sesiones 14 (2 horas), 16 (3 horas), 17 (4 horas), 18 (3 horas), 19 (4 horas), 20 (4 horas) y 21 (5 horas) se registran completas en la Fase 4. La Sesión 22 (4 horas, reunión de seguimiento con la oficina parroquial) se registra completa en la Fase 1, con el mismo criterio de las Sesiones 4, 7 y 12; las horas de la Fase 1 pasan de 5 a 9 (la planificación provisional estimaba 10). La Sesión 23 (3,5 horas, implementación de mejoras visuales y de información del portal, con pruebas y publicación) se registra completa en la Fase 4, que pasa de 47 a 50,5 horas (la planificación provisional estimaba 60). La Sesión 24 (2,5 horas, actualización y validación de los contenidos, requisitos y formularios de Servicios parroquiales, con publicación) se registra completa en la Fase 4, que pasa de 50,5 a 53 horas.
 
-> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (72,5)** son las efectivamente trabajadas y no dependen de esa conciliación: 72,5 de 150 horas oficiales (48,33 %), con 77,5 horas pendientes respecto del requisito oficial.
+> **Nota sobre la meta de horas:** el requisito oficial del TCU es de **150 horas**. La distribución de **160 horas** de esta tabla es una **planificación provisional** tomada del anteproyecto y se mantiene sin cambios: la **conciliación con las 150 horas oficiales queda pendiente** y no se ha redistribuido ninguna estimación sin autorización. Las **horas registradas (75)** son las efectivamente trabajadas y no dependen de esa conciliación: 75 de 150 horas oficiales (50,00 %), con 75 horas pendientes respecto del requisito oficial.
 
 ---
 
